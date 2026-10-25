@@ -63,7 +63,7 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
                 <img src="logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain" onerror="this.src='https://via.placeholder.com/45?text=SE'">
                 <div>
                     <span class="text-xl font-extrabold tracking-tight text-brand-900 block leading-none">SERVE EASE</span>
@@ -71,11 +71,11 @@
                 </div>
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
-                <a href="#" class="text-brand-700 font-semibold">Home</a>
-                <a href="#about" class="hover:text-brand-700 transition">About Us</a>
-                <a href="#services" class="hover:text-brand-700 transition">PRO Database</a>
-                <a href="#calculator" class="hover:text-brand-700 transition">Cost Calculator</a>
-                <a href="#contact" class="hover:text-brand-700 transition">Contact Us</a>
+                <a href="index.html" class="text-brand-700 font-semibold">Home</a>
+                <a href="about.html" class="hover:text-brand-700 transition">About Us</a>
+                <a href="services.html" class="hover:text-brand-700 transition">PRO Database</a>
+                <a href="calculator.html" class="hover:text-brand-700 transition">Cost Calculator</a>
+                <a href="contact.html" class="hover:text-brand-700 transition">Contact Us</a>
             </div>
             <div class="hidden lg:flex items-center gap-3">
                 <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition shadow-sm">
@@ -91,11 +91,11 @@
         </div>
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" class="lg:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-3 font-medium">
-            <a href="#" class="block text-brand-700 py-1">Home</a>
-            <a href="#about" class="block py-1">About Us</a>
-            <a href="#services" class="block py-1">PRO Database</a>
-            <a href="#calculator" class="block py-1">Cost Calculator</a>
-            <a href="#contact" class="block py-1">Contact Us</a>
+            <a href="index.html" class="block text-brand-700 py-1">Home</a>
+            <a href="about.html" class="block py-1">About Us</a>
+            <a href="services.html" class="block py-1">PRO Database</a>
+            <a href="calculator.html" class="block py-1">Cost Calculator</a>
+            <a href="contact.html" class="block py-1">Contact Us</a>
             <div class="pt-2 flex gap-2">
                 <a href="https://wa.me/97470442825" class="flex-1 bg-emerald-600 text-white py-2 rounded text-center text-sm font-semibold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 <button @click="quoteModal = true; mobileMenu = false;" class="flex-1 bg-brand-700 text-white py-2 rounded text-sm font-semibold">Get Quote</button>
@@ -120,7 +120,7 @@
                     <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2 transition shadow-lg text-base">
                         <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Now
                     </a>
-                    <a href="#services" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3.5 rounded-xl font-semibold backdrop-blur-md transition text-base flex items-center gap-2">
+                    <a href="services.html" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3.5 rounded-xl font-semibold backdrop-blur-md transition text-base flex items-center gap-2">
                         Explore PRO Database <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
                 </div>
@@ -193,153 +193,8 @@
         </div>
     </section>
 
-    <!-- Interactive Cost & Running Calculator -->
-    <section id="calculator" class="py-20 bg-gray-50" x-data="{ licenseType: 3000, officeType: 2000, visas: 1, proPackage: 1500 }">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Interactive Tool</span>
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900">Qatar Business Setup & Running Cost Calculator</h2>
-                <p class="text-gray-600">Customize your business requirements below to calculate estimated setup and operational expenses instantly.</p>
-            </div>
-            <div class="grid lg:grid-cols-12 gap-8 items-start">
-                <div class="lg:col-span-7 bg-white p-8 rounded-2xl shadow-sm border border-gray-200 space-y-6">
-                    <div>
-                        <label class="block font-bold text-gray-800 mb-2">1. Company License Type</label>
-                        <select x-model.number="licenseType" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl font-medium focus:outline-none focus:border-brand-600">
-                            <option value="3000">Limited Liability Company (W.L.L. - Standard Commercial)</option>
-                            <option value="2500">Single Person Company (SPC)</option>
-                            <option value="5000">QFC / QFZA Free Zone Entity</option>
-                            <option value="2000">Branch Office of Foreign Company</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-gray-800 mb-2">2. Office Space Requirement</label>
-                        <select x-model.number="officeType" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl font-medium focus:outline-none focus:border-brand-600">
-                            <option value="1500">Flexi-Desk / Shared Business Center (Economical)</option>
-                            <option value="3500">Standard Private Office (Al Aziziya / Doha)</option>
-                            <option value="7500">Prime Commercial Executive Office (West Bay)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-gray-800 mb-2 flex justify-between">
-                            <span>3. Resident Visas Required</span>
-                            <span class="text-brand-600 font-extrabold" x-text="visas + ' Visas'"></span>
-                        </label>
-                        <input type="range" min="1" max="15" x-model.number="visas" class="w-full accent-brand-600 h-2 bg-gray-200 rounded-lg cursor-pointer">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-gray-800 mb-2">4. Corporate PRO & Government Services Package</label>
-                        <select x-model.number="proPackage" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl font-medium focus:outline-none focus:border-brand-600">
-                            <option value="1000">Basic PRO Document Clearing</option>
-                            <option value="2500">Comprehensive Monthly Corporate PRO Support</option>
-                            <option value="4500">VIP Corporate Concierge & All Government Liaison</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Calculation Summary Card -->
-                <div class="lg:col-span-5 bg-brand-900 text-white p-8 rounded-2xl shadow-xl space-y-6 sticky top-28">
-                    <h3 class="text-xl font-extrabold border-b border-white/10 pb-4">Estimated Investment Summary</h3>
-                    <div class="space-y-3 text-sm font-medium text-gray-300">
-                        <div class="flex justify-between">
-                            <span>License & Setup Base:</span>
-                            <span class="text-white font-bold" x-text="'QAR ' + licenseType"></span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Office Space (Monthly):</span>
-                            <span class="text-white font-bold" x-text="'QAR ' + officeType"></span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Visa Processing (<span x-text="visas"></span> Visas):</span>
-                            <span class="text-white font-bold" x-text="'QAR ' + (visas * 1200)"></span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>PRO Service Tier:</span>
-                            <span class="text-white font-bold" x-text="'QAR ' + proPackage"></span>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-white/10">
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-base font-semibold text-gray-200">Total Estimated Cost:</span>
-                            <span class="text-3xl font-black text-brand-300" x-text="'QAR ' + (licenseType + officeType + (visas * 1200) + proPackage)"></span>
-                        </div>
-                        <a :href="'https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20calculated%20my%20business%20setup%20cost%20totaling%20approx%20QAR%20' + (licenseType + officeType + (visas * 1200) + proPackage) + '.%20Please%20guide%20me.' " target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-center">
-                            <i class="fa-brands fa-whatsapp text-xl"></i> Send Calculation via WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services / PRO Database -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Comprehensive Solutions</span>
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900">Our PRO & Corporate Services</h2>
-                <p class="text-gray-600">Expert government liaison and business support tailored for startups and multinational corporations in Qatar.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-building-shield"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Company Formation & W.L.L</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Complete Ministry of Commerce & Industry (MOCI) registration, commercial registry (CR), and trade license issuance.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20assistance%20with%20Company%20Formation" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-language"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Certified Legal Translation</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Ministry of Justice accredited sworn translation services in Arabic, English, French, Spanish, and more.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20Legal%20Translation%20Services" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-passport"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Hayya & Resident Visas</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">End-to-end work visa sponsorship, family residence visas, Hayya card processing, and Qatar ID renewals.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20Visa%20Processing%20Services" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <!-- Service 4 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Company Liquidation & Sale</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Legal closing, share transfers, debt clearance, and official liquidation clearance from Qatari authorities.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20Liquidation%20Services" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <!-- Service 5 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-stamp"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Attestation & MOFA Services</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Attestation of educational, commercial, and personal certificates from embassies and Ministry of Foreign Affairs.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20Attestation%20Services" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <!-- Service 6 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-700 group-hover:text-white transition">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Monthly PRO Retainer</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Dedicated corporate PRO officers to manage labor quotas, immigration, municipality, and ministry paperwork.</p>
-                    <a href="https://wa.me/97470442825?text=I%20need%20PRO%20Retainer%20Services" target="_blank" class="text-brand-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition">Inquire on WhatsApp <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer id="contact" class="bg-brand-900 text-white pt-16 pb-12 border-t border-brand-800">
+    <footer class="bg-brand-900 text-white pt-16 pb-12 border-t border-brand-800">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10 mb-12">
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
@@ -351,19 +206,19 @@
             <div>
                 <h4 class="font-bold text-base mb-4 text-brand-100">Quick Links</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-                    <li><a href="#services" class="hover:text-white transition">PRO Database</a></li>
-                    <li><a href="#calculator" class="hover:text-white transition">Cost Calculator</a></li>
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">PRO Database</a></li>
+                    <li><a href="calculator.html" class="hover:text-white transition">Cost Calculator</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold text-base mb-4 text-brand-100">Services</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#services" class="hover:text-white transition">Company Formation</a></li>
-                    <li><a href="#services" class="hover:text-white transition">Legal Translation</a></li>
-                    <li><a href="#services" class="hover:text-white transition">Visa Services</a></li>
-                    <li><a href="#services" class="hover:text-white transition">Company Liquidation</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Company Formation</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Legal Translation</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Visa Services</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Company Liquidation</a></li>
                 </ul>
             </div>
             <div>
