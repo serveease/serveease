@@ -36,8 +36,11 @@
     }
   </script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .glass-nav {
-      background: rgba(11, 37, 69, 0.96);
+      background: rgba(11, 37, 69, 0.98);
       backdrop-filter: blur(12px);
     }
     .hero-gradient {
@@ -83,7 +86,7 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- LOGO BRANDING -->
-        <a href="#" class="flex items-center gap-3 group">
+        <a href="#home" class="flex items-center gap-3 group">
           <div class="bg-white rounded-xl p-2 shadow-md flex items-center justify-center group-hover:scale-105 transition h-12 w-auto">
             <img src="logo.png" alt="Serve Ease Logo" class="h-9 w-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=Serve+Ease';">
           </div>
@@ -108,9 +111,9 @@
         <div class="flex items-center gap-3">
           <a href="https://wa.me/97470442825" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-green hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl shadow-lg hover:shadow-brand-green/30 transition">
             <i class="fab fa-whatsapp text-lg"></i>
-            <span>WhatsApp Now</span>
+            <span>WhatsApp</span>
           </a>
-          <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border border-white/20 transition">
+          <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border border-white/20 transition cursor-pointer">
             Get Quote
           </button>
         </div>
@@ -143,7 +146,7 @@
             <a href="https://wa.me/97470442825" target="_blank" class="bg-brand-green hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-sm shadow-xl flex items-center gap-3 transition">
               <i class="fab fa-whatsapp text-xl"></i> WhatsApp Now
             </a>
-            <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm flex items-center gap-2 transition">
+            <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm flex items-center gap-2 transition cursor-pointer">
               Get Free Consultation <i class="fas fa-arrow-right text-xs"></i>
             </button>
           </div>
@@ -245,9 +248,9 @@
               <div class="text-xs text-slate-600">To be the foremost provider of business solutions and your trusted partner in Qatar.</div>
             </div>
           </div>
-          <a href="https://wa.me/97470442825" class="inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-dark text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition">
+          <button onclick="openModal()" class="inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-dark text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
             Learn More About Us <i class="fas fa-arrow-right"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -257,4 +260,139 @@
   <section id="services" class="py-24 bg-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Reliable Services Across Qatar</h2>
+        <p class="text-slate-600">Simplifying administrative, legal, and governmental processes for your business.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service Card 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Company Setup" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">100% Foreign Ownership Setup</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Enjoy complete control of your business in Qatar with zero local sponsor requirements.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Company Formation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Fast Company Formation</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Start your venture with ease through smooth, fully compliant registration and approvals.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Translation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Bilingual Translation Services</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Accurate, fast, and culturally precise translation services tailored for legal requirements.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="PRO Services" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Corporate PRO Services</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Reliable corporate PRO solutions managing government paperwork and approvals.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO PACKAGES -->
+  <section id="packages" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-3">Corporate PRO Services Packages</h2>
+        <p class="text-slate-600 text-sm sm:text-base">Streamlined Government Liaison | Reduced Operational Costs | Expert Support</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- BASIC PACKAGE -->
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-blue-600 font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-blue-500"></span> Basic Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: SMEs with up to 10 employees</div>
+            <p class="text-slate-600 text-sm mb-6">Essential PRO support for startups and small businesses.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Visa processing (new, renewal, cancellation)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Emigration, Labor Dept & Immigration support</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Services related to all Ministries</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Regular updates via WhatsApp/Email</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-navy hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">Contact Sales @ +974 70 4428 25</a>
+        </div>
+
+        <!-- STANDARD PACKAGE -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-brand-green shadow-xl hover-lift relative flex flex-col justify-between">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow">Most Popular</div>
+          <div>
+            <div class="flex items-center gap-2 text-brand-green font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-brand-green"></span> Standard Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Medium companies with up to 40 employees</div>
+            <p class="text-slate-600 text-sm mb-6">Enhanced support for growing corporate teams.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Basic Package services</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Labor procedures and documentation</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> WPS registration and salary processing</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Cloud-based document management</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Contact Sales @ +974 70 4428 25</a>
+        </div>
+
+        <!-- PREMIUM PACKAGE -->
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-amber-600 font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span> Premium Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Large companies (50+ employees, 2+ branches)</div>
+            <p class="text-slate-600 text-sm mb-6">End-to-end strategic government liaison support.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Standard Package services</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Direct coordination with all ministries</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Legal and court-related matters</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Dedicated PRO Account Manager</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-navy hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">Contact Sales @ +974 70 4428 25</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-brand-
