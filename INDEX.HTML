@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serve Ease Business Solutions | Corporate Services Qatar</title>
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B2545',
+              dark: '#06172E',
+              blue: '#134074',
+              accent: '#8DA9C4',
+              gold: '#D4AF37',
+              green: '#74C043',
+              lightGreen: '#E8F5E9'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .glass-nav {
+      background: rgba(11, 37, 69, 0.98);
+      backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #06172E 0%, #0B2545 60%, #134074 100%);
+    }
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(11, 37, 69, 0.2);
+    }
+    .whatsapp-pulse {
+      animation: pulse-ring 2s infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(116, 192, 67, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(116, 192, 67, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(116, 192, 67, 0); }
+    }
+  </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-green selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-dark text-slate-300 text-xs sm:text-sm py-2.5 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-center sm:text-left">
+        <span><i class="fas fa-map-marker-alt text-brand-green mr-1.5"></i> Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha - Qatar</span>
+        <span class="hidden md:inline text-white/20">|</span>
+        <span class="hidden md:inline"><i class="fas fa-clock text-brand-green mr-1.5"></i> Sat - Thu: 08:00 AM - 10:00 PM (Friday Holiday)</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs sm:text-sm">
+        <a href="tel:+97470442825" class="hover:text-white transition"><i class="fas fa-phone-alt text-brand-green mr-1"></i> +974 70 4428 25</a>
+        <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope text-brand-green mr-1"></i> serveeaseqtr@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-50 glass-nav border-b border-white/10 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- LOGO BRANDING -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="bg-white rounded-xl p-2 shadow-md flex items-center justify-center group-hover:scale-105 transition h-12 w-auto">
+            <img src="logo.png" alt="Serve Ease Logo" class="h-9 w-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=Serve+Ease';">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white flex items-center">
+              Serve <span class="text-blue-400 ml-1">Ease</span>
+            </span>
+            <span class="text-[9px] font-semibold text-slate-300 tracking-[0.2em] uppercase">Business Solutions</span>
+          </div>
+        </a>
+
+        <!-- NAV LINKS -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="text-sm font-semibold text-white hover:text-brand-green transition">Home</a>
+          <a href="#about" class="text-sm font-semibold text-slate-300 hover:text-white transition">About Us</a>
+          <a href="#services" class="text-sm font-semibold text-slate-300 hover:text-white transition">Services</a>
+          <a href="#packages" class="text-sm font-semibold text-slate-300 hover:text-white transition">PRO Packages</a>
+          <a href="#contact" class="text-sm font-semibold text-slate-300 hover:text-white transition">Contact Us</a>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/97470442825" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-green hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl shadow-lg hover:shadow-brand-green/30 transition">
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span>WhatsApp</span>
+          </a>
+          <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border border-white/20 transition cursor-pointer">
+            Get Quote
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="relative hero-gradient text-white py-24 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-brand-green text-xs font-bold uppercase tracking-wider mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+            Expert Company Formation Services in Qatar
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            Start Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">100% Foreign Ownership</span> Company in Qatar
+          </h1>
+
+          <p class="text-lg text-slate-300 max-w-2xl mb-8 leading-relaxed">
+            We handle licensing, commercial registration, PRO support, corporate bank accounts, and ministry approvals from start to finish.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="https://wa.me/97470442825" target="_blank" class="bg-brand-green hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-sm shadow-xl flex items-center gap-3 transition">
+              <i class="fab fa-whatsapp text-xl"></i> WhatsApp Now
+            </a>
+            <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm flex items-center gap-2 transition cursor-pointer">
+              Get Free Consultation <i class="fas fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="text-xs text-slate-300 ml-auto font-mono">Qatar Setup Info</span>
+            </div>
+            <ul class="space-y-4 text-sm text-slate-200">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                <span>Foreign ownership company - 100% (WLL)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                <span>Conversion to 100% Foreign Company</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                <span>Company Formation - LLC</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                <span>Qatari Sponsorship for business in Qatar</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-brand-green mt-1"></i>
+                <span>Quick and Compliant Business Setup in Qatar (WLL, Single Owner)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="bg-brand-dark py-12 border-y border-white/10 text-white">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">2K+</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Clients</div>
+      </div>
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">99.5%</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Satisfaction</div>
+      </div>
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">12+</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Years Experience</div>
+      </div>
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">100+</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Success Stories</div>
+      </div>
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">15K+</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Customers</div>
+      </div>
+      <div>
+        <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">100+</div>
+        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Google Reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="About Serve Ease" class="rounded-2xl shadow-2xl w-full object-cover h-[450px]">
+            <div class="absolute -bottom-6 -right-6 bg-brand-navy text-white p-6 rounded-2xl shadow-xl hidden sm:block border border-white/10">
+              <div class="text-3xl font-extrabold text-brand-green">100%</div>
+              <div class="text-xs text-slate-300 uppercase tracking-wider">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <span class="text-brand-green font-bold text-xs uppercase tracking-widest">About Serve Ease</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-6">Simplifying Business, Empowering Success in Qatar</h2>
+          <p class="text-slate-600 mb-6 leading-relaxed">
+            At Serve Ease Business Solutions, we specialize in providing comprehensive business services in Qatar, catering to a wide range of needs for individuals and corporations alike. Our portfolio covers everything from company formation to document clearance.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="font-bold text-brand-navy mb-1"><i class="fas fa-bullseye text-brand-green mr-2"></i> Our Mission</div>
+              <div class="text-xs text-slate-600">Empowering companies to succeed by simplifying complex administrative and legal processes.</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="font-bold text-brand-navy mb-1"><i class="fas fa-eye text-brand-green mr-2"></i> Our Vision</div>
+              <div class="text-xs text-slate-600">To be the foremost provider of business solutions and your trusted partner in Qatar.</div>
+            </div>
+          </div>
+          <button onclick="openModal()" class="inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-dark text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+            Learn More About Us <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section id="services" class="py-24 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Reliable Services Across Qatar</h2>
+        <p class="text-slate-600">Simplifying administrative, legal, and governmental processes for your business.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service Card 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Company Setup" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">100% Foreign Ownership Setup</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Enjoy complete control of your business in Qatar with zero local sponsor requirements.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Company Formation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Fast Company Formation</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Start your venture with ease through smooth, fully compliant registration and approvals.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Translation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Bilingual Translation Services</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Accurate, fast, and culturally precise translation services tailored for legal requirements.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover-lift border border-slate-200 group">
+          <div class="h-48 bg-slate-800 relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="PRO Services" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <h3 class="text-white font-bold text-lg">Corporate PRO Services</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-slate-600 text-sm mb-4">Reliable corporate PRO solutions managing government paperwork and approvals.</p>
+            <a href="https://wa.me/97470442825" target="_blank" class="text-brand-green font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center gap-1">Inquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO PACKAGES -->
+  <section id="packages" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-3">Corporate PRO Services Packages</h2>
+        <p class="text-slate-600 text-sm sm:text-base">Streamlined Government Liaison | Reduced Operational Costs | Expert Support</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- BASIC PACKAGE -->
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-blue-600 font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-blue-500"></span> Basic Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: SMEs with up to 10 employees</div>
+            <p class="text-slate-600 text-sm mb-6">Essential PRO support for startups and small businesses.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Visa processing (new, renewal, cancellation)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Emigration, Labor Dept & Immigration support</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Services related to all Ministries</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Regular updates via WhatsApp/Email</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-navy hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">Contact Sales @ +974 70 4428 25</a>
+        </div>
+
+        <!-- STANDARD PACKAGE -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-brand-green shadow-xl hover-lift relative flex flex-col justify-between">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow">Most Popular</div>
+          <div>
+            <div class="flex items-center gap-2 text-brand-green font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-brand-green"></span> Standard Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Medium companies with up to 40 employees</div>
+            <p class="text-slate-600 text-sm mb-6">Enhanced support for growing corporate teams.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Basic Package services</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Labor procedures and documentation</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> WPS registration and salary processing</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Cloud-based document management</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Contact Sales @ +974 70 4428 25</a>
+        </div>
+
+        <!-- PREMIUM PACKAGE -->
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-amber-600 font-bold uppercase text-xs tracking-wider mb-2">
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span> Premium Package
+            </div>
+            <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Large companies (50+ employees, 2+ branches)</div>
+            <p class="text-slate-600 text-sm mb-6">End-to-end strategic government liaison support.</p>
+            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Standard Package services</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Direct coordination with all ministries</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Legal and court-related matters</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Dedicated PRO Account Manager</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-navy hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">Contact Sales @ +974 70 4428 25</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-brand-dark text-white pt-20 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-white rounded-xl p-2 shadow-md flex items-center justify-center h-12 w-auto">
+              <img src="logo.png" alt="Serve Ease Logo" class="h-9 w-auto object-contain">
+            </div>
+            <span class="text-xl font-extrabold">Serve <span class="text-blue-400">Ease</span></span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed">
+            Simplifying Business, Empowering Success across Qatar. Trusted partner for company formation, ministry approvals, document clearance, and corporate PRO solutions.
+          </p>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="font-bold text-sm uppercase tracking-wider mb-6 text-brand-green">Main Services</h4>
+          <ul class="space-y-2.5 text-xs text-slate-300">
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> Company Formation in Qatar</a></li>
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> Qatari Sponsorship Changing</a></li>
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> Translation Services</a></li>
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> PRO Services in Qatar</a></li>
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> Certificate Attestation</a></li>
+            <li><a href="#services" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-check text-brand-green text-[10px]"></i> Corporate Bank Opening</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="font-bold text-sm uppercase tracking-wider mb-6 text-brand-green">Contact Us</h4>
+          <div class="space-y-4 text-xs text-slate-300">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-brand-green mt-1 text-sm"></i>
+              <span>Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha - Qatar</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-brand-green text-sm"></i>
+              <span>+974 70 4428 25 / +974 70 1200 12</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-envelope text-brand-green text-sm"></i>
+              <span>serveeaseqtr@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-clock text-brand-green text-sm"></i>
+              <span>Saturday – Thursday: 08:00 AM to 10:00 PM<br><span class="text-rose-400 font-semibold">Friday – Holiday</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+        <div>Copyright &copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
+        <div>Designed with precision for business in Qatar.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/97470442825" target="_blank" class="fixed bottom-6 right-6 bg-brand-green hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 whatsapp-pulse transition">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- MODAL -->
+  <div id="quoteModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg p-2 cursor-pointer">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 class="text-xl font-bold text-brand-navy mb-1">Get Free Consultation</h3>
+      <p class="text-xs text-slate-500 mb-6">Leave your details and our team will get back to you shortly.</p>
+      <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.'); closeModal();">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Full Name</label>
+          <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-navy" placeholder="Enter your full name">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Phone Number</label>
+          <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-navy" placeholder="+974 ...">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Required Service</label>
+          <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-navy">
+            <option>Company Formation</option>
+            <option>PRO Services</option>
+            <option>Translation Services</option>
+            <option>Document Attestation</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-brand-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider transition cursor-pointer">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      const modal = document.getElementById('quoteModal');
+      if(modal) modal.classList.remove('hidden');
+    }
+    function closeModal() {
+      const modal = document.getElementById('quoteModal');
+      if(modal) modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
