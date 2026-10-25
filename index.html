@@ -90,12 +90,12 @@
         
         <!-- LOGO BRANDING -->
         <a href="#" onclick="switchPage('home')" class="flex items-center gap-3 group cursor-pointer">
-          <div class="bg-white/95 rounded-xl px-3 py-1.5 shadow-md flex items-center justify-center group-hover:scale-105 transition min-h-[48px] border border-white/20">
-            <img src="logo.png" alt="Serve Ease Logo" class="h-10 w-auto object-contain max-w-[200px]" onerror="this.onerror=null; this.src='https://via.placeholder.com/180x50?text=Serve+Ease';">
+          <div class="bg-white/95 rounded-xl px-3 py-1.5 shadow-md flex items-center justify-center group-hover:scale-105 transition min-h-[44px] border border-white/20">
+            <img src="logo.png" alt="Serve Ease Logo" class="h-9 sm:h-10 w-auto object-contain max-w-[160px] sm:max-w-[200px]" onerror="this.onerror=null; this.src='https://via.placeholder.com/180x50?text=Serve+Ease';">
           </div>
         </a>
 
-        <!-- NAV LINKS -->
+        <!-- NAV LINKS (DESKTOP) -->
         <div class="hidden lg:flex items-center gap-8">
           <button onclick="switchPage('home')" id="nav-home" class="nav-link text-sm font-semibold text-brand-green transition cursor-pointer">Home</button>
           <button onclick="switchPage('about')" id="nav-about" class="nav-link text-sm font-semibold text-slate-300 hover:text-white transition cursor-pointer">About Us</button>
@@ -104,47 +104,69 @@
           <button onclick="switchPage('contact')" id="nav-contact" class="nav-link text-sm font-semibold text-slate-300 hover:text-white transition cursor-pointer">Contact Us</button>
         </div>
 
-        <!-- ACTION BUTTONS -->
+        <!-- ACTION BUTTONS & MOBILE MENU TOGGLE -->
         <div class="flex items-center gap-3">
-          <a href="https://wa.me/97470442825" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-green hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl shadow-lg transition">
+          <a href="https://wa.me/97470442825" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-green hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl shadow-lg transition">
             <i class="fab fa-whatsapp text-lg"></i>
             <span>WhatsApp</span>
           </a>
-          <button onclick="openModal()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border border-white/20 transition cursor-pointer">
+          <button onclick="openModal()" class="hidden sm:block bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl border border-white/20 transition cursor-pointer">
             Get Quote
+          </button>
+          <!-- MOBILE MENU BUTTON -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden text-white p-2 rounded-xl bg-white/10 border border-white/20 text-lg">
+            <i class="fas fa-bars"></i>
           </button>
         </div>
 
       </div>
+
+      <!-- MOBILE NAV LINKS (DROPDOWN) -->
+      <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-white/10 flex flex-col gap-3 px-2">
+        <button onclick="switchPage('home'); toggleMobileMenu();" class="text-left text-sm font-semibold text-white hover:text-brand-green py-2 px-3 rounded-lg hover:bg-white/5">Home</button>
+        <button onclick="switchPage('about'); toggleMobileMenu();" class="text-left text-sm font-semibold text-slate-300 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5">About Us</button>
+        <button onclick="switchPage('database'); toggleMobileMenu();" class="text-left text-sm font-semibold text-slate-300 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5">PRO Database</button>
+        <button onclick="switchPage('packages'); toggleMobileMenu();" class="text-left text-sm font-semibold text-slate-300 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5">PRO Packages</button>
+        <button onclick="switchPage('contact'); toggleMobileMenu();" class="text-left text-sm font-semibold text-slate-300 hover:text-white py-2 px-3 rounded-lg hover:bg-white/5">Contact Us</button>
+        <div class="pt-2 flex flex-col gap-2 border-t border-white/10">
+          <a href="https://wa.me/97470442825" target="_blank" class="flex items-center justify-center gap-2 bg-brand-green text-white text-xs font-bold uppercase py-3 rounded-xl">
+            <i class="fab fa-whatsapp text-lg"></i> WhatsApp Now
+          </a>
+          <button onclick="openModal(); toggleMobileMenu();" class="w-full bg-white/10 text-white text-xs font-bold uppercase py-3 rounded-xl border border-white/20">
+            Get Quote
+          </button>
+        </div>
+      </div>
+
     </div>
   </nav>
 
   <!-- ================= PAGE 1: HOME ================= -->
   <section id="page-home" class="page-section active">
-    <div class="relative hero-gradient text-white py-24 lg:py-32 overflow-hidden">
+    <div class="relative hero-gradient text-white py-16 sm:py-24 lg:py-32 overflow-hidden">
       <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <div class="lg:col-span-8">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-brand-green text-xs font-bold uppercase tracking-wider mb-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/10 border border-white/15 text-brand-green text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6">
               <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
               Expert Corporate PRO & Business Setup Services in Qatar
             </div>
             
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
               Complete <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">PRO & Company Solutions</span> in Qatar
             </h1>
 
-            <p class="text-lg text-slate-300 max-w-2xl mb-8 leading-relaxed">
+            <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mb-8 leading-relaxed">
               From 100% Foreign Company Formation, Hayya Visas, Company Sales, to Liquidation & Closing — we handle everything seamlessly.
             </p>
 
             <div class="flex flex-wrap gap-4">
-              <a href="https://wa.me/97470442825" target="_blank" class="bg-brand-green hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-sm shadow-xl flex items-center gap-3 transition">
+              <a href="https://wa.me/97470442825" target="_blank" class="w-full sm:w-auto bg-brand-green hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-sm shadow-xl flex items-center justify-center gap-3 transition">
                 <i class="fab fa-whatsapp text-xl"></i> WhatsApp Now
               </a>
-              <button onclick="switchPage('database')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm flex items-center gap-2 transition cursor-pointer">
+              <button onclick="switchPage('database')" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition cursor-pointer">
                 Explore PRO Database <i class="fas fa-search text-xs"></i>
               </button>
             </div>
@@ -158,7 +180,7 @@
                 <div class="w-3 h-3 rounded-full bg-green-400"></div>
                 <span class="text-xs text-slate-300 ml-auto font-mono">Qatar Quick Highlights</span>
               </div>
-              <ul class="space-y-3 text-sm text-slate-200">
+              <ul class="space-y-3 text-xs sm:text-sm text-slate-200">
                 <li class="flex items-start gap-3">
                   <i class="fas fa-check-circle text-brand-green mt-1"></i>
                   <span>100% Foreign Ownership Company (WLL)</span>
@@ -191,40 +213,40 @@
     <section class="bg-brand-dark py-12 border-y border-white/10 text-white">
       <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">2K+</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Clients</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-blue-400">2K+</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Clients</div>
         </div>
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">99.5%</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Satisfaction</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-brand-green">99.5%</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Satisfaction</div>
         </div>
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">12+</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Years Experience</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-blue-400">12+</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Years Experience</div>
         </div>
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">100+</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Success Stories</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-brand-green">100+</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Success Stories</div>
         </div>
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-blue-400">15K+</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Customers</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-blue-400">15K+</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Happy Customers</div>
         </div>
         <div>
-          <div class="text-3xl lg:text-4xl font-extrabold text-brand-green">100+</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Google Reviews</div>
+          <div class="text-2xl sm:text-4xl font-extrabold text-brand-green">100+</div>
+          <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider mt-1">Google Reviews</div>
         </div>
       </div>
     </section>
   </section>
 
   <!-- ================= PAGE 2: ABOUT US ================= -->
-  <section id="page-about" class="page-section py-24 bg-white">
+  <section id="page-about" class="page-section py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <div class="lg:col-span-6">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="About Serve Ease" class="rounded-2xl shadow-2xl w-full object-cover h-[450px]">
+            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="About Serve Ease" class="rounded-2xl shadow-2xl w-full object-cover h-[350px] sm:h-[450px]">
             <div class="absolute -bottom-6 -right-6 bg-brand-navy text-white p-6 rounded-2xl shadow-xl hidden sm:block border border-white/10">
               <div class="text-3xl font-extrabold text-brand-green">100%</div>
               <div class="text-xs text-slate-300 uppercase tracking-wider">Client Satisfaction</div>
@@ -233,17 +255,17 @@
         </div>
         <div class="lg:col-span-6">
           <span class="text-brand-green font-bold text-xs uppercase tracking-widest">About Serve Ease</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-6">Simplifying Business, Empowering Success in Qatar</h2>
-          <p class="text-slate-600 mb-6 leading-relaxed">
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-6">Simplifying Business, Empowering Success in Qatar</h2>
+          <p class="text-slate-600 mb-6 leading-relaxed text-xs sm:text-sm">
             At Serve Ease Business Solutions, we specialize in providing comprehensive corporate PRO services in Qatar. Whether you want to launch a 100% foreign-owned enterprise, manage Hayya visas, acquire an existing business, or close down operations cleanly, our experts manage everything from start to finish.
           </p>
           <div class="grid sm:grid-cols-2 gap-4 mb-8">
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-sm">
-              <div class="font-bold text-brand-navy mb-1"><i class="fas fa-bullseye text-brand-green mr-2"></i> Our Mission</div>
+              <div class="font-bold text-brand-navy mb-1 text-sm"><i class="fas fa-bullseye text-brand-green mr-2"></i> Our Mission</div>
               <div class="text-xs text-slate-600">Empowering companies to succeed by simplifying complex administrative and legal processes.</div>
             </div>
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-sm">
-              <div class="font-bold text-brand-navy mb-1"><i class="fas fa-eye text-brand-green mr-2"></i> Our Vision</div>
+              <div class="font-bold text-brand-navy mb-1 text-sm"><i class="fas fa-eye text-brand-green mr-2"></i> Our Vision</div>
               <div class="text-xs text-slate-600">To be the foremost provider of business solutions and your trusted partner in Qatar.</div>
             </div>
           </div>
@@ -256,31 +278,31 @@
   </section>
 
   <!-- ================= PAGE 3: PRO DATABASE ================= -->
-  <section id="page-database" class="page-section py-24 bg-slate-50">
+  <section id="page-database" class="page-section py-16 sm:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-brand-green font-bold text-xs uppercase tracking-widest">Comprehensive Directory</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-4">PRO Services & Business Database</h2>
-        <p class="text-slate-600 text-sm">Search or filter through our complete range of corporate and government liaison services in Qatar.</p>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-4">PRO Services & Business Database</h2>
+        <p class="text-slate-600 text-xs sm:text-sm">Search or filter through our complete range of corporate and government liaison services in Qatar.</p>
       </div>
 
       <!-- SEARCH BAR -->
       <div class="max-w-xl mx-auto mb-12">
         <div class="relative">
           <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          <input type="text" id="serviceSearch" onkeyup="filterServices()" placeholder="Search services (e.g., Visa, Formation, Closing, Hayya)..." class="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-brand-navy text-sm shadow-sm bg-white">
+          <input type="text" id="serviceSearch" onkeyup="filterServices()" placeholder="Search services (e.g., Visa, Formation, Closing, Hayya)..." class="w-full pl-12 pr-4 py-3.5 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-brand-navy text-xs sm:text-sm shadow-sm bg-white">
         </div>
       </div>
 
       <!-- SERVICES DATABASE GRID -->
-      <div id="serviceGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="serviceGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <div class="service-card bg-white border border-slate-200 rounded-2xl p-6 hover-lift flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-building"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Company Formation (100% WLL)</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Company Formation (100% WLL)</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Complete setup for foreign investors with 100% ownership, commercial registration, and trade license issuance.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Company%20Formation%20services" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -293,7 +315,7 @@
             <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-passport"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Hayya Visa Processing</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Hayya Visa Processing</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Fast-track Hayya visa application assistance, family visits, tourist processing, and official approvals.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Hayya%20Visa%20services" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -306,7 +328,7 @@
             <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-handshake"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Company Sale & Acquisition</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Company Sale & Acquisition</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Seamless transfer of company shares, ownership amendments, and legal documentation updates with authorities.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Company%20Sale%20services" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -319,7 +341,7 @@
             <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-ban"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Company Closing & Liquidation</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Company Closing & Liquidation</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Official company cancellation, liquidation audits, clearance certificates, and ministry license deregistrations.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Company%20Closing%20services" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -332,7 +354,7 @@
             <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-id-card"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Residency & Work Visas</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Residency & Work Visas</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Employment visa processing, QID issuance, renewals, medical test coordination, and fingerprinting support.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Work%20Visas" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -345,7 +367,7 @@
             <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mb-4 font-bold">
               <i class="fas fa-stamp"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-2">Document Attestation & Translation</h3>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-2">Document Attestation & Translation</h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4">Certified legal translation, MOFA attestation, embassy stampings, and educational certificate verification.</p>
           </div>
           <a href="https://wa.me/97470442825?text=I%20am%20interested%20in%20Attestation%20services" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-green uppercase tracking-wider hover:underline">
@@ -358,22 +380,22 @@
   </section>
 
   <!-- ================= PAGE 4: PACKAGES ================= -->
-  <section id="page-packages" class="page-section py-24 bg-white">
+  <section id="page-packages" class="page-section py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-3">Corporate PRO Services Packages</h2>
-        <p class="text-slate-600 text-sm sm:text-base">Streamlined Government Liaison | Reduced Operational Costs | Expert Support</p>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-dark mb-3">Corporate PRO Services Packages</h2>
+        <p class="text-slate-600 text-xs sm:text-base">Streamlined Government Liaison | Reduced Operational Costs | Expert Support</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+        <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 text-blue-600 font-bold uppercase text-xs tracking-wider mb-2">
               <span class="w-3 h-3 rounded-full bg-blue-500"></span> Basic Package
             </div>
             <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: SMEs with up to 10 employees</div>
-            <p class="text-slate-600 text-sm mb-6">Essential PRO support for startups and small businesses.</p>
-            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <p class="text-slate-600 text-xs sm:text-sm mb-6">Essential PRO support for startups and small businesses.</p>
+            <div class="font-bold text-slate-800 text-xs sm:text-sm mb-3">Key Services:</div>
             <ul class="space-y-3 text-xs text-slate-600 mb-8">
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Visa processing (new, renewal, cancellation)</li>
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Emigration, Labor Dept & Immigration support</li>
@@ -383,15 +405,15 @@
           <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-navy hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">Contact Sales @ +974 70 4428 25</a>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 border-2 border-brand-green shadow-xl hover-lift relative flex flex-col justify-between">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-brand-green shadow-xl hover-lift relative flex flex-col justify-between">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow">Most Popular</div>
           <div>
             <div class="flex items-center gap-2 text-brand-green font-bold uppercase text-xs tracking-wider mb-2">
               <span class="w-3 h-3 rounded-full bg-brand-green"></span> Standard Package
             </div>
             <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Medium companies up to 40 employees</div>
-            <p class="text-slate-600 text-sm mb-6">Enhanced support for growing corporate teams.</p>
-            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <p class="text-slate-600 text-xs sm:text-sm mb-6">Enhanced support for growing corporate teams.</p>
+            <div class="font-bold text-slate-800 text-xs sm:text-sm mb-3">Key Services:</div>
             <ul class="space-y-3 text-xs text-slate-600 mb-8">
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Basic Package services</li>
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Labor procedures and documentation</li>
@@ -401,14 +423,14 @@
           <a href="https://wa.me/97470442825" target="_blank" class="w-full text-center bg-brand-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">Contact Sales @ +974 70 4428 25</a>
         </div>
 
-        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
+        <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 hover-lift relative flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 text-amber-600 font-bold uppercase text-xs tracking-wider mb-2">
               <span class="w-3 h-3 rounded-full bg-amber-500"></span> Premium Package
             </div>
             <div class="text-xs text-slate-500 mb-6 font-medium">Ideal For: Large companies (50+ employees)</div>
-            <p class="text-slate-600 text-sm mb-6">End-to-end strategic government liaison support.</p>
-            <div class="font-bold text-slate-800 text-sm mb-3">Key Services:</div>
+            <p class="text-slate-600 text-xs sm:text-sm mb-6">End-to-end strategic government liaison support.</p>
+            <div class="font-bold text-slate-800 text-xs sm:text-sm mb-3">Key Services:</div>
             <ul class="space-y-3 text-xs text-slate-600 mb-8">
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> All Standard Package services</li>
               <li class="flex items-start gap-2"><i class="fas fa-check text-brand-green mt-0.5"></i> Direct coordination with all ministries</li>
@@ -422,48 +444,48 @@
   </section>
 
   <!-- ================= PAGE 5: CONTACT US ================= -->
-  <section id="page-contact" class="page-section py-24 bg-slate-50">
+  <section id="page-contact" class="page-section py-16 sm:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-3">Get in Touch With Us</h2>
-        <p class="text-slate-600 text-sm">We are here to help your business thrive in Qatar. Reach out to us today.</p>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-dark mb-3">Get in Touch With Us</h2>
+        <p class="text-slate-600 text-xs sm:text-sm">We are here to help your business thrive in Qatar. Reach out to us today.</p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12">
-        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-          <h3 class="text-xl font-bold text-brand-navy mb-4">Contact Information</h3>
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+          <h3 class="text-lg sm:text-xl font-bold text-brand-navy mb-4">Contact Information</h3>
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-xl shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fas fa-map-marker-alt"></i></div>
             <div>
-              <div class="font-bold text-slate-800 text-sm">Office Address</div>
+              <div class="font-bold text-slate-800 text-xs sm:text-sm">Office Address</div>
               <div class="text-xs text-slate-600 mt-1">Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha - Qatar</div>
             </div>
           </div>
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-xl shrink-0"><i class="fas fa-phone-alt"></i></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fas fa-phone-alt"></i></div>
             <div>
-              <div class="font-bold text-slate-800 text-sm">Phone Number</div>
+              <div class="font-bold text-slate-800 text-xs sm:text-sm">Phone Number</div>
               <div class="text-xs text-slate-600 mt-1">+974 70 4428 25</div>
             </div>
           </div>
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-xl shrink-0"><i class="fas fa-envelope"></i></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fas fa-envelope"></i></div>
             <div>
-              <div class="font-bold text-slate-800 text-sm">Email Address</div>
+              <div class="font-bold text-slate-800 text-xs sm:text-sm">Email Address</div>
               <div class="text-xs text-slate-600 mt-1">serveeaseqtr@gmail.com</div>
             </div>
           </div>
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-xl shrink-0"><i class="fas fa-clock"></i></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-lightGreen text-brand-green flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fas fa-clock"></i></div>
             <div>
-              <div class="font-bold text-slate-800 text-sm">Working Hours</div>
+              <div class="font-bold text-slate-800 text-xs sm:text-sm">Working Hours</div>
               <div class="text-xs text-slate-600 mt-1">Saturday – Thursday: 08:00 AM to 10:00 PM<br><span class="text-rose-500 font-semibold">Friday – Holiday</span></div>
             </div>
           </div>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-          <h3 class="text-xl font-bold text-brand-navy mb-4">Send Us a Message</h3>
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="text-lg sm:text-xl font-bold text-brand-navy mb-4">Send Us a Message</h3>
           <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
             <div>
               <label class="block font-bold text-slate-700 mb-1">Full Name</label>
@@ -485,22 +507,22 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-brand-dark text-white pt-20 pb-12 border-t border-white/10">
+  <footer class="bg-brand-dark text-white pt-16 sm:pt-20 pb-12 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-12 mb-16">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 sm:mb-16">
         <div class="lg:col-span-5">
           <div class="flex items-center gap-3 mb-6">
             <div class="bg-white/95 rounded-xl px-3 py-1.5 shadow-md flex items-center justify-center min-h-[44px]">
               <img src="logo.png" alt="Serve Ease Logo" class="h-8 w-auto object-contain max-w-[160px]" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x40?text=Serve+Ease';">
             </div>
           </div>
-          <p class="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed">
+          <p class="text-slate-400 text-xs sm:text-sm max-w-sm mb-6 leading-relaxed">
             Simplifying Business, Empowering Success across Qatar. Trusted partner for 100% company formation, Hayya visas, company sales, liquidation, and corporate PRO solutions.
           </p>
         </div>
 
         <div class="lg:col-span-3">
-          <h4 class="font-bold text-sm uppercase tracking-wider mb-6 text-brand-green">Quick Pages</h4>
+          <h4 class="font-bold text-xs sm:text-sm uppercase tracking-wider mb-4 sm:mb-6 text-brand-green">Quick Pages</h4>
           <ul class="space-y-2.5 text-xs text-slate-300">
             <li><button onclick="switchPage('home')" class="hover:text-white transition cursor-pointer">Home</button></li>
             <li><button onclick="switchPage('about')" class="hover:text-white transition cursor-pointer">About Us</button></li>
@@ -511,7 +533,7 @@
         </div>
 
         <div class="lg:col-span-4">
-          <h4 class="font-bold text-sm uppercase tracking-wider mb-6 text-brand-green">Contact Us</h4>
+          <h4 class="font-bold text-xs sm:text-sm uppercase tracking-wider mb-4 sm:mb-6 text-brand-green">Contact Us</h4>
           <div class="space-y-4 text-xs text-slate-300">
             <div class="flex items-start gap-3">
               <i class="fas fa-map-marker-alt text-brand-green mt-1 text-sm"></i>
@@ -529,7 +551,7 @@
         </div>
       </div>
 
-      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[11px] sm:text-xs text-slate-400 gap-4 text-center md:text-left">
         <div>Copyright &copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
         <div>Designed with precision for business in Qatar.</div>
       </div>
@@ -537,8 +559,8 @@
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/97470442825" target="_blank" class="fixed bottom-6 right-6 bg-brand-green hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 whatsapp-pulse transition">
-    <i class="fab fa-whatsapp text-2xl"></i>
+  <a href="https://wa.me/97470442825" target="_blank" class="fixed bottom-6 right-6 bg-brand-green hover:bg-emerald-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl z-50 whatsapp-pulse transition">
+    <i class="fab fa-whatsapp text-xl sm:text-2xl"></i>
   </a>
 
   <!-- MODAL -->
@@ -596,6 +618,11 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if(menu) menu.classList.toggle('hidden');
     }
 
     function openModal() {
