@@ -51,7 +51,7 @@
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ mobileMenu: false, quoteModal: false, activeAccordion: null }">
 
-    <!-- Navigation Bar (Clean & Professional Blue/White Theme) -->
+    <!-- Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 cursor-pointer group">
@@ -98,14 +98,14 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION WITH VIDEO BACKGROUND (TrustLink Style Pattern)[cite: 10] -->
-    <section id="home" class="relative text-white min-h-[90vh] flex items-center py-20 px-4 overflow-hidden">
-        <!-- Background Video (European Corporate Office Setup) -->
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="relative text-white min-h-[90vh] flex items-center py-20 px-4 overflow-hidden bg-brand-950">
+        <!-- Background Video -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-50 scale-105">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40 scale-105">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41584-large.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/80 to-brand-950/90"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/85 to-brand-950/90"></div>
         </div>
 
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
@@ -113,30 +113,34 @@
                 <span class="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-xs font-extrabold backdrop-blur-md border border-white/20 uppercase tracking-widest shadow-lg">
                     <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 Trusted Business Setup Consultant in Qatar
                 </span>
+                
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
-                    SET UP YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-300 underline decoration-blue-400 decoration-2">BUSINESS</span> in Qatar[cite: 10]
+                    SET UP YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-300 underline decoration-blue-400 decoration-2">BUSINESS</span> in Qatar
                 </h1>
+                
                 <p class="text-gray-200 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                    Licensed Qatar consultancy guiding you through company formation with 100% foreign ownership. Our experts explain the requirements and help you prepare your documents[cite: 10].
+                    Licensed Qatar consultancy guiding you through company formation with 100% foreign ownership. Our experts explain the requirements and help you prepare your documents.
                 </p>
+                
                 <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
                     <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-4 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-base hover:scale-105">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i> Get Started Now[cite: 10]
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> Get Started Now
                     </a>
                 </div>
+                
                 <div class="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-bold text-gray-300 pt-2">
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> 100% Foreign Ownership[cite: 10]</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> Bilingual Legal Team[cite: 10]</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> MOCI-Listed Consultancy[cite: 10]</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> 100% Foreign Ownership</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> Bilingual Legal Team</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-blue-400"></i> MOCI-Listed Consultancy</span>
                 </div>
             </div>
 
-            <!-- Get in Touch Form Card (TrustLink Exact Model)[cite: 10] -->
+            <!-- Get in Touch Form Card -->
             <div class="lg:col-span-5">
                 <div class="bg-white/95 backdrop-blur-xl text-gray-900 p-8 rounded-3xl shadow-2xl space-y-5 border border-blue-100">
                     <div class="border-b border-gray-100 pb-3">
                         <h3 class="font-extrabold text-xl text-brand-900">Get in Touch</h3>
-                        <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed advisor[cite: 10].</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed advisor.</p>
                     </div>
                     <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + $refs.fphone.value + ')'), '_blank');" class="space-y-4">
                         <div>
@@ -149,7 +153,7 @@
                             <select class="col-span-4 p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold">
                                 <option>QA +974</option>
                             </select>
-                            <input type="tel" x-ref="fphone" required class="col-span-8 p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number[cite: 10]">
+                            <input type="tel" x-ref="fphone" required class="col-span-8 p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
                         </div>
                         <div>
                             <input type="text" required class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Nature of Business *">
@@ -158,16 +162,16 @@
                             <textarea rows="2" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Message"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">
-                            Send Message[cite: 10]
+                            Send Message
                         </button>
-                        <p class="text-[10px] text-center text-gray-400">🔒 Your information is secure and confidential[cite: 10].</p>
+                        <p class="text-[10px] text-center text-gray-400">🔒 Your information is secure and confidential.</p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. ABOUT US SECTION (TrustLink Dual Card Style)[cite: 11] -->
+    <!-- 2. ABOUT US SECTION -->
     <section id="about" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 space-y-16">
             <div class="grid md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-200">
@@ -176,12 +180,12 @@
                 </div>
                 <div class="space-y-4">
                     <span class="bg-brand-50 text-brand-600 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Professional Consultancy</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-900">Your Trusted Company Formation Consultancy in Qatar[cite: 11]</h2>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-900">Your Trusted Company Formation Consultancy in Qatar</h2>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Starting a business in a new market is far easier with an experienced partner beside you. Serve Ease has guided startups, growing companies, and international investors through getting established in Qatar, cleanly and with confidence[cite: 11].
+                        Starting a business in a new market is far easier with an experienced partner beside you. Serve Ease has guided startups, growing companies, and international investors through getting established in Qatar, cleanly and with confidence.
                     </p>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        From your first enquiry to your first day of operations, our team provides a full range of services and hands-on support, so you can move forward quickly and focus on building your business[cite: 11].
+                        From your first enquiry to your first day of operations, our team provides a full range of services and hands-on support, so you can move forward quickly and focus on building your business.
                     </p>
                 </div>
             </div>
@@ -189,14 +193,14 @@
             <div class="grid md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-200">
                 <div class="space-y-4 order-2 md:order-1">
                     <span class="bg-brand-50 text-brand-600 text-xs font-extrabold px-3 py-1 rounded-full uppercase">A Growing Business Hub</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-900">Unlock Your Business Potential in Qatar[cite: 11]</h2>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-900">Unlock Your Business Potential in Qatar</h2>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Discover the advantages of establishing your company in one of the world's fastest growing economies[cite: 11].
+                        Discover the advantages of establishing your company in one of the world's fastest growing economies.
                     </p>
                     <ul class="space-y-2 text-xs text-gray-700 font-semibold">
-                        <li><strong class="text-brand-900">Strategic Business Hub:</strong> Position your company at the crossroads of Asia, Europe, and Africa[cite: 11].</li>
-                        <li><strong class="text-brand-900">World-Class Infrastructure:</strong> Benefit from state-of-the-art facilities, advanced telecommunications[cite: 11].</li>
-                        <li><strong class="text-brand-900">Tax Advantages:</strong> No personal income tax and competitive corporate tax rates[cite: 11].</li>
+                        <li><strong class="text-brand-900">Strategic Business Hub:</strong> Position your company at the crossroads of Asia, Europe, and Africa.</li>
+                        <li><strong class="text-brand-900">World-Class Infrastructure:</strong> Benefit from state-of-the-art facilities, advanced telecommunications.</li>
+                        <li><strong class="text-brand-900">Tax Advantages:</strong> No personal income tax and competitive corporate tax rates.</li>
                     </ul>
                 </div>
                 <div class="h-80 rounded-2xl overflow-hidden shadow-md order-1 md:order-2">
@@ -206,7 +210,7 @@
         </div>
     </section>
 
-    <!-- 3. WHY CHOOSE QATAR 6-GRID SECTION (TrustLink Style)[cite: 12] -->
+    <!-- 3. WHY CHOOSE QATAR 6-GRID SECTION -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -215,34 +219,34 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
-                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx--auto flex items-center justify-center font-bold text-lg">01</div>
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">01</div>
                     <h3 class="font-bold text-lg text-brand-900">Strategic Location</h3>
-                    <p class="text-xs text-gray-600">Gateway to Middle East, Africa, and Asian markets with world-class connectivity[cite: 12].</p>
+                    <p class="text-xs text-gray-600">Gateway to Middle East, Africa, and Asian markets with world-class connectivity.</p>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
                     <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">02</div>
                     <h3 class="font-bold text-lg text-brand-900">Tax Benefits</h3>
-                    <p class="text-xs text-gray-600">No personal income tax and competitive corporate tax rates[cite: 12].</p>
+                    <p class="text-xs text-gray-600">No personal income tax and competitive corporate tax rates.</p>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
                     <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">03</div>
                     <h3 class="font-bold text-lg text-brand-900">World-Class Infrastructure</h3>
-                    <p class="text-xs text-gray-600">Modern facilities, advanced tech networks, and excellent logistics[cite: 12].</p>
+                    <p class="text-xs text-gray-600">Modern facilities, advanced tech networks, and excellent logistics.</p>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
                     <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">04</div>
                     <h3 class="font-bold text-lg text-brand-900">Economic Growth</h3>
-                    <p class="text-xs text-gray-600">One of the fastest-growing economies with massive investment opportunities[cite: 12].</p>
+                    <p class="text-xs text-gray-600">One of the fastest-growing economies with massive investment opportunities.</p>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
                     <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">05</div>
                     <h3 class="font-bold text-lg text-brand-900">100% Foreign Ownership</h3>
-                    <p class="text-xs text-gray-600">Full ownership in premier sectors without local sponsor requirement[cite: 12].</p>
+                    <p class="text-xs text-gray-600">Full ownership in premier sectors without local sponsor requirement.</p>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover text-center space-y-3">
                     <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl mx-auto flex items-center justify-center font-bold text-lg">06</div>
                     <h3 class="font-bold text-lg text-brand-900">Business-Friendly Environment</h3>
-                    <p class="text-xs text-gray-600">Streamlined processes, stable government, and strong legal framework[cite: 12].</p>
+                    <p class="text-xs text-gray-600">Streamlined processes, stable government, and strong legal framework.</p>
                 </div>
             </div>
         </div>
@@ -251,8 +255,8 @@
     <!-- CALL TO ACTION BANNER -->
     <section class="py-16 bg-brand-700 text-white text-center">
         <div class="max-w-4xl mx-auto px-4 space-y-4">
-            <h2 class="text-2xl md:text-3xl font-extrabold">Start Your Company Formation Journey[cite: 12]</h2>
-            <p class="text-xs md:text-sm text-blue-100">Expert guidance for smooth business setup in Qatar[cite: 12].</p>
+            <h2 class="text-2xl md:text-3xl font-extrabold">Start Your Company Formation Journey</h2>
+            <p class="text-xs md:text-sm text-blue-100">Expert guidance for smooth business setup in Qatar.</p>
             <div class="flex flex-wrap justify-center gap-4 pt-4">
                 <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 <button @click="quoteModal = true" class="bg-white text-brand-900 px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-50">Get a Quote</button>
@@ -260,24 +264,24 @@
         </div>
     </section>
 
-    <!-- 4. BUSINESS STRUCTURES ACCORDION SECTION (TrustLink Exact Style)[cite: 13] -->
+    <!-- 4. BUSINESS STRUCTURES ACCORDION SECTION -->
     <section id="structures" class="py-20 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 space-y-8">
             <div class="text-center space-y-3">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Business Structures</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Find the Right Business Structure for Your Venture[cite: 13]</h2>
-                <p class="text-xs text-gray-600">Our experts guide you in choosing the most suitable legal setup in Qatar[cite: 13].</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Find the Right Business Structure for Your Venture</h2>
+                <p class="text-xs text-gray-600">Our experts guide you in choosing the most suitable legal setup in Qatar.</p>
             </div>
 
             <div class="space-y-4">
                 <!-- Accordion 1 -->
                 <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
                     <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full p-5 text-left font-bold text-brand-900 flex justify-between items-center">
-                        <span>Limited Liability Company (LLC)[cite: 13]</span>
+                        <span>Limited Liability Company (LLC)</span>
                         <i class="fa-solid fa-chevron-down transition" :class="activeAccordion === 1 ? 'rotate-180' : ''"></i>
                     </button>
                     <div x-show="activeAccordion === 1" x-cloak class="p-5 border-t border-gray-100 text-xs text-gray-600 space-y-3 bg-gray-50">
-                        <p>The most common business structure in Qatar, offering limited liability protection to shareholders while allowing flexible management structures[cite: 13].</p>
+                        <p>The most common business structure in Qatar, offering limited liability protection to shareholders while allowing flexible management structures.</p>
                         <a href="https://wa.me/97470442825" target="_blank" class="inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold text-xs"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
                     </div>
                 </div>
@@ -315,199 +319,101 @@
         </div>
     </section>
 
-    <!-- 5. SERVICES GRID SECTION (TrustLink Style)[cite: 14] -->
+    <!-- 5. SERVICES GRID SECTION -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Entity Types & Services</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Business Entity Types in Qatar[cite: 14]</h2>
-                <p class="text-xs text-gray-600">Our consultants help you select the right legal entity and manage the full setup process[cite: 14].</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Business Entity Types in Qatar</h2>
+                <p class="text-xs text-gray-600">Our consultants help you select the right legal entity and manage the full setup process.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3">
-                    <h3 class="font-extrabold text-brand-900 text-lg">MOCI[cite: 14]</h3>
-                    <p class="text-xs text-gray-600">We guide you through mainland company registration so you have full access to the local market[cite: 14].</p>
+                    <h3 class="font-extrabold text-brand-900 text-lg">MOCI</h3>
+                    <p class="text-xs text-gray-600">We guide you through mainland company registration so you have full access to the local market.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3">
-                    <h3 class="font-extrabold text-brand-900 text-lg">Free Zone[cite: 14]</h3>
-                    <p class="text-xs text-gray-600">We help to establish your business in Qatar free zones with 100% foreign ownership and tax benefits[cite: 14].</p>
+                    <h3 class="font-extrabold text-brand-900 text-lg">Free Zone</h3>
+                    <p class="text-xs text-gray-600">We help to establish your business in Qatar free zones with 100% foreign ownership and tax benefits.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3">
-                    <h3 class="font-extrabold text-brand-900 text-lg">QFC[cite: 14]</h3>
-                    <p class="text-xs text-gray-600">We help to set up in the Qatar financial center with world class regulatory framework and 100% ownership[cite: 14].</p>
+                    <h3 class="font-extrabold text-brand-900 text-lg">QFC</h3>
+                    <p class="text-xs text-gray-600">We help to set up in the Qatar financial center with world class regulatory framework and 100% ownership.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3">
-                    <h3 class="font-extrabold text-brand-900 text-lg">QSTP[cite: 14]</h3>
-                    <p class="text-xs text-gray-600">We help to launch your tech or research company in Qatar science and technology park with specialized support[cite: 14].</p>
+                    <h3 class="font-extrabold text-brand-900 text-lg">QSTP</h3>
+                    <p class="text-xs text-gray-600">We help to launch your tech or research company in Qatar science and technology park with specialized support.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. SIMPLE 4-STEP SETUP PROCESS (TrustLink Style)[cite: 15] -->
+    <!-- 6. SIMPLE 4-STEP SETUP PROCESS -->
     <section id="process" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Process</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Simple Business Setup Process[cite: 15]</h2>
-                <p class="text-xs text-gray-600">Our streamlined 4-step process gets your business operational quickly[cite: 15].</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Simple Business Setup Process</h2>
+                <p class="text-xs text-gray-600">Our streamlined 4-step process gets your business operational quickly.</p>
             </div>
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-3">
                     <div class="text-brand-600 font-extrabold text-xl">01</div>
-                    <h3 class="font-bold text-brand-900">Free Consultation[cite: 15]</h3>
-                    <p class="text-xs text-gray-600">We listen to your goals and recommend the most suitable way to set up your company in Qatar[cite: 15].</p>
+                    <h3 class="font-bold text-brand-900">Free Consultation</h3>
+                    <p class="text-xs text-gray-600">We listen to your goals and recommend the most suitable way to set up your company in Qatar.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-3">
                     <div class="text-brand-600 font-extrabold text-xl">02</div>
-                    <h3 class="font-bold text-brand-900">Document Preparation[cite: 15]</h3>
-                    <p class="text-xs text-gray-600">We help you prepare a complete, accurate file so everything is ready for a smooth setup[cite: 15].</p>
+                    <h3 class="font-bold text-brand-900">Document Preparation</h3>
+                    <p class="text-xs text-gray-600">We help you prepare a complete, accurate file so everything is ready for a smooth setup.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-3">
                     <div class="text-brand-600 font-extrabold text-xl">03</div>
-                    <h3 class="font-bold text-brand-900">Company Registration[cite: 15]</h3>
-                    <p class="text-xs text-gray-600">We guide you through registering your company and obtaining your Commercial Registration (CR)[cite: 15].</p>
+                    <h3 class="font-bold text-brand-900">Company Registration</h3>
+                    <p class="text-xs text-gray-600">We guide you through registering your company and obtaining your Commercial Registration (CR).</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-3">
                     <div class="text-brand-600 font-extrabold text-xl">04</div>
-                    <h3 class="font-bold text-brand-900">Ready to Operate[cite: 15]</h3>
-                    <p class="text-xs text-gray-600">With your CR in hand, we help you take the final steps so you can open your doors and start trading[cite: 15].</p>
+                    <h3 class="font-bold text-brand-900">Ready to Operate</h3>
+                    <p class="text-xs text-gray-600">With your CR in hand, we help you take the final steps so you can open your doors and start trading.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. FAQ SECTION (TrustLink Style Accordions)[cite: 16] -->
+    <!-- 7. FAQ SECTION -->
     <section id="faq" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 space-y-8">
             <div class="text-center space-y-3">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">FAQ</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Business Setup in Qatar - FAQ[cite: 16]</h2>
-                <p class="text-xs text-gray-600">Everything you need to know about starting and registering a business in Qatar[cite: 16].</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Business Setup in Qatar - FAQ</h2>
+                <p class="text-xs text-gray-600">Everything you need to know about starting and registering a business in Qatar.</p>
             </div>
             <div class="space-y-3">
                 <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
                     <button @click="activeAccordion = activeAccordion === 'f1' ? null : 'f1'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center">
-                        <span>What is company formation in Qatar and how does the process work?[cite: 16]</span>
+                        <span>What is company formation in Qatar and how does the process work?</span>
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </button>
                     <div x-show="activeAccordion === 'f1'" x-cloak class="p-4 bg-white text-xs text-gray-600">Company formation is the legal process of registering your business entity with Qatari authorities like MOCI, obtaining licenses, and setting up operations.</div>
                 </div>
                 <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
                     <button @click="activeAccordion = activeAccordion === 'f2' ? null : 'f2'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center">
-                        <span>Can foreigners own 100% of a company in Qatar without a local sponsor?[cite: 16]</span>
+                        <span>Can foreigners own 100% of a company in Qatar without a local sponsor?</span>
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </button>
-                    <div x-show="activeAccordion === 'f2'" x-cloak class="p-4 bg-white text-xs text-gray-600">Yes, under recent MOCI regulations, foreign investors can own up to 100% in many commercial and industrial sectors[cite: 16].</div>
+                    <div x-show="activeAccordion === 'f2'" x-cloak class="p-4 bg-white text-xs text-gray-600">Yes, under recent MOCI regulations, foreign investors can own up to 100% in many commercial and industrial sectors.</div>
                 </div>
                 <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
                     <button @click="activeAccordion = activeAccordion === 'f3' ? null : 'f3'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center">
-                        <span>What types of business entities can be formed in Qatar?[cite: 16]</span>
+                        <span>What types of business entities can be formed in Qatar?</span>
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </button>
-                    <div x-show="activeAccordion === 'f3'" x-cloak class="p-4 bg-white text-xs text-gray-600">LLC, Branch Offices, Holding Companies, QFC, and Free Zone entities[cite: 14, 16].</div>
-                </div>
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                    <button @click="activeAccordion = activeAccordion === 'f4' ? null : 'f4'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center">
-                        <span>How long does it take to register a company in Qatar?[cite: 16]</span>
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="activeAccordion === 'f4'" x-cloak class="p-4 bg-white text-xs text-gray-600">Typically between 3 to 7 working days once all documentation is submitted correctly.</div>
+                    <div x-show="activeAccordion === 'f3'" x-cloak class="p-4 bg-white text-xs text-gray-600">Mainland LLCs, Free Zone entities, QFC registered institutions, and QSTP tech startups are among the primary options.</div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 8. CONTACT FORM FOOTER SECTION (TrustLink Exact Style Dark Theme)[cite: 18] -->
-    <footer id="contact" class="bg-brand-900 text-white py-20 px-4">
-        <div class="max-w-7xl mx-auto space-y-12">
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <h2 class="text-3xl font-extrabold">Ready to Set Up Your Business?[cite: 18]</h2>
-                <p class="text-xs text-gray-300">Speak with a licensed advisor for free, no-obligation guidance on your company formation[cite: 18].</p>
-            </div>
-
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 bg-brand-dark p-8 md:p-12 rounded-3xl border border-brand-700 shadow-2xl">
-                <!-- Contact Info -->
-                <div class="space-y-8">
-                    <h3 class="text-xl font-bold border-b border-brand-700 pb-3">Contact Information[cite: 18]</h3>
-                    <div class="flex items-start gap-4">
-                        <i class="fa-solid fa-location-dot text-brand-500 text-xl mt-1"></i>
-                        <div>
-                            <span class="text-xs uppercase text-gray-400 block font-bold">Visit Us[cite: 18]</span>
-                            <p class="text-sm font-semibold">Al Aziziya, Doha, Qatar</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <i class="fa-solid fa-phone text-brand-500 text-xl mt-1"></i>
-                        <div>
-                            <span class="text-xs uppercase text-gray-400 block font-bold">Call Us[cite: 18]</span>
-                            <p class="text-sm font-semibold">+974 70442825</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <i class="fa-solid fa-envelope text-brand-500 text-xl mt-1"></i>
-                        <div>
-                            <span class="text-xs uppercase text-gray-400 block font-bold">Email Us[cite: 18]</span>
-                            <p class="text-sm font-semibold">serveeaseqtr@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer Form -->
-                <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Footer Inquiry from ' + $refs.botname.value + ' (' + $refs.botphone.value + ')'), '_blank');" class="space-y-4">
-                    <div>
-                        <input type="text" x-ref="botname" required class="w-full p-4 bg-brand-900 border border-brand-700 rounded-xl text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="Enter your full name[cite: 18]">
-                    </div>
-                    <div>
-                        <input type="email" required class="w-full p-4 bg-brand-900 border border-brand-700 rounded-xl text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="email@example.com[cite: 18]">
-                    </div>
-                    <div class="grid grid-cols-12 gap-2">
-                        <select class="col-span-4 p-4 bg-brand-900 border border-brand-700 rounded-xl text-xs font-semibold text-white">
-                            <option>QA +974</option>
-                        </select>
-                        <input type="tel" x-ref="botphone" required class="col-span-8 p-4 bg-brand-900 border border-brand-700 rounded-xl text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="+974 XXXX XXXX[cite: 18]">
-                    </div>
-                    <div>
-                        <textarea rows="3" class="w-full p-4 bg-brand-900 border border-brand-700 rounded-xl text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="Your Message[cite: 18]"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-4 rounded-xl shadow-lg transition text-sm uppercase tracking-wider">
-                        Send Message[cite: 18]
-                    </button>
-                </form>
-            </div>
-
-            <div class="pt-8 border-t border-brand-800 text-center text-xs text-gray-400 space-y-2">
-                <p>© 2026 Serve Ease Business Solutions. All Rights Reserved[cite: 18].</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Quote Modal -->
-    <div x-show="quoteModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-8 md:p-10 shadow-2xl relative space-y-6">
-            <button @click="quoteModal = false" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 text-2xl p-2 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-            <div>
-                <h3 class="text-2xl font-extrabold text-gray-900">Request a Free Consultation</h3>
-                <p class="text-xs text-gray-500 mt-1">Fill out your details and our Doha team will connect instantly.</p>
-            </div>
-            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Request from ' + $refs.qname.value + ' (' + $refs.qphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4">
-                <div>
-                    <input type="text" x-ref="qname" required class="w-full p-4 bg-gray-50 border border-gray-300 rounded-2xl text-sm focus:outline-none font-semibold" placeholder="Enter your name">
-                </div>
-                <div>
-                    <input type="tel" x-ref="qphone" required class="w-full p-4 bg-gray-50 border border-gray-300 rounded-2xl text-sm focus:outline-none font-semibold" placeholder="+974 XXXX XXXX">
-                </div>
-                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-4 rounded-2xl transition shadow-lg text-base uppercase tracking-wider">
-                    Submit Request
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/97470442825" target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl transition hover:scale-110">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
