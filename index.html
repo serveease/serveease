@@ -24,6 +24,7 @@
                             500: '#0256cc',
                             600: '#0143a3',
                             700: '#01317a',
+                            800: '#002663',
                             900: '#001a41',
                             dark: '#00122b',
                             accent: '#1d4ed8'
@@ -55,16 +56,18 @@
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
     mobileMenu: false, 
     quoteModal: false, 
-    calcModal: false,
+    calcDrawerOpen: false,
     calcStep: 1,
-    calcData: { purpose: 'New Company Registration', entity: 'LLC / WLL', visas: '1-5 Visas', office: 'Virtual / Flexi Desk' },
+    searchActivity: '',
+    activities: ['Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 'E-Commerce', 'Event Management', 'General Trading', 'IT Solutions', 'Real Estate', 'Restaurant / Cafe'],
+    calcData: { purpose: 'New Company Registration', activity: 'Business Consultancy', entity: 'LLC / WLL', visas: '1-5 Visas' },
     activeAccordion: null, 
     quoteTitle: 'Get a Detailed Quote', 
     quoteDesc: 'Fill in your details to receive an instant, customized business setup estimate.' 
 }">
 
     <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5 cursor-pointer group shrink-0">
                 <img src="logo.png" alt="Serve Ease Logo" class="h-10 w-auto object-contain transition group-hover:scale-105" onerror="this.src='https://via.placeholder.com/44?text=SE'">
@@ -88,9 +91,6 @@
             </div>
 
             <div class="hidden lg:flex items-center gap-2.5 shrink-0">
-                <button @click="calcModal = true" class="bg-brand-50 hover:bg-brand-100 text-brand-700 border border-brand-200 px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold flex items-center gap-1.5 transition cursor-pointer">
-                    <i class="fa-solid fa-calculator text-brand-600"></i> Calculator
-                </button>
                 <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold flex items-center gap-1.5 transition shadow-md hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-base"></i> WHATSAPP
                 </a>
@@ -116,689 +116,498 @@
             <a href="#faq" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">FAQ</a>
             <a href="#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
             <div class="pt-2 flex flex-col gap-3">
-                <button @click="calcModal = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Cost Calculator</button>
+                <button @click="calcDrawerOpen = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Cost Calculator</button>
                 <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 text-white py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP</a>
                 <button @click="quoteTitle = 'General Business Setup Quote'; quoteDesc = 'Request a comprehensive pricing estimate.'; quoteModal = true; mobileMenu = false;" class="bg-brand-600 text-white py-3 rounded-xl font-bold text-center cursor-pointer">Get a Quote</button>
             </div>
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION -->
-    <section id="home" class="relative text-white min-h-[90vh] flex items-center py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="bg.jpg" alt="Background" class="w-full h-full object-cover blur-sm scale-105 opacity-90" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80';">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
-        </div>
+    <!-- MAIN WRAPPER (FOR SIDE DRAWER LAYOUT SIMILAR TO SINGLE WINDOW) -->
+    <div class="relative flex overflow-x-hidden">
+        
+        <!-- PAGE MAIN CONTENT -->
+        <div class="flex-1 w-full transition-all duration-300">
 
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <span class="inline-flex items-center gap-2 bg-black/40 text-white px-4 py-2 rounded-full text-xs font-extrabold backdrop-blur-md border border-white/30 uppercase tracking-widest shadow-lg">
-                    <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 Business Formation, PRO & Visa Partner in Qatar
-                </span>
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white text-glow">
-                    SET UP YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-emerald-400 underline decoration-blue-400 decoration-2">BUSINESS</span> IN QATAR
-                </h1>
-                <p class="text-slate-100 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed text-glow">
-                    Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances (Hayya, Family Visit, Tourist, On Arrival), and certified legal translations.
-                </p>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-                    <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-4 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-base hover:scale-105">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i> Get Started Now
-                    </a>
+            <!-- 1. HERO SECTION -->
+            <section id="home" class="relative text-white min-h-[85vh] flex items-center py-16 px-4 overflow-hidden">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <img src="bg.jpg" alt="Background" class="w-full h-full object-cover blur-sm scale-105 opacity-90" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80';">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
                 </div>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-bold text-slate-100 pt-2 text-glow">
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> 100% Foreign Ownership</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Family & Tourist Visas</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Monthly PRO Retainers</span>
-                </div>
-            </div>
 
-            <!-- Get in Touch Form Card -->
-            <div class="lg:col-span-5">
-                <div class="bg-white/95 backdrop-blur-xl text-gray-900 p-8 rounded-3xl shadow-2xl space-y-5 border border-white/50">
-                    <div class="border-b border-gray-100 pb-3">
-                        <h3 class="font-extrabold text-xl text-brand-900">Get in Touch</h3>
-                        <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
-                    </div>
-                    <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + $refs.fphone.value + ')'), '_blank');" class="space-y-4">
-                        <div>
-                            <input type="text" x-ref="fname" required class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
-                        </div>
-                        <div>
-                            <input type="email" required class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
-                        </div>
-                        <div class="grid grid-cols-12 gap-2">
-                            <select class="col-span-4 p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold">
-                                <option>QA +974</option>
-                            </select>
-                            <input type="tel" x-ref="fphone" required class="col-span-8 p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
-                        </div>
-                        <div>
-                            <select class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
-                                <option value="Company Formation">Company Formation / Commercial Reg.</option>
-                                <option value="Visa Services">Visa Services (Tourist, Hayya, Family)</option>
-                                <option value="Government PRO">Government PRO Services / Retainers</option>
-                                <option value="Legal Translation">Certified Legal Translation</option>
-                            </select>
-                        </div>
-                        <div>
-                            <textarea rows="2" class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Message / Requirements"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">
-                            Send Message
-                        </button>
-                        <p class="text-[10px] text-center text-gray-400">🔒 Your information is secure and confidential.</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. WHY CHOOSE QATAR & UNLOCK POTENTIAL -->
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <!-- Left Column with Images & Badges -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="relative">
-                        <!-- Badge 1: Top Left -->
-                        <div class="absolute -top-4 -left-2 z-20 bg-brand-600 text-white text-[11px] font-extrabold px-4 py-1.5 rounded-full shadow-lg">
-                            A Growing Business Hub
-                        </div>
-                        <!-- Main Image -->
-                        <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Business Hub" class="w-full h-80 object-cover">
-                        </div>
-                        <!-- Metric Card 1: Bottom Right Floating -->
-                        <div class="absolute -bottom-6 right-4 z-20 bg-white p-4 px-6 rounded-2xl shadow-xl border border-gray-100 text-center">
-                            <div class="text-2xl font-black text-brand-600">3000+</div>
-                            <div class="text-[10px] font-bold text-gray-500 uppercase">Companies Successfully Formed</div>
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <span class="inline-flex items-center gap-2 bg-black/40 text-white px-4 py-2 rounded-full text-xs font-extrabold backdrop-blur-md border border-white/30 uppercase tracking-widest shadow-lg">
+                            <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 Business Formation, PRO & Visa Partner in Qatar
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white text-glow">
+                            SET UP YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-emerald-400 underline decoration-blue-400 decoration-2">BUSINESS</span> IN QATAR
+                        </h1>
+                        <p class="text-slate-100 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed text-glow">
+                            Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances (Hayya, Family Visit, Tourist, On Arrival), and certified legal translations.
+                        </p>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-base hover:scale-105">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i> Get Started Now
+                            </a>
+                            <button @click="calcDrawerOpen = true" class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 px-6 py-3.5 rounded-xl font-bold flex items-center gap-2 transition text-base">
+                                <i class="fa-solid fa-calculator text-brand-100"></i> Calculate Costs
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Google Reviews Badge Card -->
-                    <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 text-center space-y-2 mt-8 shadow-sm">
-                        <div class="text-xs font-bold text-brand-900">A Licensed Business Setup Consultancy in Qatar</div>
-                        <p class="text-[11px] text-gray-500">Guiding founders through company formation with care</p>
-                        <div class="flex justify-center items-center gap-1.5 pt-1">
-                            <span class="font-black text-sm text-gray-800">Google</span>
-                            <span class="text-xs text-gray-500">Reviews</span>
+                    <!-- Get in Touch Form Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white/95 backdrop-blur-xl text-gray-900 p-7 rounded-3xl shadow-2xl space-y-4 border border-white/50">
+                            <div class="border-b border-gray-100 pb-2">
+                                <h3 class="font-extrabold text-xl text-brand-900">Get in Touch</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
+                            </div>
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + $refs.fphone.value + ')'), '_blank');" class="space-y-3">
+                                <div>
+                                    <input type="text" x-ref="fname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
+                                </div>
+                                <div>
+                                    <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
+                                </div>
+                                <div class="grid grid-cols-12 gap-2">
+                                    <select class="col-span-4 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold">
+                                        <option>QA +974</option>
+                                    </select>
+                                    <input type="tel" x-ref="fphone" required class="col-span-8 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
+                                </div>
+                                <div>
+                                    <select class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
+                                        <option value="Company Formation">Company Formation / Commercial Reg.</option>
+                                        <option value="Visa Services">Visa Services (Tourist, Hayya, Family)</option>
+                                        <option value="Government PRO">Government PRO Services / Retainers</option>
+                                        <option value="Legal Translation">Certified Legal Translation</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <textarea rows="2" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Message / Requirements"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">
+                                    Send Message
+                                </button>
+                            </form>
                         </div>
-                        <div class="flex justify-center items-center gap-2">
-                            <span class="font-extrabold text-sm text-gray-800">Reviews 4.8/5</span>
-                            <div class="text-amber-400 text-xs">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. WHY CHOOSE QATAR & UNLOCK POTENTIAL -->
+            <section id="about" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                        <!-- Left Column with Images & Badges -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="relative">
+                                <div class="absolute -top-4 -left-2 z-20 bg-brand-600 text-white text-[11px] font-extrabold px-4 py-1.5 rounded-full shadow-lg">
+                                    A Growing Business Hub
+                                </div>
+                                <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Business Hub" class="w-full h-80 object-cover">
+                                </div>
+                                <div class="absolute -bottom-6 right-4 z-20 bg-white p-4 px-6 rounded-2xl shadow-xl border border-gray-100 text-center">
+                                    <div class="text-2xl font-black text-brand-600">3000+</div>
+                                    <div class="text-[10px] font-bold text-gray-500 uppercase">Companies Successfully Formed</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 text-center space-y-2 mt-8 shadow-sm">
+                                <div class="text-xs font-bold text-brand-900">A Licensed Business Setup Consultancy in Qatar</div>
+                                <p class="text-[11px] text-gray-500">Guiding founders through company formation with care</p>
+                                <div class="flex justify-center items-center gap-1.5 pt-1">
+                                    <span class="font-black text-sm text-gray-800">Google</span>
+                                    <span class="text-xs text-gray-500">Reviews</span>
+                                </div>
+                                <div class="flex justify-center items-center gap-2">
+                                    <span class="font-extrabold text-sm text-gray-800">Reviews 4.8/5</span>
+                                    <div class="text-amber-400 text-xs">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Why Choose Qatar Content -->
+                        <div class="lg:col-span-7 space-y-5">
+                            <span class="bg-brand-50 text-brand-600 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">WHY CHOOSE QATAR</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 leading-tight">Unlock Your Business Potential in Qatar</h2>
+                            <p class="text-gray-600 text-xs sm:text-sm">Discover the advantages of establishing your company in one of the world's fastest-growing economies.</p>
+
+                            <div class="space-y-3.5 text-xs sm:text-sm text-gray-600 pt-2">
+                                <div><strong class="text-brand-900 font-bold">Strategic Business Hub:</strong> Position your company at the crossroads of Asia, Europe, and Africa.</div>
+                                <div><strong class="text-brand-900 font-bold">World-Class Infrastructure:</strong> Benefit from state-of-the-art facilities and telecommunications.</div>
+                                <div><strong class="text-brand-900 font-bold">Investment Protection:</strong> Robust legal frameworks and foreign investment protections.</div>
+                                <div><strong class="text-brand-900 font-bold">Skilled Workforce:</strong> Access to educated, multilingual professional talent.</div>
+                                <div><strong class="text-brand-900 font-bold">Tax Advantages:</strong> 0% personal income tax and competitive corporate tax incentives.</div>
+                                <div><strong class="text-brand-900 font-bold">Free Trade Access:</strong> Regional free trade agreements and partnerships.</div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Right Column: Why Choose Qatar Content -->
-                <div class="lg:col-span-7 space-y-5">
-                    <span class="bg-brand-50 text-brand-600 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">WHY CHOOSE QATAR</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 leading-tight">Unlock Your Business Potential in Qatar</h2>
-                    <p class="text-gray-600 text-xs sm:text-sm">Discover the advantages of establishing your company in one of the world's fastest-growing economies.</p>
-
-                    <div class="space-y-3.5 text-xs sm:text-sm text-gray-600 pt-2">
-                        <div>
-                            <strong class="text-brand-900 font-bold">Strategic Business Hub:</strong> Position your company at the crossroads of Asia, Europe, and Africa, with unparalleled access to emerging markets.
+            <!-- 3. END-TO-END SUPPORT -->
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-6 space-y-6">
+                            <div>
+                                <h2 class="text-3xl font-extrabold text-brand-900">End-to-End Business Setup Support</h2>
+                                <p class="text-xs sm:text-sm text-gray-600 mt-2">Practical, step-by-step guidance from your first consultation through to your first day of business.</p>
+                            </div>
+                            <div class="bg-blue-50/80 border-l-4 border-brand-600 p-4 rounded-r-2xl text-xs text-gray-700">
+                                <p><strong class="text-brand-900">Licensed Qatar Consultancy.</strong> Serve Ease Business Solutions is a licensed Qatar consultancy helping founders set up here smoothly.</p>
+                            </div>
+                            <div class="space-y-2.5 font-semibold text-xs sm:text-sm text-gray-800">
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Business Structure Consultation</div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Documentation & Attestation Support</div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Bank Account Opening Assistance</div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Office Space & Virtual Desk Solutions</div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Corporate Services & PRO Management</div>
+                            </div>
                         </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">World-Class Infrastructure:</strong> Benefit from state-of-the-art facilities, advanced telecommunications, and modern transportation networks.
-                        </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">Investment Protection:</strong> Enjoy robust legal frameworks, bilateral investment treaties, and strong intellectual property protection.
-                        </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">Skilled Workforce:</strong> Access to educated, multilingual professionals and ongoing government investment in human capital development.
-                        </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">Tax Advantages:</strong> No personal income tax and competitive corporate tax rates, creating significant cost savings for businesses.
-                        </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">Free Trade Access:</strong> Benefit from Qatar's extensive network of free trade agreements and economic partnerships across the region.
-                        </div>
-                        <div>
-                            <strong class="text-brand-900 font-bold">Banking Excellence:</strong> Access to world-class Islamic and conventional banking services with competitive rates and global connectivity.
+                        <div class="lg:col-span-6">
+                            <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200 h-80">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Support" class="w-full h-full object-cover">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- 3. END-TO-END BUSINESS SETUP SUPPORT -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <!-- Left Checklist Content -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div>
-                        <h2 class="text-3xl font-extrabold text-brand-900">End-to-End Business Setup Support</h2>
-                        <p class="text-xs sm:text-sm text-gray-600 mt-2">Practical, step-by-step guidance from your first consultation through to your first day of business.</p>
-                    </div>
-
-                    <!-- Highlighted Box -->
-                    <div class="bg-blue-50/80 border-l-4 border-brand-600 p-4 rounded-r-2xl text-xs text-gray-700 space-y-1">
-                        <p><strong class="text-brand-900">Licensed Qatar Consultancy.</strong> Serve Ease Business Solutions is a licensed Qatar consultancy helping founders set up here smoothly. Our bilingual team has guided hundreds of new businesses through every stage of starting up in Qatar.</p>
-                    </div>
-
-                    <!-- Checklist -->
-                    <div class="space-y-3 pt-2 font-semibold text-xs sm:text-sm text-gray-800">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Business Structure Consultation</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Documentation Support</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>End-to-End Support</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Bank Account Opening Assistance</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Office Space Solutions</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Tax Registration & Compliance</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i>
-                            <span>Corporate Services & PRO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Office Image -->
-                <div class="lg:col-span-6">
-                    <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200 h-96">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Support" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. VISA & IMMIGRATION SERVICES SECTION -->
-    <section id="visas" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full">Visa & Immigration</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Complete Qatar Visa & Travel Solutions</h2>
-                <p class="text-xs text-gray-600 max-w-2xl mx-auto">Fast, hassle-free processing for Hayya visas, tourist permits, family visit visas, and corporate work permits.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Hayya & Tourist Visa -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-passport"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">Tourist & Hayya Entry Visa</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Full assistance for Hayya A1/A2/A3 permits and Qatar tourist visas for hassle-free entry for travelers and business guests.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Tourist & Hayya Visa'; quoteDesc = 'Inquire about current Hayya processing times, required documents, and pricing.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- Family Visit & Residence Visa -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-people-roof"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">Family Visit & Residence Visa</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Assisting residents with Metrash2 Family Visit Visas, Family Residency approvals, Metrash status updates, and document verification.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Family Visit & Residence Visa'; quoteDesc = 'Required documents, salary threshold guidelines, and assistance for family visas.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- On Arrival Visa Services -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-plane-arrival"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">On-Arrival Visa Assistance</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Guidance on eligible nationalities, hotel booking requirements, insurance verification, and extension procedures for On-Arrival visitors.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for On-Arrival Visa Assistance'; quoteDesc = 'Instant help regarding On-Arrival regulations, hotel bookings & extensions.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- Business & Work Visas -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-briefcase"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">Business Visit & Work Visas</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Corporate business visas, temporary work permits, quota allocation, and employment visa issuance for new recruits.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Business & Work Visas'; quoteDesc = 'Inquire about company employment quotas and business visa processing.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- QID Renewal & Sponsorship Transfer -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-id-card"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">QID Renewal & Job Transfer</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Smooth handling of QID renewals, NOC transfers between companies, medical commission clearances, and fingerprinting.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for QID Renewal & Job Transfer'; quoteDesc = 'Sponsorship change procedures, Ministry of Labor NOC approvals, and QID renewals.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- Transit & GCC Resident Visa -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-earth-americas"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">GCC Residents & Transit Visas</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Dedicated visa filing for GCC residents (UAE, KSA, Oman, Bahrain, Kuwait) and layover entry permits.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for GCC Resident Visa'; quoteDesc = 'Requirements and processing times for GCC profession-based visas.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. GOVERNMENT PRO SERVICES SECTION (MATCHING IMAGE 2 EXACTLY WITH ALL BUTTONS) -->
-    <section id="pro-services" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Government Relations</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Comprehensive Government PRO Services</h2>
-                <p class="text-xs text-gray-600 max-w-2xl mx-auto">Direct interaction with Qatari Ministries (MOI, Administrative Development & Labor, Ministry of Foreign Affairs, Baladiya).</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- CR & Trade License Card -->
-                <div class="bg-white p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-file-contract"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">CR & Trade License</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Issuance, modification, activity addition, and annual renewals for Commercial Registrations & Municipal Licenses.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for CR & Trade License PRO Service'; quoteDesc = 'Commercial Registration & Baladiya license renewal or issuance.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- Computer Card / Est. Card -->
-                <div class="bg-white p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-address-card"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">Computer Card (Kayd Munshea)</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Establishment Card creation, authorized signatory updates, Metrash2 company account linkage, and annual renewals.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Computer Card PRO Service'; quoteDesc = 'Establishment Card renewal and signatory changes.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- MOFA & Legal Attestation -->
-                <div class="bg-white p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-stamp"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">MOFA & Legal Attestation</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Ministry of Foreign Affairs (MOFA) attestation, Embassy legalization for foreign certificates, degree certificates, and MOA.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for MOFA & Certificate Attestation'; quoteDesc = 'Document attestation and legalization pricing per document.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-
-                <!-- Labor Dept & WPS Setup -->
-                <div class="bg-white p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between shadow-sm">
-                    <div class="space-y-3">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-users-gear"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-brand-900">Labor Dept & WPS Setup</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Wage Protection System (WPS) corporate bank portal configuration, labor contract authentication, and block visa applications.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Labor Dept & WPS Setup'; quoteDesc = 'WPS portal configuration & authenticated labor contracts.'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl text-xs hover:bg-brand-700 cursor-pointer transition shadow-md">Get Detailed Quote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. MONTHLY PRO RETAINER PACKAGES -->
-    <section id="packages" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Retainer Plans</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Monthly PRO Service Retainer Packages</h2>
-                <p class="text-xs text-gray-600 max-w-2xl mx-auto">Save time and money by outsourcing your entire government relations and visa management to our licensed PRO team in Doha.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Startup PRO Package -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-6 relative flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-100 px-3 py-1 rounded-full">Small Business</span>
-                        <h3 class="text-2xl font-extrabold text-brand-900">Startup PRO Plan</h3>
-                        <p class="text-xs text-gray-500">Ideal for companies with 1 to 5 employees seeking hassle-free PRO management.</p>
-                        <ul class="space-y-2.5 text-xs text-gray-700 font-semibold border-t border-gray-200 pt-4">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> CR & Computer Card Renewals</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> QID Renewals & Medical Scheduling</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Up to 5 Visa Requests / Month</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Dedicated Whatsapp Support</li>
-                        </ul>
-                    </div>
-                    <button @click="quoteTitle = 'Inquiry: Startup Monthly PRO Retainer Plan'; quoteDesc = 'Monthly PRO Retainer for small businesses (1-5 staff).'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
-                        Subscribe / Request Quote
-                    </button>
-                </div>
-
-                <!-- Corporate PRO Package (Featured) -->
-                <div class="bg-brand-900 text-white p-8 rounded-3xl border-2 border-brand-500 card-hover space-y-6 relative flex flex-col justify-between shadow-2xl scale-105">
-                    <div class="absolute -top-3.5 right-6 bg-emerald-500 text-white text-[10px] uppercase font-extrabold px-3 py-1 rounded-full">Most Popular</div>
-                    <div class="space-y-4">
-                        <span class="text-xs font-bold uppercase tracking-wider text-blue-300 bg-white/10 px-3 py-1 rounded-full">Growing Enterprises</span>
-                        <h3 class="text-2xl font-extrabold text-white">Corporate PRO Plan</h3>
-                        <p class="text-xs text-blue-200">Ideal for mid-sized companies (6 to 25 employees) requiring active PRO support.</p>
-                        <ul class="space-y-2.5 text-xs text-blue-100 font-semibold border-t border-white/10 pt-4">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> All Startup Plan Features Included</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Block Visa Applications & Transfers</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Labor Contract Registration (Metrash)</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Document Pickup & Delivery in Doha</li>
-                        </ul>
-                    </div>
-                    <button @click="quoteTitle = 'Inquiry: Corporate Monthly PRO Retainer Plan'; quoteDesc = 'Monthly PRO Retainer for mid-sized firms (6-25 staff).'; quoteModal = true;" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer shadow-lg">
-                        Subscribe / Request Quote
-                    </button>
-                </div>
-
-                <!-- Enterprise Dedicated PRO Package -->
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-6 relative flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-100 px-3 py-1 rounded-full">Large Corporations</span>
-                        <h3 class="text-2xl font-extrabold text-brand-900">Dedicated PRO Plan</h3>
-                        <p class="text-xs text-gray-500">For companies with 25+ employees requiring full-time dedicated government relation officers.</p>
-                        <ul class="space-y-2.5 text-xs text-gray-700 font-semibold border-t border-gray-200 pt-4">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Full Dedicated On-Site / Off-Site PRO</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Unlimited Visa, Work & Family Transfers</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Priority Ministry Clearances (MOI, Labor)</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Custom SLA & Monthly Compliance Reporting</li>
-                        </ul>
-                    </div>
-                    <button @click="quoteTitle = 'Inquiry: Dedicated Enterprise PRO Plan'; quoteDesc = 'Tailored enterprise PRO solution for large staff requirements.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
-                        Subscribe / Request Quote
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. BUSINESS STRUCTURES ACCORDION SECTION -->
-    <section id="structures" class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 space-y-8">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Business Structures</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Find the Right Business Structure for Your Venture</h2>
-                <p class="text-xs text-gray-600">Our experts guide you in choosing the most suitable legal setup in Qatar.</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- Accordion 1 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full p-5 text-left font-bold text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>Limited Liability Company (LLC / WLL)</span>
-                        <i class="fa-solid fa-chevron-down transition" :class="activeAccordion === 1 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div x-show="activeAccordion === 1" x-cloak class="p-5 border-t border-gray-100 text-xs text-gray-600 space-y-3 bg-gray-50">
-                        <p>The most common business structure in Qatar, offering limited liability protection to shareholders while allowing flexible management structures with options for 100% foreign ownership.</p>
-                        <button @click="quoteTitle = 'Quote for LLC / WLL Company Formation'; quoteDesc = 'Detailed fee breakdown and required documentation for LLC setup.'; quoteModal = true;" class="bg-brand-600 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-brand-700 cursor-pointer">Get Detailed LLC Quote</button>
-                    </div>
-                </div>
-                <!-- Accordion 2 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full p-5 text-left font-bold text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>General Partnership</span>
-                        <i class="fa-solid fa-chevron-down transition" :class="activeAccordion === 2 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div x-show="activeAccordion === 2" x-cloak class="p-5 border-t border-gray-100 text-xs text-gray-600 space-y-3 bg-gray-50">
-                        <p>Formed between two or more partners who are jointly and severally liable for the company's debts and obligations.</p>
-                        <button @click="quoteTitle = 'Quote for General Partnership'; quoteDesc = 'Specific cost & regulatory details for Partnership setup.'; quoteModal = true;" class="bg-brand-600 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                    </div>
-                </div>
-                <!-- Accordion 3 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full p-5 text-left font-bold text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>Holding Company</span>
-                        <i class="fa-solid fa-chevron-down transition" :class="activeAccordion === 3 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div x-show="activeAccordion === 3" x-cloak class="p-5 border-t border-gray-100 text-xs text-gray-600 space-y-3 bg-gray-50">
-                        <p>A corporate structure designed to hold shares or control other companies without engaging in operational activities directly.</p>
-                        <button @click="quoteTitle = 'Quote for Holding Company Setup'; quoteDesc = 'Details regarding capital and holding structures in Qatar.'; quoteModal = true;" class="bg-brand-600 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                    </div>
-                </div>
-                <!-- Accordion 4 -->
-                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full p-5 text-left font-bold text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>Branch Office</span>
-                        <i class="fa-solid fa-chevron-down transition" :class="activeAccordion === 4 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div x-show="activeAccordion === 4" x-cloak class="p-5 border-t border-gray-100 text-xs text-gray-600 space-y-3 bg-gray-50">
-                        <p>An extension of a foreign parent company allowing direct operations in Qatar under specific government contracts.</p>
-                        <button @click="quoteTitle = 'Quote for Foreign Branch Office'; quoteDesc = 'Guidance on government contracts & branch licensing.'; quoteModal = true;" class="bg-brand-600 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. SIMPLE 4-STEP SETUP PROCESS -->
-    <section id="process" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Process</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Simple Business Setup Process</h2>
-                <p class="text-xs text-gray-600">Our streamlined 4-step process gets your business operational quickly.</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Step 1 -->
-                <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-4 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl mx-auto flex items-center justify-center font-extrabold text-xl mb-3">
-                            <i class="fa-solid fa-file-lines"></i>
-                        </div>
-                        <div class="text-gray-400 font-extrabold text-sm mb-1">01</div>
-                        <h3 class="font-bold text-brand-900 text-base">Free Consultation</h3>
-                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">We listen to your goals and recommend the most suitable way to set up your company in Qatar.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Step 1: Free Consultation Quote'; quoteDesc = 'Book a 1-on-1 session with a Qatar business advisor to review your requirements.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow">
-                        Get Detailed Quote
-                    </button>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-4 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl mx-auto flex items-center justify-center font-extrabold text-xl mb-3">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="text-gray-400 font-extrabold text-sm mb-1">02</div>
-                        <h3 class="font-bold text-brand-900 text-base">Document Preparation</h3>
-                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">We help you prepare a complete, accurate file including certified translations for a smooth setup.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Step 2: Document Preparation Quote'; quoteDesc = 'Get exact attestation, translation, and drafting details for your setup file.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow">
-                        Get Detailed Quote
-                    </button>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-4 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl mx-auto flex items-center justify-center font-extrabold text-xl mb-3">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                        <div class="text-gray-400 font-extrabold text-sm mb-1">03</div>
-                        <h3 class="font-bold text-brand-900 text-base">Company Registration</h3>
-                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">We guide you through registering your company and obtaining your Commercial Registration (CR).</p>
-                    </div>
-                    <button @click="quoteTitle = 'Step 3: Company Registration Quote'; quoteDesc = 'Detailed timeline and cost breakdown for Commercial Registration (CR) & Trade License.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow">
-                        Get Detailed Quote
-                    </button>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center space-y-4 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl mx-auto flex items-center justify-center font-extrabold text-xl mb-3">
-                            <i class="fa-solid fa-ribbon"></i>
-                        </div>
-                        <div class="text-gray-400 font-extrabold text-sm mb-1">04</div>
-                        <h3 class="font-bold text-brand-900 text-base">Ready to Operate</h3>
-                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">With your CR in hand, we help you take final steps so you can open your doors and start trading.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Step 4: Operational & PRO Support Quote'; quoteDesc = 'Post-incorporation support including Establishment Card, WPS, and Visas.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow">
-                        Get Detailed Quote
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. FAQ SECTION -->
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 space-y-8">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">FAQ</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Business Setup & Visa FAQ</h2>
-                <p class="text-xs text-gray-600">Everything you need to know about starting a business and obtaining visas in Qatar.</p>
-            </div>
-            <div class="space-y-3">
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                    <button @click="activeAccordion = activeAccordion === 'f1' ? null : 'f1'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>How can I get a Hayya Visa or Tourist Entry Permit for Qatar?</span>
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="activeAccordion === 'f1'" x-cloak class="p-4 bg-white text-xs text-gray-600">We assist you with filing Hayya applications, preparing accommodation proofs, health insurance verification, and fast-track approvals for entry into Qatar.</div>
-                </div>
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                    <button @click="activeAccordion = activeAccordion === 'f2' ? null : 'f2'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>What are the requirements for applying for a Family Visit Visa?</span>
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="activeAccordion === 'f2'" x-cloak class="p-4 bg-white text-xs text-gray-600">Qatar residents with a valid QID and minimum salary requirement can sponsor family members. We manage document preparation, Metrash filing, and Ministry clearings.</div>
-                </div>
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                    <button @click="activeAccordion = activeAccordion === 'f3' ? null : 'f3'" class="w-full p-4 text-left font-bold text-sm text-brand-900 flex justify-between items-center cursor-pointer">
-                        <span>What is included in a Monthly PRO Retainer Package?</span>
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="activeAccordion === 'f3'" x-cloak class="p-4 bg-white text-xs text-gray-600">Our PRO Retainers cover CR renewals, Establishment Card maintenance, QID renewals, Medical & Fingerprint scheduling, Labor Contracts, and document delivery across Doha.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. DARK CONTACT SECTION -->
-    <section id="contact" class="py-20 bg-brand-dark text-white">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Ready to Set Up Your Business?</h2>
-                <p class="text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto">Speak with a licensed Serve Ease advisor for free, no-obligation guidance on your company formation.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Left Box: Contact Information -->
-                <div class="lg:col-span-5 bg-white/5 border border-white/10 p-8 rounded-3xl space-y-8 flex flex-col justify-center">
-                    <h3 class="text-xl font-extrabold text-white">Contact Information</h3>
+            <!-- 4. FAST & EFFICIENT SETUP PROCESS BAR (MATCHING IMAGES EXACTLY) -->
+            <section class="py-12 bg-brand-800 text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-5">
+                    <h2 class="text-2xl md:text-3xl font-extrabold">Fast & Efficient Setup Process</h2>
+                    <p class="text-xs text-blue-200">Get your business operational quickly with our streamlined process</p>
                     
-                    <div class="space-y-6 text-xs sm:text-sm text-blue-100 font-medium">
-                        <!-- Visit Us -->
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
+                    <!-- Action Bar Buttons -->
+                    <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
+                        <button @click="calcDrawerOpen = true" class="bg-slate-100 text-brand-900 hover:bg-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow cursor-pointer">
+                            <i class="fa-solid fa-calculator text-brand-600"></i> Cost Calculator
+                        </button>
+                        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                        <a href="tel:+97470442825" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-solid fa-phone text-xs"></i> Call Us
+                        </a>
+                        <a href="mailto:serveeaseqtr@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-solid fa-envelope text-xs"></i> Email Us
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. SIMPLE BUSINESS SETUP PROCESS (SINGLE WINDOW QATAR PATTERN CARDS) -->
+            <section id="process" class="py-20 bg-gray-100">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-3">
+                        <h2 class="text-3xl font-extrabold text-brand-900">Simple Business Setup Process</h2>
+                        <p class="text-xs text-gray-600">Our streamlined 4-step process gets your business operational quickly</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <!-- Step 01 -->
+                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+                            <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">01</span>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md">
+                                    <i class="fa-solid fa-file-signature"></i>
+                                </div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Free Consultation</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">We listen to your goals and recommend the most suitable way to set up your company in Qatar.</p>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Visit Us</h4>
-                                <p class="text-xs text-blue-200 mt-1">Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha – Qatar</p>
+                            <button @click="quoteTitle = 'Free Consultation Inquiry'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">
+                                Get Detailed Quote
+                            </button>
+                        </div>
+
+                        <!-- Step 02 -->
+                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+                            <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">02</span>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Document Preparation</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">We help you prepare a complete, accurate file so everything is ready for a smooth setup.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Document Preparation Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">
+                                Get Detailed Quote
+                            </button>
+                        </div>
+
+                        <!-- Step 03 -->
+                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+                            <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">03</span>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Company Registration</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">We guide you through registering your company and obtaining your Commercial Registration (CR).</p>
+                            </div>
+                            <button @click="quoteTitle = 'Company Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">
+                                Get Detailed Quote
+                            </button>
+                        </div>
+
+                        <!-- Step 04 -->
+                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+                            <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">04</span>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Ready to Operate</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">With your CR in hand, we help you take final steps so you can open your doors and start trading.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Operational Support Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">
+                                Get Detailed Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. READY TO LAUNCH BANNER (MATCHING IMAGE 3) -->
+            <section class="py-14 bg-brand-800 text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+                    <h2 class="text-2xl md:text-3xl font-extrabold">Ready to Launch Your Business?</h2>
+                    <p class="text-xs text-blue-200">Join thousands of successful businesses operating in Qatar</p>
+                    
+                    <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
+                        <button @click="calcDrawerOpen = true" class="bg-slate-100 text-brand-900 hover:bg-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow cursor-pointer">
+                            <i class="fa-solid fa-calculator text-brand-600"></i> Cost Calculator
+                        </button>
+                        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                        <a href="tel:+97470442825" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-solid fa-phone text-xs"></i> Call Us
+                        </a>
+                        <a href="mailto:serveeaseqtr@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
+                            <i class="fa-solid fa-envelope text-xs"></i> Email Us
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. VISA & PRO SERVICES SECTION -->
+            <section id="visas" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-3">
+                        <span class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full">Visa & PRO Services</span>
+                        <h2 class="text-3xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
+                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Fast processing for Hayya, Tourist, Family Visit Visas, and CR clearances.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-passport"></i></div>
+                                <h3 class="font-bold text-lg text-brand-900">Tourist & Hayya Visas</h3>
+                                <p class="text-xs text-gray-600">Hayya entry permits, tourist visas, and travel clearances.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Tourist & Hayya Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-people-roof"></i></div>
+                                <h3 class="font-bold text-lg text-brand-900">Family Visit Visas</h3>
+                                <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications and residency clearances.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Family Visit Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-file-contract"></i></div>
+                                <h3 class="font-bold text-lg text-brand-900">CR & Trade License PRO</h3>
+                                <p class="text-xs text-gray-600">Commercial Registration, Computer Card & Municipal License renewals.</p>
+                            </div>
+                            <button @click="quoteTitle = 'CR PRO Service Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. DARK CONTACT SECTION -->
+            <section id="contact" class="py-20 bg-brand-dark text-white">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-3">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white">Ready to Set Up Your Business?</h2>
+                        <p class="text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto">Speak with a licensed Serve Ease advisor for free guidance.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                        <div class="lg:col-span-5 bg-white/5 border border-white/10 p-8 rounded-3xl space-y-8 flex flex-col justify-center">
+                            <h3 class="text-xl font-extrabold text-white">Contact Information</h3>
+                            <div class="space-y-6 text-xs sm:text-sm text-blue-100">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div><h4 class="font-bold text-white text-sm">Visit Us</h4><p class="text-xs text-blue-200 mt-1">Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha – Qatar</p></div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-phone"></i></div>
+                                    <div><h4 class="font-bold text-white text-sm">Call Us</h4><a href="tel:+97470442825" class="text-xs text-blue-200 hover:text-white transition mt-1 block">+974 70 4428 25</a></div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-envelope"></i></div>
+                                    <div><h4 class="font-bold text-white text-sm">Email Us</h4><a href="mailto:serveeaseqtr@gmail.com" class="text-xs text-blue-200 hover:text-white transition mt-1 block">serveeaseqtr@gmail.com</a></div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Call Us -->
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Call Us</h4>
-                                <a href="tel:+97470442825" class="text-xs text-blue-200 hover:text-white transition mt-1 block">+974 70 4428 25</a>
-                            </div>
+                        <div class="lg:col-span-7 bg-white/5 border border-white/10 p-8 rounded-3xl">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
+                                <div><input type="text" x-ref="cname" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Enter your full name"></div>
+                                <div><input type="email" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="email@example.com"></div>
+                                <div class="grid grid-cols-12 gap-2">
+                                    <select class="col-span-4 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-semibold"><option>QA +974</option></select>
+                                    <input type="tel" x-ref="cphone" required class="col-span-8 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="+974 XXXX XXXX">
+                                </div>
+                                <div><textarea rows="4" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Your Message"></textarea></div>
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">Send Message</button>
+                            </form>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <!-- Email Us -->
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-base shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Email Us</h4>
-                                <a href="mailto:serveeaseqtr@gmail.com" class="text-xs text-blue-200 hover:text-white transition mt-1 block">serveeaseqtr@gmail.com</a>
-                            </div>
+            <!-- FOOTER -->
+            <footer class="bg-black text-white py-8 border-t border-white/10 text-xs text-gray-400">
+                <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>&copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
+                    <div class="flex items-center gap-6">
+                        <a href="tel:+97470442825" class="hover:text-white"><i class="fa-solid fa-phone text-emerald-400 mr-1"></i> +974 70 4428 25</a>
+                        <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white"><i class="fa-solid fa-envelope text-emerald-400 mr-1"></i> serveeaseqtr@gmail.com</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- RIGHT SIDE DRAWER: BUSINESS SETUP COST CALCULATOR (MATCHING SINGLE WINDOW QATAR PATTERN EXACTLY) -->
+        <aside x-show="calcDrawerOpen" x-cloak 
+               x-transition:enter="transition transform ease-out duration-300"
+               x-transition:enter-start="translate-x-full"
+               x-transition:enter-end="translate-x-0"
+               x-transition:leave="transition transform ease-in duration-200"
+               x-transition:leave-start="translate-x-0"
+               x-transition:leave-end="translate-x-full"
+               class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-50 border-l border-gray-200 flex flex-col justify-between">
+            
+            <!-- Drawer Header -->
+            <div class="p-5 border-b border-gray-100 flex justify-between items-start bg-gray-50/80">
+                <div>
+                    <h3 class="text-base font-extrabold text-brand-900 leading-tight">Business Setup Cost Calculator</h3>
+                    <p class="text-[11px] text-gray-500 mt-0.5">Get an instant estimate for your business setup costs in Qatar</p>
+                </div>
+                <button @click="calcDrawerOpen = false" class="text-gray-400 hover:text-gray-700 text-lg p-1 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Drawer Body Step Content -->
+            <div class="p-5 overflow-y-auto flex-1 space-y-5 text-xs">
+                
+                <!-- Step 1: Purpose -->
+                <div x-show="calcStep === 1" class="space-y-3">
+                    <h4 class="font-extrabold text-brand-900 text-xs">What is the purpose of your business in Qatar?</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition hover:border-brand-600" :class="calcData.purpose === 'New Company Registration' ? 'border-brand-600 bg-blue-50/40' : 'border-gray-200'">
+                            <input type="radio" name="dpurpose" value="New Company Registration" x-model="calcData.purpose" class="text-brand-600">
+                            <span class="font-bold text-gray-800 text-xs">New Company Registration</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition hover:border-brand-600" :class="calcData.purpose === 'Branch Registration' ? 'border-brand-600 bg-blue-50/40' : 'border-gray-200'">
+                            <input type="radio" name="dpurpose" value="Branch Registration" x-model="calcData.purpose" class="text-brand-600">
+                            <span class="font-bold text-gray-800 text-xs">Branch Registration</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Primary Business Activity Dropdown (Matching Image 1 & 2 Searchable List) -->
+                <div x-show="calcStep === 2" class="space-y-3">
+                    <h4 class="font-extrabold text-brand-900 text-xs">What will be your primary business activity in Qatar?</h4>
+                    
+                    <div class="relative">
+                        <div class="relative">
+                            <input type="text" x-model="searchActivity" placeholder="Search business activity..." class="w-full p-2.5 pl-8 border border-gray-300 rounded-xl text-xs font-medium focus:outline-none focus:border-brand-600">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400 text-xs"></i>
+                        </div>
+                        
+                        <div class="mt-2 border border-gray-200 rounded-xl max-h-48 overflow-y-auto divide-y divide-gray-100 bg-white shadow-inner">
+                            <template x-for="act in activities.filter(a => a.toLowerCase().includes(searchActivity.toLowerCase()))" :key="act">
+                                <div @click="calcData.activity = act" 
+                                     class="p-2.5 text-xs font-medium cursor-pointer hover:bg-brand-50 transition flex justify-between items-center"
+                                     :class="calcData.activity === act ? 'bg-brand-50 text-brand-700 font-bold' : 'text-gray-700'">
+                                    <span x-text="act"></span>
+                                    <i x-show="calcData.activity === act" class="fa-solid fa-check text-brand-600"></i>
+                                </div>
+                            </template>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Box: Dark Form -->
-                <div class="lg:col-span-7 bg-white/5 border border-white/10 p-8 rounded-3xl">
-                    <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
-                        <div>
-                            <input type="text" x-ref="cname" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Enter your full name">
-                        </div>
-                        <div>
-                            <input type="email" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="email@example.com">
-                        </div>
-                        <div class="grid grid-cols-12 gap-2">
-                            <select class="col-span-4 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-semibold">
-                                <option>QA +974</option>
-                            </select>
-                            <input type="tel" x-ref="cphone" required class="col-span-8 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="+974 XXXX XXXX">
-                        </div>
-                        <div>
-                            <textarea rows="4" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">
-                            Send Message
-                        </button>
-                    </form>
+                <!-- Step 3: Entity Type -->
+                <div x-show="calcStep === 3" class="space-y-3">
+                    <h4 class="font-extrabold text-brand-900 text-xs">Select Preferred Business Entity Type</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition" :class="calcData.entity === 'LLC / WLL' ? 'border-brand-600 bg-blue-50/40' : 'border-gray-200'">
+                            <input type="radio" name="dentity" value="LLC / WLL" x-model="calcData.entity">
+                            <span class="font-bold text-gray-800 text-xs">LLC / WLL (100% Foreign Ownership)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition" :class="calcData.entity === 'Free Zone' ? 'border-brand-600 bg-blue-50/40' : 'border-gray-200'">
+                            <input type="radio" name="dentity" value="Free Zone" x-model="calcData.entity">
+                            <span class="font-bold text-gray-800 text-xs">Free Zone / QFC License</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Drawer Footer Navigation & Progress (Matching Image 3) -->
+            <div class="p-5 border-t border-gray-100 bg-gray-50/80 space-y-3">
+                <div class="flex items-center justify-between gap-2">
+                    <button x-show="calcStep > 1" @click="calcStep--" class="px-3 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-left text-[10px]"></i> Previous
+                    </button>
+                    <div class="flex-1"></div>
+                    <button x-show="calcStep < 3" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
+                        Next Step <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                    <button x-show="calcStep === 3" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Estimation: Purpose: ' + calcData.purpose + ', Activity: ' + calcData.activity + ', Entity: ' + calcData.entity), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
+                        Get Estimate <i class="fa-brands fa-whatsapp text-sm"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-bold text-gray-400">
+                        <span x-text="'Step ' + calcStep + ' of 3'"></span>
+                        <span x-text="Math.round((calcStep/3)*100) + '%'"></span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-1 rounded-full overflow-hidden">
+                        <div class="bg-brand-600 h-full transition-all duration-300" :style="'width: ' + ((calcStep/3)*100) + '%'"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- FOOTER -->
-    <footer class="bg-black text-white py-10 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
-            <div>&copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
-            <div class="flex items-center gap-6">
-                <a href="tel:+97470442825" class="hover:text-white transition"><i class="fa-solid fa-phone text-emerald-400 mr-1"></i> +974 70 4428 25</a>
-                <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope text-emerald-400 mr-1"></i> serveeaseqtr@gmail.com</a>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <!-- FLOATING ACTION BUTTONS (BOTTOM RIGHT: WHATSAPP & ROBOT COST CALCULATOR) -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3.5 items-end">
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3.5 items-end">
         <!-- Robot Assistant / Cost Calculator Floating Button -->
-        <button @click="calcModal = true" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 relative group cursor-pointer border-2 border-white/20">
+        <button @click="calcDrawerOpen = !calcDrawerOpen" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 relative group cursor-pointer border-2 border-white/20">
             <i class="fa-solid fa-robot"></i>
             <span class="absolute right-16 bg-gray-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none">
                 Cost Calculator Assistant 🤖
@@ -839,96 +648,6 @@
                     Request Detailed Quote via WhatsApp
                 </button>
             </form>
-        </div>
-    </div>
-
-    <!-- BUSINESS SETUP COST CALCULATOR MODAL (MATCHING IMAGE 1 EXACTLY) -->
-    <div x-show="calcModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
-            <!-- Modal Header -->
-            <div class="p-6 border-b border-gray-100 flex justify-between items-start bg-gray-50/50">
-                <div>
-                    <h3 class="text-xl font-extrabold text-brand-900 leading-tight">Business Setup Cost Calculator</h3>
-                    <p class="text-xs text-gray-500 mt-1">Get an instant estimate for your business setup costs in Qatar</p>
-                </div>
-                <button @click="calcModal = false" class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 cursor-pointer shrink-0">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Modal Content (Steps) -->
-            <div class="p-6 space-y-6 overflow-y-auto flex-1 text-xs">
-                <!-- Step 1: Purpose -->
-                <div x-show="calcStep === 1" class="space-y-4">
-                    <h4 class="font-bold text-sm text-brand-900">What is the purpose of your business in Qatar?</h4>
-                    <div class="space-y-2.5">
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition hover:bg-blue-50/50" :class="calcData.purpose === 'New Company Registration' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="purpose" value="New Company Registration" x-model="calcData.purpose" class="text-brand-600">
-                            <span class="font-semibold text-gray-800">New Company Registration</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition hover:bg-blue-50/50" :class="calcData.purpose === 'Branch Registration' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="purpose" value="Branch Registration" x-model="calcData.purpose" class="text-brand-600">
-                            <span class="font-semibold text-gray-800">Branch Registration</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Step 2: Entity Type -->
-                <div x-show="calcStep === 2" class="space-y-4">
-                    <h4 class="font-bold text-sm text-brand-900">Select Preferred Entity Type</h4>
-                    <div class="space-y-2.5">
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition" :class="calcData.entity === 'LLC / WLL' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="entity" value="LLC / WLL" x-model="calcData.entity">
-                            <span class="font-semibold text-gray-800">LLC / WLL (100% Foreign Ownership)</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition" :class="calcData.entity === 'Free Zone Company' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="entity" value="Free Zone Company" x-model="calcData.entity">
-                            <span class="font-semibold text-gray-800">Free Zone / QFC Entity</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Step 3: Visas Needed -->
-                <div x-show="calcStep === 3" class="space-y-4">
-                    <h4 class="font-bold text-sm text-brand-900">Estimated Visa Requirements</h4>
-                    <div class="space-y-2.5">
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition" :class="calcData.visas === '1-5 Visas' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="visas" value="1-5 Visas" x-model="calcData.visas">
-                            <span class="font-semibold text-gray-800">1 to 5 Employee Visas</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition" :class="calcData.visas === '5+ Visas' ? 'border-brand-600 bg-blue-50/30' : 'border-gray-200'">
-                            <input type="radio" name="visas" value="5+ Visas" x-model="calcData.visas">
-                            <span class="font-semibold text-gray-800">5+ Corporate Visas</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Footer with Progress Bar -->
-            <div class="p-6 border-t border-gray-100 bg-gray-50/30 space-y-4">
-                <div class="flex justify-between items-center">
-                    <button x-show="calcStep > 1" @click="calcStep--" class="text-xs font-bold text-gray-500 hover:text-brand-900 cursor-pointer">
-                        <i class="fa-solid fa-arrow-left mr-1"></i> Back
-                    </button>
-                    <div></div>
-                    <button x-show="calcStep < 3" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 cursor-pointer transition">
-                        Next Step <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                    <button x-show="calcStep === 3" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Estimation Inquiry: Purpose: ' + calcData.purpose + ', Entity: ' + calcData.entity + ', Visas: ' + calcData.visas), '_blank'); calcModal = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 cursor-pointer transition">
-                        Get Estimate on WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
-                    </button>
-                </div>
-
-                <div class="space-y-1.5 pt-2">
-                    <div class="flex justify-between text-[11px] font-bold text-gray-400">
-                        <span x-text="'Step ' + calcStep + ' of 3'"></span>
-                        <span x-text="Math.round((calcStep/3)*100) + '%'"></span>
-                    </div>
-                    <div class="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-600 h-full transition-all duration-300" :style="'width: ' + ((calcStep/3)*100) + '%'"></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
