@@ -51,21 +51,14 @@
             z-index: 0;
         }
         .video-overlay {
-            background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.82));
+            background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.85));
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
             z-index: 1;
         }
         .page-banner {
-            background-size: cover;
-            background-position: center;
             position: relative;
-        }
-        .page-banner::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.82));
+            overflow: hidden;
         }
     </style>
 </head>
@@ -114,11 +107,8 @@
 
     <!-- ================= HOME PAGE ================= -->
     <div x-show="currentPage === 'home'">
-        <!-- Hero Section with Background Video -->
         <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center">
-            <!-- Background Video: Ungaloda local video file add seiya 'background.mp4' endru marrukalum -->
             <video autoplay muted loop playsinline class="video-bg">
-                <source src="background.mp4" type="video/mp4">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
@@ -282,7 +272,7 @@
             </div>
         </section>
 
-        <!-- Our Projects Section (Kerala Culture, Singapore & GCC) -->
+        <!-- Our Projects Section -->
         <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 bg-white rounded-3xl my-8 border shadow-sm">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Future & Ongoing Ventures</span>
@@ -290,27 +280,25 @@
                 <p class="text-gray-600 text-sm md:text-base">Explore our specialized training academy in Kozhikode (Kerala) and our global corporate branches across Singapore & all GCC countries.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- 1. Training Academy (Kozhikode, Kerala) -->
                 <div @click="currentPage = 'project_academy'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Kerala Kozhikode Academy" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Academy" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
                             <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Kerala Culture & Training</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-bold text-xl text-brand-900">Professional PRO & HR Training Academy</h3>
-                            <p class="text-xs text-gray-600">Headquartered in Kozhikode, Kerala at HiLite Business Park, blending traditional Kerala values with modern corporate skills.</p>
+                            <p class="text-xs text-gray-600">Headquartered in Kozhikode, Kerala at HiLite Business Park.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
-                <!-- 2. Global Expansion (Singapore & All GCC Countries) -->
                 <div @click="currentPage = 'project_global'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Singapore and GCC" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Global" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
                             <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Singapore & All GCC</span>
                         </div>
@@ -322,7 +310,6 @@
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
-                <!-- 3. Digital Portals -->
                 <div @click="currentPage = 'project_portals'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
@@ -371,7 +358,11 @@
 
     <!-- ================= ABOUT US PAGE ================= -->
     <div x-show="currentPage === 'about'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">About Us</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Your Trusted Corporate Partner in Doha, Qatar</h1>
@@ -404,7 +395,11 @@
 
     <!-- ================= SERVICES LIST PAGE ================= -->
     <div x-show="currentPage === 'services_list'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Services</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Our Comprehensive Services in Doha</h1>
@@ -451,7 +446,11 @@
 
     <!-- ================= 8 SERVICE SUB-PAGES ================= -->
     <div x-show="currentPage === 'service_foreign'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">100% Foreign Ownership Company Setup</h1>
             </div>
@@ -471,7 +470,11 @@
     </div>
 
     <div x-show="currentPage === 'service_formation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Fast Company Formation in Qatar</h1>
             </div>
@@ -490,7 +493,11 @@
     </div>
 
     <div x-show="currentPage === 'service_translation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Bi lingual Translation Services in Qatar</h1>
             </div>
@@ -509,7 +516,11 @@
     </div>
 
     <div x-show="currentPage === 'service_pro'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate PRO Services in Qatar</h1>
             </div>
@@ -528,7 +539,11 @@
     </div>
 
     <div x-show="currentPage === 'service_attestation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Documents Attestation Services in Qatar</h1>
             </div>
@@ -547,7 +562,11 @@
     </div>
 
     <div x-show="currentPage === 'service_license'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Commercial License Services</h1>
             </div>
@@ -566,7 +585,11 @@
     </div>
 
     <div x-show="currentPage === 'service_brand'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Brand Development & Marketing</h1>
             </div>
@@ -585,7 +608,11 @@
     </div>
 
     <div x-show="currentPage === 'service_bank'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate Bank Account Opening</h1>
             </div>
@@ -603,9 +630,13 @@
         </div>
     </div>
 
-    <!-- ================= PROJECTS SUB-PAGES (Kerala Academy & Global Expansion) ================= -->
+    <!-- ================= PROJECTS SUB-PAGES (Academy & Global Expansion) ================= -->
     <div x-show="currentPage === 'project_academy'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Professional PRO & HR Training Academy (Kozhikode, Kerala)</h1>
             </div>
@@ -627,7 +658,11 @@
     </div>
 
     <div x-show="currentPage === 'project_global'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Global Branch Setup (Singapore & All GCC Countries)</h1>
             </div>
@@ -649,7 +684,11 @@
     </div>
 
     <div x-show="currentPage === 'project_portals'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Automated Request & E-Service Portals</h1>
             </div>
@@ -672,7 +711,11 @@
 
     <!-- ================= PRO PACKAGES PAGE ================= -->
     <div x-show="currentPage === 'packages'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Retainer Plans</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate PRO Services Packages in Doha</h1>
@@ -702,7 +745,11 @@
 
     <!-- ================= PROJECTS LIST PAGE ================= -->
     <div x-show="currentPage === 'projects'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Our Projects</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Global Expansions & Kerala Training Academy</h1>
@@ -729,7 +776,11 @@
 
     <!-- ================= CONTACT US PAGE ================= -->
     <div x-show="currentPage === 'contact'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Get in Touch</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Contact Serve Ease Business Solutions in Doha</h1>
@@ -808,7 +859,7 @@
                     <input type="text" x-ref="qname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="Enter your name">
                 </div>
                 <div>
-                    <label class="box-block block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number / WhatsApp</label>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number / WhatsApp</label>
                     <input type="tel" x-ref="qphone" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="+974 XXXX XXXX">
                 </div>
                 <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl transition shadow-md cursor-pointer">
