@@ -217,7 +217,7 @@
         </div>
     </section>
 
-    <!-- ================= 3. SERVICES SECTION ================= -->
+    <!-- ================= 3. SERVICES SECTION (All 8 Cards Interactive) ================= -->
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-4">
@@ -318,7 +318,7 @@
                         </ul>
                     </div>
                     <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20am%20interested%20in%20the%20Basic%20PRO%20Package." target="_blank" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl text-center transition shadow-md">
-                        Inquire via WhatsApp
+                        Inquire via WhatsApp (+974 70120012)
                     </a>
                 </div>
 
@@ -336,7 +336,7 @@
                         </ul>
                     </div>
                     <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20am%20interested%20in%20the%20Standard%20PRO%20Package." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-center transition shadow-md">
-                        Inquire via WhatsApp
+                        Inquire via WhatsApp (+974 70120012)
                     </a>
                 </div>
 
@@ -353,7 +353,7 @@
                         </ul>
                     </div>
                     <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20am%20interested%20in%20the%20Premium%20PRO%20Package." target="_blank" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl text-center transition shadow-md">
-                        Inquire via WhatsApp
+                        Inquire via WhatsApp (+974 70120012)
                     </a>
                 </div>
             </div>
@@ -453,7 +453,6 @@
             </div>
             <div class="flex flex-col items-center justify-center bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
                 <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-brand-500 shadow-xl mb-4">
-                    <!-- Shafir Kottupurath Basheer Photo (Can be replaced with local image path like shafir.jpg) -->
                     <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
                 </div>
                 <h3 class="text-xl font-extrabold">Shafir Kottupurath Basheer</h3>
@@ -485,15 +484,15 @@
                     <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Hello Serve Ease, Name: ' + $refs.cname.value + ', Phone: ' + $refs.cphone.value + ', Message: ' + $refs.cmsg.value), '_blank')" class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
-                            <input type="text" x-ref="cname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600" placeholder="Enter your name">
+                            <input type="text" x-ref="cname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="Enter your name">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number</label>
-                            <input type="tel" x-ref="cphone" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600" placeholder="+974 XXXX XXXX">
+                            <input type="tel" x-ref="cphone" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="+974 XXXX XXXX">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Your Message / Inquiry</label>
-                            <textarea x-ref="cmsg" rows="3" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600" placeholder="How can we help you?"></textarea>
+                            <textarea x-ref="cmsg" rows="3" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="How can we help you?"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl transition shadow-md">
                             Submit & Send via WhatsApp
@@ -555,11 +554,12 @@
         </div>
     </footer>
 
-    <!-- Service Detail Modal -->
+    <!-- Service Detail Modals (Brief and Perfect Details for all 8 Services) -->
     <div x-show="activeDetail !== null" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
             <button @click="activeDetail = null" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl p-2"><i class="fa-solid fa-xmark"></i></button>
             
+            <!-- 1. Foreign Ownership -->
             <template x-if="activeDetail === 'foreign'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">100% Foreign Ownership Company Setup</h3>
@@ -572,52 +572,94 @@
                     <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20100%25%20Foreign%20Ownership%20Company%20Setup" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70442825)</a>
                 </div>
             </template>
+
+            <!-- 2. Fast Company Formation -->
             <template x-if="activeDetail === 'formation'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Fast Company Formation in Qatar</h3>
-                    <p class="text-gray-600 text-sm">Start your venture with expert support for smooth and compliant company formation across Mainland and Free Zones.</p>
-                    <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Fast%20Company%20Formation" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">Start your venture in Qatar with ease, expert support for smooth and compliant company formation (WLL, Single Owner, Mainland & Free Zone).</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Trade name reservation & CR issuance in 2 days</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Commercial license and office space assistance</li>
+                    </ul>
+                    <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Fast%20Company%20Formation" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70442825)</a>
                 </div>
             </template>
+
+            <!-- 3. Translation -->
             <template x-if="activeDetail === 'translation'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Bi lingual Translation Services in Qatar</h3>
-                    <p class="text-gray-600 text-sm">Accurate, fast, and legally certified translation services tailored for Qatari government submissions and courts.</p>
+                    <p class="text-gray-600 text-sm">Accurate, fast, and culturally precise certified legal translation services tailored for Qatar's business, legal, and court requirements.</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Ministry of Justice accredited sworn translators</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Arabic, English, French, Spanish & more</li>
+                    </ul>
                     <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Translation%20Services" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70120012)</a>
                 </div>
             </template>
+
+            <!-- 4. PRO Services -->
             <template x-if="activeDetail === 'pro'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Corporate PRO Services in Qatar</h3>
-                    <p class="text-gray-600 text-sm">Reliable PRO services from government paperwork, visa processing, labor department, to municipality approvals.</p>
-                    <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20PRO%20Services" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">Reliable PRO services in Qatar, from government paperwork, visa processing, labor department, to ministry approvals, we handle it all.</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Visa processing, renewals & cancellations</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Metrash & MOI portal transactions</li>
+                    </ul>
+                    <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20PRO%20Services" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70120012)</a>
                 </div>
             </template>
+
+            <!-- 5. Attestation -->
             <template x-if="activeDetail === 'attestation'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Documents Attestation Services in Qatar</h3>
-                    <p class="text-gray-600 text-sm">Fast and secure certificate attestation from embassies and MOFA Qatar.</p>
+                    <p class="text-gray-600 text-sm">Fast and secure attestation services in Qatar, ensuring your educational, personal, and commercial documents are valid everywhere.</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Embassy & MOFA Qatar legalization</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Doorstep document pickup & delivery</li>
+                    </ul>
                     <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Certificate%20Attestation" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70442825)</a>
                 </div>
             </template>
+
+            <!-- 6. Commercial License -->
             <template x-if="activeDetail === 'license'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Commercial License Services</h3>
-                    <p class="text-gray-600 text-sm">End-to-end commercial license renewal, amendments, and trade registration services.</p>
-                    <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Commercial%20License" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">We provide end-to-end Commercial License Services to support the establishment, operation, renewal, and compliance of businesses in Qatar.</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Municipality & civil defense approvals</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> License amendments & activity additions</li>
+                    </ul>
+                    <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Commercial%20License" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70120012)</a>
                 </div>
             </template>
+
+            <!-- 7. Brand Development -->
             <template x-if="activeDetail === 'brand'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Brand Development & Marketing</h3>
-                    <p class="text-gray-600 text-sm">Strategic brand creation, logo designing, and digital marketing for Qatari market success.</p>
-                    <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Brand%20Development" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">Brand Development is the strategic process of creating, defining, and strengthening a business's identity to establish a lasting impression in the market.</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Logo creation & corporate branding</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Stunning websites & digital marketing</li>
+                    </ul>
+                    <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Brand%20Development" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70442825)</a>
                 </div>
             </template>
+
+            <!-- 8. Bank Account Opening -->
             <template x-if="activeDetail === 'bank'">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-extrabold text-brand-900">Corporate Bank Account Assistance (CBQ & QNB)[cite: 22]</h3>
                     <p class="text-gray-600 text-sm">Complete assistance for opening corporate bank accounts with leading Qatari banks like Commercial Bank of Qatar (CBQ) and Qatar National Bank (QNB)[cite: 22].</p>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Application drafting & document submission</li>
+                        <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Activation & deposit coordination</li>
+                    </ul>
                     <a href="https://wa.me/97470123399?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Corporate%20Bank%20Account%20Services" target="_blank" class="block w-full bg-emerald-600 text-white text-center py-3 rounded-xl font-bold">Inquire via WhatsApp (+974 70123399)</a>
                 </div>
             </template>
