@@ -59,53 +59,6 @@
     calcDrawerOpen: false,
     calcStep: 1,
     searchActivity: '',
-    countryCodes: [
-        { code: '+974', flag: '🇶🇦', name: 'QA' },
-        { code: '+971', flag: '🇦🇪', name: 'AE' },
-        { code: '+966', flag: '🇸🇦', name: 'SA' },
-        { code: '+968', flag: '🇴🇲', name: 'OM' },
-        { code: '+965', flag: '🇰🇼', name: 'KW' },
-        { code: '+973', flag: '🇧🇭', name: 'BH' },
-        { code: '+91',  flag: '🇮🇳', name: 'IN' },
-        { code: '+44',  flag: '🇬🇧', name: 'UK' },
-        { code: '+1',   flag: '🇺🇸', name: 'US' },
-        { code: '+1',   flag: '🇨🇦', name: 'CA' },
-        { code: '+61',  flag: '🇦🇺', name: 'AU' },
-        { code: '+49',  flag: '🇩🇪', name: 'DE' },
-        { code: '+33',  flag: '🇫🇷', name: 'FR' },
-        { code: '+39',  flag: '🇮🇹', name: 'IT' },
-        { code: '+65',  flag: '🇸🇬', name: 'SG' },
-        { code: '+60',  flag: '🇲🇾', name: 'MY' },
-        { code: '+86',  flag: '🇨🇳', name: 'CN' },
-        { code: '+81',  flag: '🇯🇵', name: 'JP' },
-        { code: '+82',  flag: '🇰🇷', name: 'KR' },
-        { code: '+20',  flag: '🇪🇬', name: 'EG' },
-        { code: '+212', flag: '🇲🇦', name: 'MA' },
-        { code: '+216', flag: '🇹🇳', name: 'TN' },
-        { code: '+962', flag: '🇯🇴', name: 'JO' },
-        { code: '+961', flag: '🇱🇧', name: 'LB' },
-        { code: '+92',  flag: '🇵🇰', name: 'PK' },
-        { code: '+880', flag: '🇧🇩', name: 'BD' },
-        { code: '+94',  flag: '🇱🇰', name: 'LK' },
-        { code: '+977', flag: '🇳🇵', name: 'NP' },
-        { code: '+234', flag: '🇳🇬', name: 'NG' },
-        { code: '+27',  flag: '🇿🇦', name: 'ZA' },
-        { code: '+7',   flag: '🇷🇺', name: 'RU' },
-        { code: '+55',  flag: '🇧🇷', name: 'BR' },
-        { code: '+52',  flag: '🇲🇽', name: 'MX' },
-        { code: '+34',  flag: '🇪🇸', name: 'ES' },
-        { code: '+31',  flag: '🇳🇱', name: 'NL' },
-        { code: '+41',  flag: '🇨🇭', name: 'CH' },
-        { code: '+46',  flag: '🇸🇪', name: 'SE' },
-        { code: '+47',  flag: '🇳🇴', name: 'NO' },
-        { code: '+353', flag: '🇮🇪', name: 'IE' },
-        { code: '+64',  flag: '🇳🇿', name: 'NZ' },
-        { code: '+63',  flag: '🇵🇭', name: 'PH' },
-        { code: '+62',  flag: '🇮🇩', name: 'ID' },
-        { code: '+66',  flag: '🇹🇭', name: 'TH' },
-        { code: '+84',  flag: '🇻🇳', name: 'VN' },
-        { code: '+90',  flag: '🇹🇷', name: 'TR' }
-    ],
     activities: [
         'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
         'E-Commerce', 'Event Management', 'Fashion Design Consultancy', 'Food & Beverage Trading', 
@@ -126,13 +79,9 @@
         tradeName: '',
         fullName: '',
         email: '',
-        countryCode: '+974',
         phone: '',
         nationality: 'Qatar'
     },
-    heroCountryCode: '+974',
-    contactCountryCode: '+974',
-    modalCountryCode: '+974',
     activeAccordion: null, 
     quoteTitle: 'Get a Detailed Quote', 
     quoteDesc: 'Fill in your details to receive an instant, customized business setup estimate.' 
@@ -236,7 +185,7 @@
                                 <h3 class="font-extrabold text-xl text-brand-900">Get in Touch</h3>
                                 <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
                             </div>
-                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + heroCountryCode + ' ' + $refs.fphone.value + ')'), '_blank');" class="space-y-3">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + $refs.fphone.value + ')'), '_blank');" class="space-y-3">
                                 <div>
                                     <input type="text" x-ref="fname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
                                 </div>
@@ -244,12 +193,10 @@
                                     <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
                                 </div>
                                 <div class="grid grid-cols-12 gap-2">
-                                    <select x-model="heroCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-bold text-gray-800">
-                                        <template x-for="c in countryCodes" :key="c.code + c.name">
-                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                                        </template>
+                                    <select class="col-span-4 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold">
+                                        <option>QA +974</option>
                                     </select>
-                                    <input type="tel" x-ref="fphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
+                                    <input type="tel" x-ref="fphone" required class="col-span-8 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
                                 </div>
                                 <div>
                                     <select class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
@@ -489,7 +436,7 @@
                 </div>
             </section>
 
-            <!-- 8. DARK CONTACT SECTION (WITH ALL COUNTRIES DROP DOWN) -->
+            <!-- 8. DARK CONTACT SECTION -->
             <section id="contact" class="py-20 bg-brand-dark text-white">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
@@ -517,16 +464,12 @@
                         </div>
 
                         <div class="lg:col-span-7 bg-white/5 border border-white/10 p-8 rounded-3xl">
-                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + contactCountryCode + ' ' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
                                 <div><input type="text" x-ref="cname" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Enter your full name"></div>
                                 <div><input type="email" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="email@example.com"></div>
                                 <div class="grid grid-cols-12 gap-2">
-                                    <select x-model="contactCountryCode" class="col-span-5 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-bold focus:outline-none">
-                                        <template x-for="c in countryCodes" :key="c.code + c.name">
-                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                                        </template>
-                                    </select>
-                                    <input type="tel" x-ref="cphone" required class="col-span-7 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Phone Number">
+                                    <select class="col-span-4 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-semibold"><option>QA +974</option></select>
+                                    <input type="tel" x-ref="cphone" required class="col-span-8 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="+974 XXXX XXXX">
                                 </div>
                                 <div><textarea rows="4" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Your Message"></textarea></div>
                                 <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">Send Message</button>
@@ -548,7 +491,7 @@
             </footer>
         </div>
 
-        <!-- RIGHT SIDE DRAWER: BUSINESS SETUP COST CALCULATOR (WITH GLOBAL COUNTRY CODE) -->
+        <!-- RIGHT SIDE DRAWER: BUSINESS SETUP COST CALCULATOR (8 STEPS) -->
         <aside x-show="calcDrawerOpen" x-cloak 
                x-transition:enter="transition transform ease-out duration-300"
                x-transition:enter-start="translate-x-full"
@@ -715,12 +658,8 @@
                         <div>
                             <label class="font-bold text-gray-700 block mb-1">Phone Number *</label>
                             <div class="grid grid-cols-12 gap-1.5">
-                                <select x-model="calcData.countryCode" class="col-span-5 p-2.5 border border-gray-300 rounded-xl text-xs font-bold bg-white">
-                                    <template x-for="c in countryCodes" :key="c.code + c.name">
-                                        <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                                    </template>
-                                </select>
-                                <input type="tel" x-model="calcData.phone" required class="col-span-7 p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
+                                <input type="text" value="+974" readonly class="col-span-4 p-2.5 bg-gray-50 border border-gray-300 rounded-xl text-xs text-center font-bold">
+                                <input type="tel" x-model="calcData.phone" required class="col-span-8 p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
                             </div>
                         </div>
                         <div>
@@ -730,8 +669,6 @@
                                 <option>India</option>
                                 <option>United Kingdom</option>
                                 <option>United States</option>
-                                <option>United Arab Emirates</option>
-                                <option>Saudi Arabia</option>
                                 <option>Other</option>
                             </select>
                         </div>
@@ -740,7 +677,7 @@
 
             </div>
 
-            <!-- Drawer Footer Navigation & Progress -->
+            <!-- Drawer Footer Navigation & Progress (8 Steps) -->
             <div class="p-5 border-t border-gray-100 bg-gray-50/80 space-y-3">
                 <div class="flex items-center justify-between gap-2">
                     <button x-show="calcStep > 1" @click="calcStep--" class="px-3 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1">
@@ -750,7 +687,7 @@
                     <button x-show="calcStep < 8" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
                         Next Step <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
-                    <button x-show="calcStep === 8" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Final Submission:\nName: ' + calcData.fullName + '\nEmail: ' + calcData.email + '\nPhone: ' + calcData.countryCode + ' ' + calcData.phone + '\nPurpose: ' + calcData.purpose + '\nActivity: ' + calcData.activity + '\nJurisdiction: ' + calcData.jurisdiction + '\nOwners: ' + calcData.owners + '\nVisas: ' + calcData.visas + '\nOffice: ' + calcData.office + '\nTrade Name: ' + calcData.tradeName), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
+                    <button x-show="calcStep === 8" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Final Submission:\nName: ' + calcData.fullName + '\nEmail: ' + calcData.email + '\nPhone: +974 ' + calcData.phone + '\nPurpose: ' + calcData.purpose + '\nActivity: ' + calcData.activity + '\nJurisdiction: ' + calcData.jurisdiction + '\nOwners: ' + calcData.owners + '\nVisas: ' + calcData.visas + '\nOffice: ' + calcData.office + '\nTrade Name: ' + calcData.tradeName), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
                         Submit & Send WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
                     </button>
                 </div>
@@ -769,7 +706,7 @@
 
     </div>
 
-    <!-- FLOATING ACTION BUTTONS -->
+    <!-- FLOATING ACTION BUTTONS (BOTTOM RIGHT: WHATSAPP & ROBOT COST CALCULATOR) -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3.5 items-end">
         <button @click="calcDrawerOpen = !calcDrawerOpen" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 relative group cursor-pointer border-2 border-white/20">
             <i class="fa-solid fa-robot"></i>
@@ -786,7 +723,7 @@
         </a>
     </div>
 
-    <!-- DETAILED QUOTE MODAL (WITH GLOBAL COUNTRY CODE) -->
+    <!-- DETAILED QUOTE MODAL -->
     <div x-show="quoteModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 relative text-gray-900 border border-blue-100 shadow-2xl">
             <button @click="quoteModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg p-2 cursor-pointer">
@@ -794,21 +731,14 @@
             </button>
             <h3 class="text-xl font-bold text-brand-900 mb-1" x-text="quoteTitle">Get a Detailed Quote</h3>
             <p class="text-xs text-gray-500 mb-6" x-text="quoteDesc">Leave your details and our experts will contact you with a customized estimate.</p>
-            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + modalCountryCode + ' ' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
+            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Full Name *</label>
                     <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
-                    <div class="grid grid-cols-12 gap-2">
-                        <select x-model="modalCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-800">
-                            <template x-for="c in countryCodes" :key="c.code + c.name">
-                                <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                            </template>
-                        </select>
-                        <input type="tel" x-ref="mphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
-                    </div>
+                    <input type="tel" x-ref="mphone" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="+974 ...">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Business / Visa Details</label>
