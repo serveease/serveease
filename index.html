@@ -54,45 +54,48 @@
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ mobileMenu: false, quoteModal: false, activeAccordion: null, quoteTitle: 'Get a Detailed Quote', quoteDesc: 'Fill in your details to receive an instant, customized business setup estimate.' }">
 
-    <!-- NAVIGATION BAR -->
+    <!-- NAVIGATION BAR (SPACED OUT & CLEAN) -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 cursor-pointer group">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 cursor-pointer group shrink-0">
                 <img src="logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.src='https://via.placeholder.com/44?text=SE'">
                 <div>
                     <span class="text-xl font-extrabold tracking-tight text-brand-900 block leading-none">SERVE EASE</span>
                     <span class="text-[10px] tracking-widest text-brand-600 font-bold uppercase block mt-1">Business Solutions</span>
                 </div>
             </a>
-            <div class="hidden lg:flex items-center gap-6 font-semibold text-xs xl:text-sm text-gray-700">
+            
+            <!-- Spaced Header Navigation Links -->
+            <div class="hidden xl:flex items-center gap-7 font-semibold text-sm text-gray-700">
                 <a href="#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
-                <a href="#about" class="hover:text-brand-600 transition">About Us</a>
-                <a href="#services" class="hover:text-brand-600 transition">Services</a>
-                <a href="#visas" class="hover:text-brand-600 transition">Visa Services</a>
-                <a href="#pro-services" class="hover:text-brand-600 transition">PRO Services</a>
-                <a href="#packages" class="hover:text-brand-600 transition">PRO Packages</a>
-                <a href="#structures" class="hover:text-brand-600 transition">Structures</a>
-                <a href="#process" class="hover:text-brand-600 transition">Process</a>
-                <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
-                <a href="#contact" class="hover:text-brand-600 transition">Contact Us</a>
+                <a href="#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
+                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visa Services</a>
+                <a href="#pro-services" class="hover:text-brand-600 transition whitespace-nowrap">PRO Services</a>
+                <a href="#packages" class="hover:text-brand-600 transition whitespace-nowrap">PRO Packages</a>
+                <a href="#structures" class="hover:text-brand-600 transition whitespace-nowrap">Structures</a>
+                <a href="#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
+                <a href="#faq" class="hover:text-brand-600 transition whitespace-nowrap">FAQ</a>
+                <a href="#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
-            <div class="hidden lg:flex items-center gap-3">
-                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs xl:text-sm font-bold flex items-center gap-2 transition shadow-md hover:scale-105">
+
+            <div class="hidden xl:flex items-center gap-4 shrink-0">
+                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition shadow-md hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP
                 </a>
-                <button @click="quoteTitle = 'General Business Consultation Quote'; quoteDesc = 'Let us know your requirements and our team will get back with a tailored quote.'; quoteModal = true;" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2.5 rounded-xl text-xs xl:text-sm font-bold transition shadow-md hover:scale-105 cursor-pointer">
+                <button @click="quoteTitle = 'General Business Consultation Quote'; quoteDesc = 'Let us know your requirements and our team will get back with a tailored quote.'; quoteModal = true;" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-md hover:scale-105 cursor-pointer">
                     Get a Quote
                 </button>
             </div>
-            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl text-brand-900 p-2 focus:outline-none cursor-pointer">
+            
+            <button @click="mobileMenu = !mobileMenu" class="xl:hidden text-2xl text-brand-900 p-2 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
+
         <!-- Mobile Menu -->
-        <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
+        <div x-show="mobileMenu" x-cloak class="xl:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
             <a href="#home" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Home</a>
             <a href="#about" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">About Us</a>
-            <a href="#services" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Services</a>
             <a href="#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa Services</a>
             <a href="#pro-services" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">PRO Services</a>
             <a href="#packages" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Monthly PRO Packages</a>
@@ -199,7 +202,7 @@
         </div>
     </section>
 
-    <!-- 3. VISA & IMMIGRATION SERVICES SECTION (NEWLY ADDED) -->
+    <!-- 3. VISA & IMMIGRATION SERVICES SECTION -->
     <section id="visas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
@@ -284,13 +287,13 @@
         </div>
     </section>
 
-    <!-- 4. GOVERNMENT PRO SERVICES SECTION (NEWLY EXPANDED) -->
+    <!-- 4. GOVERNMENT PRO SERVICES SECTION -->
     <section id="pro-services" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Government Relations</span>
                 <h2 class="text-3xl font-extrabold text-gray-900">Comprehensive Government PRO Services</h2>
-                <p class="text-xs text-gray-600 max-w-2xl mx-auto">Direct interaction with Qatari Ministries (MOCI, MOI, Administrative Development & Labor, Ministry of Foreign Affairs, Baladiya).</p>
+                <p class="text-xs text-gray-600 max-w-2xl mx-auto">Direct interaction with Qatari Ministries (MOI, Administrative Development & Labor, Ministry of Foreign Affairs, Baladiya).</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -337,7 +340,7 @@
         </div>
     </section>
 
-    <!-- 5. MONTHLY PRO RETAINER PACKAGES (NEWLY ADDED) -->
+    <!-- 5. MONTHLY PRO RETAINER PACKAGES -->
     <section id="packages" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
@@ -463,52 +466,7 @@
         </div>
     </section>
 
-    <!-- 7. SERVICES GRID SECTION INCLUDING LEGAL TRANSLATION -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Entity Types & Services</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Business Setup & Legal Services in Qatar</h2>
-                <p class="text-xs text-gray-600">Our consultants help you select the right legal entity and manage the full setup & translation process.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3 flex flex-col justify-between">
-                    <div>
-                        <div class="text-emerald-600 text-2xl mb-2"><i class="fa-solid fa-language"></i></div>
-                        <h3 class="font-extrabold text-brand-900 text-lg">Legal Translation</h3>
-                        <p class="text-xs text-gray-600 mt-2">Certified translation for legal documents, contracts, MOFA clearances, and ministry paperwork in Arabic and global languages.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Certified Legal Translation'; quoteDesc = 'Send details to receive page/document-based translation rates.'; quoteModal = true;" class="mt-4 w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3 flex flex-col justify-between">
-                    <div>
-                        <div class="text-brand-600 text-2xl mb-2"><i class="fa-solid fa-building"></i></div>
-                        <h3 class="font-extrabold text-brand-900 text-lg">Mainland Setup</h3>
-                        <p class="text-xs text-gray-600 mt-2">We guide you through mainland company registration so you have full access to the local Qatari market.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Mainland Setup'; quoteDesc = 'Detailed steps & cost estimation for Mainland Commercial Registration.'; quoteModal = true;" class="mt-4 w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3 flex flex-col justify-between">
-                    <div>
-                        <div class="text-brand-600 text-2xl mb-2"><i class="fa-solid fa-globe"></i></div>
-                        <h3 class="font-extrabold text-brand-900 text-lg">Free Zone</h3>
-                        <p class="text-xs text-gray-600 mt-2">We help to establish your business in Qatar free zones with 100% foreign ownership and tax benefits.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for Free Zone Registration'; quoteDesc = 'Free Zone licensing fees and foreign investor privileges.'; quoteModal = true;" class="mt-4 w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-3 flex flex-col justify-between">
-                    <div>
-                        <div class="text-brand-600 text-2xl mb-2"><i class="fa-solid fa-landmark"></i></div>
-                        <h3 class="font-extrabold text-brand-900 text-lg">QFC & QSTP</h3>
-                        <p class="text-xs text-gray-600 mt-2">Set up in the Qatar Financial Center or Science & Tech Park with world-class regulatory framework.</p>
-                    </div>
-                    <button @click="quoteTitle = 'Quote for QFC / QSTP Registration'; quoteDesc = 'Financial Center & Tech Park licensing structure details.'; quoteModal = true;" class="mt-4 w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. SIMPLE 4-STEP SETUP PROCESS -->
+    <!-- 7. SIMPLE 4-STEP SETUP PROCESS -->
     <section id="process" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center space-y-3">
@@ -580,7 +538,7 @@
         </div>
     </section>
 
-    <!-- 9. FAQ SECTION -->
+    <!-- 8. FAQ SECTION -->
     <section id="faq" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 space-y-8">
             <div class="text-center space-y-3">
