@@ -43,22 +43,26 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(2, 86, 204, 0.1);
         }
-        .video-bg {
+        .video-container {
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
             width: 100%; height: 100%;
-            object-fit: cover;
+            overflow: hidden;
             z-index: 0;
+        }
+        .video-bg {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
         .video-overlay {
             background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.85));
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
             z-index: 1;
-        }
-        .page-banner {
-            position: relative;
-            overflow: hidden;
         }
     </style>
 </head>
@@ -107,10 +111,13 @@
 
     <!-- ================= HOME PAGE ================= -->
     <div x-show="currentPage === 'home'">
-        <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
 
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 w-full">
@@ -328,7 +335,13 @@
         </section>
 
         <!-- Founder Section -->
-        <section class="py-16 page-banner text-white relative" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
+        <section class="py-16 relative text-white bg-brand-900 overflow-hidden">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-overlay"></div>
             <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="space-y-6">
                     <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Leadership</span>
@@ -358,10 +371,12 @@
 
     <!-- ================= ABOUT US PAGE ================= -->
     <div x-show="currentPage === 'about'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">About Us</span>
@@ -395,10 +410,12 @@
 
     <!-- ================= SERVICES LIST PAGE ================= -->
     <div x-show="currentPage === 'services_list'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Services</span>
@@ -446,10 +463,12 @@
 
     <!-- ================= 8 SERVICE SUB-PAGES ================= -->
     <div x-show="currentPage === 'service_foreign'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">100% Foreign Ownership Company Setup</h1>
@@ -470,10 +489,12 @@
     </div>
 
     <div x-show="currentPage === 'service_formation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Fast Company Formation in Qatar</h1>
@@ -493,10 +514,12 @@
     </div>
 
     <div x-show="currentPage === 'service_translation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Bi lingual Translation Services in Qatar</h1>
@@ -516,10 +539,12 @@
     </div>
 
     <div x-show="currentPage === 'service_pro'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate PRO Services in Qatar</h1>
@@ -539,10 +564,12 @@
     </div>
 
     <div x-show="currentPage === 'service_attestation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Documents Attestation Services in Qatar</h1>
@@ -562,10 +589,12 @@
     </div>
 
     <div x-show="currentPage === 'service_license'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Commercial License Services</h1>
@@ -585,10 +614,12 @@
     </div>
 
     <div x-show="currentPage === 'service_brand'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Brand Development & Marketing</h1>
@@ -608,10 +639,12 @@
     </div>
 
     <div x-show="currentPage === 'service_bank'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate Bank Account Opening</h1>
@@ -632,10 +665,12 @@
 
     <!-- ================= PROJECTS SUB-PAGES (Academy & Global Expansion) ================= -->
     <div x-show="currentPage === 'project_academy'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Professional PRO & HR Training Academy (Kozhikode, Kerala)</h1>
@@ -658,10 +693,12 @@
     </div>
 
     <div x-show="currentPage === 'project_global'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Global Branch Setup (Singapore & All GCC Countries)</h1>
@@ -684,10 +721,12 @@
     </div>
 
     <div x-show="currentPage === 'project_portals'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Automated Request & E-Service Portals</h1>
@@ -711,10 +750,12 @@
 
     <!-- ================= PRO PACKAGES PAGE ================= -->
     <div x-show="currentPage === 'packages'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Retainer Plans</span>
@@ -745,10 +786,12 @@
 
     <!-- ================= PROJECTS LIST PAGE ================= -->
     <div x-show="currentPage === 'projects'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Our Projects</span>
@@ -776,10 +819,12 @@
 
     <!-- ================= CONTACT US PAGE ================= -->
     <div x-show="currentPage === 'contact'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px]">
-            <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-            </video>
+        <div class="relative py-24 text-white text-center mb-12 overflow-hidden flex items-center justify-center min-h-[350px] bg-brand-900">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="video-overlay"></div>
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Get in Touch</span>
