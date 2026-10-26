@@ -54,22 +54,22 @@
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ mobileMenu: false, quoteModal: false, activeAccordion: null, quoteTitle: 'Get a Detailed Quote', quoteDesc: 'Fill in your details to receive an instant, customized business setup estimate.' }">
 
-    <!-- NAVIGATION BAR (SPACED OUT & CLEAN) -->
+    <!-- NAVIGATION BAR (PERFECTLY BALANCED & SPACED OUT) -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 cursor-pointer group shrink-0">
-                <img src="logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.src='https://via.placeholder.com/44?text=SE'">
+            <a href="#" class="flex items-center gap-2.5 cursor-pointer group shrink-0">
+                <img src="logo.png" alt="Serve Ease Logo" class="h-10 w-auto object-contain transition group-hover:scale-105" onerror="this.src='https://via.placeholder.com/44?text=SE'">
                 <div>
-                    <span class="text-xl font-extrabold tracking-tight text-brand-900 block leading-none">SERVE EASE</span>
-                    <span class="text-[10px] tracking-widest text-brand-600 font-bold uppercase block mt-1">Business Solutions</span>
+                    <span class="text-lg font-extrabold tracking-tight text-brand-900 block leading-none">SERVE EASE</span>
+                    <span class="text-[9px] tracking-widest text-brand-600 font-bold uppercase block mt-1">Business Solutions</span>
                 </div>
             </a>
             
-            <!-- Spaced Header Navigation Links -->
-            <div class="hidden xl:flex items-center gap-7 font-semibold text-sm text-gray-700">
+            <!-- Perfectly Balanced Spaced Links for Desktop -->
+            <div class="hidden lg:flex items-center gap-3 xl:gap-5 font-semibold text-xs xl:text-sm text-gray-700">
                 <a href="#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
                 <a href="#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
-                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visa Services</a>
+                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visas</a>
                 <a href="#pro-services" class="hover:text-brand-600 transition whitespace-nowrap">PRO Services</a>
                 <a href="#packages" class="hover:text-brand-600 transition whitespace-nowrap">PRO Packages</a>
                 <a href="#structures" class="hover:text-brand-600 transition whitespace-nowrap">Structures</a>
@@ -78,22 +78,22 @@
                 <a href="#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
 
-            <div class="hidden xl:flex items-center gap-4 shrink-0">
-                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition shadow-md hover:scale-105">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP
+            <div class="hidden lg:flex items-center gap-2.5 shrink-0">
+                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold flex items-center gap-1.5 transition shadow-md hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WHATSAPP
                 </a>
-                <button @click="quoteTitle = 'General Business Consultation Quote'; quoteDesc = 'Let us know your requirements and our team will get back with a tailored quote.'; quoteModal = true;" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-md hover:scale-105 cursor-pointer">
+                <button @click="quoteTitle = 'General Business Consultation Quote'; quoteDesc = 'Let us know your requirements and our team will get back with a tailored quote.'; quoteModal = true;" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition shadow-md hover:scale-105 cursor-pointer whitespace-nowrap">
                     Get a Quote
                 </button>
             </div>
             
-            <button @click="mobileMenu = !mobileMenu" class="xl:hidden text-2xl text-brand-900 p-2 focus:outline-none cursor-pointer">
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl text-brand-900 p-2 focus:outline-none cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="mobileMenu" x-cloak class="xl:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
+        <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
             <a href="#home" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Home</a>
             <a href="#about" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">About Us</a>
             <a href="#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa Services</a>
