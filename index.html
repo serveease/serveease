@@ -65,7 +65,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 26, 65, 0.9), rgba(1, 49, 122, 0.8));
+            background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.82));
         }
     </style>
 </head>
@@ -114,9 +114,11 @@
 
     <!-- ================= HOME PAGE ================= -->
     <div x-show="currentPage === 'home'">
+        <!-- Hero Section with Background Video Integration -->
         <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center">
             <video autoplay muted loop playsinline class="video-bg">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
             <div class="video-overlay"></div>
 
@@ -287,10 +289,11 @@
                 <p class="text-gray-600 text-sm md:text-base">Click any project below to view its dedicated full page with complete Doha & international details.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Training Academy (Kozhikode, Kerala) -->
                 <div @click="currentPage = 'project_academy'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Academy" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Academy Kozhikode" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
                             <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Training Academy</span>
                         </div>
@@ -302,21 +305,23 @@
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
+                <!-- Global Expansion (Singapore & GCC) -->
                 <div @click="currentPage = 'project_global'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Global" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Singapore GCC Global" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
                             <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Global Expansion</span>
                         </div>
                         <div class="p-6 space-y-2">
-                            <h3 class="font-bold text-xl text-brand-900">Global Corporate Branch Setup</h3>
+                            <h3 class="font-bold text-xl text-brand-900">Global Corporate Branch Setup (Singapore & GCC)</h3>
                             <p class="text-xs text-gray-600">Expanding across Singapore and major GCC hubs.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
+                <!-- Digital Portals -->
                 <div @click="currentPage = 'project_portals'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
@@ -597,7 +602,7 @@
         </div>
     </div>
 
-    <!-- ================= PROJECTS SUB-PAGES ================= -->
+    <!-- ================= PROJECTS SUB-PAGES (Academy & Global Expansion) ================= -->
     <div x-show="currentPage === 'project_academy'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
         <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80');">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
@@ -610,7 +615,7 @@
                 Our flagship practical training institute is headquartered in <strong>Kozhikode, Kerala</strong>, prominently based at <strong>HiLite Business Park</strong>. We offer specialized professional certificate courses in Qatari government documentation, PRO operations, attestation workflows, and corporate HR administration.
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Modern training center at HiLite Business Park, Kozhikode</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Modern training center at HiLite Business Park, Kozhikode, Kerala</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Practical sessions on Qatari portals (Metrash2, MOCI, MOJ)</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Certified placement assistance for Gulf aspirants</li>
             </ul>
@@ -633,7 +638,7 @@
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> International company incorporation & structuring</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Dedicated business setup advisory in Singapore & GCC</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Dedicated business setup advisory in Singapore & GCC hubs</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Multi-jurisdiction compliance and tax consultancy</li>
             </ul>
             <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Global%20Corporate%20Branch%20Setup%20in%20Singapore%20and%20GCC." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
