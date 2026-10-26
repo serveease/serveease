@@ -39,7 +39,7 @@
     <style>
         html { scroll-behavior: smooth; }
         [x-cloak] { display: none !important; }
-        .hero-gradient {
+        .hero-bg {
             background: linear-gradient(135deg, rgba(0, 26, 65, 0.95), rgba(1, 49, 122, 0.9));
         }
         .card-hover {
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <!-- Main Navigation -->
+    <!-- Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <a href="#" @click.prevent="currentPage = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 cursor-pointer group">
@@ -99,7 +99,7 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Navigation Menu -->
+        <!-- Mobile Menu -->
         <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-4 font-semibold shadow-xl">
             <a href="#" @click.prevent="currentPage = 'home'; mobileMenu = false; window.scrollTo(0,0);" class="block py-2 text-gray-800 hover:text-brand-600">Home</a>
             <a href="#" @click.prevent="currentPage = 'about'; mobileMenu = false; window.scrollTo(0,0);" class="block py-2 text-gray-800 hover:text-brand-600">About Us</a>
@@ -114,13 +114,10 @@
         </div>
     </nav>
 
-    <!-- ================= HOME PAGE (TrustLink Inspired Layout) ================= -->
+    <!-- ================= HOME PAGE (TrustLink Inspired Model) ================= -->
     <div x-show="currentPage === 'home'">
-        <!-- Hero Section -->
-        <header class="relative text-white py-28 md:py-36 px-4 overflow-hidden hero-gradient">
-            <div class="absolute inset-0 z-0 opacity-20">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Doha Background" class="w-full h-full object-cover">
-            </div>
+        <!-- Hero Section with Lead Form (TrustLink Style) -->
+        <header class="relative text-white py-24 md:py-32 px-4 overflow-hidden hero-bg">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <span class="inline-flex items-center gap-2 bg-white/10 text-brand-100 px-4 py-2 rounded-full text-xs font-extrabold backdrop-blur-md border border-white/20 uppercase tracking-widest">
@@ -141,21 +138,36 @@
                         </button>
                     </div>
                 </div>
+                <!-- TrustLink Style Inquiry Card -->
                 <div class="lg:col-span-5">
-                    <div class="bg-white/95 backdrop-blur-xl text-gray-900 p-8 rounded-3xl shadow-2xl space-y-6 border border-brand-100">
-                        <div class="border-b border-gray-100 pb-4">
-                            <h3 class="font-extrabold text-xl text-brand-900">Book a Free Consultation</h3>
-                            <p class="text-xs text-gray-500 mt-1">Speak directly with our senior corporate advisors in Doha.</p>
+                    <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-2xl space-y-5 border border-brand-100">
+                        <div class="border-b border-gray-100 pb-3">
+                            <h3 class="font-extrabold text-xl text-brand-900">Start Your Business Today</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Quick consultation response from Doha experts.</p>
                         </div>
-                        <ul class="space-y-3.5 text-sm font-semibold text-gray-700">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 text-base"></i> 100% Foreign Ownership WLL setup</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 text-base"></i> MOCI & Free Zone Registration</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 text-base"></i> Corporate PRO & Visa Processing</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 text-base"></i> Certified Legal Translation</li>
-                        </ul>
-                        <button @click="quoteModal = true" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition">
-                            Schedule Consultation
-                        </button>
+                        <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Quick Setup Inquiry from ' + $refs.hname.value + ' (' + $refs.hphone.value + ')'), '_blank');" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
+                                <input type="text" x-ref="hname" required class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone / WhatsApp Number</label>
+                                <input type="tel" x-ref="hphone" required class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="+974 XXXX XXXX">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Service Required</label>
+                                <select class="w-full p-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold">
+                                    <option>Company Formation & Licensing</option>
+                                    <option>100% Foreign Ownership Setup</option>
+                                    <option>Corporate PRO Services</option>
+                                    <option>Certified Legal Translation</option>
+                                    <option>Document Attestation</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-base">
+                                Submit Inquiry Now
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -183,7 +195,7 @@
             </div>
         </section>
 
-        <!-- Core Business Setup Services (TrustLink Style Grid) -->
+        <!-- Core Business Setup Services (TrustLink Grid Style) -->
         <section class="py-20 md:py-28 max-w-7xl mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-100 px-4 py-1.5 rounded-full">Our Comprehensive Services</span>
@@ -374,7 +386,7 @@
 
     <!-- ================= ABOUT US PAGE ================= -->
     <div x-show="currentPage === 'about'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">About Us</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Your Trusted Corporate Partner in Doha, Qatar</h1>
@@ -407,7 +419,7 @@
 
     <!-- ================= SERVICES LIST PAGE ================= -->
     <div x-show="currentPage === 'services_list'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">Services</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Our Comprehensive Services in Doha</h1>
@@ -462,7 +474,7 @@
 
     <!-- ================= 8 SERVICE SUB-PAGES ================= -->
     <div x-show="currentPage === 'service_foreign'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">100% Foreign Ownership Company Setup</h1>
             </div>
@@ -482,7 +494,7 @@
     </div>
 
     <div x-show="currentPage === 'service_formation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Fast Company Formation in Qatar</h1>
             </div>
@@ -501,7 +513,7 @@
     </div>
 
     <div x-show="currentPage === 'service_translation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Bilingual Translation Services in Qatar</h1>
             </div>
@@ -520,7 +532,7 @@
     </div>
 
     <div x-show="currentPage === 'service_pro'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate PRO Services in Qatar</h1>
             </div>
@@ -539,7 +551,7 @@
     </div>
 
     <div x-show="currentPage === 'service_attestation'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Documents Attestation Services in Qatar</h1>
             </div>
@@ -558,7 +570,7 @@
     </div>
 
     <div x-show="currentPage === 'service_license'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Commercial License Services</h1>
             </div>
@@ -577,7 +589,7 @@
     </div>
 
     <div x-show="currentPage === 'service_brand'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Brand Development & Marketing</h1>
             </div>
@@ -596,7 +608,7 @@
     </div>
 
     <div x-show="currentPage === 'service_bank'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate Bank Account Opening</h1>
             </div>
@@ -616,7 +628,7 @@
 
     <!-- ================= PROJECTS SUB-PAGES ================= -->
     <div x-show="currentPage === 'project_academy'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Professional PRO & HR Training Academy (Kozhikode, Kerala)</h1>
             </div>
@@ -638,7 +650,7 @@
     </div>
 
     <div x-show="currentPage === 'project_global'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Global Branch Setup (Singapore & All GCC Countries)</h1>
             </div>
@@ -660,7 +672,7 @@
     </div>
 
     <div x-show="currentPage === 'project_portals'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <h1 class="text-3xl md:text-5xl font-extrabold">Automated Request & E-Service Portals</h1>
             </div>
@@ -683,7 +695,7 @@
 
     <!-- ================= PRO PACKAGES PAGE ================= -->
     <div x-show="currentPage === 'packages'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">Retainer Plans</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Corporate PRO Services Packages in Doha</h1>
@@ -720,7 +732,7 @@
 
     <!-- ================= PROJECTS LIST PAGE ================= -->
     <div x-show="currentPage === 'projects'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">Our Projects</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Global Expansions & Kerala Training Academy</h1>
@@ -747,7 +759,7 @@
 
     <!-- ================= CONTACT US PAGE ================= -->
     <div x-show="currentPage === 'contact'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
-        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-gradient">
+        <div class="relative py-28 text-white text-center mb-12 overflow-hidden hero-bg">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">Get in Touch</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold">Contact Serve Ease Business Solutions in Doha</h1>
