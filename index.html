@@ -101,12 +101,10 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION WITH BLURRED IMAGE & WITHOUT BLUE OVERLAY -->
+    <!-- 1. HERO SECTION -->
     <section id="home" class="relative text-white min-h-[90vh] flex items-center py-20 px-4 overflow-hidden">
-        <!-- Background Image Container with Blur & Light Vignette -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="bg.jpg" alt="Background" class="w-full h-full object-cover blur-sm scale-105 opacity-90" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80';">
-            <!-- Subtle dark gradient only for text readability -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
         </div>
 
@@ -133,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- Get in Touch Form Card (Glassmorphism backdrop-blur) -->
+            <!-- Get in Touch Form Card -->
             <div class="lg:col-span-5">
                 <div class="bg-white/95 backdrop-blur-xl text-gray-900 p-8 rounded-3xl shadow-2xl space-y-5 border border-white/50">
                     <div class="border-b border-gray-100 pb-3">
@@ -471,28 +469,46 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (WITH WORKING DIRECT CALL & EMAIL LINKS) -->
     <section id="contact" class="py-20 bg-gray-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
             <div class="space-y-6">
                 <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full">Contact Us</span>
                 <h2 class="text-3xl font-extrabold text-brand-900">Get In Touch With Serve Ease</h2>
                 <p class="text-xs text-gray-600 leading-relaxed">Our advisors in Doha are available to assist you with all company setup, legal translation, and PRO requirements.</p>
-                <div class="space-y-4 text-xs font-semibold text-gray-700">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-location-dot text-brand-600 text-lg"></i>
-                        <span>Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha - Qatar</span>
+                
+                <div class="space-y-5 text-sm font-semibold text-gray-800">
+                    <!-- Address -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span class="pt-2 text-xs sm:text-sm">Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha – Qatar</span>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-phone text-brand-600 text-lg"></i>
-                        <span>+974 70 4428 25</span>
+
+                    <!-- Direct Call Link -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <a href="tel:+97470442825" class="text-brand-600 hover:text-brand-700 hover:underline transition font-bold text-sm sm:text-base">
+                            +974 70 4428 25
+                        </a>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-envelope text-brand-600 text-lg"></i>
-                        <span>serveeaseqtr@gmail.com</span>
+
+                    <!-- Direct Email Link -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:serveeaseqtr@gmail.com" class="text-brand-600 hover:text-brand-700 hover:underline transition font-bold text-sm sm:text-base">
+                            serveeaseqtr@gmail.com
+                        </a>
                     </div>
                 </div>
             </div>
+
+            <!-- Message Form Card -->
             <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
                 <form @submit.prevent="alert('Thank you for contacting Serve Ease. We will respond shortly.');" class="space-y-4 text-xs">
                     <div>
@@ -507,17 +523,20 @@
                         <label class="block font-bold text-gray-700 mb-1">Message</label>
                         <textarea rows="3" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider cursor-pointer">Submit Message</button>
+                    <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider cursor-pointer shadow hover:bg-brand-700 transition">Submit Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER WITH WORKING LINKS -->
     <footer class="bg-brand-dark text-white py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
             <div>&copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
-            <div>Doha, Qatar</div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+97470442825" class="hover:text-white transition"><i class="fa-solid fa-phone text-emerald-400 mr-1"></i> +974 70 4428 25</a>
+                <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope text-emerald-400 mr-1"></i> serveeaseqtr@gmail.com</a>
+            </div>
         </div>
     </footer>
 
