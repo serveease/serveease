@@ -51,10 +51,15 @@
             z-index: 0;
         }
         .video-overlay {
-            background: linear-gradient(135deg, rgba(0, 26, 65, 0.92), rgba(1, 49, 122, 0.88));
+            background: linear-gradient(135deg, rgba(0, 26, 65, 0.90), rgba(1, 49, 122, 0.85));
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
             z-index: 1;
+        }
+        .doha-hero-bg {
+            background: linear-gradient(135deg, rgba(0, 26, 65, 0.88), rgba(1, 49, 122, 0.82)), url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
@@ -103,8 +108,8 @@
 
     <!-- ================= HOME PAGE ================= -->
     <div x-show="currentPage === 'home'">
-        <!-- Hero Section with Background Video -->
-        <header class="relative text-white py-20 md:py-32 px-4 overflow-hidden min-h-[650px] flex items-center">
+        <!-- Hero Section with Active Doha City Video Background -->
+        <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center">
             <video autoplay muted loop playsinline class="video-bg">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
             </video>
@@ -113,13 +118,13 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 w-full">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <span class="inline-flex items-center gap-2 bg-white/10 text-brand-100 px-3.5 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md border border-white/10">
-                        <i class="fa-solid fa-shield-halved text-brand-300"></i> EXPERT COMPANY FORMATION SERVICES IN QATAR
+                        <i class="fa-solid fa-city text-brand-300"></i> DOHA QATAR CORPORATE EXPERTS
                     </span>
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                         Start Your <span class="text-brand-100 underline decoration-brand-300">100% Foreign Ownership Company</span> with corporate account in Qatar in 7 Days
                     </h1>
                     <p class="text-gray-100 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        We handle licensing, visas, corporate bank accounts, and all kinds of ministry approvals from start to finish.
+                        We handle licensing, visas, corporate bank accounts, and all kinds of ministry approvals right here in Doha from start to finish.
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
                         <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2 transition shadow-lg text-base">
@@ -141,19 +146,19 @@
                             </div>
                         </div>
                         <ul class="space-y-4 text-sm font-medium">
-                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600" @click="currentPage = 'service_foreign'; window.scrollTo(0,0);">
+                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600 transition" @click="currentPage = 'service_foreign'; window.scrollTo(0,0);">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5 text-base"></i>
                                 <span>100% Foreign Ownership Company (W.L.L.)</span>
                             </li>
-                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600" @click="currentPage = 'service_pro'; window.scrollTo(0,0);">
+                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600 transition" @click="currentPage = 'service_pro'; window.scrollTo(0,0);">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5 text-base"></i>
                                 <span>Corporate PRO Services & Government Liaison</span>
                             </li>
-                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600" @click="currentPage = 'service_translation'; window.scrollTo(0,0);">
+                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600 transition" @click="currentPage = 'service_translation'; window.scrollTo(0,0);">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5 text-base"></i>
                                 <span>Certified Translation & Attestation Services</span>
                             </li>
-                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600" @click="currentPage = 'service_bank'; window.scrollTo(0,0);">
+                            <li class="flex items-start gap-3 cursor-pointer hover:text-brand-600 transition" @click="currentPage = 'service_bank'; window.scrollTo(0,0);">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5 text-base"></i>
                                 <span>Corporate Bank Account Opening</span>
                             </li>
@@ -198,14 +203,14 @@
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
                 <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Our Core Expertise</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">From Concept to Growth: Your Blueprint, Our Expertise</h2>
-                <p class="text-gray-600 text-sm md:text-base">Click any service card below to open its dedicated full page with complete details.</p>
+                <p class="text-gray-600 text-sm md:text-base">Click any service card below to open its dedicated full page with complete Doha-focused details.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- 1. Foreign Ownership -->
                 <div @click="currentPage = 'service_foreign'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Foreign Ownership" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Foreign Ownership" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900/80 to-transparent"></div>
                         <h3 class="absolute bottom-3 left-4 text-white font-bold text-base">100% Foreign Ownership Company Setup</h3>
                     </div>
@@ -213,7 +218,7 @@
                 <!-- 2. Fast Company Formation -->
                 <div @click="currentPage = 'service_formation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Company Formation" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Company Formation" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900/80 to-transparent"></div>
                         <h3 class="absolute bottom-3 left-4 text-white font-bold text-base">Fast Company Formation in Qatar</h3>
                     </div>
@@ -270,11 +275,11 @@
         </section>
 
         <!-- Our Projects Section (Clicking opens separate pages) -->
-        <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 bg-white rounded-3xl my-8 border">
+        <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 bg-white rounded-3xl my-8 border shadow-sm">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Future & Ongoing Ventures</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Our Projects & Global Expansions</h2>
-                <p class="text-gray-600 text-sm md:text-base">Click any project below to view its dedicated full page with complete details and pictures.</p>
+                <p class="text-gray-600 text-sm md:text-base">Click any project below to view its dedicated full page with complete Doha & international details.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div @click="currentPage = 'project_academy'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
@@ -295,7 +300,7 @@
                 <div @click="currentPage = 'project_global'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Global" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Global" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
                             <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Global Expansion</span>
                         </div>
@@ -325,13 +330,13 @@
         </section>
 
         <!-- Founder Section (Shafir Kottupurath Basheer) -->
-        <section class="py-16 bg-brand-900 text-white">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <section class="py-16 doha-hero-bg text-white relative">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="space-y-6">
                     <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Leadership</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold">Reach Out for Professional Assistance</h2>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        At Serve Ease, we believe that clear communication is the foundation of lasting partnerships. Led by our Founder & Managing Director, our expert team ensures complete transparency and prompt execution.
+                    <h2 class="text-3xl md:text-4xl font-extrabold">Reach Out for Professional Assistance in Doha</h2>
+                    <p class="text-gray-200 text-sm leading-relaxed">
+                        At Serve Ease, we believe that clear communication is the foundation of lasting partnerships. Led by our Founder & Managing Director, our expert team ensures complete transparency and prompt execution in Al Aziziya, Doha.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
                         <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2 transition shadow-lg">
@@ -342,51 +347,88 @@
                         </a>
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
+                <div class="flex flex-col items-center justify-center bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 text-center shadow-xl">
                     <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-brand-500 shadow-xl mb-4">
                         <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
                     </div>
-                    <h3 class="text-xl font-extrabold">Shafir Kottupurath Basheer</h3>
-                    <p class="text-brand-300 text-sm font-semibold mt-1">Founder and Managing Director</p>
+                    <h3 class="text-xl font-extrabold text-white">Shafir Kottupurath Basheer</h3>
+                    <p class="text-brand-200 text-sm font-semibold mt-1">Founder and Managing Director</p>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- ================= ABOUT US PAGE ================= -->
-    <div x-show="currentPage === 'about'" class="py-16 md:py-20 bg-gray-50" x-cloak>
-        <div class="max-w-7xl mx-auto px-4 space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">About Us</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Your Trusted Corporate Partner in Qatar</h1>
-                <p class="text-gray-600 text-sm md:text-base">Backed by over 12 years of proven expertise, we've helped more than 2,000 businesses successfully establish and grow in Qatar.</p>
+    <div x-show="currentPage === 'about'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
+        <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Your Trusted Corporate Partner in Doha, Qatar</h1>
+            <div class="h-72 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80" alt="Doha Skyline" class="w-full h-full object-cover">
             </div>
+            <p class="text-gray-700 leading-relaxed text-base">
+                Backed by over 12 years of proven excellence in corporate structuring, government documentation, and PRO solutions, Serve Ease Business Solutions has empowered more than 2,000 businesses to establish and thrive in Qatar. Headquartered in Al Aziziya, Doha, our dynamic team brings unmatched local expertise and seamless digital efficiency.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 pt-4">
+                <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 text-center">
+                    <div class="text-2xl font-extrabold text-brand-700">12+ Years</div>
+                    <div class="text-xs text-gray-600 mt-1">Industry Experience</div>
+                </div>
+                <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 text-center">
+                    <div class="text-2xl font-extrabold text-brand-700">2,000+</div>
+                    <div class="text-xs text-gray-600 mt-1">Companies Formed</div>
+                </div>
+                <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 text-center">
+                    <div class="text-2xl font-extrabold text-brand-700">100%</div>
+                    <div class="text-xs text-gray-600 mt-1">Client Satisfaction</div>
+                </div>
+            </div>
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20know%20more%20about%20your%20company." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Connect with our Doha Team
+            </a>
         </div>
     </div>
 
     <!-- ================= SERVICES LIST PAGE ================= -->
-    <div x-show="currentPage === 'services_list'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'services_list'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Services</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Our Comprehensive Services</h1>
+                <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm inline-flex items-center gap-2 mb-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full block mx-auto w-max">Services</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Our Comprehensive Services in Doha</h1>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div @click="currentPage = 'service_foreign'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
+                <div @click="currentPage = 'service_foreign'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
                     <h3 class="font-bold text-brand-900 text-lg">100% Foreign Ownership Setup</h3>
                     <p class="text-xs text-gray-600">Complete control without local sponsor for eligible activities.</p>
                 </div>
-                <div @click="currentPage = 'service_formation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
+                <div @click="currentPage = 'service_formation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
                     <h3 class="font-bold text-brand-900 text-lg">Fast Company Formation</h3>
                     <p class="text-xs text-gray-600">WLL, Single Owner, Mainland & Free Zone setup in 2 days.</p>
                 </div>
-                <div @click="currentPage = 'service_translation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
+                <div @click="currentPage = 'service_translation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
                     <h3 class="font-bold text-brand-900 text-lg">Certified Translation</h3>
                     <p class="text-xs text-gray-600">Ministry of Justice accredited legal translations.</p>
                 </div>
-                <div @click="currentPage = 'service_pro'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
+                <div @click="currentPage = 'service_pro'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
                     <h3 class="font-bold text-brand-900 text-lg">Corporate PRO Services</h3>
                     <p class="text-xs text-gray-600">Government paperwork, visas, labor and immigration.</p>
+                </div>
+                <div @click="currentPage = 'service_attestation'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
+                    <h3 class="font-bold text-brand-900 text-lg">Documents Attestation</h3>
+                    <p class="text-xs text-gray-600">Embassy & MOFA Qatar legalization services.</p>
+                </div>
+                <div @click="currentPage = 'service_license'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
+                    <h3 class="font-bold text-brand-900 text-lg">Commercial License Services</h3>
+                    <p class="text-xs text-gray-600">Municipality approvals and license renewals.</p>
+                </div>
+                <div @click="currentPage = 'service_brand'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
+                    <h3 class="font-bold text-brand-900 text-lg">Brand Development & Marketing</h3>
+                    <p class="text-xs text-gray-600">Logo creation, corporate branding & web design.</p>
+                </div>
+                <div @click="currentPage = 'service_bank'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-xl transition space-y-3">
+                    <h3 class="font-bold text-brand-900 text-lg">Corporate Bank Account Opening</h3>
+                    <p class="text-xs text-gray-600">Professional assistance for corporate bank accounts in Qatar.</p>
                 </div>
             </div>
         </div>
@@ -395,137 +437,153 @@
     <!-- ================= SEPARATE DETAILED PAGES FOR 8 SERVICES ================= -->
 
     <!-- 1. Foreign Ownership Page -->
-    <div x-show="currentPage === 'service_foreign'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_foreign'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">100% Foreign Ownership Company Setup</h1>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Foreign Ownership" class="w-full h-80 object-cover rounded-2xl">
-            <p class="text-gray-700 leading-relaxed text-sm">Enjoy complete control of your business in Qatar with 100% foreign ownership, no local sponsor required for eligible activities under MOCI guidelines.</p>
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80" alt="Foreign Ownership Doha" class="w-full h-full object-cover">
+            </div>
+            <p class="text-gray-700 leading-relaxed text-sm">Enjoy complete control of your business in Qatar with 100% foreign ownership, no local sponsor required for eligible activities under MOCI guidelines in Doha.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Fast MOCI approvals within 7 days</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Corporate bank account opening assistance</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Complete documentation & legal drafting</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Complete documentation & legal drafting in Doha</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20100%25%20Foreign%20Ownership%20Company%20Setup" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20100%25%20Foreign%20Ownership%20Company%20Setup" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- 2. Fast Company Formation Page -->
-    <div x-show="currentPage === 'service_formation'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_formation'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Fast Company Formation in Qatar</h1>
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="Company Formation" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Company Formation Doha" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">Start your venture in Qatar with ease, expert support for smooth and compliant company formation (WLL, Single Owner, Mainland & Free Zone).</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Trade name reservation & CR issuance in 2 days</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Commercial license and office space assistance</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Commercial license and office space assistance in Doha</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Fast%20Company%20Formation" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Fast%20Company%20Formation" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- 3. Certified Translation Page -->
-    <div x-show="currentPage === 'service_translation'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_translation'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Bi lingual Translation Services in Qatar</h1>
-            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=80" alt="Translation" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=80" alt="Translation Services" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">Accurate, fast, and culturally precise certified legal translation services tailored for Qatar's business, legal, and court requirements.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Ministry of Justice accredited sworn translators</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Arabic, English, French, Spanish & more</li>
             </ul>
-            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Translation%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Translation%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70120012)
             </a>
         </div>
     </div>
 
     <!-- 4. PRO Services Page -->
-    <div x-show="currentPage === 'service_pro'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_pro'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Corporate PRO Services in Qatar</h1>
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="PRO Services" class="w-full h-80 object-cover rounded-2xl">
-            <p class="text-gray-700 leading-relaxed text-sm">Reliable PRO services in Qatar, from government paperwork, visa processing, labor department, to ministry approvals, we handle it all.</p>
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="PRO Services Doha" class="w-full h-full object-cover">
+            </div>
+            <p class="text-gray-700 leading-relaxed text-sm">Reliable PRO services in Qatar, from government paperwork, visa processing, labor department, to ministry approvals in Doha, we handle it all.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Visa processing, renewals & cancellations</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Metrash & MOI portal transactions</li>
             </ul>
-            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20PRO%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20PRO%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70120012)
             </a>
         </div>
     </div>
 
     <!-- 5. Attestation Page -->
-    <div x-show="currentPage === 'service_attestation'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_attestation'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Documents Attestation Services in Qatar</h1>
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" alt="Attestation" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" alt="Attestation" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">Fast and secure attestation services in Qatar, ensuring your educational, personal, and commercial documents are valid everywhere.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Embassy & MOFA Qatar legalization</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Doorstep document pickup & delivery</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Doorstep document pickup & delivery in Doha</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Certificate%20Attestation" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Certificate%20Attestation" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- 6. Commercial License Page -->
-    <div x-show="currentPage === 'service_license'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_license'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Commercial License Services</h1>
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80" alt="Commercial License" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80" alt="Commercial License" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">We provide end-to-end Commercial License Services to support the establishment, operation, renewal, and compliance of businesses in Qatar.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Municipality & civil defense approvals</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> License amendments & activity additions</li>
             </ul>
-            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Commercial%20License" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470120012?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Commercial%20License" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70120012)
             </a>
         </div>
     </div>
 
     <!-- 7. Brand Development Page -->
-    <div x-show="currentPage === 'service_brand'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_brand'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Brand Development & Marketing</h1>
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Brand Development" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Brand Development" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">Brand Development is the strategic process of creating, defining, and strengthening a business's identity to establish a lasting impression in the market.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Logo creation & corporate branding</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Stunning websites & digital marketing</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Brand%20Development" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Brand%20Development" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- 8. Corporate Bank Account Opening Page -->
-    <div x-show="currentPage === 'service_bank'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'service_bank'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Corporate Bank Account Opening</h1>
-            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80" alt="Bank Account" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80" alt="Bank Account Opening" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">Complete professional assistance for opening corporate bank accounts with leading financial institutions and banks in Qatar.</p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Application drafting & document submission</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Activation & deposit coordination</li>
             </ul>
-            <a href="https://wa.me/97470123399?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Corporate%20Bank%20Account%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470123399?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Corporate%20Bank%20Account%20Services" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70123399)
             </a>
         </div>
@@ -534,11 +592,13 @@
     <!-- ================= SEPARATE DETAILED PAGES FOR PROJECTS ================= -->
 
     <!-- Training Academy Page (Kozhikode / HiLite Business Park) -->
-    <div x-show="currentPage === 'project_academy'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'project_academy'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Professional PRO & HR Training Academy (Kozhikode Base)</h1>
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Training Academy" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Training Academy Kozhikode" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">
                 Our flagship practical training institute is headquartered in <strong>Kozhikode, Kerala</strong>, prominently based at <strong>HiLite Business Park</strong>. We offer specialized professional certificate courses in Qatari government documentation, PRO operations, attestation workflows, and corporate HR administration.
             </p>
@@ -547,18 +607,20 @@
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Practical sessions on Qatari portals (Metrash2, MOCI, MOJ)</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Certified placement assistance for Gulf aspirants</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20enroll%20in%20the%20Training%20Academy%20at%20HiLite%20Business%20Park%20Kozhikode." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20enroll%20in%20the%20Training%20Academy%20at%20HiLite%20Business%20Park%20Kozhikode." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- Global Expansion Page (Singapore & GCC) -->
-    <div x-show="currentPage === 'project_global'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'project_global'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Global Corporate Branch Setup (Singapore & GCC)</h1>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Global Expansion" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=80" alt="Global Expansion Singapore GCC" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">
                 Serve Ease is expanding its corporate business consultancy and PRO service footprint across international business corridors. Alongside our strong presence in Qatar, we are actively setting up advisory channels and operational hubs in <strong>Singapore</strong> and key <strong>GCC countries</strong> to support cross-border entrepreneurs.
             </p>
@@ -567,18 +629,20 @@
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Dedicated business setup advisory in Singapore & GCC</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Multi-jurisdiction compliance and tax consultancy</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Global%20Corporate%20Branch%20Setup%20in%20Singapore%20and%20GCC." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Global%20Corporate%20Branch%20Setup%20in%20Singapore%20and%20GCC." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- Digital Portals Page -->
-    <div x-show="currentPage === 'project_portals'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'project_portals'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
-            <button @click="currentPage = 'home'" class="text-brand-600 font-semibold text-sm flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <h1 class="text-3xl font-extrabold text-brand-900">Automated Request & E-Service Portals</h1>
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Portals" class="w-full h-80 object-cover rounded-2xl">
+            <div class="h-80 rounded-2xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Digital Portals" class="w-full h-full object-cover">
+            </div>
             <p class="text-gray-700 leading-relaxed text-sm">
                 We build custom, high-performance web request portals and internal automation dashboards using cutting-edge technologies like Next.js, Supabase, and Tailwind CSS to streamline client workflows and document tracking.
             </p>
@@ -587,44 +651,46 @@
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Secure client portals with role-based access</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Automated WhatsApp and email notification systems</li>
             </ul>
-            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Automated%20Request%20and%20E-Service%20Portals." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition">
+            <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Automated%20Request%20and%20E-Service%20Portals." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
             </a>
         </div>
     </div>
 
     <!-- ================= PRO PACKAGES PAGE ================= -->
-    <div x-show="currentPage === 'packages'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'packages'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Retainer Plans</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Corporate PRO Services Packages</h1>
+                <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm inline-flex items-center gap-2 mb-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full block mx-auto w-max">Retainer Plans</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Corporate PRO Services Packages in Doha</h1>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border space-y-6">
                     <h3 class="text-2xl font-extrabold text-brand-900">Basic Package</h3>
-                    <p class="text-gray-600 text-sm">Essential PRO support for startups and small businesses (up to 10 employees).</p>
-                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 text-center rounded-xl">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">Essential PRO support for startups and small businesses (up to 10 employees) in Qatar.</p>
+                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 text-center rounded-xl shadow-md">Inquire via WhatsApp</a>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-emerald-600 space-y-6">
                     <h3 class="text-2xl font-extrabold text-brand-900">Standard Package</h3>
-                    <p class="text-gray-600 text-sm">Enhanced support for growing teams (up to 40 employees) with WPS processing.</p>
-                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 text-center rounded-xl">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">Enhanced support for growing teams (up to 40 employees) with WPS processing in Doha.</p>
+                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 text-center rounded-xl shadow-md">Inquire via WhatsApp</a>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-sm border space-y-6">
                     <h3 class="text-2xl font-extrabold text-brand-900">Premium Package</h3>
-                    <p class="text-gray-600 text-sm">End-to-end strategic support for large enterprises with dedicated PRO team.</p>
-                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 text-center rounded-xl">Inquire via WhatsApp</a>
+                    <p class="text-gray-600 text-sm">End-to-end strategic support for large enterprises with dedicated PRO team in Qatar.</p>
+                    <a href="https://wa.me/97470120012" target="_blank" class="block w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 text-center rounded-xl shadow-md">Inquire via WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ================= PROJECTS LIST PAGE ================= -->
-    <div x-show="currentPage === 'projects'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'projects'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Our Projects</span>
+                <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm inline-flex items-center gap-2 mb-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full block mx-auto w-max">Our Projects</span>
                 <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Global Expansions & Training Academy</h1>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -645,16 +711,18 @@
     </div>
 
     <!-- ================= CONTACT US PAGE ================= -->
-    <div x-show="currentPage === 'contact'" class="py-16 md:py-20 bg-gray-50" x-cloak>
+    <div x-show="currentPage === 'contact'" class="py-16 md:py-20 bg-gray-50 min-h-[80vh]" x-cloak>
         <div class="max-w-7xl mx-auto px-4 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Get in Touch</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Contact Serve Ease Business Solutions</h1>
+                <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm inline-flex items-center gap-2 mb-2 hover:underline"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full block mx-auto w-max">Get in Touch</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-brand-900">Contact Serve Ease Business Solutions in Doha</h1>
             </div>
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border max-w-2xl mx-auto space-y-4">
-                <p class="text-gray-700"><i class="fa-solid fa-location-dot text-brand-600 mr-2"></i> Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha, Qatar</p>
-                <p class="text-gray-700"><i class="fa-solid fa-phone text-brand-600 mr-2"></i> +974 70442825</p>
-                <p class="text-gray-700"><i class="fa-solid fa-envelope text-brand-600 mr-2"></i> info@serveeaseqtr.com</p>
+                <p class="text-gray-700 text-base"><i class="fa-solid fa-location-dot text-brand-600 mr-3 text-lg"></i> Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha, Qatar</p>
+                <p class="text-gray-700 text-base"><i class="fa-solid fa-phone text-brand-600 mr-3 text-lg"></i> +974 70442825</p>
+                <p class="text-gray-700 text-base"><i class="fa-solid fa-envelope text-brand-600 mr-3 text-lg"></i> info@serveeaseqtr.com</p>
+                <p class="text-gray-700 text-base"><i class="fa-solid fa-clock text-brand-600 mr-3 text-lg"></i> Sat - Thu: 08:00 AM - 05:00 PM (Friday Holiday)</p>
             </div>
         </div>
     </div>
