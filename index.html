@@ -114,11 +114,12 @@
 
     <!-- ================= HOME PAGE ================= -->
     <div x-show="currentPage === 'home'">
-        <!-- Hero Section with Background Video Integration -->
+        <!-- Hero Section with Background Video -->
         <header class="relative text-white py-24 md:py-36 px-4 overflow-hidden min-h-[700px] flex items-center">
+            <!-- Background Video: Ungaloda local video file add seiya 'background.mp4' endru marrukalum -->
             <video autoplay muted loop playsinline class="video-bg">
+                <source src="background.mp4" type="video/mp4">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-windows-41586-large.mp4" type="video/mp4">
-                Your browser does not support the video tag.
             </video>
             <div class="video-overlay"></div>
 
@@ -281,47 +282,47 @@
             </div>
         </section>
 
-        <!-- Our Projects Section -->
+        <!-- Our Projects Section (Kerala Culture, Singapore & GCC) -->
         <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 bg-white rounded-3xl my-8 border shadow-sm">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full">Future & Ongoing Ventures</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Our Projects & Global Expansions</h2>
-                <p class="text-gray-600 text-sm md:text-base">Click any project below to view its dedicated full page with complete Doha & international details.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Our Projects, Kerala Training & Global Expansions</h2>
+                <p class="text-gray-600 text-sm md:text-base">Explore our specialized training academy in Kozhikode (Kerala) and our global corporate branches across Singapore & all GCC countries.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Training Academy (Kozhikode, Kerala) -->
+                <!-- 1. Training Academy (Kozhikode, Kerala) -->
                 <div @click="currentPage = 'project_academy'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Academy Kozhikode" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Kerala Kozhikode Academy" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
-                            <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Training Academy</span>
+                            <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Kerala Culture & Training</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-bold text-xl text-brand-900">Professional PRO & HR Training Academy</h3>
-                            <p class="text-xs text-gray-600">Headquartered in Kozhikode, Kerala at HiLite Business Park.</p>
+                            <p class="text-xs text-gray-600">Headquartered in Kozhikode, Kerala at HiLite Business Park, blending traditional Kerala values with modern corporate skills.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
-                <!-- Global Expansion (Singapore & GCC) -->
+                <!-- 2. Global Expansion (Singapore & All GCC Countries) -->
                 <div @click="currentPage = 'project_global'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
-                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Singapore GCC Global" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80" alt="Singapore and GCC" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
-                            <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Global Expansion</span>
+                            <span class="absolute bottom-3 left-4 text-white font-bold text-sm">Singapore & All GCC</span>
                         </div>
                         <div class="p-6 space-y-2">
-                            <h3 class="font-bold text-xl text-brand-900">Global Corporate Branch Setup (Singapore & GCC)</h3>
-                            <p class="text-xs text-gray-600">Expanding across Singapore and major GCC hubs.</p>
+                            <h3 class="font-bold text-xl text-brand-900">Global Branch Setup (Singapore & All GCC Countries)</h3>
+                            <p class="text-xs text-gray-600">Expanding corporate advisory across Singapore, UAE, Saudi Arabia, Oman, Kuwait, Bahrain, and Qatar.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0"><span class="text-brand-600 font-bold text-sm flex items-center gap-2">View Full Page <i class="fa-solid fa-arrow-right"></i></span></div>
                 </div>
 
-                <!-- Digital Portals -->
+                <!-- 3. Digital Portals -->
                 <div @click="currentPage = 'project_portals'; window.scrollTo(0,0);" class="bg-gray-50 rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition cursor-pointer flex flex-col justify-between">
                     <div>
                         <div class="h-48 relative">
@@ -602,22 +603,22 @@
         </div>
     </div>
 
-    <!-- ================= PROJECTS SUB-PAGES (Academy & Global Expansion) ================= -->
+    <!-- ================= PROJECTS SUB-PAGES (Kerala Academy & Global Expansion) ================= -->
     <div x-show="currentPage === 'project_academy'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
         <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80');">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
-                <h1 class="text-3xl md:text-5xl font-extrabold">Professional PRO & HR Training Academy</h1>
+                <h1 class="text-3xl md:text-5xl font-extrabold">Professional PRO & HR Training Academy (Kozhikode, Kerala)</h1>
             </div>
         </div>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
             <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline cursor-pointer"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <p class="text-gray-700 leading-relaxed text-sm">
-                Our flagship practical training institute is headquartered in <strong>Kozhikode, Kerala</strong>, prominently based at <strong>HiLite Business Park</strong>. We offer specialized professional certificate courses in Qatari government documentation, PRO operations, attestation workflows, and corporate HR administration.
+                Our flagship practical training institute is headquartered in <strong>Kozhikode, Kerala</strong>, prominently based at <strong>HiLite Business Park</strong>. Embracing rich Kerala culture, professional values, and academic excellence, we offer specialized professional certificate courses in Qatari government documentation, PRO operations, attestation workflows, and corporate HR administration.
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Modern training center at HiLite Business Park, Kozhikode, Kerala</li>
                 <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Practical sessions on Qatari portals (Metrash2, MOCI, MOJ)</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Certified placement assistance for Gulf aspirants</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Certified placement assistance for Gulf aspirants from Kerala</li>
             </ul>
             <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20enroll%20in%20the%20Training%20Academy%20at%20HiLite%20Business%20Park%20Kozhikode." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
@@ -628,18 +629,18 @@
     <div x-show="currentPage === 'project_global'" class="min-h-[85vh] bg-gray-50 pb-20" x-cloak>
         <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1600&q=80');">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
-                <h1 class="text-3xl md:text-5xl font-extrabold">Global Corporate Branch Setup (Singapore & GCC)</h1>
+                <h1 class="text-3xl md:text-5xl font-extrabold">Global Branch Setup (Singapore & All GCC Countries)</h1>
             </div>
         </div>
         <div class="max-w-4xl mx-auto px-4 space-y-8 bg-white p-8 md:p-12 rounded-3xl shadow-sm border">
             <button @click="currentPage = 'home'; window.scrollTo(0,0);" class="text-brand-600 font-semibold text-sm flex items-center gap-2 hover:underline cursor-pointer"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
             <p class="text-gray-700 leading-relaxed text-sm">
-                Serve Ease is expanding its corporate business consultancy and PRO service footprint across international business corridors. Alongside our strong presence in Qatar, we are actively setting up advisory channels and operational hubs in <strong>Singapore</strong> and key <strong>GCC countries</strong> to support cross-border entrepreneurs.
+                Serve Ease is expanding its corporate business consultancy and PRO service footprint across international business corridors. Alongside our strong presence in Qatar, we are actively setting up advisory channels and operational hubs in <strong>Singapore</strong> and <strong>all GCC countries</strong> (United Arab Emirates, Saudi Arabia, Oman, Kuwait, Bahrain, and Qatar) to support cross-border entrepreneurs and enterprises.
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> International company incorporation & structuring</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Dedicated business setup advisory in Singapore & GCC hubs</li>
-                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Multi-jurisdiction compliance and tax consultancy</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> International company incorporation & cross-border structuring</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Dedicated business setup advisory in Singapore & all GCC hubs (UAE, KSA, Oman, Kuwait, Bahrain)</li>
+                <li><i class="fa-solid fa-check text-brand-600 mr-2"></i> Multi-jurisdiction compliance, regulatory clearance, and tax consultancy</li>
             </ul>
             <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20want%20to%20know%20more%20about%20Global%20Corporate%20Branch%20Setup%20in%20Singapore%20and%20GCC." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-md">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Inquire via WhatsApp (+974 70442825)
@@ -704,7 +705,7 @@
         <div class="page-banner py-20 text-white text-center mb-12" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80');">
             <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
                 <span class="text-brand-300 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Our Projects</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold">Global Expansions & Training Academy</h1>
+                <h1 class="text-3xl md:text-5xl font-extrabold">Global Expansions & Kerala Training Academy</h1>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 space-y-8">
@@ -715,8 +716,8 @@
                     <p class="text-xs text-gray-600">Headquartered in Kozhikode, Kerala at HiLite Business Park.</p>
                 </div>
                 <div @click="currentPage = 'project_global'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
-                    <h3 class="font-bold text-brand-900 text-lg">Global Corporate Branch Setup</h3>
-                    <p class="text-xs text-gray-600">Expanding across Singapore and major GCC hubs.</p>
+                    <h3 class="font-bold text-brand-900 text-lg">Global Branch Setup (Singapore & GCC)</h3>
+                    <p class="text-xs text-gray-600">Expanding across Singapore and all GCC countries.</p>
                 </div>
                 <div @click="currentPage = 'project_portals'; window.scrollTo(0,0);" class="bg-white rounded-2xl shadow-sm border p-6 cursor-pointer hover:shadow-lg transition space-y-3">
                     <h3 class="font-bold text-brand-900 text-lg">Automated Request & E-Service Portals</h3>
@@ -807,7 +808,7 @@
                     <input type="text" x-ref="qname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="Enter your name">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number / WhatsApp</label>
+                    <label class="box-block block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number / WhatsApp</label>
                     <input type="tel" x-ref="qphone" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm" placeholder="+974 XXXX XXXX">
                 </div>
                 <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl transition shadow-md cursor-pointer">
