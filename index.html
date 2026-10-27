@@ -528,8 +528,8 @@
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <!-- Card 1 -->
-                        <div @click="selectedService = { title: 'Tourist & Hayya Visas', desc: 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', time: '24-48 Hours', docs: ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], price: 'From QAR 350', ministry: 'Ministry of Interior (MOI)', aiImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 1: Tourist & Hayya Visas (Custom Qatar Airways / Tourism Theme) -->
+                        <div @click="selectedService = { title: 'Tourist & Hayya Visas', desc: 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', time: '24-48 Hours', docs: ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], price: 'From QAR 350', ministry: 'Qatar Tourism & Hayya Portal', aiImage: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-passport"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
@@ -538,8 +538,8 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 2 -->
-                        <div @click="selectedService = { title: 'Family Visit & RP Visas', desc: 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', time: '3-5 Working Days', docs: ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], price: 'From QAR 500', ministry: 'General Directorate of Passports (MOI)', aiImage: 'https://images.unsplash.com/photo-1578895101408-1a364856540c?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 2: Family Visit & RP Visas -->
+                        <div @click="selectedService = { title: 'Family Visit & RP Visas', desc: 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', time: '3-5 Working Days', docs: ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], price: 'From QAR 500', ministry: 'General Directorate of Passports (MOI)', aiImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-people-roof"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
@@ -548,7 +548,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 3 -->
+                        <!-- Card 3: MOCI CR Formation -->
                         <div @click="selectedService = { title: 'MOCI CR Formation', desc: 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', time: '1-3 Working Days', docs: ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], price: 'From QAR 1,500', ministry: 'Ministry of Commerce & Industry (MOCI)', aiImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-building"></i></div>
@@ -558,7 +558,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 4 -->
+                        <!-- Card 4: Computer Card Clearance -->
                         <div @click="selectedService = { title: 'Computer Card Clearance', desc: 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', time: '24 Hours', docs: ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], price: 'From QAR 400', ministry: 'Ministry of Interior (MOI)', aiImage: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-id-card"></i></div>
@@ -568,7 +568,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 5 -->
+                        <!-- Card 5: Baladiya Municipal License -->
                         <div @click="selectedService = { title: 'Baladiya Municipal License', desc: 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', time: '3-7 Working Days', docs: ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], price: 'From QAR 800', ministry: 'Ministry of Municipality (Baladiya)', aiImage: 'https://images.unsplash.com/photo-1570789210967-2cac24afeb00?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-store"></i></div>
@@ -578,7 +578,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 6 -->
+                        <!-- Card 6: Civil Defence (QCDD) Clearance -->
                         <div @click="selectedService = { title: 'Civil Defence (QCDD) Clearance', desc: 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', time: '3-5 Working Days', docs: ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], price: 'From QAR 1,000', ministry: 'Qatar Civil Defence Department (QCDD)', aiImage: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-fire-extinguisher"></i></div>
@@ -588,7 +588,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 7 -->
+                        <!-- Card 7: Dhareeba Tax Registration -->
                         <div @click="selectedService = { title: 'Dhareeba Tax Registration', desc: 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', time: '1-2 Working Days', docs: ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], price: 'From QAR 400', ministry: 'General Tax Authority (GTA)', aiImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-file-invoice-dollar"></i></div>
@@ -598,7 +598,7 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 8 -->
+                        <!-- Card 8: Legal Translation & Attestation -->
                         <div @click="selectedService = { title: 'Legal Translation & Attestation', desc: 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', time: '24-48 Hours', docs: ['Original Documents / Certificates', 'Passport Copies'], price: 'From QAR 150 per page', ministry: 'Ministry of Foreign Affairs (MOFA) & Justice', aiImage: 'https://images.unsplash.com/photo-1455390582262-044c3a24d546?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-language"></i></div>
@@ -1055,9 +1055,9 @@
             </div>
         </div>
 
-        <!-- Hero Banner Header with Animated Doha View Background -->
+        <!-- Hero Banner Header with Custom Context Background -->
         <div class="relative h-72 sm:h-96 w-full overflow-hidden bg-brand-900 shrink-0">
-            <img :src="selectedService.aiImage" alt="Doha Qatar Skyline" class="absolute inset-0 w-full h-full object-cover opacity-80 animate-slow-zoom">
+            <img :src="selectedService.aiImage" alt="Banner View" class="absolute inset-0 w-full h-full object-cover opacity-80 animate-slow-zoom">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             
             <div class="absolute bottom-10 max-w-5xl mx-auto left-4 right-4 sm:left-12 space-y-3 text-white z-10">
