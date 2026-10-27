@@ -269,7 +269,6 @@
             <!-- ABOUT US SECTION -->
             <section id="about" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
-                    
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-6 relative">
                             <div class="absolute -top-4 -left-3 z-20 bg-brand-600 text-white text-[11px] font-extrabold px-4 py-1.5 rounded-full shadow-lg">
@@ -300,11 +299,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION (WITH INSIDE SERVICE VIEW MODALS) -->
+            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION -->
             <section id="visas" class="py-20 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
@@ -766,7 +764,7 @@
                     <!-- Risky Case / Complex Inquiry Escalation to Live PRO -->
                     <div class="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-200 space-y-2">
                         <div class="text-[11px] font-bold text-amber-900"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Facing complex legal, tax or dispute issues?</div>
-                        <a href="https://wa.me/97470442825?text=URGENT%3A%20I%20have%20a%20complex%20or%20risky%20business%20case%20in%20Qatar%20requiring%20a%20Live%20PRO%20Expert." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
+                        <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('URGENT: I have a complex or risky business case in Qatar requiring a Live PRO Expert. Name: ' + calcData.fullName)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg text-xs flex items-center justify-center gap-1.5 shadow transition">
                             <i class="fa-brands fa-whatsapp text-sm"></i> Connect with Live PRO Expert
                         </a>
                     </div>
@@ -851,7 +849,7 @@
                 <button @click="serviceModal = false; quoteTitle = 'Quote for ' + selectedService.title; quoteModal = true;" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow transition uppercase tracking-wider">
                     Request Quote for this Service
                 </button>
-                <a href="https://wa.me/97470442825?text=Hello,%20I%20have%20a%20risky%20or%20complex%20case%20regarding%20[' + encodeURIComponent(selectedService.title) + '].%20Please%20connect%20me%20with%20a%20Live%20PRO%20Expert." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs cursor-pointer shadow transition flex items-center justify-center gap-1.5 uppercase tracking-wider">
+                <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Hello, I have a risky or complex case regarding ' + selectedService.title + '. Please connect me with a Live PRO Expert.')" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs cursor-pointer shadow transition flex items-center justify-center gap-1.5 uppercase tracking-wider">
                     <i class="fa-brands fa-whatsapp text-sm"></i> Live PRO Expert
                 </a>
             </div>
