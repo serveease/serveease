@@ -56,9 +56,11 @@
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
     mobileMenu: false, 
     quoteModal: false, 
+    serviceModal: false,
     calcDrawerOpen: false,
     calcStep: 1,
     searchActivity: '',
+    selectedService: { title: '', desc: '', time: '', docs: [], price: '', ministry: '' },
     countryCodes: [
         { code: '+974', flag: '🇶🇦', name: 'QA' },
         { code: '+971', flag: '🇦🇪', name: 'AE' },
@@ -86,7 +88,7 @@
         { code: '+961', flag: '🇱🇧', name: 'LB' },
         { code: '+92',  flag: '🇵🇰', name: 'PK' },
         { code: '+880', flag: '🇧🇩', name: 'BD' },
-        { code: '+94',  flag: '🇱🇱', name: 'LK' },
+        { code: '+94',  flag: '🇱🇰', name: 'LK' },
         { code: '+977', flag: '🇳🇵', name: 'NP' },
         { code: '+234', flag: '🇳🇬', name: 'NG' },
         { code: '+27',  flag: '🇿🇦', name: 'ZA' },
@@ -148,7 +150,6 @@
                 </div>
             </a>
             
-            <!-- Desktop Links -->
             <div class="hidden lg:flex items-center gap-4 xl:gap-6 font-semibold text-xs xl:text-sm text-gray-700">
                 <a href="#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
                 <a href="#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
@@ -209,7 +210,7 @@
                             SET UP YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-emerald-400 underline decoration-blue-400 decoration-2">BUSINESS</span> IN QATAR
                         </h1>
                         <p class="text-slate-100 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed text-glow">
-                            Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances (Hayya, Family Visit, Tourist, On Arrival), and certified legal translations.
+                            Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances, and certified legal translations.
                         </p>
                         <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
                             <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-base hover:scale-105">
@@ -434,134 +435,134 @@
                 </div>
             </section>
 
-            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION -->
+            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION (WITH INSIDE SERVICE VIEW MODALS) -->
             <section id="visas" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
                         <span class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">Full Ministry Compliance</span>
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
-                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Fast, transparent government clearances across Ministry of Commerce, MOI, Ministry of Labour & Baladiya.</p>
+                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Click any service to view full inside details, requirements & timeline, or request a quote.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <!-- Card 1 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Tourist & Hayya Visas', desc: 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', time: '24-48 Hours', docs: ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], price: 'From QAR 350', ministry: 'Ministry of Interior (MOI)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-passport"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Tourist & Hayya Visas</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-passport"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
                                 <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
                             </div>
-                            <button @click="quoteTitle = 'Tourist & Hayya Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Family Visit & RP Visas', desc: 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', time: '3-5 Working Days', docs: ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], price: 'From QAR 500', ministry: 'General Directorate of Passports (MOI)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-people-roof"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Family Visit & RP Visas</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-people-roof"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
                                 <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
                             </div>
-                            <button @click="quoteTitle = 'Family Visit & RP Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 3 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'MOCI CR Formation', desc: 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', time: '1-3 Working Days', docs: ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], price: 'From QAR 1,500', ministry: 'Ministry of Commerce & Industry (MOCI)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-building"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">MOCI CR Formation</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-building"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
                                 <p class="text-xs text-gray-600">Commercial Registration (CR) creation, amendments, and activity additions.</p>
                             </div>
-                            <button @click="quoteTitle = 'MOCI Commercial Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Computer Card Clearance', desc: 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', time: '24 Hours', docs: ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], price: 'From QAR 400', ministry: 'Ministry of Interior (MOI)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-id-card"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Computer Card Clearance</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-id-card"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
                                 <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
                             </div>
-                            <button @click="quoteTitle = 'Computer Card Clearance Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 5 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Baladiya Municipal License', desc: 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', time: '3-7 Working Days', docs: ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], price: 'From QAR 800', ministry: 'Ministry of Municipality (Baladiya)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-store"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Baladiya Municipal License</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-store"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Baladiya Municipal License</h3>
                                 <p class="text-xs text-gray-600">Office location inspection approvals & Municipal Trade License issuance.</p>
                             </div>
-                            <button @click="quoteTitle = 'Municipal Trade License Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 6 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Civil Defence (QCDD) Clearance', desc: 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', time: '3-5 Working Days', docs: ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], price: 'From QAR 1,000', ministry: 'Qatar Civil Defence Department (QCDD)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-fire-extinguisher"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Civil Defence (QCDD) Clearance</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Clearance</h3>
                                 <p class="text-xs text-gray-600">Safety compliance certification for retail shops, offices, and warehouses.</p>
                             </div>
-                            <button @click="quoteTitle = 'QCDD Civil Defence Clearance Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 7 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Dhareeba Tax Registration', desc: 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', time: '1-2 Working Days', docs: ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], price: 'From QAR 400', ministry: 'General Tax Authority (GTA)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Dhareeba Tax Registration</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Dhareeba Tax Registration</h3>
                                 <p class="text-xs text-gray-600">Tax Card issuance, GTA portal registration, and filing compliance.</p>
                             </div>
-                            <button @click="quoteTitle = 'Dhareeba Tax Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 8 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Legal Translation & Attestation', desc: 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', time: '24-48 Hours', docs: ['Original Documents / Certificates', 'Passport Copies'], price: 'From QAR 150 per page', ministry: 'Ministry of Foreign Affairs (MOFA) & Justice' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-language"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Legal Translation & Attestation</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-language"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
                                 <p class="text-xs text-gray-600">MOFA, Embassy & Ministry of Justice certified document translation.</p>
                             </div>
-                            <button @click="quoteTitle = 'Legal Translation & Attestation Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 9 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'MOL Work Quota Approval', desc: 'Ministry of Labour staff visa quota applications, profession change requests, and work permit processing.', time: '3-7 Working Days', docs: ['Commercial Registration (CR)', 'Computer Card', 'Employment Contracts', 'Office Tenancy Contract'], price: 'From QAR 600', ministry: 'Ministry of Labour (MOL)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-users-gear"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">MOL Work Quota Approval</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-users-gear"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOL Work Quota Approval</h3>
                                 <p class="text-xs text-gray-600">Ministry of Labour staff visa quota applications and work permit processing.</p>
                             </div>
-                            <button @click="quoteTitle = 'Ministry of Labour Quota Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 10 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Qatar Chamber Membership', desc: 'Chamber of Commerce registration renewal, certificate of origin attestation, and membership card issuance.', time: '24 Hours', docs: ['Commercial Registration (CR)', 'Computer Card', 'Authorized Signatory ID'], price: 'From QAR 500 / year', ministry: 'Qatar Chamber of Commerce & Industry' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-award"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Qatar Chamber Membership</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-award"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Qatar Chamber Membership</h3>
                                 <p class="text-xs text-gray-600">Chamber of Commerce registration, export certificates & COO clearance.</p>
                             </div>
-                            <button @click="quoteTitle = 'Qatar Chamber Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 11 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: '100% Foreign Ownership', desc: 'Law No. 1 approval guidance for 100% foreign investor corporate setups across eligible economic sectors in Qatar.', time: '5-10 Working Days', docs: ['Detailed Business Plan', 'Parent Company Profile / Audited Financials', 'Shareholder Passports'], price: 'From QAR 2,500', ministry: 'Ministry of Commerce & Industry (MOCI)' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-handshake"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">100% Foreign Ownership</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-handshake"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">100% Foreign Ownership</h3>
                                 <p class="text-xs text-gray-600">Law No. 1 approval guidance for 100% foreign investor corporate setups.</p>
                             </div>
-                            <button @click="quoteTitle = '100% Foreign Ownership Setup Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
                         <!-- Card 12 -->
-                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                        <div @click="selectedService = { title: 'Corporate PRO Retainer', desc: 'Dedicated monthly PRO officer handling all staff QID renewals, medical commissions, visa stampings, and license updates.', time: 'Ongoing Monthly', docs: ['Company Computer Card', 'Employee Passport Copies', 'Delegation Letter'], price: 'Custom Monthly Plan', ministry: 'All Government Ministries in Qatar' }; serviceModal = true;" class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-briefcase"></i></div>
-                                <h3 class="font-bold text-base text-brand-900">Corporate PRO Retainer</h3>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-briefcase"></i></div>
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Corporate PRO Retainer</h3>
                                 <p class="text-xs text-gray-600">Dedicated monthly PRO officer handling all staff QID renewals & licenses.</p>
                             </div>
-                            <button @click="quoteTitle = 'Corporate PRO Retainer Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
                     </div>
                 </div>
@@ -636,7 +637,7 @@
                x-transition:leave-end="translate-x-full"
                class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-50 border-l border-gray-200 flex flex-col justify-between">
             
-            <div class="p-5 border-b border-gray-100 flex justify-between items-start bg-gray-50/80">
+            <div class="p-5 border-b border-gray-100 flex justify-between items-start bg-gray-50/85">
                 <div>
                     <h3 class="text-base font-extrabold text-brand-900 leading-tight">Business Setup Cost Calculator</h3>
                     <p class="text-[11px] text-gray-500 mt-0.5">Get an instant estimate for your setup costs in Qatar</p>
@@ -769,7 +770,7 @@
                 </div>
             </div>
 
-            <div class="p-5 border-t border-gray-100 bg-gray-50/80 space-y-3">
+            <div class="p-5 border-t border-gray-100 bg-gray-50/85 space-y-3">
                 <div class="flex items-center justify-between gap-2">
                     <button x-show="calcStep > 1" @click="calcStep--" class="px-3 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1">
                         <i class="fa-solid fa-arrow-left text-[10px]"></i> Prev
@@ -808,7 +809,50 @@
         </a>
     </div>
 
-    <!-- DETAILED QUOTE MODAL WITH GLOBAL COUNTRY CODES -->
+    <!-- SERVICE DETAIL MODAL (INSIDE SERVICE VIEW) -->
+    <div x-show="serviceModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-7 relative text-gray-900 border border-blue-100 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
+            <button @click="serviceModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg p-2 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-1">
+                <span class="bg-blue-50 text-brand-600 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase" x-text="selectedService.ministry"></span>
+                <h3 class="text-2xl font-black text-brand-900 pt-1" x-text="selectedService.title"></h3>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed" x-text="selectedService.desc"></p>
+            
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100">
+                    <div class="text-[10px] font-bold text-gray-400 uppercase">Processing Time</div>
+                    <div class="text-sm font-extrabold text-brand-900 mt-0.5" x-text="selectedService.time"></div>
+                </div>
+                <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100">
+                    <div class="text-[10px] font-bold text-gray-400 uppercase">Estimated Starting</div>
+                    <div class="text-sm font-extrabold text-emerald-600 mt-0.5" x-text="selectedService.price"></div>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="text-xs font-extrabold text-gray-800">Required Documents & Checklist:</div>
+                <ul class="space-y-1.5 text-xs text-gray-600">
+                    <template x-for="doc in selectedService.docs">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                            <span x-text="doc"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+
+            <div class="pt-2 flex gap-3">
+                <button @click="serviceModal = false; quoteTitle = 'Quote for ' + selectedService.title; quoteModal = true;" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow transition uppercase tracking-wider">
+                    Request Quote for this Service
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILED QUOTE MODAL (CLEAN SPACING & PADDING) -->
     <div x-show="quoteModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 relative text-gray-900 border border-blue-100 shadow-2xl">
             <button @click="quoteModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg p-2 cursor-pointer">
