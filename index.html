@@ -59,6 +59,53 @@
     calcDrawerOpen: false,
     calcStep: 1,
     searchActivity: '',
+    countryCodes: [
+        { code: '+974', flag: '🇶🇦', name: 'QA' },
+        { code: '+971', flag: '🇦🇪', name: 'AE' },
+        { code: '+966', flag: '🇸🇦', name: 'SA' },
+        { code: '+968', flag: '🇴🇲', name: 'OM' },
+        { code: '+965', flag: '🇰🇼', name: 'KW' },
+        { code: '+973', flag: '🇧🇭', name: 'BH' },
+        { code: '+91',  flag: '🇮🇳', name: 'IN' },
+        { code: '+44',  flag: '🇬🇧', name: 'UK' },
+        { code: '+1',   flag: '🇺🇸', name: 'US' },
+        { code: '+1',   flag: '🇨🇦', name: 'CA' },
+        { code: '+61',  flag: '🇦🇺', name: 'AU' },
+        { code: '+49',  flag: '🇩🇪', name: 'DE' },
+        { code: '+33',  flag: '🇫🇷', name: 'FR' },
+        { code: '+39',  flag: '🇮🇹', name: 'IT' },
+        { code: '+65',  flag: '🇸🇬', name: 'SG' },
+        { code: '+60',  flag: '🇲🇾', name: 'MY' },
+        { code: '+86',  flag: '🇨🇳', name: 'CN' },
+        { code: '+81',  flag: '🇯🇵', name: 'JP' },
+        { code: '+82',  flag: '🇰🇷', name: 'KR' },
+        { code: '+20',  flag: '🇪🇬', name: 'EG' },
+        { code: '+212', flag: '🇲🇦', name: 'MA' },
+        { code: '+216', flag: '🇹🇳', name: 'TN' },
+        { code: '+962', flag: '🇯🇴', name: 'JO' },
+        { code: '+961', flag: '🇱🇧', name: 'LB' },
+        { code: '+92',  flag: '🇵🇰', name: 'PK' },
+        { code: '+880', flag: '🇧🇩', name: 'BD' },
+        { code: '+94',  flag: '🇱🇰', name: 'LK' },
+        { code: '+977', flag: '🇳🇵', name: 'NP' },
+        { code: '+234', flag: '🇳🇬', name: 'NG' },
+        { code: '+27',  flag: '🇿🇦', name: 'ZA' },
+        { code: '+7',   flag: '🇷🇺', name: 'RU' },
+        { code: '+55',  flag: '🇧🇷', name: 'BR' },
+        { code: '+52',  flag: '🇲🇽', name: 'MX' },
+        { code: '+34',  flag: '🇪🇸', name: 'ES' },
+        { code: '+31',  flag: '🇳🇱', name: 'NL' },
+        { code: '+41',  flag: '🇨🇭', name: 'CH' },
+        { code: '+46',  flag: '🇸🇪', name: 'SE' },
+        { code: '+47',  flag: '🇳🇴', name: 'NO' },
+        { code: '+353', flag: '🇮🇪', name: 'IE' },
+        { code: '+64',  flag: '🇳🇿', name: 'NZ' },
+        { code: '+63',  flag: '🇵🇭', name: 'PH' },
+        { code: '+62',  flag: '🇮🇩', name: 'ID' },
+        { code: '+66',  flag: '🇹🇭', name: 'TH' },
+        { code: '+84',  flag: '🇻🇳', name: 'VN' },
+        { code: '+90',  flag: '🇹🇷', name: 'TR' }
+    ],
     activities: [
         'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
         'E-Commerce', 'Event Management', 'Fashion Design Consultancy', 'Food & Beverage Trading', 
@@ -79,9 +126,13 @@
         tradeName: '',
         fullName: '',
         email: '',
+        countryCode: '+974',
         phone: '',
         nationality: 'Qatar'
     },
+    heroCountryCode: '+974',
+    contactCountryCode: '+974',
+    modalCountryCode: '+974',
     activeAccordion: null, 
     quoteTitle: 'Get a Detailed Quote', 
     quoteDesc: 'Fill in your details to receive an instant, customized business setup estimate.' 
@@ -102,12 +153,9 @@
             <div class="hidden lg:flex items-center gap-3 xl:gap-5 font-semibold text-xs xl:text-sm text-gray-700">
                 <a href="#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
                 <a href="#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
-                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visas</a>
-                <a href="#pro-services" class="hover:text-brand-600 transition whitespace-nowrap">PRO Services</a>
-                <a href="#packages" class="hover:text-brand-600 transition whitespace-nowrap">PRO Packages</a>
-                <a href="#structures" class="hover:text-brand-600 transition whitespace-nowrap">Structures</a>
+                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visas & PRO</a>
+                <a href="#leadership" class="hover:text-brand-600 transition whitespace-nowrap">Leadership</a>
                 <a href="#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
-                <a href="#faq" class="hover:text-brand-600 transition whitespace-nowrap">FAQ</a>
                 <a href="#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
 
@@ -129,12 +177,9 @@
         <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
             <a href="#home" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Home</a>
             <a href="#about" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">About Us</a>
-            <a href="#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa Services</a>
-            <a href="#pro-services" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">PRO Services</a>
-            <a href="#packages" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Monthly PRO Packages</a>
-            <a href="#structures" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Business Structures</a>
+            <a href="#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa & PRO Services</a>
+            <a href="#leadership" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Leadership</a>
             <a href="#process" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Process</a>
-            <a href="#faq" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">FAQ</a>
             <a href="#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
             <div class="pt-2 flex flex-col gap-3">
                 <button @click="calcDrawerOpen = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Cost Calculator</button>
@@ -185,7 +230,7 @@
                                 <h3 class="font-extrabold text-xl text-brand-900">Get in Touch</h3>
                                 <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
                             </div>
-                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + $refs.fphone.value + ')'), '_blank');" class="space-y-3">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + heroCountryCode + ' ' + $refs.fphone.value + ')'), '_blank');" class="space-y-3">
                                 <div>
                                     <input type="text" x-ref="fname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
                                 </div>
@@ -193,10 +238,12 @@
                                     <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
                                 </div>
                                 <div class="grid grid-cols-12 gap-2">
-                                    <select class="col-span-4 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold">
-                                        <option>QA +974</option>
+                                    <select x-model="heroCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-bold text-gray-800">
+                                        <template x-for="c in countryCodes" :key="c.code + c.name">
+                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                        </template>
                                     </select>
-                                    <input type="tel" x-ref="fphone" required class="col-span-8 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
+                                    <input type="tel" x-ref="fphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
                                 </div>
                                 <div>
                                     <select class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
@@ -274,59 +321,64 @@
                 </div>
             </section>
 
-            <!-- 3. END-TO-END SUPPORT -->
-            <section class="py-16 bg-gray-50">
+            <!-- 3. LEADERSHIP & FOUNDER SHOWCASE (SHAFIR KOTTUPURATH BASHEER) -->
+            <section id="leadership" class="py-20 bg-amber-50/40 border-y border-amber-200/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div class="grid lg:grid-cols-12 gap-12 items-center">
-                        <div class="lg:col-span-6 space-y-6">
-                            <div>
-                                <h2 class="text-3xl font-extrabold text-brand-900">End-to-End Business Setup Support</h2>
-                                <p class="text-xs sm:text-sm text-gray-600 mt-2">Practical, step-by-step guidance from your first consultation through to your first day of business.</p>
+                    <div class="bg-gradient-to-br from-amber-950 via-slate-900 to-brand-950 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden border border-amber-500/30">
+                        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                            <!-- Left / Center Founder Image Container -->
+                            <div class="lg:col-span-5 flex flex-col items-center text-center">
+                                <div class="relative group">
+                                    <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-emerald-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                                    <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-amber-400/50 bg-slate-900 shadow-2xl">
+                                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80';">
+                                    </div>
+                                    <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-amber-500 to-emerald-600 text-slate-950 font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
+                                        Founder & Visionary
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-blue-50/80 border-l-4 border-brand-600 p-4 rounded-r-2xl text-xs text-gray-700">
-                                <p><strong class="text-brand-900">Licensed Qatar Consultancy.</strong> Serve Ease Business Solutions is a licensed Qatar consultancy helping founders set up here smoothly.</p>
-                            </div>
-                            <div class="space-y-2.5 font-semibold text-xs sm:text-sm text-gray-800">
-                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Business Structure Consultation</div>
-                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Documentation & Attestation Support</div>
-                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Bank Account Opening Assistance</div>
-                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Office Space & Virtual Desk Solutions</div>
-                                <div class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-emerald-600 text-lg"></i> Corporate Services & PRO Management</div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-6">
-                            <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200 h-80">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Support" class="w-full h-full object-cover">
+
+                            <!-- Right Content & Inspirational Quote -->
+                            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                                <span class="bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                                    <i class="fa-solid fa-award mr-1"></i> Leadership Vision
+                                </span>
+                                <div>
+                                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-amber-100">Shafir Kottupurath Basheer</h2>
+                                    <p class="text-emerald-400 font-bold text-sm sm:text-base mt-1">Founder & Managing Director – Serve Ease Business Solutions</p>
+                                </div>
+
+                                <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3 relative">
+                                    <i class="fa-solid fa-quote-left text-3xl text-amber-400/40 absolute top-4 left-4"></i>
+                                    <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed pt-3 pl-4">
+                                        "Our core mission in Qatar is to bridge global ambition with seamless local execution. We don't just process paperwork—we pave the path for visionary entrepreneurs to thrive, build legacy businesses, and contribute to Qatar's booming economic ecosystem."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-4 text-center pt-2">
+                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                        <div class="text-xl font-black text-amber-300">10+</div>
+                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Years Experience</div>
+                                    </div>
+                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                        <div class="text-xl font-black text-emerald-300">3000+</div>
+                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Setup Clients</div>
+                                    </div>
+                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                        <div class="text-xl font-black text-blue-300">100%</div>
+                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Compliance Rate</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 4. FAST & EFFICIENT SETUP PROCESS BAR -->
-            <section class="py-12 bg-brand-800 text-white">
-                <div class="max-w-7xl mx-auto px-4 text-center space-y-5">
-                    <h2 class="text-2xl md:text-3xl font-extrabold">Fast & Efficient Setup Process</h2>
-                    <p class="text-xs text-blue-200">Get your business operational quickly with our streamlined process</p>
-                    
-                    <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
-                        <button @click="calcDrawerOpen = true" class="bg-slate-100 text-brand-900 hover:bg-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow cursor-pointer">
-                            <i class="fa-solid fa-calculator text-brand-600"></i> Cost Calculator
-                        </button>
-                        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
-                        </a>
-                        <a href="tel:+97470442825" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-solid fa-phone text-xs"></i> Call Us
-                        </a>
-                        <a href="mailto:serveeaseqtr@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-solid fa-envelope text-xs"></i> Email Us
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. SIMPLE BUSINESS SETUP PROCESS -->
+            <!-- 4. SIMPLE BUSINESS SETUP PROCESS (CARDS 01-04 WITH FUNCTIONAL GET DETAILED QUOTE) -->
             <section id="process" class="py-20 bg-gray-100">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
@@ -335,108 +387,195 @@
                     </div>
 
                     <div class="grid md:grid-cols-4 gap-6">
-                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+                        <!-- 01 Free Consultation -->
+                        <div class="bg-white/90 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">01</span>
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md"><i class="fa-solid fa-file-signature"></i></div>
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md"><i class="fa-solid fa-comments"></i></div>
                                 <h3 class="font-extrabold text-brand-900 text-base">Free Consultation</h3>
                                 <p class="text-xs text-gray-600 leading-relaxed">We listen to your goals and recommend the most suitable way to set up your company in Qatar.</p>
                             </div>
-                            <button @click="quoteTitle = 'Free Consultation Inquiry'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Free Business Setup Consultation'; quoteDesc = 'Schedule your 1-on-1 strategy session with our Qatar setup expert.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
+                                Get Detailed Quote
+                            </button>
                         </div>
-                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+
+                        <!-- 02 Document Preparation -->
+                        <div class="bg-white/90 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">02</span>
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md"><i class="fa-solid fa-clock"></i></div>
                                 <h3 class="font-extrabold text-brand-900 text-base">Document Preparation</h3>
                                 <p class="text-xs text-gray-600 leading-relaxed">We help you prepare a complete, accurate file so everything is ready for a smooth setup.</p>
                             </div>
-                            <button @click="quoteTitle = 'Document Preparation Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Document Preparation & Attestation Quote'; quoteDesc = 'Get an estimate for legal drafting, MOFA attestation, and Arabic translations.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
+                                Get Detailed Quote
+                            </button>
                         </div>
-                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+
+                        <!-- 03 Company Registration -->
+                        <div class="bg-white/90 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">03</span>
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md"><i class="fa-solid fa-circle-check"></i></div>
                                 <h3 class="font-extrabold text-brand-900 text-base">Company Registration</h3>
                                 <p class="text-xs text-gray-600 leading-relaxed">We guide you through registering your company and obtaining your Commercial Registration (CR).</p>
                             </div>
-                            <button @click="quoteTitle = 'Company Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Commercial Registration (CR) Quote'; quoteDesc = 'Request pricing for MOCI approval, trade name reservation, and CR issuance.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
+                                Get Detailed Quote
+                            </button>
                         </div>
-                        <div class="bg-white/80 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between">
+
+                        <!-- 04 Ready to Operate -->
+                        <div class="bg-white/90 backdrop-blur border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">04</span>
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-600 text-white rounded-xl mx-auto flex items-center justify-center text-xl font-bold shadow-md"><i class="fa-solid fa-award"></i></div>
                                 <h3 class="font-extrabold text-brand-900 text-base">Ready to Operate</h3>
                                 <p class="text-xs text-gray-600 leading-relaxed">With your CR in hand, we help you take final steps so you can open your doors and start trading.</p>
                             </div>
-                            <button @click="quoteTitle = 'Operational Support Quote'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Full Operational Setup & Trade License Quote'; quoteDesc = 'Pricing for Computer Card, Municipal Trade License, and Corporate Bank Account opening.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
+                                Get Detailed Quote
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 6. READY TO LAUNCH BANNER -->
-            <section class="py-14 bg-brand-800 text-white">
-                <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
-                    <h2 class="text-2xl md:text-3xl font-extrabold">Ready to Launch Your Business?</h2>
-                    <p class="text-xs text-blue-200">Join thousands of successful businesses operating in Qatar</p>
-                    
-                    <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
-                        <button @click="calcDrawerOpen = true" class="bg-slate-100 text-brand-900 hover:bg-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow cursor-pointer">
-                            <i class="fa-solid fa-calculator text-brand-600"></i> Cost Calculator
-                        </button>
-                        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
-                        </a>
-                        <a href="tel:+97470442825" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-solid fa-phone text-xs"></i> Call Us
-                        </a>
-                        <a href="mailto:serveeaseqtr@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow">
-                            <i class="fa-solid fa-envelope text-xs"></i> Email Us
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 7. VISA & PRO SERVICES SECTION -->
+            <!-- 5. EXPANDED VISA & PRO SERVICES GRID (12 DETAILED MINISTRY SERVICES) -->
             <section id="visas" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
-                        <span class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full">Visa & PRO Services</span>
-                        <h2 class="text-3xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
-                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Fast processing for Hayya, Tourist, Family Visit Visas, and CR clearances.</p>
+                        <span class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">Full Ministry Compliance</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
+                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Fast, transparent government clearances across Ministry of Commerce, MOI, Ministry of Labour & Baladiya.</p>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-passport"></i></div>
-                                <h3 class="font-bold text-lg text-brand-900">Tourist & Hayya Visas</h3>
-                                <p class="text-xs text-gray-600">Hayya entry permits, tourist visas, and travel clearances.</p>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-passport"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Tourist & Hayya Visas</h3>
+                                <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
                             </div>
-                            <button @click="quoteTitle = 'Tourist & Hayya Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Tourist & Hayya Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
                         </div>
-                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+
+                        <!-- Card 2 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-people-roof"></i></div>
-                                <h3 class="font-bold text-lg text-brand-900">Family Visit Visas</h3>
-                                <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications and residency clearances.</p>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-people-roof"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Family Visit & RP Visas</h3>
+                                <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
                             </div>
-                            <button @click="quoteTitle = 'Family Visit Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'Family Visit & RP Visa Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
                         </div>
-                        <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+
+                        <!-- Card 3 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-file-contract"></i></div>
-                                <h3 class="font-bold text-lg text-brand-900">CR & Trade License PRO</h3>
-                                <p class="text-xs text-gray-600">Commercial Registration, Computer Card & Municipal License renewals.</p>
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-building"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">MOCI CR Formation</h3>
+                                <p class="text-xs text-gray-600">Commercial Registration (CR) creation, amendments, and activity additions.</p>
                             </div>
-                            <button @click="quoteTitle = 'CR PRO Service Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                            <button @click="quoteTitle = 'MOCI Commercial Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-id-card"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Computer Card Clearance</h3>
+                                <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Computer Card Clearance Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-store"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Baladiya Municipal License</h3>
+                                <p class="text-xs text-gray-600">Office location inspection approvals & Municipal Trade License issuance.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Municipal Trade License Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Civil Defence (QCDD) Clearance</h3>
+                                <p class="text-xs text-gray-600">Safety compliance certification for retail shops, offices, and warehouses.</p>
+                            </div>
+                            <button @click="quoteTitle = 'QCDD Civil Defence Clearance Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Dhareeba Tax Registration</h3>
+                                <p class="text-xs text-gray-600">Tax Card issuance, GTA portal registration, and filing compliance.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Dhareeba Tax Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-language"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Legal Translation & Attestation</h3>
+                                <p class="text-xs text-gray-600">MOFA, Embassy & Ministry of Justice certified document translation.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Legal Translation & Attestation Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 9 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-users-gear"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">MOL Work Quota Approval</h3>
+                                <p class="text-xs text-gray-600">Ministry of Labour staff visa quota applications and work permit processing.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Ministry of Labour Quota Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 10 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-award"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Qatar Chamber Membership</h3>
+                                <p class="text-xs text-gray-600">Chamber of Commerce registration, export certificates & COO clearance.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Qatar Chamber Registration Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 11 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-handshake font-bold"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">100% Foreign Ownership</h3>
+                                <p class="text-xs text-gray-600">Law No. 1 approval guidance for 100% foreign investor corporate setups.</p>
+                            </div>
+                            <button @click="quoteTitle = '100% Foreign Ownership Setup Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
+                        </div>
+
+                        <!-- Card 12 -->
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-briefcase"></i></div>
+                                <h3 class="font-bold text-base text-brand-900">Corporate PRO Retainer</h3>
+                                <p class="text-xs text-gray-600">Dedicated monthly PRO officer handling all staff QID renewals & licenses.</p>
+                            </div>
+                            <button @click="quoteTitle = 'Corporate PRO Retainer Quote'; quoteModal = true;" class="w-full bg-brand-600 text-white font-bold py-2 rounded-xl text-xs hover:bg-brand-700 cursor-pointer">Get Detailed Quote</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 8. DARK CONTACT SECTION -->
+            <!-- 6. DARK CONTACT SECTION (WITH ALL COUNTRIES DROP DOWN) -->
             <section id="contact" class="py-20 bg-brand-dark text-white">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
@@ -464,12 +603,16 @@
                         </div>
 
                         <div class="lg:col-span-7 bg-white/5 border border-white/10 p-8 rounded-3xl">
-                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' (' + contactCountryCode + ' ' + $refs.cphone.value + ')'), '_blank');" class="space-y-4 text-xs">
                                 <div><input type="text" x-ref="cname" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Enter your full name"></div>
                                 <div><input type="email" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="email@example.com"></div>
                                 <div class="grid grid-cols-12 gap-2">
-                                    <select class="col-span-4 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-semibold"><option>QA +974</option></select>
-                                    <input type="tel" x-ref="cphone" required class="col-span-8 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="+974 XXXX XXXX">
+                                    <select x-model="contactCountryCode" class="col-span-5 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-bold focus:outline-none">
+                                        <template x-for="c in countryCodes" :key="c.code + c.name">
+                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                        </template>
+                                    </select>
+                                    <input type="tel" x-ref="cphone" required class="col-span-7 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Phone Number">
                                 </div>
                                 <div><textarea rows="4" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Your Message"></textarea></div>
                                 <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-sm uppercase tracking-wider">Send Message</button>
@@ -491,7 +634,7 @@
             </footer>
         </div>
 
-        <!-- RIGHT SIDE DRAWER: BUSINESS SETUP COST CALCULATOR (8 STEPS) -->
+        <!-- RIGHT SIDE DRAWER: BUSINESS SETUP COST CALCULATOR (WITH GLOBAL COUNTRY CODE) -->
         <aside x-show="calcDrawerOpen" x-cloak 
                x-transition:enter="transition transform ease-out duration-300"
                x-transition:enter-start="translate-x-full"
@@ -658,8 +801,12 @@
                         <div>
                             <label class="font-bold text-gray-700 block mb-1">Phone Number *</label>
                             <div class="grid grid-cols-12 gap-1.5">
-                                <input type="text" value="+974" readonly class="col-span-4 p-2.5 bg-gray-50 border border-gray-300 rounded-xl text-xs text-center font-bold">
-                                <input type="tel" x-model="calcData.phone" required class="col-span-8 p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
+                                <select x-model="calcData.countryCode" class="col-span-5 p-2.5 border border-gray-300 rounded-xl text-xs font-bold bg-white">
+                                    <template x-for="c in countryCodes" :key="c.code + c.name">
+                                        <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                    </template>
+                                </select>
+                                <input type="tel" x-model="calcData.phone" required class="col-span-7 p-2.5 border border-gray-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
                             </div>
                         </div>
                         <div>
@@ -669,6 +816,8 @@
                                 <option>India</option>
                                 <option>United Kingdom</option>
                                 <option>United States</option>
+                                <option>United Arab Emirates</option>
+                                <option>Saudi Arabia</option>
                                 <option>Other</option>
                             </select>
                         </div>
@@ -677,7 +826,7 @@
 
             </div>
 
-            <!-- Drawer Footer Navigation & Progress (8 Steps) -->
+            <!-- Drawer Footer Navigation & Progress -->
             <div class="p-5 border-t border-gray-100 bg-gray-50/80 space-y-3">
                 <div class="flex items-center justify-between gap-2">
                     <button x-show="calcStep > 1" @click="calcStep--" class="px-3 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1">
@@ -687,7 +836,7 @@
                     <button x-show="calcStep < 8" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
                         Next Step <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
-                    <button x-show="calcStep === 8" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Final Submission:\nName: ' + calcData.fullName + '\nEmail: ' + calcData.email + '\nPhone: +974 ' + calcData.phone + '\nPurpose: ' + calcData.purpose + '\nActivity: ' + calcData.activity + '\nJurisdiction: ' + calcData.jurisdiction + '\nOwners: ' + calcData.owners + '\nVisas: ' + calcData.visas + '\nOffice: ' + calcData.office + '\nTrade Name: ' + calcData.tradeName), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
+                    <button x-show="calcStep === 8" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Final Submission:\nName: ' + calcData.fullName + '\nEmail: ' + calcData.email + '\nPhone: ' + calcData.countryCode + ' ' + calcData.phone + '\nPurpose: ' + calcData.purpose + '\nActivity: ' + calcData.activity + '\nJurisdiction: ' + calcData.jurisdiction + '\nOwners: ' + calcData.owners + '\nVisas: ' + calcData.visas + '\nOffice: ' + calcData.office + '\nTrade Name: ' + calcData.tradeName), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow">
                         Submit & Send WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
                     </button>
                 </div>
@@ -706,7 +855,7 @@
 
     </div>
 
-    <!-- FLOATING ACTION BUTTONS (BOTTOM RIGHT: WHATSAPP & ROBOT COST CALCULATOR) -->
+    <!-- FLOATING ACTION BUTTONS -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3.5 items-end">
         <button @click="calcDrawerOpen = !calcDrawerOpen" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 relative group cursor-pointer border-2 border-white/20">
             <i class="fa-solid fa-robot"></i>
@@ -723,7 +872,7 @@
         </a>
     </div>
 
-    <!-- DETAILED QUOTE MODAL -->
+    <!-- DETAILED QUOTE MODAL (WITH GLOBAL COUNTRY CODE) -->
     <div x-show="quoteModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 relative text-gray-900 border border-blue-100 shadow-2xl">
             <button @click="quoteModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg p-2 cursor-pointer">
@@ -731,14 +880,21 @@
             </button>
             <h3 class="text-xl font-bold text-brand-900 mb-1" x-text="quoteTitle">Get a Detailed Quote</h3>
             <p class="text-xs text-gray-500 mb-6" x-text="quoteDesc">Leave your details and our experts will contact you with a customized estimate.</p>
-            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
+            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + modalCountryCode + ' ' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Full Name *</label>
                     <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
-                    <input type="tel" x-ref="mphone" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="+974 ...">
+                    <div class="grid grid-cols-12 gap-2">
+                        <select x-model="modalCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-800">
+                            <template x-for="c in countryCodes" :key="c.code + c.name">
+                                <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                            </template>
+                        </select>
+                        <input type="tel" x-ref="mphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
+                    </div>
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Business / Visa Details</label>
