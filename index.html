@@ -51,6 +51,14 @@
         .text-glow {
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .animate-slow-zoom {
+            animation: slowZoom 15s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
@@ -60,7 +68,7 @@
     calcDrawerOpen: false,
     calcStep: 1,
     searchActivity: '',
-    selectedService: { title: '', desc: '', time: '', docs: [], price: '', ministry: '', aiVideo: '' },
+    selectedService: { title: '', desc: '', time: '', docs: [], price: '', ministry: '', aiImage: '' },
     countryCodes: [
         { code: '+974', name: 'Qatar (QA)' },
         { code: '+971', name: 'United Arab Emirates (AE)' },
@@ -521,7 +529,7 @@
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <!-- Card 1 -->
-                        <div @click="selectedService = { title: 'Tourist & Hayya Visas', desc: 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', time: '24-48 Hours', docs: ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], price: 'From QAR 350', ministry: 'Ministry of Interior (MOI)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-41582-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Tourist & Hayya Visas', desc: 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', time: '24-48 Hours', docs: ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], price: 'From QAR 350', ministry: 'Ministry of Interior (MOI)', aiImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-passport"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
@@ -531,7 +539,7 @@
                         </div>
 
                         <!-- Card 2 -->
-                        <div @click="selectedService = { title: 'Family Visit & RP Visas', desc: 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', time: '3-5 Working Days', docs: ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], price: 'From QAR 500', ministry: 'General Directorate of Passports (MOI)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-doha-city-scrapers-under-a-clear-sky-41584-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Family Visit & RP Visas', desc: 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', time: '3-5 Working Days', docs: ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], price: 'From QAR 500', ministry: 'General Directorate of Passports (MOI)', aiImage: 'https://images.unsplash.com/photo-1578895101408-1a364856540c?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-people-roof"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
@@ -541,7 +549,7 @@
                         </div>
 
                         <!-- Card 3 -->
-                        <div @click="selectedService = { title: 'MOCI CR Formation', desc: 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', time: '1-3 Working Days', docs: ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], price: 'From QAR 1,500', ministry: 'Ministry of Commerce & Industry (MOCI)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-modern-city-architecture-with-skyscrapers-41583-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'MOCI CR Formation', desc: 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', time: '1-3 Working Days', docs: ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], price: 'From QAR 1,500', ministry: 'Ministry of Commerce & Industry (MOCI)', aiImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-building"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
@@ -551,7 +559,7 @@
                         </div>
 
                         <!-- Card 4 -->
-                        <div @click="selectedService = { title: 'Computer Card Clearance', desc: 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', time: '24 Hours', docs: ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], price: 'From QAR 400', ministry: 'Ministry of Interior (MOI)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-futuristic-city-with-skyscrapers-and-lights-41581-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Computer Card Clearance', desc: 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', time: '24 Hours', docs: ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], price: 'From QAR 400', ministry: 'Ministry of Interior (MOI)', aiImage: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-id-card"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
@@ -561,7 +569,7 @@
                         </div>
 
                         <!-- Card 5 -->
-                        <div @click="selectedService = { title: 'Baladiya Municipal License', desc: 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', time: '3-7 Working Days', docs: ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], price: 'From QAR 800', ministry: 'Ministry of Municipality (Baladiya)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-doha-city-at-sunset-41585-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Baladiya Municipal License', desc: 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', time: '3-7 Working Days', docs: ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], price: 'From QAR 800', ministry: 'Ministry of Municipality (Baladiya)', aiImage: 'https://images.unsplash.com/photo-1570789210967-2cac24afeb00?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-store"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Baladiya Municipal License</h3>
@@ -571,7 +579,7 @@
                         </div>
 
                         <!-- Card 6 -->
-                        <div @click="selectedService = { title: 'Civil Defence (QCDD) Clearance', desc: 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', time: '3-5 Working Days', docs: ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], price: 'From QAR 1,000', ministry: 'Qatar Civil Defence Department (QCDD)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-doha-skyscrapers-in-the-financial-district-41586-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Civil Defence (QCDD) Clearance', desc: 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', time: '3-5 Working Days', docs: ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], price: 'From QAR 1,000', ministry: 'Qatar Civil Defence Department (QCDD)', aiImage: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-fire-extinguisher"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Clearance</h3>
@@ -581,7 +589,7 @@
                         </div>
 
                         <!-- Card 7 -->
-                        <div @click="selectedService = { title: 'Dhareeba Tax Registration', desc: 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', time: '1-2 Working Days', docs: ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], price: 'From QAR 400', ministry: 'General Tax Authority (GTA)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-41582-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Dhareeba Tax Registration', desc: 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', time: '1-2 Working Days', docs: ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], price: 'From QAR 400', ministry: 'General Tax Authority (GTA)', aiImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Dhareeba Tax Registration</h3>
@@ -591,7 +599,7 @@
                         </div>
 
                         <!-- Card 8 -->
-                        <div @click="selectedService = { title: 'Legal Translation & Attestation', desc: 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', time: '24-48 Hours', docs: ['Original Documents / Certificates', 'Passport Copies'], price: 'From QAR 150 per page', ministry: 'Ministry of Foreign Affairs (MOFA) & Justice', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-doha-city-scrapers-under-a-clear-sky-41584-large.mp4' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="selectedService = { title: 'Legal Translation & Attestation', desc: 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', time: '24-48 Hours', docs: ['Original Documents / Certificates', 'Passport Copies'], price: 'From QAR 150 per page', ministry: 'Ministry of Foreign Affairs (MOFA) & Justice', aiImage: 'https://images.unsplash.com/photo-1455390582262-044c3a24d546?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold group-hover:bg-brand-600 group-hover:text-white transition"><i class="fa-solid fa-language"></i></div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
@@ -614,7 +622,7 @@
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Liquidation Card 1 -->
-                        <div @click="selectedService = { title: 'Official Company Liquidation & Closing', desc: 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', time: '15-30 Working Days', docs: ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate', 'Tax Clearance Certificate from GTA'], price: 'From QAR 2,500', ministry: 'MOCI & General Tax Authority', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-modern-city-architecture-with-skyscrapers-41583-large.mp4' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="selectedService = { title: 'Official Company Liquidation & Closing', desc: 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', time: '15-30 Working Days', docs: ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate', 'Tax Clearance Certificate from GTA'], price: 'From QAR 2,500', ministry: 'MOCI & General Tax Authority', aiImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-file-circle-xmark"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-600 transition">Company Liquidation & Closing</h3>
@@ -624,7 +632,7 @@
                         </div>
 
                         <!-- Liquidation Card 2 -->
-                        <div @click="selectedService = { title: 'Company Share Sale & Ownership Transfer', desc: 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', time: '5-10 Working Days', docs: ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], price: 'From QAR 2,000', ministry: 'Ministry of Justice & MOCI', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-doha-city-at-sunset-41585-large.mp4' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="selectedService = { title: 'Company Share Sale & Ownership Transfer', desc: 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', time: '5-10 Working Days', docs: ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], price: 'From QAR 2,000', ministry: 'Ministry of Justice & MOCI', aiImage: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-handshake-angle"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-emerald-600 transition">Company Share Sale & Transfer</h3>
@@ -634,7 +642,7 @@
                         </div>
 
                         <!-- Liquidation Card 3 -->
-                        <div @click="selectedService = { title: 'Branch Closure & License Surrender', desc: 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', time: '7-14 Working Days', docs: ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], price: 'From QAR 1,800', ministry: 'Ministry of Commerce & Industry (MOCI)', aiVideo: 'https://assets.mixkit.co/videos/preview/mixkit-doha-skyscrapers-in-the-financial-district-41586-large.mp4' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="selectedService = { title: 'Branch Closure & License Surrender', desc: 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', time: '7-14 Working Days', docs: ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], price: 'From QAR 1,800', ministry: 'Ministry of Commerce & Industry (MOCI)', aiImage: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1920&q=80' }; serviceModal = true;" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-building-circle-xmark"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-700 transition">Branch Closure & Surrender</h3>
@@ -1047,13 +1055,10 @@
             </div>
         </div>
 
-        <!-- Hero Banner Header with Doha Animated Video Background -->
+        <!-- Hero Banner Header with Animated Doha View Background -->
         <div class="relative h-72 sm:h-96 w-full overflow-hidden bg-brand-900 shrink-0">
-            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-70 scale-105">
-                <source :src="selectedService.aiVideo" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+            <img :src="selectedService.aiImage" alt="Doha Qatar Skyline" class="absolute inset-0 w-full h-full object-cover opacity-80 animate-slow-zoom">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             
             <div class="absolute bottom-10 max-w-5xl mx-auto left-4 right-4 sm:left-12 space-y-3 text-white z-10">
                 <span class="bg-brand-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg inline-block" x-text="selectedService.ministry"></span>
