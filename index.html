@@ -119,7 +119,6 @@
                 <a href="/#liquidation" class="hover:text-brand-600 transition whitespace-nowrap">Liquidation & Sale</a>
                 <a href="/#leadership" class="hover:text-brand-600 transition whitespace-nowrap">Leadership</a>
                 <a href="/#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
-                <a href="/#reviews" class="hover:text-brand-600 transition whitespace-nowrap">Google Reviews</a>
                 <a href="/#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
 
@@ -146,7 +145,6 @@
             <a href="/#liquidation" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Liquidation & Company Sale</a>
             <a href="/#leadership" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Leadership</a>
             <a href="/#process" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Process</a>
-            <a href="/#reviews" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Google Reviews</a>
             <a href="/#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
             <div class="pt-2 flex flex-col gap-3">
                 <button @click="calcDrawerOpen = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-robot"></i> Smart AI Quote Assistant</button>
@@ -162,7 +160,7 @@
 
             <!-- HERO SECTION WITH BACKGROUND IMAGE -->
             <section id="home" class="relative bg-brand-900 text-white py-16 lg:py-24 px-4 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none">
+                <img src="/hero-bg.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none" onerror="this.style.display='none'">
                 <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
                     <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
                         <span class="inline-flex items-center gap-2 bg-white/10 text-white px-3.5 py-1.5 rounded-full text-[11px] font-extrabold border border-white/20 uppercase tracking-widest shadow-lg">
@@ -235,7 +233,7 @@
                                 Professional Consultancy
                             </div>
                             <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-96 relative bg-brand-900">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Modern Doha Corporate Office" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <img src="/office.jpg" alt="Modern Doha Corporate Office" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80';">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-900/40 to-transparent flex flex-col justify-end p-6 text-white">
                                     <div class="font-bold text-xl">Modern Doha Corporate Office</div>
                                     <p class="text-xs text-blue-200">Serving investors across Qatar mainland & free zones</p>
@@ -266,7 +264,7 @@
                 </div>
             </section>
 
-            <!-- WHY QATAR SECTION WITH IMAGE -->
+            <!-- WHY QATAR SECTION WITH ANIMATED REVIEW BADGE (SECOND/THIRD PAGE SPOT) -->
             <section id="whyqatar" class="py-20 bg-gray-50 border-t border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -275,15 +273,25 @@
                                 A Growing Business Hub
                             </div>
                             <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-96 relative bg-slate-900">
-                                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" alt="Expert Business & PRO Advisors" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <img src="/advisor.jpg" alt="Expert Business & PRO Advisors" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80';">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6 text-white">
                                     <div class="font-bold text-xl">Expert Business & PRO Advisors</div>
                                     <p class="text-xs text-slate-300">Fast document clearance & regulatory compliance</p>
                                 </div>
                             </div>
-                            <div class="absolute -bottom-6 right-6 z-20 bg-white p-5 px-7 rounded-2xl shadow-xl border border-gray-100 text-center">
-                                <div class="text-3xl font-black text-brand-600">3000+</div>
-                                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Companies Successfully Formed</div>
+                            
+                            <!-- Animated Google Review Badge / Pic on 2nd section -->
+                            <div class="absolute -bottom-6 right-6 z-20 bg-white p-5 px-7 rounded-2xl shadow-xl border border-blue-100 text-center animate-float flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center text-2xl shadow-sm">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="flex text-amber-400 text-xs">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div class="text-xs font-black text-brand-900 mt-0.5">5.0 Star Rated on Google</div>
+                                    <div class="text-[9px] font-bold text-gray-500 uppercase">Trusted by Qatar Entrepreneurs</div>
+                                </div>
                             </div>
                         </div>
 
@@ -457,7 +465,7 @@
                 </div>
             </section>
 
-            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
+            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION (USING /shafir.jpg) -->
             <section id="leadership" class="py-20 bg-slate-900 text-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
                     <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-brand-dark rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-blue-500/30">
@@ -467,7 +475,7 @@
                                 <div class="relative group">
                                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
                                     <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105">
+                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80';">
                                     </div>
                                     <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-brand-600 to-cyan-600 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
                                         Founder & Managing Director
@@ -567,87 +575,6 @@
                             <button @click="quoteTitle = 'Full Operational Setup Quote'; quoteDesc = 'Pricing for Computer Card, Municipal Trade License, and Corporate Bank Account opening.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
                                 Get Detailed Quote
                             </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- GOOGLE REVIEWS SECTION -->
-            <section id="reviews" class="py-20 bg-white border-t border-gray-100">
-                <div class="max-w-7xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">
-                            <i class="fa-solid fa-star text-amber-500"></i> Trusted by Clients in Qatar
-                        </span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">What Our Clients Say on Google</h2>
-                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Read real experiences from entrepreneurs and investors who set up their businesses with Serve Ease.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Review 1 -->
-                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex text-amber-400 text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
-                                </div>
-                                <p class="text-xs text-gray-700 italic leading-relaxed">
-                                    "Exceptional service! Shafir and the team at Serve Ease handled our MOCI company registration and PRO paperwork smoothly and professionally. Highly recommended for anyone starting in Qatar."
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-                                <div class="w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-sm">A</div>
-                                <div>
-                                    <h4 class="font-extrabold text-brand-900 text-xs">Ahmed Al-Mansoori</h4>
-                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review 2 -->
-                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex text-amber-400 text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
-                                </div>
-                                <p class="text-xs text-gray-700 italic leading-relaxed">
-                                    "Very efficient and transparent consultancy. They assisted us with computer card clearance and family visas without any hassle. Their team is extremely knowledgeable about Qatari regulations."
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-                                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">R</div>
-                                <div>
-                                    <h4 class="font-extrabold text-brand-900 text-xs">Rahul Sharma</h4>
-                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review 3 -->
-                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex text-amber-400 text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
-                                </div>
-                                <p class="text-xs text-gray-700 italic leading-relaxed">
-                                    "Top-notch support for our company liquidation and tax registration. They saved us a lot of time and guided us properly through every single government ministry procedure."
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-                                <div class="w-10 h-10 rounded-full bg-brand-800 text-white flex items-center justify-center font-bold text-sm">M</div>
-                                <div>
-                                    <h4 class="font-extrabold text-brand-900 text-xs">Mohamed Farooq</h4>
-                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
