@@ -48,6 +48,13 @@
             box-shadow: 0 20px 35px -10px rgba(1, 67, 163, 0.15);
             border-color: #0256cc;
         }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
@@ -65,37 +72,13 @@
     countryCodes: [
         { code: '+974', name: 'Qatar (QA)' }, { code: '+971', name: 'UAE (AE)' }, { code: '+966', name: 'Saudi Arabia (SA)' },
         { code: '+968', name: 'Oman (OM)' }, { code: '+965', name: 'Kuwait (KW)' }, { code: '+973', name: 'Bahrain (BH)' },
-        { code: '+91', name: 'India (IN)' }, { code: '+44', name: 'UK (GB)' }, { code: '+1', name: 'USA/Canada (US/CA)' },
-        { code: '+93', name: 'Afghanistan' }, { code: '+355', name: 'Albania' }, { code: '+213', name: 'Algeria' },
-        { code: '+376', name: 'Andorra' }, { code: '+244', name: 'Angola' }, { code: '+54', name: 'Argentina' },
-        { code: '+374', name: 'Armenia' }, { code: '+61', name: 'Australia' }, { code: '+43', name: 'Austria' },
-        { code: '+994', name: 'Azerbaijan' }, { code: '+880', name: 'Bangladesh' }, { code: '+32', name: 'Belgium' },
-        { code: '+55', name: 'Brazil' }, { code: '+359', name: 'Bulgaria' }, { code: '+86', name: 'China' },
-        { code: '+57', name: 'Colombia' }, { code: '+385', name: 'Croatia' }, { code: '+357', name: 'Cyprus' },
-        { code: '+420', name: 'Czech Republic' }, { code: '+45', name: 'Denmark' }, { code: '+20', name: 'Egypt' },
-        { code: '+372', name: 'Estonia' }, { code: '+251', name: 'Ethiopia' }, { code: '+358', name: 'Finland' },
-        { code: '+33', name: 'France' }, { code: '+995', name: 'Georgia' }, { code: '+49', name: 'Germany' },
-        { code: '+30', name: 'Greece' }, { code: '+852', name: 'Hong Kong' }, { code: '+36', name: 'Hungary' },
-        { code: '+354', name: 'Iceland' }, { code: '+62', name: 'Indonesia' }, { code: '+964', name: 'Iraq' },
-        { code: '+353', name: 'Ireland' }, { code: '+972', name: 'Israel' }, { code: '+39', name: 'Italy' },
-        { code: '+81', name: 'Japan' }, { code: '+962', name: 'Jordan' }, { code: '+254', name: 'Kenya' },
-        { code: '+82', name: 'South Korea' }, { code: '+961', name: 'Lebanon' }, { code: '+60', name: 'Malaysia' },
-        { code: '+52', name: 'Mexico' }, { code: '+212', name: 'Morocco' }, { code: '+977', name: 'Nepal' },
-        { code: '+31', name: 'Netherlands' }, { code: '+64', name: 'New Zealand' }, { code: '+234', name: 'Nigeria' },
-        { code: '+47', name: 'Norway' }, { code: '+92', name: 'Pakistan' }, { code: '+63', name: 'Philippines' },
-        { code: '+48', name: 'Poland' }, { code: '+351', name: 'Portugal' }, { code: '+40', name: 'Romania' },
-        { code: '+7', name: 'Russia/Kazakhstan' }, { code: '+65', name: 'Singapore' }, { code: '+27', name: 'South Africa' },
-        { code: '+34', name: 'Spain' }, { code: '+94', name: 'Sri Lanka' }, { code: '+46', name: 'Sweden' },
-        { code: '+41', name: 'Switzerland' }, { code: '+886', name: 'Taiwan' }, { code: '+66', name: 'Thailand' },
-        { code: '+90', name: 'Turkey' }, { code: '+380', name: 'Ukraine' }, { code: '+84', name: 'Vietnam' },
-        { code: '+967', name: 'Yemen' }
+        { code: '+91', name: 'India (IN)' }, { code: '+44', name: 'UK (GB)' }, { code: '+1', name: 'USA/Canada (US/CA)' }
     ],
     activities: [
         'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
         'E-Commerce', 'Event Management', 'Fashion Design Consultancy', 'Food & Beverage Trading', 
         'General Trading', 'Human Resources Consultancy', 'Interior Design', 'IT Consultancy', 
-        'Management Consultancy', 'Marketing Services', 'Media Services', 'Online Education', 'Other', 
-        'Public Relations', 'Publishing', 'Recruitment Consultancy', 'Software Development Management'
+        'Management Consultancy', 'Marketing Services', 'Media Services', 'Online Education', 'Other'
     ],
     calcData: { 
         purpose: 'New Company Registration', 
@@ -173,12 +156,11 @@
 
     <!-- MAIN WRAPPER -->
     <div class="relative flex overflow-x-hidden">
-        
         <div class="flex-1 w-full transition-all duration-300">
 
             <!-- HERO SECTION WITH BACKGROUND IMAGE -->
             <section id="home" class="relative bg-brand-900 text-white py-16 lg:py-24 px-4 overflow-hidden">
-                <img src="/hero-bg.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" onerror="this.style.display='none'">
+                <img src="/hero-bg.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none" onerror="this.style.display='none'">
                 <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
                     <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
                         <span class="inline-flex items-center gap-2 bg-white/10 text-white px-3.5 py-1.5 rounded-full text-[11px] font-extrabold border border-white/20 uppercase tracking-widest shadow-lg">
@@ -251,7 +233,7 @@
                                 Professional Consultancy
                             </div>
                             <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-96 relative bg-brand-900">
-                                <img src="/office.jpg" alt="Modern Doha Corporate Office" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/office.jpg';">
+                                <img src="/office.jpg" alt="Modern Doha Corporate Office" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='/office.jpg';">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-900/40 to-transparent flex flex-col justify-end p-6 text-white">
                                     <div class="font-bold text-xl">Modern Doha Corporate Office</div>
                                     <p class="text-xs text-blue-200">Serving investors across Qatar mainland & free zones</p>
@@ -291,7 +273,7 @@
                                 A Growing Business Hub
                             </div>
                             <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 h-96 relative bg-slate-900">
-                                <img src="/advisor.jpg" alt="Expert Business & PRO Advisors" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/advisor.jpg';">
+                                <img src="/advisor.jpg" alt="Expert Business & PRO Advisors" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='/advisor.jpg';">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6 text-white">
                                     <div class="font-bold text-xl">Expert Business & PRO Advisors</div>
                                     <p class="text-xs text-slate-300">Fast document clearance & regulatory compliance</p>
@@ -481,7 +463,7 @@
                             <!-- Founder Image Container -->
                             <div class="lg:col-span-5 flex flex-col items-center text-center">
                                 <div class="relative group">
-                                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
                                     <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
                                         <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='/shafir.jpg';">
                                     </div>
@@ -537,7 +519,6 @@
                     </div>
 
                     <div class="grid md:grid-cols-4 gap-6">
-                        <!-- 01 Free Consultation -->
                         <div class="bg-white border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">01</span>
                             <div class="space-y-3">
@@ -550,7 +531,6 @@
                             </button>
                         </div>
 
-                        <!-- 02 Document Preparation -->
                         <div class="bg-white border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">02</span>
                             <div class="space-y-3">
@@ -563,7 +543,6 @@
                             </button>
                         </div>
 
-                        <!-- 03 Company Registration -->
                         <div class="bg-white border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">03</span>
                             <div class="space-y-3">
@@ -576,7 +555,6 @@
                             </button>
                         </div>
 
-                        <!-- 04 Ready to Operate -->
                         <div class="bg-white border border-blue-200/60 p-6 rounded-2xl shadow-sm text-center relative space-y-4 flex flex-col justify-between card-hover">
                             <span class="absolute top-3 right-4 font-black text-2xl text-blue-200/80">04</span>
                             <div class="space-y-3">
@@ -830,7 +808,6 @@
                 </div>
             </div>
         </aside>
-
     </div>
 
     <!-- FLOATING ACTION BUTTONS -->
@@ -874,7 +851,7 @@
 
         <!-- HEADER BANNER WITH LOCAL BACKGROUND IMAGE -->
         <div class="relative h-72 sm:h-96 w-full shrink-0 flex items-end p-6 sm:p-12 bg-slate-900 overflow-hidden">
-            <img src="/qatar-bg.jpg" alt="Service Header Background" class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none" onerror="this.style.display='none'">
+            <img src="/qatar-bg.jpg" alt="Service Header Background" class="absolute inset-0 w-full h-full object-cover opacity-30 animate-float pointer-events-none" onerror="this.style.display='none'">
             <div class="max-w-5xl mx-auto w-full space-y-3 text-white z-10 relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div class="space-y-2 sm:space-y-3 w-full sm:w-auto">
                     <span class="bg-white/20 text-white border border-white/30 text-[10px] sm:text-xs font-extrabold px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full uppercase tracking-widest shadow-lg inline-flex items-center gap-2">
