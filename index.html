@@ -283,8 +283,8 @@
     <!-- NAVIGATION BAR -->
     <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 cursor-pointer group shrink-0">
-                <img src="./logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
+            <a href="/#home" class="flex items-center gap-3 cursor-pointer group shrink-0">
+                <img src="/logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.onerror=null; this.src='/logo.png';">
                 <div class="flex flex-col justify-center">
                     <span class="text-sm sm:text-base font-extrabold tracking-tight text-brand-900 leading-tight">Serve Ease</span>
                     <span class="text-[8px] sm:text-[9px] tracking-wider text-brand-600 font-bold uppercase leading-none mt-0.5">BUSINESS SOLUTIONS</span>
@@ -292,14 +292,14 @@
             </a>
             
             <div class="hidden lg:flex items-center gap-4 xl:gap-6 font-semibold text-xs xl:text-sm text-gray-700">
-                <a href="#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
-                <a href="#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
-                <a href="#whyqatar" class="hover:text-brand-600 transition whitespace-nowrap">Why Qatar</a>
-                <a href="#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visas & PRO</a>
-                <a href="#liquidation" class="hover:text-brand-600 transition whitespace-nowrap">Liquidation & Sale</a>
-                <a href="#leadership" class="hover:text-brand-600 transition whitespace-nowrap">Leadership</a>
-                <a href="#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
-                <a href="#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
+                <a href="/#home" class="text-brand-600 border-b-2 border-brand-600 pb-1">Home</a>
+                <a href="/#about" class="hover:text-brand-600 transition whitespace-nowrap">About Us</a>
+                <a href="/#whyqatar" class="hover:text-brand-600 transition whitespace-nowrap">Why Qatar</a>
+                <a href="/#visas" class="hover:text-brand-600 transition whitespace-nowrap">Visas & PRO</a>
+                <a href="/#liquidation" class="hover:text-brand-600 transition whitespace-nowrap">Liquidation & Sale</a>
+                <a href="/#leadership" class="hover:text-brand-600 transition whitespace-nowrap">Leadership</a>
+                <a href="/#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
+                <a href="/#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
 
             <div class="hidden lg:flex items-center gap-3 shrink-0">
@@ -318,14 +318,14 @@
 
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-5 space-y-3 font-semibold shadow-xl text-sm">
-            <a href="#home" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Home</a>
-            <a href="#about" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">About Us</a>
-            <a href="#whyqatar" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Why Qatar</a>
-            <a href="#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa & PRO Services</a>
-            <a href="#liquidation" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Liquidation & Company Sale</a>
-            <a href="#leadership" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Leadership</a>
-            <a href="#process" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Process</a>
-            <a href="#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
+            <a href="/#home" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Home</a>
+            <a href="/#about" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">About Us</a>
+            <a href="/#whyqatar" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Why Qatar</a>
+            <a href="/#visas" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Visa & PRO Services</a>
+            <a href="/#liquidation" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Liquidation & Company Sale</a>
+            <a href="/#leadership" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Leadership</a>
+            <a href="/#process" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Process</a>
+            <a href="/#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
             <div class="pt-2 flex flex-col gap-3">
                 <button @click="calcDrawerOpen = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-robot"></i> Smart AI Quote Assistant</button>
                 <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 text-white py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP</a>
@@ -669,7 +669,7 @@
                                 <div class="relative group">
                                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
                                     <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
-                                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80';">
+                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='/shafir.jpg';">
                                     </div>
                                     <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-brand-600 to-cyan-600 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
                                         Founder & Managing Director
@@ -1102,71 +1102,4 @@
                 <div class="text-sm font-extrabold text-brand-900 uppercase tracking-wider flex items-center gap-2.5">
                     <i class="fa-solid fa-clipboard-check text-brand-600 text-lg"></i> Required Ministry Documents & Checklist:
                 </div>
-                <ul class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm text-gray-800">
-                    <template x-for="doc in selectedService.docs">
-                        <li class="flex items-center gap-3 bg-white p-4 rounded-2xl border border-gray-200 shadow-xs">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-base shrink-0"></i>
-                            <span class="font-bold" x-text="doc"></span>
-                        </li>
-                    </template>
-                </ul>
-            </div>
-
-            <div class="bg-gradient-to-r from-brand-900 to-brand-700 text-white p-6 sm:p-10 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div class="space-y-2 text-center sm:text-left">
-                    <h3 class="text-xl sm:text-2xl font-black">Ready to proceed with this ministry service?</h3>
-                    <p class="text-xs text-blue-100">Get a tailored quote or speak directly with our Qatar PRO expert.</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-3 shrink-0 w-full sm:w-auto">
-                    <button @click="serviceModal = false; quoteTitle = 'Quote for ' + selectedService.title; quoteModal = true;" class="bg-white text-brand-900 hover:bg-blue-50 font-extrabold px-6 py-3.5 rounded-xl text-xs cursor-pointer shadow transition uppercase tracking-wider flex-1 sm:flex-none text-center">
-                        Request Quote
-                    </button>
-                    <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Hello, I want to proceed with [' + selectedService.title + ']. Please guide me.')" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-3.5 rounded-xl text-xs cursor-pointer shadow transition uppercase tracking-wider flex items-center justify-center gap-2 flex-1 sm:flex-none">
-                        <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Us
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <footer class="bg-black text-white py-6 px-6 text-center text-xs text-gray-400 mt-auto">
-            &copy; 2026 Serve Ease Business Solutions. All Rights Reserved. Qatar.
-        </footer>
-    </div>
-
-    <!-- DETAILED QUOTE MODAL -->
-    <div x-show="quoteModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative text-gray-900 border border-blue-100 shadow-2xl">
-            <button @click="quoteModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg p-2 cursor-pointer">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 class="text-xl font-bold text-brand-900 mb-1" x-text="quoteTitle">Get Detailed Quote</h3>
-            <p class="text-xs text-gray-500 mb-6" x-text="quoteDesc">Leave your details and our experts will contact you with a customized estimate.</p>
-            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + modalCountryCode + ' ' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Full Name *</label>
-                    <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
-                </div>
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
-                    <div class="grid grid-cols-12 gap-2">
-                        <select x-model="modalCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-800">
-                            <template x-for="c in countryCodes" :key="c.code + c.name">
-                                <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                            </template>
-                        </select>
-                        <input type="tel" x-ref="mphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
-                    </div>
-                </div>
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Business / Visa Details</label>
-                    <textarea rows="2" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="Specify visa type, staff count or PRO needs..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider cursor-pointer shadow hover:bg-brand-700 transition">
-                    Request Detailed Quote via WhatsApp
-                </button>
-            </form>
-        </div>
-    </div>
-
-</body>
-</html>
+                <ul class="grid sm:grid-cols-2 gap-4 text
