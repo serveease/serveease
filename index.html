@@ -104,7 +104,7 @@
     <nav class="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a href="/#home" class="flex items-center gap-3 cursor-pointer group shrink-0">
-                <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=150&q=80" alt="Serve Ease Logo" class="h-11 w-11 rounded-xl object-cover shadow-md transition group-hover:scale-105">
+                <img src="/logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.onerror=null; this.src='/logo.png';">
                 <div class="flex flex-col justify-center">
                     <span class="text-sm sm:text-base font-extrabold tracking-tight text-brand-900 leading-tight">Serve Ease</span>
                     <span class="text-[8px] sm:text-[9px] tracking-wider text-brand-600 font-bold uppercase leading-none mt-0.5">BUSINESS SOLUTIONS</span>
@@ -119,6 +119,7 @@
                 <a href="/#liquidation" class="hover:text-brand-600 transition whitespace-nowrap">Liquidation & Sale</a>
                 <a href="/#leadership" class="hover:text-brand-600 transition whitespace-nowrap">Leadership</a>
                 <a href="/#process" class="hover:text-brand-600 transition whitespace-nowrap">Process</a>
+                <a href="/#reviews" class="hover:text-brand-600 transition whitespace-nowrap">Google Reviews</a>
                 <a href="/#contact" class="hover:text-brand-600 transition whitespace-nowrap">Contact Us</a>
             </div>
 
@@ -145,6 +146,7 @@
             <a href="/#liquidation" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Liquidation & Company Sale</a>
             <a href="/#leadership" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Leadership</a>
             <a href="/#process" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Process</a>
+            <a href="/#reviews" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Google Reviews</a>
             <a href="/#contact" @click="mobileMenu = false" class="block py-1 text-gray-800 hover:text-brand-600">Contact Us</a>
             <div class="pt-2 flex flex-col gap-3">
                 <button @click="calcDrawerOpen = true; mobileMenu = false;" class="bg-brand-50 text-brand-700 py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2"><i class="fa-solid fa-robot"></i> Smart AI Quote Assistant</button>
@@ -565,6 +567,87 @@
                             <button @click="quoteTitle = 'Full Operational Setup Quote'; quoteDesc = 'Pricing for Computer Card, Municipal Trade License, and Corporate Bank Account opening.'; quoteModal = true;" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition cursor-pointer shadow">
                                 Get Detailed Quote
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GOOGLE REVIEWS SECTION -->
+            <section id="reviews" class="py-20 bg-white border-t border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-3">
+                        <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest">
+                            <i class="fa-solid fa-star text-amber-500"></i> Trusted by Clients in Qatar
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">What Our Clients Say on Google</h2>
+                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Read real experiences from entrepreneurs and investors who set up their businesses with Serve Ease.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Review 1 -->
+                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-amber-400 text-sm">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
+                                </div>
+                                <p class="text-xs text-gray-700 italic leading-relaxed">
+                                    "Exceptional service! Shafir and the team at Serve Ease handled our MOCI company registration and PRO paperwork smoothly and professionally. Highly recommended for anyone starting in Qatar."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                                <div class="w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-sm">A</div>
+                                <div>
+                                    <h4 class="font-extrabold text-brand-900 text-xs">Ahmed Al-Mansoori</h4>
+                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-amber-400 text-sm">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
+                                </div>
+                                <p class="text-xs text-gray-700 italic leading-relaxed">
+                                    "Very efficient and transparent consultancy. They assisted us with computer card clearance and family visas without any hassle. Their team is extremely knowledgeable about Qatari regulations."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">R</div>
+                                <div>
+                                    <h4 class="font-extrabold text-brand-900 text-xs">Rahul Sharma</h4>
+                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-xs space-y-4 card-hover flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-amber-400 text-sm">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <i class="fa-brands fa-google text-xl text-gray-400"></i>
+                                </div>
+                                <p class="text-xs text-gray-700 italic leading-relaxed">
+                                    "Top-notch support for our company liquidation and tax registration. They saved us a lot of time and guided us properly through every single government ministry procedure."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                                <div class="w-10 h-10 rounded-full bg-brand-800 text-white flex items-center justify-center font-bold text-sm">M</div>
+                                <div>
+                                    <h4 class="font-extrabold text-brand-900 text-xs">Mohamed Farooq</h4>
+                                    <p class="text-[10px] text-gray-500">Google Verified Review</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
