@@ -58,6 +58,7 @@
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
+    currentTab: 'home',
     quoteModal: false, 
     serviceModal: false,
     calcDrawerOpen: false,
@@ -98,20 +99,19 @@
         { id: 'ro', name: 'Representative Office', desc: 'A non-trading office established solely for market research, promotion, and liaison activities.' }
     ],
     faqs: [
-        { q: 'What is company formation in Qatar and how does the process work?', a: 'Company formation involves registering your business entity with the Ministry of Commerce and Industry (MOCI), obtaining commercial registration, municipal licenses, and tax cards.' },
+        { q: 'What is company formation in Qatar and how does the process work?', a: 'Company formation involves registering your business entity with the Ministry of Commerce and Industry (MOCI), obtaining commercial registration, and municipal licenses.' },
         { q: 'Can foreigners own 100% of a company in Qatar without a local sponsor?', a: 'Yes, under specific sectors and free zones, foreign investors can enjoy 100% ownership.' },
         { q: 'What types of business entities can be formed in Qatar?', a: 'You can form WLL (LLC), branches, representative offices, holding companies, and free zone entities.' },
         { q: 'What is the minimum capital requirement for company formation in Qatar?', a: 'Minimum capital varies depending on the legal structure and commercial activity, often starting from QAR 200,000 for standard WLL companies unless exempt.' },
         { q: 'What documents are required for company registration in Qatar?', a: 'Passport copies of shareholders, CVs, proposed trade names, lease agreement, and incorporation documents.' },
         { q: 'How long does it take to register a company in Qatar?', a: 'Typically between 3 to 7 working days once all documentation and MOCI approvals are in order.' },
-        { q: 'What is the difference between MOCI registration, QFC, and Free Zone company formation?', a: 'MOCI covers Qatar mainland operations, QFC offers an independent onshore legal environment, and Free Zones provide 100% foreign ownership with tax exemptions.' },
+        { q: 'What is the difference between MOCI registration, QFC, and Free Zone company formation?', a: 'MOCI covers Qatar mainland operations, QFC offers an independent onshore legal environment, and Free Zones provide 100% foreign ownership.' },
         { q: 'What are the costs involved in company formation in Qatar?', a: 'Costs include government filing fees, municipal licenses, CR fees, and professional consultancy service charges.' },
         { q: 'How do I open a corporate bank account in Qatar after company formation?', a: 'With your CR, Computer Card, and corporate documents, our team assists you with tier-1 bank account openings in Qatar.' },
-        { q: 'What tax obligations apply to companies formed in Qatar?', a: 'Standard corporate tax in Qatar is 10% on corporate profits, with various exemptions depending on the sector.' },
         { q: 'Can I get a residence visa through company formation in Qatar?', a: 'Yes, setting up a company grants you eligibility for investor and employee residence visas (QIDs).' },
         { q: 'What business activities are permitted for company formation in Qatar?', a: 'Thousands of activities across trading, services, IT, consulting, contracting, and manufacturing are permitted.' },
         { q: 'Why should I choose Serve Ease for company formation in Qatar?', a: 'We provide end-to-end transparency, expert government relations, and 100% compliance record.' },
-        { q: 'How does Qatar compare to other GCC countries for company formation?', a: 'Qatar offers world-class infrastructure, strong economic growth, tax advantages, and strategic geographical positioning.' }
+        { q: 'How does Qatar compare to other GCC countries for company formation?', a: 'Qatar offers world-class infrastructure, strong economic growth, and strategic geographical positioning.' }
     ],
     calcData: { 
         purpose: 'New Company Registration', 
@@ -133,10 +133,11 @@
     quoteDesc: 'Fill in your details and our experts will contact you with a customized estimate.' 
 }">
 
-    <!-- NAVIGATION BAR -->
+    <!-- NAVIGATION BAR (Clean 2-Sided Layout as requested) -->
     <nav class="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <a href="/#home" class="flex items-center gap-3 cursor-pointer group shrink-0">
+            <!-- Left Side: Logo & Brand -->
+            <a href="#home" @click="currentTab = 'home'" class="flex items-center gap-3 cursor-pointer group shrink-0">
                 <img src="/logo.png" alt="Serve Ease Logo" class="h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=200&q=80'">
                 <div class="flex flex-col justify-center">
                     <span class="text-base sm:text-lg font-extrabold tracking-tight text-brand-900 leading-tight">Serve Ease</span>
@@ -144,7 +145,11 @@
                 </div>
             </a>
 
+            <!-- Right Side: Phone & WhatsApp Buttons -->
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <button @click="currentTab = (currentTab === 'home' ? 'about' : 'home'); window.scrollTo({top:0, behavior:'smooth'})" class="bg-gray-100 hover:bg-gray-200 text-brand-900 px-3.5 sm:px-4 py-2.5 rounded-full text-xs font-bold transition shadow-xs hidden sm:flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-building"></i> <span x-text="currentTab === 'home' ? 'About Consultancy & Why Qatar' : 'Back to Home'"></span>
+                </button>
                 <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 transition shadow-md hover:scale-105">
                     <i class="fa-solid fa-phone text-xs sm:text-sm"></i> 
                     <span class="tracking-wide">+974 7044 2825</span>
@@ -161,109 +166,606 @@
     <div class="relative flex overflow-x-hidden">
         <div class="flex-1 w-full transition-all duration-300">
 
-            <!-- HERO SECTION -->
-            <section id="home" class="relative bg-brand-900 text-white py-16 lg:py-24 px-4 overflow-hidden">
-                <img src="/bg.jpg" alt="Doha Skyline Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1578898835026-00438a0c20df?auto=format&fit=crop&w=1920&q=80'">
-                <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
-                        <span class="inline-flex items-center gap-2 bg-white/10 text-white px-3.5 py-1.5 rounded-full text-[11px] font-extrabold border border-white/20 uppercase tracking-widest shadow-lg">
-                            <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 BUSINESS FORMATION, PRO, LIQUIDATION & VISA PARTNER IN QATAR
-                        </span>
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
-                            SET UP, MANAGE OR CLOSE YOUR BUSINESS IN QATAR
-                        </h1>
-                        <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                            Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances, legal translations, and secure company liquidation or share transfer.
-                        </p>
-                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
-                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-sm hover:scale-105">
-                                <i class="fa-brands fa-whatsapp text-xl"></i> Get Started Now
-                            </a>
-                            <button @click="calcDrawerOpen = true" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-5 py-3 rounded-xl font-bold flex items-center gap-2 transition text-sm cursor-pointer">
-                                <i class="fa-solid fa-robot text-brand-100"></i> Smart AI Quote Assistant
+            <!-- PAGE 1: HOME TAB -->
+            <div x-show="currentTab === 'home'">
+                <!-- HERO SECTION -->
+                <section id="home" class="relative bg-brand-900 text-white py-16 lg:py-24 px-4 overflow-hidden">
+                    <img src="/bg.jpg" alt="Doha Skyline Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1578898835026-00438a0c20df?auto=format&fit=crop&w=1920&q=80'">
+                    <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                            <span class="inline-flex items-center gap-2 bg-white/10 text-white px-3.5 py-1.5 rounded-full text-[11px] font-extrabold border border-white/20 uppercase tracking-widest shadow-lg">
+                                <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 BUSINESS FORMATION, PRO, LIQUIDATION & VISA PARTNER IN QATAR
+                            </span>
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
+                                SET UP, MANAGE OR CLOSE YOUR BUSINESS IN QATAR
+                            </h1>
+                            <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                                Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances, legal translations, and secure company liquidation or share transfer.
+                            </p>
+                            <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
+                                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition shadow-xl text-sm hover:scale-105">
+                                    <i class="fa-brands fa-whatsapp text-xl"></i> Get Started Now
+                                </a>
+                                <button @click="calcDrawerOpen = true" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-5 py-3 rounded-xl font-bold flex items-center gap-2 transition text-sm cursor-pointer">
+                                    <i class="fa-solid fa-robot text-brand-100"></i> Smart AI Quote Assistant
+                                </button>
+                                <button @click="currentTab = 'about'; window.scrollTo({top:0, behavior:'smooth'})" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 rounded-xl font-bold flex items-center gap-2 transition text-sm cursor-pointer shadow">
+                                    <i class="fa-solid fa-building"></i> About Consultancy & Why Qatar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hero Consultation Form Card -->
+                        <div class="lg:col-span-5">
+                            <div class="bg-white text-gray-900 p-6 sm:p-7 rounded-3xl shadow-2xl space-y-3.5 border border-gray-100">
+                                <div class="border-b border-gray-100 pb-2">
+                                    <h3 class="font-extrabold text-lg text-brand-900">Get in Touch</h3>
+                                    <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
+                                </div>
+                                <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + heroCountryCode + ' ' + $refs.fphone.value + ')'), '_blank');" class="space-y-3 text-xs">
+                                    <div>
+                                        <input type="text" x-ref="fname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
+                                    </div>
+                                    <div>
+                                        <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-2">
+                                        <select x-model="heroCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-bold text-gray-800">
+                                            <template x-for="c in countryCodes" :key="c.code + c.name">
+                                                <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                            </template>
+                                        </select>
+                                        <input type="tel" x-ref="fphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
+                                    </div>
+                                    <div>
+                                        <select class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
+                                            <option value="Company Formation">Company Formation / Commercial Reg.</option>
+                                            <option value="Visa Services">Visa Services (Tourist, Hayya, Family)</option>
+                                            <option value="Government PRO">Government PRO Services / Retainers</option>
+                                            <option value="Liquidation">Company Liquidation & Closing</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <textarea rows="2" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Message / Requirements"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl shadow-lg transition cursor-pointer text-xs uppercase tracking-wider">
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- END-TO-END BUSINESS SETUP SUPPORT SECTION -->
+                <section class="py-20 bg-slate-50 border-b border-gray-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                        <div class="grid lg:grid-cols-12 gap-12 items-center">
+                            <div class="lg:col-span-6 space-y-6">
+                                <div>
+                                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 leading-tight">
+                                        End-to-End Business Setup Support
+                                    </h2>
+                                    <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                                        Practical, step-by-step guidance from your first consultation through to your first day of business.
+                                    </p>
+                                </div>
+
+                                <div class="p-5 bg-blue-50/80 border-l-4 border-brand-600 rounded-r-2xl space-y-1.5">
+                                    <span class="font-extrabold text-xs text-brand-900">Licensed Qatar Consultancy.</span>
+                                    <p class="text-xs text-gray-700 leading-relaxed">
+                                        Serve Ease Business Solutions is a licensed Qatar consultancy helping founders set up here smoothly. Our bilingual team has guided hundreds of new businesses through every stage of starting up in Qatar.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-3.5 pt-2">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">Business Structure Consultation</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">Documentation Support</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">End-to-End Support</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">Bank Account Opening Assistance</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">Office Space Solutions</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
+                                        <span class="text-xs sm:text-sm font-bold text-gray-800">Corporate Services & PRO</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-6 space-y-4">
+                                <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200 h-[380px] relative bg-slate-900 group">
+                                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Corporate Setup Office" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                        <div class="text-white">
+                                            <div class="font-extrabold text-lg">Comprehensive Qatar Corporate Setup</div>
+                                            <div class="text-xs text-gray-300">Fast-track approvals with MOCI, MOI & Baladiya</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center pt-2">
+                                    <button @click="currentTab = 'about'; window.scrollTo({top:0, behavior:'smooth'})" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition shadow-lg cursor-pointer inline-flex items-center gap-2">
+                                        <span>View Detailed About Consultancy & Why Qatar Page</span> <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SIMPLE BUSINESS SETUP PROCESS (4-STEP CARDS) SECTION -->
+                <section class="py-20 bg-white border-b border-gray-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+                        <div class="text-center space-y-3">
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Simple Business Setup Process</h2>
+                            <p class="text-xs sm:text-sm text-gray-600">Our streamlined 4-step process gets your business operational quickly</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Step 01 -->
+                            <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
+                                            <i class="fa-solid fa-file-lines"></i>
+                                        </div>
+                                        <span class="text-2xl font-black text-blue-200">01</span>
+                                    </div>
+                                    <h3 class="font-extrabold text-base text-brand-900 text-left">Free Consultation</h3>
+                                    <p class="text-xs text-gray-600 text-left leading-relaxed">
+                                        We listen to your goals and recommend the most suitable way to set up your company in Qatar.
+                                    </p>
+                                </div>
+                                <button @click="quoteModal = true; quoteTitle = 'Free Consultation Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+
+                            <!-- Step 02 -->
+                            <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
+                                            <i class="fa-solid fa-clock"></i>
+                                        </div>
+                                        <span class="text-2xl font-black text-blue-200">02</span>
+                                    </div>
+                                    <h3 class="font-extrabold text-base text-brand-900 text-left">Document Preparation</h3>
+                                    <p class="text-xs text-gray-600 text-left leading-relaxed">
+                                        We help you prepare a complete, accurate file so everything is ready for a smooth setup.
+                                    </p>
+                                </div>
+                                <button @click="quoteModal = true; quoteTitle = 'Document Preparation Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+
+                            <!-- Step 03 -->
+                            <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
+                                            <i class="fa-solid fa-check-double"></i>
+                                        </div>
+                                        <span class="text-2xl font-black text-blue-200">03</span>
+                                    </div>
+                                    <h3 class="font-extrabold text-base text-brand-900 text-left">Company Registration</h3>
+                                    <p class="text-xs text-gray-600 text-left leading-relaxed">
+                                        We guide you through registering your company and obtaining your Commercial Registration (CR).
+                                    </p>
+                                </div>
+                                <button @click="quoteModal = true; quoteTitle = 'Company Registration Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+
+                            <!-- Step 04 -->
+                            <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
+                                            <i class="fa-solid fa-award"></i>
+                                        </div>
+                                        <span class="text-2xl font-black text-blue-200">04</span>
+                                    </div>
+                                    <h3 class="font-extrabold text-base text-brand-900 text-left">Ready to Operate</h3>
+                                    <p class="text-xs text-gray-600 text-left leading-relaxed">
+                                        With your CR in hand, we help you take the final steps so you can open your doors and start trading.
+                                    </p>
+                                </div>
+                                <button @click="quoteModal = true; quoteTitle = 'Ready to Operate Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CTA Blue Banner -->
+                        <div class="bg-brand-900 text-white rounded-3xl p-8 sm:p-10 text-center space-y-6 shadow-2xl">
+                            <div class="space-y-2">
+                                <h3 class="text-2xl sm:text-3xl font-extrabold">Ready to Launch Your Business?</h3>
+                                <p class="text-xs sm:text-sm text-blue-100">Join thousands of successful businesses operating in Qatar</p>
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-3">
+                                <button @click="calcDrawerOpen = true" class="bg-white text-brand-900 px-5 py-2.5 rounded-xl text-xs font-bold transition shadow hover:bg-blue-50 cursor-pointer">
+                                    <i class="fa-solid fa-calculator mr-1.5"></i> Cost Calculator
+                                </button>
+                                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow">
+                                    <i class="fa-brands fa-whatsapp mr-1.5"></i> WhatsApp
+                                </a>
+                                <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow">
+                                    <i class="fa-solid fa-phone mr-1.5"></i> Call Us
+                                </a>
+                                <button @click="quoteModal = true" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow cursor-pointer">
+                                    <i class="fa-solid fa-envelope mr-1.5"></i> Email Us
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VISA & GOVERNMENT PRO SERVICES SECTION -->
+                <section id="visas" class="py-20 bg-gray-50 border-b border-gray-200">
+                    <div class="max-w-7xl mx-auto px-4 space-y-12">
+                        <div class="text-center space-y-3">
+                            <span class="text-emerald-700 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">Full Ministry Compliance</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
+                            <p class="text-xs text-gray-600 max-w-2xl mx-auto">Click any service to view full inside details, requirements & timeline, or request a quote.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <!-- Card 1 -->
+                            <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', '24-48 Hours', ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], 'From QAR 350', 'Qatar Tourism & Hayya Portal', 'bg-gradient-to-r from-sky-950 via-cyan-900 to-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-sky-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80" alt="Qatar Tourism & Hayya" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
+                                    <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], 'From QAR 500', 'General Directorate of Passports (MOI)', 'bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950', 'fa-people-roof', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-indigo-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=300&q=80" alt="MOI Passports" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
+                                    <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', '1-3 Working Days', ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], 'From QAR 1,500', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-brand-900 to-slate-900', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-blue-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80" alt="MOCI Qatar" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
+                                    <p class="text-xs text-gray-600">Commercial Registration (CR) creation, amendments, and activity additions.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', '24 Hours', ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], 'From QAR 400', 'Ministry of Interior (MOI)', 'bg-gradient-to-r from-slate-950 via-blue-900 to-indigo-950', 'fa-id-card', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-purple-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80" alt="Computer Card" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
+                                    <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div @click="openService('Baladiya Municipal License', 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', '3-7 Working Days', ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], 'From QAR 800', 'Ministry of Municipality (Baladiya)', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-store', 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-emerald-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=300&q=80" alt="Baladiya" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Baladiya Municipal License</h3>
+                                    <p class="text-xs text-gray-600">Office location inspection approvals & Municipal Trade License issuance.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div @click="openService('Civil Defence (QCDD) Clearance', 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', '3-5 Working Days', ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], 'From QAR 1,000', 'Qatar Civil Defence Department (QCDD)', 'bg-gradient-to-r from-red-950 via-orange-950 to-slate-900', 'fa-fire-extinguisher', 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-rose-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=300&q=80" alt="Civil Defence" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Clearance</h3>
+                                    <p class="text-xs text-gray-600">Safety compliance certification for retail shops, offices, and warehouses.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Card 7 -->
+                            <div @click="openService('Legal Translation & Attestation', 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', '24-48 Hours', ['Original Documents / Certificates', 'Passport Copies'], 'From QAR 150 per page', 'Ministry of Foreign Affairs (MOFA) & Justice', 'bg-gradient-to-r from-zinc-900 via-stone-900 to-slate-900', 'fa-language', 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                                <div class="space-y-3">
+                                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-teal-100 group-hover:scale-105 transition">
+                                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=300&q=80" alt="Translation" class="w-full h-full object-cover">
+                                    </div>
+                                    <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
+                                    <p class="text-xs text-gray-600">MOFA, Embassy & Ministry of Justice certified document translation.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPANY LIQUIDATION & COMPANY SALE SECTION -->
+                <section id="liquidation" class="py-20 bg-white border-b border-gray-200">
+                    <div class="max-w-7xl mx-auto px-4 space-y-12">
+                        <div class="text-center space-y-3">
+                            <span class="text-amber-700 font-extrabold text-xs uppercase tracking-widest bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200">Corporate Restructuring & Exit Strategies</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Company Liquidation, Closing & Share Sale Services</h2>
+                            <p class="text-xs text-gray-600 max-w-2xl mx-auto">Seamless legal closures, official liquidator appointment, and complete corporate share transfer/sales in Qatar.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Liquidation 1 -->
+                            <div @click="openService('Official Company Liquidation & Closing', 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', '15-30 Working Days', ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate'], 'From QAR 2,500', 'MOCI & Authorities', 'bg-gradient-to-r from-amber-950 via-slate-900 to-indigo-950', 'fa-file-circle-xmark', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                                <div class="space-y-3">
+                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-file-circle-xmark"></i></div>
+                                    <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-600 transition">Company Liquidation & Closing</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Official winding up, clearing liabilities, and final MOCI cancellation.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Liquidation Checklist <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Liquidation 2 -->
+                            <div @click="openService('Company Share Sale & Ownership Transfer', 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', '5-10 Working Days', ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], 'From QAR 2,000', 'Ministry of Justice & MOCI', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-handshake-angle', 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                                <div class="space-y-3">
+                                    <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-handshake-angle"></i></div>
+                                    <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-emerald-600 transition">Company Share Sale & Transfer</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Seamlessly transfer shares, update partners, amend MoA, and execute secure buyouts.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Transfer Procedure <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+
+                            <!-- Liquidation 3 -->
+                            <div @click="openService('Branch Closure & License Surrender', 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', '7-14 Working Days', ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], 'From QAR 1,800', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900', 'fa-building-circle-xmark', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                                <div class="space-y-3">
+                                    <div class="w-12 h-12 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-building-circle-xmark"></i></div>
+                                    <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-700 transition">Branch Closure & Surrender</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Formal closing of branch offices, municipal license cancellation, and clearance.</p>
+                                </div>
+                                <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Closure Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CHOOSE THE RIGHT BUSINESS STRUCTURE SECTION -->
+                <section class="py-20 bg-white border-b border-gray-200">
+                    <div class="max-w-4xl mx-auto px-4 space-y-10">
+                        <div class="text-center space-y-3">
+                            <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">Business Structure Guide</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Choose the Right Business Structure</h2>
+                            <p class="text-xs sm:text-sm text-gray-600">We'll help you select the optimal structure for your needs</p>
+                            
+                            <div class="flex flex-wrap justify-center gap-3 pt-3">
+                                <button @click="calcDrawerOpen = true" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow cursor-pointer"><i class="fa-solid fa-calculator mr-1"></i> Cost Calculator</button>
+                                <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                                <a href="tel:+97470442825" class="bg-brand-800 hover:bg-brand-900 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow"><i class="fa-solid fa-phone mr-1"></i> Call Us</a>
+                                <button @click="quoteModal = true" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow cursor-pointer"><i class="fa-solid fa-envelope mr-1"></i> Email Us</button>
+                            </div>
+                        </div>
+
+                        <div class="text-center space-y-2 pt-6">
+                            <h3 class="text-2xl font-extrabold text-brand-900">Find the Right Business Structure for Your Venture</h3>
+                            <p class="text-xs text-gray-500">Our experts guide you in choosing the most suitable legal setup in Qatar</p>
+                        </div>
+
+                        <!-- Accordions -->
+                        <div class="space-y-4 pt-4">
+                            <template x-for="s in structures" :key="s.id">
+                                <div class="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden transition">
+                                    <button @click="selectedStructure = (selectedStructure === s.id ? null : s.id)" class="w-full p-5 text-left flex justify-between items-center cursor-pointer hover:bg-gray-50 transition">
+                                        <span class="font-extrabold text-sm text-brand-900 flex items-center gap-3">
+                                            <i class="fa-solid fa-building text-brand-600"></i> <span x-text="s.name"></span>
+                                        </span>
+                                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300" :class="selectedStructure === s.id ? 'rotate-180 text-brand-600' : ''"></i>
+                                    </button>
+                                    <div x-show="selectedStructure === s.id" x-cloak class="px-5 pb-5 pt-2 border-t border-gray-100 bg-blue-50/20 space-y-3">
+                                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed" x-text="s.desc"></p>
+                                        <div class="flex items-center justify-between pt-2">
+                                            <span class="text-[11px] text-gray-500 italic">Expert guidance in selecting the right structure</span>
+                                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
+                                                <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BUSINESS ENTITY TYPES IN QATAR SECTION -->
+                <section class="py-20 bg-gray-50 border-b border-gray-200">
+                    <div class="max-w-6xl mx-auto px-4 space-y-12">
+                        <div class="text-center space-y-3">
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Business Entity Types in Qatar</h2>
+                            <p class="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">Our consultants help you select the right legal entity and manage the full setup process for your chosen business structure.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
+                                <h3 class="text-lg font-extrabold text-brand-900">MOCI</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We guide you through mainland company registration so you have full access to the local market.</p>
+                            </div>
+                            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
+                                <h3 class="text-lg font-extrabold text-brand-900">Free zone</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to establish your business in Qatar free zones with 100% foreign ownership.</p>
+                            </div>
+                            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
+                                <h3 class="text-lg font-extrabold text-brand-900">QFC</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to set up in the Qatar financial center with world class regulatory framework and 100% ownership.</p>
+                            </div>
+                            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
+                                <h3 class="text-lg font-extrabold text-brand-900">QSTP</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to launch your tech or research company in Qatar science and technology park with specialized support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
+                <section id="leadership" class="py-20 bg-slate-900 text-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                        <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-brand-dark rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-blue-500/30">
+                            <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                                <div class="lg:col-span-5 flex flex-col items-center text-center">
+                                    <div class="relative group">
+                                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                                        <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
+                                            <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+                                        </div>
+                                        <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-brand-600 to-cyan-600 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
+                                            Founder & Managing Director
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                                    <span class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                                        <i class="fa-solid fa-award mr-1"></i> Leadership Vision
+                                    </span>
+                                    <div>
+                                        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Shafir Kottupurath Basheer</h2>
+                                        <p class="text-blue-400 font-bold text-sm sm:text-base mt-1">Founder & Managing Director – Serve Ease Business Solutions</p>
+                                    </div>
+
+                                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3 relative">
+                                        <i class="fa-solid fa-quote-left text-3xl text-blue-400/40 absolute top-4 left-4"></i>
+                                        <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed pt-3 pl-4">
+                                            "Our core mission in Qatar is to bridge global ambition with seamless local execution."
+                                        </p>
+                                    </div>
+
+                                    <div class="grid grid-cols-3 gap-4 text-center pt-2">
+                                        <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                            <div class="text-xl font-black text-blue-300">10+</div>
+                                            <div class="text-[10px] text-gray-300 uppercase font-semibold">Years Experience</div>
+                                        </div>
+                                        <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                            <div class="text-xl font-black text-cyan-300">3000+</div>
+                                            <div class="text-[10px] text-gray-300 uppercase font-semibold">Setup Clients</div>
+                                        </div>
+                                        <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                            <div class="text-xl font-black text-emerald-300">100%</div>
+                                            <div class="text-[10px] text-gray-300 uppercase font-semibold">Compliance Rate</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BUSINESS SETUP IN QATAR - FAQ SECTION -->
+                <section class="py-20 bg-white border-b border-gray-200">
+                    <div class="max-w-4xl mx-auto px-4 space-y-12">
+                        <div class="text-center space-y-3">
+                            <span class="bg-blue-50 text-brand-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Frequently Asked Questions</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Business Setup in Qatar - FAQ</h2>
+                            <p class="text-xs sm:text-sm text-gray-600">Everything you need to know about starting and registering a business in Qatar</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <template x-for="(faq, index) in faqs" :key="index">
+                                <div class="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden transition">
+                                    <button @click="activeFaq = (activeFaq === index ? null : index)" class="w-full p-5 text-left flex justify-between items-center cursor-pointer hover:bg-gray-50 transition">
+                                        <span class="font-extrabold text-xs sm:text-sm text-brand-900" x-text="faq.q"></span>
+                                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300" :class="activeFaq === index ? 'rotate-180 text-brand-600' : ''"></i>
+                                    </button>
+                                    <div x-show="activeFaq === index" x-cloak class="px-5 pb-5 pt-2 border-t border-gray-100 bg-blue-50/20">
+                                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed" x-text="faq.a"></p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="text-center space-y-3 pt-6">
+                            <p class="text-xs text-gray-500">Still have questions about company formation in Qatar?</p>
+                            <button @click="quoteModal = true" class="bg-brand-600 hover:bg-brand-700 text-white font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg uppercase tracking-wider cursor-pointer">
+                                Get Free Consultation
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PAGE 2: ABOUT CONSULTANCY & WHY QATAR TAB -->
+            <div x-show="currentTab === 'about'" x-cloak class="py-16 bg-white min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
+                    <!-- Page Header -->
+                    <div class="text-center space-y-3 max-w-3xl mx-auto">
+                        <span class="bg-blue-50 text-brand-700 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">Dedicated Consultancy Profile</span>
+                        <h1 class="text-3xl md:text-5xl font-black text-brand-900">About Serve Ease & Why Choose Qatar</h1>
+                        <p class="text-sm sm:text-base text-gray-600">Your trusted partner for company formation, government documentation, and corporate success in Qatar.</p>
+                        <div class="pt-2">
+                            <button @click="currentTab = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow cursor-pointer">
+                                <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Home
                             </button>
                         </div>
                     </div>
 
-                    <!-- Hero Consultation Form Card -->
-                    <div class="lg:col-span-5">
-                        <div class="bg-white text-gray-900 p-6 sm:p-7 rounded-3xl shadow-2xl space-y-3.5 border border-gray-100">
-                            <div class="border-b border-gray-100 pb-2">
-                                <h3 class="font-extrabold text-lg text-brand-900">Get in Touch</h3>
-                                <p class="text-xs text-gray-500 mt-0.5">Free consultation with a licensed PRO & business advisor.</p>
-                            </div>
-                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Consultation Inquiry from ' + $refs.fname.value + ' (' + heroCountryCode + ' ' + $refs.fphone.value + ')'), '_blank');" class="space-y-3 text-xs">
-                                <div>
-                                    <input type="text" x-ref="fname" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Name">
-                                </div>
-                                <div>
-                                    <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Email">
-                                </div>
-                                <div class="grid grid-cols-12 gap-2">
-                                    <select x-model="heroCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-bold text-gray-800">
-                                        <template x-for="c in countryCodes" :key="c.code + c.name">
-                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
-                                        </template>
-                                    </select>
-                                    <input type="tel" x-ref="fphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Phone Number">
-                                </div>
-                                <div>
-                                    <select class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs font-semibold text-gray-700">
-                                        <option value="Company Formation">Company Formation / Commercial Reg.</option>
-                                        <option value="Visa Services">Visa Services (Tourist, Hayya, Family)</option>
-                                        <option value="Government PRO">Government PRO Services / Retainers</option>
-                                        <option value="Liquidation">Company Liquidation & Closing</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <textarea rows="2" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:outline-none focus:border-brand-600 font-semibold" placeholder="Your Message / Requirements"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl shadow-lg transition cursor-pointer text-xs uppercase tracking-wider">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TRUSTED CONSULTANCY & UNLOCK POTENTIAL SECTION -->
-            <section class="py-20 bg-white border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
                     <!-- Top Part: Your Trusted Company Formation Consultancy -->
-                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 sm:p-12 rounded-3xl border border-gray-200">
                         <div class="lg:col-span-5">
-                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 relative group">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200 relative group">
                                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Consultancy Office" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition duration-500">
                                 <div class="absolute bottom-4 left-4 bg-brand-600 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg">
-                                    Professional Consultancy
+                                    Professional Consultancy in Doha
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:col-span-7 space-y-4">
-                            <h2 class="text-3xl font-extrabold text-brand-900 leading-tight">Your Trusted Company Formation Consultancy in Qatar</h2>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        <div class="lg:col-span-7 space-y-5">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900 leading-tight">Your Trusted Company Formation Consultancy in Qatar</h2>
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                                 Starting up a business may expand into the Qatar market with its economic growth potential. Service Ease offers full consultancy, guiding your company setup and development, backed by thorough knowledge of local Qatar laws and market dynamics.
                             </p>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                                 From your first inquiry to your first day of operations, our team provides a full range of services and hands-on support. We take away the bureaucratic complexity so you can focus on building your business.
                             </p>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                                 With Qatar's business-friendly policies, high stability, and strategic location, now is the perfect time to establish your presence. Trust Serve Ease to guide you seamlessly through every step.
                             </p>
                         </div>
                     </div>
 
                     <!-- Bottom Part: Unlock Your Business Potential -->
-                    <div class="grid lg:grid-cols-12 gap-12 items-center pt-8 border-t border-gray-100">
-                        <div class="lg:col-span-5">
-                            <div class="bg-slate-50 p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4 text-center">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center bg-blue-50/30 p-8 sm:p-12 rounded-3xl border border-blue-100">
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4 text-center">
                                 <div class="rounded-2xl overflow-hidden shadow-md">
                                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Work" class="w-full h-56 object-cover">
                                 </div>
-                                <div class="bg-white p-4 rounded-2xl shadow-xs border border-gray-100 inline-block">
-                                    <div class="text-2xl font-black text-brand-600">3000+</div>
-                                    <div class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Companies Successfully Assisted</div>
+                                <div class="bg-brand-50 p-4 rounded-2xl shadow-xs border border-blue-100 inline-block w-full">
+                                    <div class="text-3xl font-black text-brand-600">3000+</div>
+                                    <div class="text-[11px] text-gray-600 uppercase font-bold tracking-wider mt-1">Companies Successfully Assisted</div>
                                 </div>
                                 <div class="space-y-1">
                                     <div class="text-xs font-bold text-gray-800">#1 Licensed Business Setup Consultancy in Qatar</div>
@@ -275,547 +777,68 @@
                             </div>
                         </div>
 
-                        <div class="lg:col-span-7 space-y-4">
-                            <span class="bg-blue-50 text-brand-600 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">GCC Economic Hub</span>
-                            <h2 class="text-3xl font-extrabold text-brand-900 leading-tight">Unlock Your Business Potential in Qatar</h2>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        <div class="lg:col-span-7 space-y-5">
+                            <span class="bg-brand-100 text-brand-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider inline-block">GCC Economic Hub</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900 leading-tight">Unlock Your Business Potential in Qatar</h2>
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                                 Discover the advantages of establishing your company in one of the world's fastest-growing economies:
                             </p>
-                            <div class="space-y-3 pt-2 text-xs sm:text-sm text-gray-700">
-                                <div><strong class="text-brand-900">Strategic Business Hub:</strong> Position your company at the crossroads of East and West with access to lucrative regional markets.</div>
-                                <div><strong class="text-brand-900">World-Class Infrastructure:</strong> Benefit from state-of-the-art logistics, telecommunications, and modern office spaces.</div>
-                                <div><strong class="text-brand-900">Competitive Tax Incentives:</strong> Enjoy low corporate tax rates, tax exemptions in free zones, and zero personal income tax.</div>
-                                <div><strong class="text-brand-900">100% Foreign Ownership:</strong> Set up eligible business structures with complete international ownership without requiring a local partner.</div>
-                                <div><strong class="text-brand-900">Fast-Track Approvals:</strong> Streamlined procedures with government ministries ensure efficient registration and rapid launch.</div>
+                            <div class="space-y-3.5 text-sm text-gray-700">
+                                <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs"><strong class="text-brand-900 block mb-1 font-extrabold">Strategic Business Hub:</strong> Position your company at the crossroads of East and West with access to lucrative regional markets.</div>
+                                <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs"><strong class="text-brand-900 block mb-1 font-extrabold">World-Class Infrastructure:</strong> Benefit from state-of-the-art logistics, telecommunications, and modern office spaces.</div>
+                                <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs"><strong class="text-brand-900 block mb-1 font-extrabold">100% Foreign Ownership:</strong> Set up eligible business structures with complete international ownership without requiring a local partner.</div>
+                                <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs"><strong class="text-brand-900 block mb-1 font-extrabold">Fast-Track Approvals:</strong> Streamlined procedures with government ministries ensure efficient registration and rapid launch.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 6 Grid Feature Cards -->
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">01</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">Strategic Location</h3>
-                            <p class="text-xs text-gray-600">Gateway to GCC, MENA, and Asian markets with world-class connectivity.</p>
+                    <!-- 6 Grid Feature Cards (Tax Removed) -->
+                    <div class="space-y-8">
+                        <div class="text-center space-y-2">
+                            <h3 class="text-2xl font-extrabold text-brand-900">Key Advantages of Setting Up in Qatar</h3>
+                            <p class="text-xs sm:text-sm text-gray-500">Why entrepreneurs choose Qatar for their corporate expansion</p>
                         </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">02</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">Tax Benefits</h3>
-                            <p class="text-xs text-gray-600">Low corporate tax, tax-free personal income, and no VAT.</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">03</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">World-Class Infrastructure</h3>
-                            <p class="text-xs text-gray-600">Advanced logistics, high-speed telecom, and ultra-modern facilities.</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">04</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">Economic Growth</h3>
-                            <p class="text-xs text-gray-600">High GDP per capita, strong government spending, and investment opportunities.</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">05</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">100% Foreign Ownership</h3>
-                            <p class="text-xs text-gray-600">Full ownership rights across most economic sectors in Qatar.</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-gray-200 space-y-2 text-center">
-                            <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold mx-auto">06</div>
-                            <h3 class="font-extrabold text-brand-900 text-sm">Business-Friendly Environment</h3>
-                            <p class="text-xs text-gray-600">Transparent regulations, MOI / MOCI speed, and stable economy.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- END-TO-END BUSINESS SETUP SUPPORT SECTION -->
-            <section class="py-20 bg-slate-50 border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div class="grid lg:grid-cols-12 gap-12 items-center">
-                        <div class="lg:col-span-6 space-y-6">
-                            <div>
-                                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 leading-tight">
-                                    End-to-End Business Setup Support
-                                </h2>
-                                <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                                    Practical, step-by-step guidance from your first consultation through to your first day of business.
-                                </p>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">01</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Strategic Location</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">Gateway to GCC, MENA, and Asian markets with world-class connectivity.</p>
                             </div>
-
-                            <div class="p-5 bg-blue-50/80 border-l-4 border-brand-600 rounded-r-2xl space-y-1.5">
-                                <span class="font-extrabold text-xs text-brand-900">Licensed Qatar Consultancy.</span>
-                                <p class="text-xs text-gray-700 leading-relaxed">
-                                    Serve Ease Business Solutions is a licensed Qatar consultancy helping founders set up here smoothly. Our bilingual team has guided hundreds of new businesses through every stage of starting up in Qatar.
-                                </p>
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">02</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">World-Class Infrastructure</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">Advanced logistics, high-speed telecom, and ultra-modern facilities.</p>
                             </div>
-
-                            <div class="space-y-3.5 pt-2">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Business Structure Consultation</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Documentation Support</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">End-to-End Support</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Bank Account Opening Assistance</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Office Space Solutions</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Tax Registration & Compliance</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
-                                    <span class="text-xs sm:text-sm font-bold text-gray-800">Corporate Services & PRO</span>
-                                </div>
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">03</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Economic Growth</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">High GDP per capita, strong government spending, and investment opportunities.</p>
                             </div>
-                        </div>
-
-                        <div class="lg:col-span-6">
-                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200 h-[420px] relative bg-slate-900 group">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Corporate Setup Office" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                                    <div class="text-white">
-                                        <div class="font-extrabold text-lg">Comprehensive Qatar Corporate Setup</div>
-                                        <div class="text-xs text-gray-300">Fast-track approvals with MOCI, MOI & Baladiya</div>
-                                    </div>
-                                </div>
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">04</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">100% Foreign Ownership</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">Full ownership rights across most economic sectors in Qatar.</p>
+                            </div>
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">05</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">Business-Friendly Environment</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">Transparent regulations, MOI / MOCI speed, and stable economy.</p>
+                            </div>
+                            <div class="p-7 bg-slate-50 rounded-3xl border border-gray-200 space-y-3 text-center card-hover">
+                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-lg">06</div>
+                                <h3 class="font-extrabold text-brand-900 text-base">End-to-End Support</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">Dedicated PRO, legal documentation, and corporate advisory services.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- SIMPLE BUSINESS SETUP PROCESS (4-STEP CARDS) SECTION -->
-            <section class="py-20 bg-white border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
-                    <div class="text-center space-y-3">
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Simple Business Setup Process</h2>
-                        <p class="text-xs sm:text-sm text-gray-600">Our streamlined 4-step process gets your business operational quickly</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Step 01 -->
-                        <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
-                                        <i class="fa-solid fa-file-lines"></i>
-                                    </div>
-                                    <span class="text-2xl font-black text-blue-200">01</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Free Consultation</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">
-                                    We listen to your goals and recommend the most suitable way to set up your company in Qatar.
-                                </p>
-                            </div>
-                            <button @click="quoteModal = true; quoteTitle = 'Free Consultation Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
-                                Get Detailed Quote
-                            </button>
-                        </div>
-
-                        <!-- Step 02 -->
-                        <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
-                                        <i class="fa-solid fa-clock"></i>
-                                    </div>
-                                    <span class="text-2xl font-black text-blue-200">02</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Document Preparation</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">
-                                    We help you prepare a complete, accurate file so everything is ready for a smooth setup.
-                                </p>
-                            </div>
-                            <button @click="quoteModal = true; quoteTitle = 'Document Preparation Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
-                                Get Detailed Quote
-                            </button>
-                        </div>
-
-                        <!-- Step 03 -->
-                        <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
-                                        <i class="fa-solid fa-check-double"></i>
-                                    </div>
-                                    <span class="text-2xl font-black text-blue-200">03</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Company Registration</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">
-                                    We guide you through registering your company and obtaining your Commercial Registration (CR).
-                                </p>
-                            </div>
-                            <button @click="quoteModal = true; quoteTitle = 'Company Registration Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
-                                Get Detailed Quote
-                            </button>
-                        </div>
-
-                        <!-- Step 04 -->
-                        <div class="bg-blue-50/40 border border-blue-100 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between hover:shadow-lg transition">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md">
-                                        <i class="fa-solid fa-award"></i>
-                                    </div>
-                                    <span class="text-2xl font-black text-blue-200">04</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Ready to Operate</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">
-                                    With your CR in hand, we help you take the final steps so you can open your doors and start trading.
-                                </p>
-                            </div>
-                            <button @click="quoteModal = true; quoteTitle = 'Ready to Operate Quote'" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
-                                Get Detailed Quote
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- CTA Blue Banner -->
-                    <div class="bg-brand-900 text-white rounded-3xl p-8 sm:p-10 text-center space-y-6 shadow-2xl">
-                        <div class="space-y-2">
-                            <h3 class="text-2xl sm:text-3xl font-extrabold">Ready to Launch Your Business?</h3>
-                            <p class="text-xs sm:text-sm text-blue-100">Join thousands of successful businesses operating in Qatar</p>
-                        </div>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <button @click="calcDrawerOpen = true" class="bg-white text-brand-900 px-5 py-2.5 rounded-xl text-xs font-bold transition shadow hover:bg-blue-50 cursor-pointer">
-                                <i class="fa-solid fa-calculator mr-1.5"></i> Cost Calculator
-                            </button>
-                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow">
-                                <i class="fa-brands fa-whatsapp mr-1.5"></i> WhatsApp
-                            </a>
-                            <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow">
-                                <i class="fa-solid fa-phone mr-1.5"></i> Call Us
-                            </a>
-                            <button @click="quoteModal = true" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow cursor-pointer">
-                                <i class="fa-solid fa-envelope mr-1.5"></i> Email Us
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- VISA & GOVERNMENT PRO SERVICES SECTION -->
-            <section id="visas" class="py-20 bg-gray-50 border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <span class="text-emerald-700 font-extrabold text-xs uppercase tracking-widest bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">Full Ministry Compliance</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
-                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Click any service to view full inside details, requirements & timeline, or request a quote.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <!-- Card 1 -->
-                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', '24-48 Hours', ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], 'From QAR 350', 'Qatar Tourism & Hayya Portal', 'bg-gradient-to-r from-sky-950 via-cyan-900 to-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-sky-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80" alt="Qatar Tourism & Hayya" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
-                                <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], 'From QAR 500', 'General Directorate of Passports (MOI)', 'bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950', 'fa-people-roof', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-indigo-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=300&q=80" alt="MOI Passports" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
-                                <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', '1-3 Working Days', ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], 'From QAR 1,500', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-brand-900 to-slate-900', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-blue-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80" alt="MOCI Qatar" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
-                                <p class="text-xs text-gray-600">Commercial Registration (CR) creation, amendments, and activity additions.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', '24 Hours', ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], 'From QAR 400', 'Ministry of Interior (MOI)', 'bg-gradient-to-r from-slate-950 via-blue-900 to-indigo-950', 'fa-id-card', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-purple-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80" alt="Computer Card" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
-                                <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 5 -->
-                        <div @click="openService('Baladiya Municipal License', 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', '3-7 Working Days', ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], 'From QAR 800', 'Ministry of Municipality (Baladiya)', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-store', 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-emerald-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=300&q=80" alt="Baladiya" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Baladiya Municipal License</h3>
-                                <p class="text-xs text-gray-600">Office location inspection approvals & Municipal Trade License issuance.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 6 -->
-                        <div @click="openService('Civil Defence (QCDD) Clearance', 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', '3-5 Working Days', ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], 'From QAR 1,000', 'Qatar Civil Defence Department (QCDD)', 'bg-gradient-to-r from-red-950 via-orange-950 to-slate-900', 'fa-fire-extinguisher', 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-rose-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=300&q=80" alt="Civil Defence" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Clearance</h3>
-                                <p class="text-xs text-gray-600">Safety compliance certification for retail shops, offices, and warehouses.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 7 -->
-                        <div @click="openService('Dhareeba Tax Registration', 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', '1-2 Working Days', ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], 'From QAR 400', 'General Tax Authority (GTA)', 'bg-gradient-to-r from-slate-950 via-blue-950 to-indigo-900', 'fa-file-invoice-dollar', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-amber-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=300&q=80" alt="Dhareeba" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Dhareeba Tax Registration</h3>
-                                <p class="text-xs text-gray-600">Tax Card issuance, GTA portal registration, and filing compliance.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Card 8 -->
-                        <div @click="openService('Legal Translation & Attestation', 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', '24-48 Hours', ['Original Documents / Certificates', 'Passport Copies'], 'From QAR 150 per page', 'Ministry of Foreign Affairs (MOFA) & Justice', 'bg-gradient-to-r from-zinc-900 via-stone-900 to-slate-900', 'fa-language', 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
-                            <div class="space-y-3">
-                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-teal-100 group-hover:scale-105 transition">
-                                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=300&q=80" alt="Translation" class="w-full h-full object-cover">
-                                </div>
-                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
-                                <p class="text-xs text-gray-600">MOFA, Embassy & Ministry of Justice certified document translation.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- COMPANY LIQUIDATION & COMPANY SALE SECTION -->
-            <section id="liquidation" class="py-20 bg-white border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <span class="text-amber-700 font-extrabold text-xs uppercase tracking-widest bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200">Corporate Restructuring & Exit Strategies</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Company Liquidation, Closing & Share Sale Services</h2>
-                        <p class="text-xs text-gray-600 max-w-2xl mx-auto">Seamless legal closures, official liquidator appointment, tax clearances, and complete corporate share transfer/sales in Qatar.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Liquidation 1 -->
-                        <div @click="openService('Official Company Liquidation & Closing', 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', '15-30 Working Days', ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate', 'Tax Clearance Certificate from GTA'], 'From QAR 2,500', 'MOCI & General Tax Authority', 'bg-gradient-to-r from-amber-950 via-slate-900 to-indigo-950', 'fa-file-circle-xmark', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
-                            <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-file-circle-xmark"></i></div>
-                                <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-600 transition">Company Liquidation & Closing</h3>
-                                <p class="text-xs text-gray-600 leading-relaxed">Official winding up, clearing liabilities, GTA tax clearance, and final MOCI cancellation.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Liquidation Checklist <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Liquidation 2 -->
-                        <div @click="openService('Company Share Sale & Ownership Transfer', 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', '5-10 Working Days', ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], 'From QAR 2,000', 'Ministry of Justice & MOCI', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-handshake-angle', 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
-                            <div class="space-y-3">
-                                <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-handshake-angle"></i></div>
-                                <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-emerald-600 transition">Company Share Sale & Transfer</h3>
-                                <p class="text-xs text-gray-600 leading-relaxed">Seamlessly transfer shares, update partners, amend MoA, and execute secure buyouts.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Transfer Procedure <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-
-                        <!-- Liquidation 3 -->
-                        <div @click="openService('Branch Closure & License Surrender', 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', '7-14 Working Days', ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], 'From QAR 1,800', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900', 'fa-building-circle-xmark', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
-                            <div class="space-y-3">
-                                <div class="w-12 h-12 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-building-circle-xmark"></i></div>
-                                <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-700 transition">Branch Closure & Surrender</h3>
-                                <p class="text-xs text-gray-600 leading-relaxed">Formal closing of branch offices, municipal license cancellation, and clearance.</p>
-                            </div>
-                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1 pt-2">View Closure Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CHOOSE THE RIGHT BUSINESS STRUCTURE SECTION -->
-            <section class="py-20 bg-white border-b border-gray-200">
-                <div class="max-w-4xl mx-auto px-4 space-y-10">
-                    <div class="text-center space-y-3">
-                        <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">Business Structure Guide</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Choose the Right Business Structure</h2>
-                        <p class="text-xs sm:text-sm text-gray-600">We'll help you select the optimal structure for your needs</p>
-                        
-                        <div class="flex flex-wrap justify-center gap-3 pt-3">
-                            <button @click="calcDrawerOpen = true" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow cursor-pointer"><i class="fa-solid fa-calculator mr-1"></i> Cost Calculator</button>
-                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
-                            <a href="tel:+97470442825" class="bg-brand-800 hover:bg-brand-900 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow"><i class="fa-solid fa-phone mr-1"></i> Call Us</a>
-                            <button @click="quoteModal = true" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow cursor-pointer"><i class="fa-solid fa-envelope mr-1"></i> Email Us</button>
-                        </div>
-                    </div>
-
-                    <div class="text-center space-y-2 pt-6">
-                        <h3 class="text-2xl font-extrabold text-brand-900">Find the Right Business Structure for Your Venture</h3>
-                        <p class="text-xs text-gray-500">Our experts guide you in choosing the most suitable legal setup in Qatar</p>
-                    </div>
-
-                    <!-- Accordions -->
-                    <div class="space-y-4 pt-4">
-                        <template x-for="s in structures" :key="s.id">
-                            <div class="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden transition">
-                                <button @click="selectedStructure = (selectedStructure === s.id ? null : s.id)" class="w-full p-5 text-left flex justify-between items-center cursor-pointer hover:bg-gray-50 transition">
-                                    <span class="font-extrabold text-sm text-brand-900 flex items-center gap-3">
-                                        <i class="fa-solid fa-building text-brand-600"></i> <span x-text="s.name"></span>
-                                    </span>
-                                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300" :class="selectedStructure === s.id ? 'rotate-180 text-brand-600' : ''"></i>
-                                </button>
-                                <div x-show="selectedStructure === s.id" x-cloak class="px-5 pb-5 pt-2 border-t border-gray-100 bg-blue-50/20 space-y-3">
-                                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed" x-text="s.desc"></p>
-                                    <div class="flex items-center justify-between pt-2">
-                                        <span class="text-[11px] text-gray-500 italic">Expert guidance in selecting the right structure</span>
-                                        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
-                                            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </section>
-
-            <!-- BUSINESS ENTITY TYPES IN QATAR SECTION -->
-            <section class="py-20 bg-gray-50 border-b border-gray-200">
-                <div class="max-w-6xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Business Entity Types in Qatar</h2>
-                        <p class="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">Our consultants help you select the right legal entity and manage the full setup process for your chosen business structure.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <h3 class="text-lg font-extrabold text-brand-900">MOCI</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We guide you through mainland company registration so you have full access to the local market.</p>
-                        </div>
-                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <h3 class="text-lg font-extrabold text-brand-900">Free zone</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to establish your business in Qatar free zones with 100% foreign ownership and tax benefits.</p>
-                        </div>
-                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <h3 class="text-lg font-extrabold text-brand-900">QFC</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to set up in the Qatar financial center with world class regulatory framework and 100% ownership.</p>
-                        </div>
-                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <h3 class="text-lg font-extrabold text-brand-900">QSTP</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">We help to launch your tech or research company in Qatar science and technology park with specialized support.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
-            <section id="leadership" class="py-20 bg-slate-900 text-white">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-brand-dark rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-blue-500/30">
-                        <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
-                            <div class="lg:col-span-5 flex flex-col items-center text-center">
-                                <div class="relative group">
-                                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-                                    <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
-                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
-                                    </div>
-                                    <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-brand-600 to-cyan-600 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
-                                        Founder & Managing Director
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                                <span class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
-                                    <i class="fa-solid fa-award mr-1"></i> Leadership Vision
-                                </span>
-                                <div>
-                                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Shafir Kottupurath Basheer</h2>
-                                    <p class="text-blue-400 font-bold text-sm sm:text-base mt-1">Founder & Managing Director – Serve Ease Business Solutions</p>
-                                </div>
-
-                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3 relative">
-                                    <i class="fa-solid fa-quote-left text-3xl text-blue-400/40 absolute top-4 left-4"></i>
-                                    <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed pt-3 pl-4">
-                                        "Our core mission in Qatar is to bridge global ambition with seamless local execution."
-                                    </p>
-                                </div>
-
-                                <div class="grid grid-cols-3 gap-4 text-center pt-2">
-                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                                        <div class="text-xl font-black text-blue-300">10+</div>
-                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Years Experience</div>
-                                    </div>
-                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                                        <div class="text-xl font-black text-cyan-300">3000+</div>
-                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Setup Clients</div>
-                                    </div>
-                                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                                        <div class="text-xl font-black text-emerald-300">100%</div>
-                                        <div class="text-[10px] text-gray-300 uppercase font-semibold">Compliance Rate</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- BUSINESS SETUP IN QATAR - FAQ SECTION -->
-            <section class="py-20 bg-white border-b border-gray-200">
-                <div class="max-w-4xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <span class="bg-blue-50 text-brand-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Frequently Asked Questions</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Business Setup in Qatar - FAQ</h2>
-                        <p class="text-xs sm:text-sm text-gray-600">Everything you need to know about starting and registering a business in Qatar</p>
-                    </div>
-
-                    <div class="space-y-4">
-                        <template x-for="(faq, index) in faqs" :key="index">
-                            <div class="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden transition">
-                                <button @click="activeFaq = (activeFaq === index ? null : index)" class="w-full p-5 text-left flex justify-between items-center cursor-pointer hover:bg-gray-50 transition">
-                                    <span class="font-extrabold text-xs sm:text-sm text-brand-900" x-text="faq.q"></span>
-                                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300" :class="activeFaq === index ? 'rotate-180 text-brand-600' : ''"></i>
-                                </button>
-                                <div x-show="activeFaq === index" x-cloak class="px-5 pb-5 pt-2 border-t border-gray-100 bg-blue-50/20">
-                                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed" x-text="faq.a"></p>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-
-                    <div class="text-center space-y-3 pt-6">
-                        <p class="text-xs text-gray-500">Still have questions about company formation in Qatar?</p>
-                        <button @click="quoteModal = true" class="bg-brand-600 hover:bg-brand-700 text-white font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg uppercase tracking-wider cursor-pointer">
-                            Get Free Consultation
+                    <div class="text-center pt-6">
+                        <button @click="currentTab = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-xl text-xs font-extrabold transition shadow-lg cursor-pointer uppercase tracking-wider">
+                            Return to Main Page
                         </button>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <!-- DARK CONTACT SECTION -->
             <section id="contact" class="py-20 bg-brand-dark text-white border-t border-white/10">
@@ -867,7 +890,7 @@
             <!-- FOOTER -->
             <footer class="bg-black text-white py-8 border-t border-white/10 text-xs text-gray-400">
                 <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-                    <div>&copy; 2024-2026 Serve Ease Business Solutions. Registered on 21/04/2024 with MOCI, Qatar. All Rights Reserved.</div>
+                    <div>&copy; 2024-2026 Serve Ease Business Solutions. Registered with MOCI, Qatar. All Rights Reserved.</div>
                     <div class="flex items-center gap-6">
                         <a href="tel:+97470442825" class="hover:text-white"><i class="fa-solid fa-phone text-blue-400 mr-1"></i> +974 70 4428 25</a>
                         <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white"><i class="fa-solid fa-envelope text-blue-400 mr-1"></i> serveeaseqtr@gmail.com</a>
