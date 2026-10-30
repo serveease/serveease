@@ -55,13 +55,6 @@
         .animate-float {
             animation: floatSlow 4s ease-in-out infinite;
         }
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-        .animate-glow {
-            animation: pulseGlow 3s infinite;
-        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
@@ -71,9 +64,9 @@
     calcDrawerOpen: false,
     calcStep: 1,
     searchActivity: '',
-    selectedService: { title: '', desc: '', time: '', docs: [], price: '', ministry: '', bgClass: '', ministryIcon: '' },
-    openService(title, desc, time, docs, price, ministry, bgClass, ministryIcon) {
-        this.selectedService = { title, desc, time, docs, price, ministry, bgClass, ministryIcon };
+    selectedService: { title: '', desc: '', time: '', docs: [], price: '', ministry: '', bgClass: '', ministryIcon: '', ministryImg: '' },
+    openService(title, desc, time, docs, price, ministry, bgClass, ministryIcon, ministryImg) {
+        this.selectedService = { title, desc, time, docs, price, ministry, bgClass, ministryIcon, ministryImg };
         this.serviceModal = true;
     },
     countryCodes: [
@@ -99,28 +92,26 @@
         { code: '+233', name: 'Ghana (GH)' }, { code: '+256', name: 'Uganda (UG)' }, { code: '+251', name: 'Ethiopia (ET)' }, { code: '+55', name: 'Brazil (BR)' },
         { code: '+52', name: 'Mexico (MX)' }, { code: '+54', name: 'Argentina (AR)' }, { code: '+56', name: 'Chile (CL)' },
         { code: '+57', name: 'Colombia (CO)' }, { code: '+51', name: 'Peru (PE)' }, { code: '+93', name: 'Afghanistan (AF)' },
-        { code: '+355', name: 'Albania (AL)' }, { code: '+244', name: 'Angola (AO)' }, { code: '+54', name: 'Argentina (AR)' },
-        { code: '+374', name: 'Armenia (AM)' }, { code: '+297', name: 'Aruba (AW)' }, { code: '+994', name: 'Azerbaijan (AZ)' },
-        { code: '+1242', name: 'Bahamas (BS)' }, { code: '+880', name: 'Bangladesh (BD)' }, { code: '+1246', name: 'Barbados (BB)' },
-        { code: '+375', name: 'Belarus (BY)' }, { code: '+501', name: 'Belize (BZ)' }, { code: '+229', name: 'Benin (BJ)' },
-        { code: '+1441', name: 'Bermuda (BM)' }, { code: '+975', name: 'Bhutan (BT)' }, { code: '+591', name: 'Bolivia (BO)' },
-        { code: '+387', name: 'Bosnia & Herzegovina (BA)' }, { code: '+267', name: 'Botswana (BW)' }, { code: '+673', name: 'Brunei (BN)' },
-        { code: '+226', name: 'Burkina Faso (BF)' }, { code: '+257', name: 'Burundi (BI)' }, { code: '+855', name: 'Cambodia (KH)' },
-        { code: '+237', name: 'Cameroon (CM)' }, { code: '+238', name: 'Cape Verde (CV)' }, { code: '+1345', name: 'Cayman Islands (KY)' },
-        { code: '+236', name: 'Central African Rep. (CF)' }, { code: '+235', name: 'Chad (TD)' }, { code: '+56', name: 'Chile (CL)' },
-        { code: '+57', name: 'Colombia (CO)' }, { code: '+269', name: 'Comoros (KM)' }, { code: '+242', name: 'Congo (CG)' },
-        { code: '+243', name: 'Congo DR (CD)' }, { code: '+506', name: 'Costa Rica (CR)' }, { code: '+385', name: 'Croatia (HR)' },
-        { code: '+53', name: 'Cuba (CU)' }, { code: '+357', name: 'Cyprus (CY)' }, { code: '+253', name: 'Djibouti (DJ)' },
-        { code: '+1767', name: 'Dominica (DM)' }, { code: '+1809', name: 'Dominican Rep. (DO)' }, { code: '+593', name: 'Ecuador (EC)' },
-        { code: '+503', name: 'El Salvador (SV)' }, { code: '+240', name: 'Equatorial Guinea (GQ)' }, { code: '+291', name: 'Eritrea (ER)' },
-        { code: '+372', name: 'Estonia (EE)' }, { code: '+268', name: 'Eswatini (SZ)' }, { code: '+679', name: 'Fiji (FJ)' },
-        { code: '+594', name: 'French Guiana (GF)' }, { code: '+241', name: 'Gabon (GA)' }, { code: '+220', name: 'Gambia (GM)' },
-        { code: '+995', name: 'Georgia (GE)' }, { code: '+350', name: 'Gibraltar (GI)' }, { code: '+1473', name: 'Grenada (GD)' },
-        { code: '+502', name: 'Guatemala (GT)' }, { code: '+224', name: 'Guinea (GN)' }, { code: '+245', name: 'Guinea-Bissau (GW)' },
-        { code: '+592', name: 'Guyana (GY)' }, { code: '+509', name: 'Haiti (HT)' }, { code: '+504', name: 'Honduras (HN)' },
-        { code: '+852', name: 'Hong Kong (HK)' }, { code: '+354', name: 'Iceland (IS)' }, { code: '+98', name: 'Iran (IR)' },
-        { code: '+225', name: 'Ivory Coast (CI)' }, { code: '+1876', name: 'Jamaica (JM)' }, { code: '+855', name: 'Kampuchea (KH)' },
-        { code: '+968', name: 'Oman (OM)' }
+        { code: '+355', name: 'Albania (AL)' }, { code: '+244', name: 'Angola (AO)' }, { code: '+374', name: 'Armenia (AM)' },
+        { code: '+297', name: 'Aruba (AW)' }, { code: '+994', name: 'Azerbaijan (AZ)' }, { code: '+1242', name: 'Bahamas (BS)' },
+        { code: '+1246', name: 'Barbados (BB)' }, { code: '+375', name: 'Belarus (BY)' }, { code: '+501', name: 'Belize (BZ)' },
+        { code: '+229', name: 'Benin (BJ)' }, { code: '+1441', name: 'Bermuda (BM)' }, { code: '+975', name: 'Bhutan (BT)' },
+        { code: '+591', name: 'Bolivia (BO)' }, { code: '+387', name: 'Bosnia & Herzegovina (BA)' }, { code: '+267', name: 'Botswana (BW)' },
+        { code: '+673', name: 'Brunei (BN)' }, { code: '+226', name: 'Burkina Faso (BF)' }, { code: '+257', name: 'Burundi (BI)' },
+        { code: '+855', name: 'Cambodia (KH)' }, { code: '+237', name: 'Cameroon (CM)' }, { code: '+238', name: 'Cape Verde (CV)' },
+        { code: '+1345', name: 'Cayman Islands (KY)' }, { code: '+236', name: 'Central African Rep. (CF)' }, { code: '+235', name: 'Chad (TD)' },
+        { code: '+269', name: 'Comoros (KM)' }, { code: '+242', name: 'Congo (CG)' }, { code: '+243', name: 'Congo DR (CD)' },
+        { code: '+506', name: 'Costa Rica (CR)' }, { code: '+385', name: 'Croatia (HR)' }, { code: '+53', name: 'Cuba (CU)' },
+        { code: '+357', name: 'Cyprus (CY)' }, { code: '+253', name: 'Djibouti (DJ)' }, { code: '+1767', name: 'Dominica (DM)' },
+        { code: '+1809', name: 'Dominican Rep. (DO)' }, { code: '+593', name: 'Ecuador (EC)' }, { code: '+503', name: 'El Salvador (SV)' },
+        { code: '+240', name: 'Equatorial Guinea (GQ)' }, { code: '+291', name: 'Eritrea (ER)' }, { code: '+372', name: 'Estonia (EE)' },
+        { code: '+268', name: 'Eswatini (SZ)' }, { code: '+679', name: 'Fiji (FJ)' }, { code: '+594', name: 'French Guiana (GF)' },
+        { code: '+241', name: 'Gabon (GA)' }, { code: '+220', name: 'Gambia (GM)' }, { code: '+995', name: 'Georgia (GE)' },
+        { code: '+350', name: 'Gibraltar (GI)' }, { code: '+1473', name: 'Grenada (GD)' }, { code: '+502', name: 'Guatemala (GT)' },
+        { code: '+224', name: 'Guinea (GN)' }, { code: '+245', name: 'Guinea-Bissau (GW)' }, { code: '+592', name: 'Guyana (GY)' },
+        { code: '+509', name: 'Haiti (HT)' }, { code: '+504', name: 'Honduras (HN)' }, { code: '+852', name: 'Hong Kong (HK)' },
+        { code: '+354', name: 'Iceland (IS)' }, { code: '+98', name: 'Iran (IR)' }, { code: '+225', name: 'Ivory Coast (CI)' },
+        { code: '+1876', name: 'Jamaica (JM)' }
     ],
     activities: [
         'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
@@ -387,80 +378,96 @@
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <!-- Card 1 -->
-                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', '24-48 Hours', ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], 'From QAR 350', 'Qatar Tourism & Hayya Portal', 'bg-gradient-to-r from-sky-950 via-cyan-900 to-blue-900', 'fa-passport')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 1: Hayya / Qatar Tourism -->
+                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances, and multi-entry tourist visa processing.', '24-48 Hours', ['Valid Passport (6+ months)', 'Return Flight Ticket', 'Hotel Booking or Host ID'], 'From QAR 350', 'Qatar Tourism & Hayya Portal', 'bg-gradient-to-r from-sky-950 via-cyan-900 to-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-sky-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-passport"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-sky-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80" alt="Qatar Tourism & Hayya" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
                                 <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 2 -->
-                        <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], 'From QAR 500', 'General Directorate of Passports (MOI)', 'bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950', 'fa-people-roof')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 2: MOI Passports -->
+                        <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit sponsorship, and family joining visas.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate / Employment Contract', 'Certified Marriage & Birth Certificates', 'Tenancy Contract (Ejari)'], 'From QAR 500', 'General Directorate of Passports (MOI)', 'bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950', 'fa-people-roof', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-indigo-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-people-roof"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-indigo-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=300&q=80" alt="MOI Passports Doha" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
                                 <p class="text-xs text-gray-600">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 3 -->
-                        <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', '1-3 Working Days', ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], 'From QAR 1,500', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-brand-900 to-slate-900', 'fa-building')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 3: MOCI Qatar -->
+                        <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, object code additions, and branch registrations.', '1-3 Working Days', ['Valid Passports of Shareholders', 'Proposed Trade Names (English & Arabic)', 'Lease Agreement / Business Incubator contract'], 'From QAR 1,500', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-brand-900 to-slate-900', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-blue-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-building"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-blue-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80" alt="MOCI Qatar" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
                                 <p class="text-xs text-gray-600">Commercial Registration (CR) creation, amendments, and activity additions.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 4 -->
-                        <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', '24 Hours', ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], 'From QAR 400', 'Ministry of Interior (MOI)', 'bg-gradient-to-r from-slate-950 via-blue-900 to-indigo-950', 'fa-id-card')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 4: Ministry of Interior (Computer Card) -->
+                        <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance, signature authorization, and authorized personnel updates.', '24 Hours', ['Commercial Registration (CR)', 'Valid ID of Authorized Manager', 'Company Stamp'], 'From QAR 400', 'Ministry of Interior (MOI)', 'bg-gradient-to-r from-slate-950 via-blue-900 to-indigo-950', 'fa-id-card', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-purple-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-id-card"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-purple-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80" alt="MOI Computer Card" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
                                 <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 5 -->
-                        <div @click="openService('Baladiya Municipal License', 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', '3-7 Working Days', ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], 'From QAR 800', 'Ministry of Municipality (Baladiya)', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-store')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 5: Baladiya (Ministry of Municipality) -->
+                        <div @click="openService('Baladiya Municipal License', 'Office location inspection approvals, signage permits, and Municipal Trade License issuance for commercial premises.', '3-7 Working Days', ['Certified Tenancy Agreement (Baladiya attested)', 'Commercial Registration (CR)', 'Civil Defence Approval Certificate'], 'From QAR 800', 'Ministry of Municipality (Baladiya)', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-store', 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-emerald-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-store"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-emerald-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=300&q=80" alt="Baladiya Municipal License" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Baladiya Municipal License</h3>
                                 <p class="text-xs text-gray-600">Office location inspection approvals & Municipal Trade License issuance.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 6 -->
-                        <div @click="openService('Civil Defence (QCDD) Clearance', 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', '3-5 Working Days', ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], 'From QAR 1,000', 'Qatar Civil Defence Department (QCDD)', 'bg-gradient-to-r from-red-950 via-orange-950 to-slate-900', 'fa-fire-extinguisher')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 6: Civil Defence Qatar -->
+                        <div @click="openService('Civil Defence (QCDD) Clearance', 'Fire safety compliance certification, architectural layout review, and safety equipment inspection for commercial premises.', '3-5 Working Days', ['Approved Architectural Drawings', 'Lease Agreement', 'Maintenance Contract for Fire Extinguishers'], 'From QAR 1,000', 'Qatar Civil Defence Department (QCDD)', 'bg-gradient-to-r from-red-950 via-orange-950 to-slate-900', 'fa-fire-extinguisher', 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-rose-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-rose-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=300&q=80" alt="Civil Defence QCDD" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Clearance</h3>
                                 <p class="text-xs text-gray-600">Safety compliance certification for retail shops, offices, and warehouses.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 7 -->
-                        <div @click="openService('Dhareeba Tax Registration', 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', '1-2 Working Days', ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], 'From QAR 400', 'General Tax Authority (GTA)', 'bg-gradient-to-r from-slate-950 via-blue-950 to-indigo-900', 'fa-file-invoice-dollar')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 7: Dhareeba Tax Authority -->
+                        <div @click="openService('Dhareeba Tax Registration', 'Tax Card issuance, General Tax Authority (GTA) portal profile setup, and corporate tax compliance guidance.', '1-2 Working Days', ['Commercial Registration (CR)', 'Computer Card', 'Shareholders Passport Copies & Memorandum'], 'From QAR 400', 'General Tax Authority (GTA)', 'bg-gradient-to-r from-slate-950 via-blue-950 to-indigo-900', 'fa-file-invoice-dollar', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-amber-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-amber-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=300&q=80" alt="Dhareeba GTA Tax" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Dhareeba Tax Registration</h3>
                                 <p class="text-xs text-gray-600">Tax Card issuance, GTA portal registration, and filing compliance.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <!-- Card 8 -->
-                        <div @click="openService('Legal Translation & Attestation', 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', '24-48 Hours', ['Original Documents / Certificates', 'Passport Copies'], 'From QAR 150 per page', 'Ministry of Foreign Affairs (MOFA) & Justice', 'bg-gradient-to-r from-zinc-900 via-stone-900 to-slate-900', 'fa-language')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <!-- Card 8: Ministry of Justice / MOFA Translation -->
+                        <div @click="openService('Legal Translation & Attestation', 'Certified Arabic-English document translation, MOFA attestation, and Ministry of Justice notarizations.', '24-48 Hours', ['Original Documents / Certificates', 'Passport Copies'], 'From QAR 150 per page', 'Ministry of Foreign Affairs (MOFA) & Justice', 'bg-gradient-to-r from-zinc-900 via-stone-900 to-slate-900', 'fa-language', 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80')" class="bg-white p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
-                                <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:bg-teal-600 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-language"></i></div>
+                                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-teal-100 group-hover:scale-105 transition">
+                                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=300&q=80" alt="MOFA Attestation Doha" class="w-full h-full object-cover">
+                                </div>
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
                                 <p class="text-xs text-gray-600">MOFA, Embassy & Ministry of Justice certified document translation.</p>
                             </div>
@@ -481,7 +488,7 @@
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Liquidation Card 1 -->
-                        <div @click="openService('Official Company Liquidation & Closing', 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', '15-30 Working Days', ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate', 'Tax Clearance Certificate from GTA'], 'From QAR 2,500', 'MOCI & General Tax Authority', 'bg-gradient-to-r from-amber-950 via-slate-900 to-indigo-950', 'fa-file-circle-xmark')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="openService('Official Company Liquidation & Closing', 'Complete legal winding up of WLL or Establishment companies. Includes board resolution, liquidator appointment, newspaper publication, ministry clearances, and final cancellation of CR & Computer Card.', '15-30 Working Days', ['Board Resolution for Dissolution', 'Commercial Registration (CR) & Computer Card', 'Audited Final Balance Sheet / No-Debt Certificate', 'Tax Clearance Certificate from GTA'], 'From QAR 2,500', 'MOCI & General Tax Authority', 'bg-gradient-to-r from-amber-950 via-slate-900 to-indigo-950', 'fa-file-circle-xmark', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-file-circle-xmark"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-600 transition">Company Liquidation & Closing</h3>
@@ -491,7 +498,7 @@
                         </div>
 
                         <!-- Liquidation Card 2 -->
-                        <div @click="openService('Company Share Sale & Ownership Transfer', 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', '5-10 Working Days', ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], 'From QAR 2,000', 'Ministry of Justice & MOCI', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-handshake-angle')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="openService('Company Share Sale & Ownership Transfer', 'End-to-end assistance in selling your Qatar company shares to new investors or buying out partners. Includes share purchase agreements, notarization, and MOCI amendment of Memorandum of Association (MoA).', '5-10 Working Days', ['Current CR & MoA', 'Passports & QIDs of Buyer and Seller', 'Share Transfer Agreement', 'Bank Clearance / Financial Settlement Proof'], 'From QAR 2,000', 'Ministry of Justice & MOCI', 'bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900', 'fa-handshake-angle', 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-handshake-angle"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-emerald-600 transition">Company Share Sale & Transfer</h3>
@@ -501,7 +508,7 @@
                         </div>
 
                         <!-- Liquidation Card 3 -->
-                        <div @click="openService('Branch Closure & License Surrender', 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', '7-14 Working Days', ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], 'From QAR 1,800', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900', 'fa-building-circle-xmark')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
+                        <div @click="openService('Branch Closure & License Surrender', 'Deregistration of foreign company branch offices or commercial extensions. Surrender of municipal licenses, chamber memberships, and cancellation of sponsor liabilities.', '7-14 Working Days', ['Branch Registration Certificate', 'Parent Company Board Resolution', 'Municipal License & Chamber Card', 'Staff Clearance Certificates'], 'From QAR 1,800', 'Ministry of Commerce & Industry (MOCI)', 'bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900', 'fa-building-circle-xmark', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-gradient-to-br from-slate-50 to-blue-50/50 p-7 rounded-3xl border border-blue-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group shadow-sm">
                             <div class="space-y-3">
                                 <div class="w-12 h-12 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-xl font-bold group-hover:scale-110 transition shadow-md"><i class="fa-solid fa-building-circle-xmark"></i></div>
                                 <h3 class="font-extrabold text-lg text-brand-900 group-hover:text-brand-700 transition">Branch Closure & Surrender</h3>
@@ -909,7 +916,7 @@
 
         <!-- HEADER BANNER -->
         <div class="relative h-72 sm:h-96 w-full shrink-0 flex items-end p-6 sm:p-12 bg-slate-900 overflow-hidden">
-            <img src="/bg.jpg" alt="Qatar Service Background" class="absolute inset-0 w-full h-full object-cover opacity-30 animate-float pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1578898835026-00438a0c20df?auto=format&fit=crop&w=1920&q=80'">
+            <img :src="selectedService.ministryImg" alt="Ministry Doha Service Background" class="absolute inset-0 w-full h-full object-cover opacity-30 animate-float pointer-events-none">
             <div class="max-w-5xl mx-auto w-full space-y-3 text-white z-10 relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div class="space-y-2 sm:space-y-3 w-full sm:w-auto">
                     <span class="bg-white/20 text-white border border-white/30 text-[10px] sm:text-xs font-extrabold px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full uppercase tracking-widest shadow-lg inline-flex items-center gap-2">
@@ -917,8 +924,8 @@
                     </span>
                     <h1 class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight" x-text="selectedService.title"></h1>
                 </div>
-                <div class="hidden sm:flex w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-3xl items-center justify-center text-4xl md:text-5xl text-white border border-white/40 shadow-2xl shrink-0">
-                    <i class="fa-solid" :class="selectedService.ministryIcon"></i>
+                <div class="hidden sm:flex w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-3xl overflow-hidden items-center justify-center border border-white/40 shadow-2xl shrink-0">
+                    <img :src="selectedService.ministryImg" alt="Icon" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -995,7 +1002,7 @@
                     <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
                 </div>
                 <div>
-                    <label class="block font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
+                    <label class="block font-bold text-gray-700 md-1">Phone Number (WhatsApp) *</label>
                     <div class="grid grid-cols-12 gap-2">
                         <select x-model="modalCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-800">
                             <template x-for="c in countryCodes" :key="c.code + c.name">
