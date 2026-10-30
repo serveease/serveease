@@ -55,6 +55,11 @@
         .animate-float {
             animation: floatSlow 4s ease-in-out infinite;
         }
+        /* Neon Cyan Glow for Shafir Photo Card */
+        .neon-glow-card {
+            box-shadow: 0 0 25px 3px rgba(6, 182, 212, 0.6), inset 0 0 15px rgba(6, 182, 212, 0.4);
+            border: 2px solid #06b6d4;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased" x-data="{ 
@@ -608,38 +613,64 @@
                 </div>
             </section>
 
-            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
-            <section id="leadership" class="py-20 bg-slate-900 text-white">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-brand-dark rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-blue-500/30">
-                        <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
-                            <div class="lg:col-span-5 flex flex-col items-center text-center">
-                                <div class="relative group">
-                                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-                                    <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-blue-400/50 bg-slate-900 shadow-2xl">
-                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION (MATCHED 100% TO SCREENSHOT) -->
+            <section id="leadership" class="py-20 bg-[#000a17] text-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="bg-[#031127] rounded-3xl p-8 sm:p-12 shadow-2xl relative border border-slate-800">
+                        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                            
+                            <!-- Left Side Photo Frame with Cyan Glow & Bottom Badge -->
+                            <div class="lg:col-span-5 flex flex-col items-center">
+                                <div class="relative w-64 sm:w-72 rounded-3xl neon-glow-card bg-white p-2 text-center">
+                                    <div class="rounded-2xl overflow-hidden bg-white">
+                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-72 sm:h-80 object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
                                     </div>
-                                    <div class="absolute -bottom-4 inset-x-4 bg-gradient-to-r from-brand-600 to-cyan-600 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg uppercase tracking-wider text-center">
-                                        Founder & Managing Director
+                                    <!-- Cyan Badge Overlay -->
+                                    <div class="mt-2 bg-[#0284c7] text-white font-extrabold text-[10px] sm:text-xs py-2 px-4 rounded-xl uppercase tracking-wider shadow-md">
+                                        FOUNDER & MANAGING DIRECTOR
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                                <span class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
-                                    <i class="fa-solid fa-award mr-1"></i> Leadership Vision
-                                </span>
+                            <!-- Right Side Founder Info, Quote & 3 Stats Cards -->
+                            <div class="lg:col-span-7 space-y-6">
+                                <!-- Pill Badge -->
                                 <div>
-                                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Shafir Kottupurath Basheer</h2>
-                                    <p class="text-blue-400 font-bold text-sm sm:text-base mt-1">Founder & Managing Director – Serve Ease Business Solutions</p>
+                                    <span class="bg-[#0f2a4a] text-blue-300 border border-blue-500/30 text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-ribbon text-cyan-400 text-xs"></i> LEADERSHIP VISION
+                                    </span>
                                 </div>
 
-                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3 relative">
-                                    <i class="fa-solid fa-quote-left text-3xl text-blue-400/40 absolute top-4 left-4"></i>
-                                    <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed pt-3 pl-4">
+                                <!-- Title & Role -->
+                                <div class="space-y-1">
+                                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">Shafir Kottupurath Basheer</h2>
+                                    <p class="text-blue-400 font-semibold text-xs sm:text-sm">Founder & Managing Director – Serve Ease Business Solutions</p>
+                                </div>
+
+                                <!-- Quote Box -->
+                                <div class="bg-[#071a36] p-5 sm:p-6 rounded-2xl border border-blue-900/40 relative space-y-2">
+                                    <i class="fa-solid fa-quote-left text-2xl text-blue-500/40"></i>
+                                    <p class="text-slate-200 text-xs sm:text-sm italic font-medium leading-relaxed">
                                         "Our core mission in Qatar is to bridge global ambition with seamless local execution."
                                     </p>
                                 </div>
+
+                                <!-- 3 Column Stats Counters -->
+                                <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
+                                    <div class="bg-[#081e3e] p-4 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-lg sm:text-xl font-black text-cyan-400">10+</div>
+                                        <div class="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-wider">Years Experience</div>
+                                    </div>
+                                    <div class="bg-[#081e3e] p-4 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-lg sm:text-xl font-black text-cyan-400">3000+</div>
+                                        <div class="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-wider">Setup Clients</div>
+                                    </div>
+                                    <div class="bg-[#081e3e] p-4 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-lg sm:text-xl font-black text-emerald-400">100%</div>
+                                        <div class="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-wider">Compliance Rate</div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
