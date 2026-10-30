@@ -71,14 +71,14 @@
         this.serviceModal = true;
     },
     countryCodes: [
-        { code: '+974', name: 'Qatar (QA)' }, { code: '+971', name: 'UAE (AE)' }, { code: '+966', name: 'Saudi Arabia (SA)' },
-        { code: '+968', name: 'Oman (OM)' }, { code: '+965', name: 'Kuwait (KW)' }, { code: '+973', name: 'Bahrain (BH)' },
-        { code: '+91', name: 'India (IN)' }, { code: '+92', name: 'Pakistan (PK)' }, { code: '+880', name: 'Bangladesh (BD)' },
-        { code: '+94', name: 'Sri Lanka (LK)' }, { code: '+977', name: 'Nepal (NP)' }, { code: '+63', name: 'Philippines (PH)' },
-        { code: '+20', name: 'Egypt (EG)' }, { code: '+212', name: 'Morocco (MA)' }, { code: '+216', name: 'Tunisia (TN)' },
-        { code: '+213', name: 'Algeria (DZ)' }, { code: '+962', name: 'Jordan (JO)' }, { code: '+961', name: 'Lebanon (LB)' },
-        { code: '+964', name: 'Iraq (IQ)' }, { code: '+90', name: 'Turkey (TR)' }, { code: '+44', name: 'UK (GB)' },
-        { code: '+1', name: 'USA/Canada (US/CA)' }
+        { code: '+974', name: 'QA +974' }, { code: '+971', name: 'AE +971' }, { code: '+966', name: 'SA +966' },
+        { code: '+968', name: 'OM +968' }, { code: '+965', name: 'KW +965' }, { code: '+973', name: 'BH +973' },
+        { code: '+91', name: 'IN +91' }, { code: '+92', name: 'PK +92' }, { code: '+880', name: 'BD +880' },
+        { code: '+94', name: 'LK +94' }, { code: '+977', name: 'NP +977' }, { code: '+63', name: 'PH +63' },
+        { code: '+20', name: 'EG +20' }, { code: '+212', name: 'MA +212' }, { code: '+216', name: 'TN +216' },
+        { code: '+213', name: 'DZ +213' }, { code: '+962', name: 'JO +962' }, { code: '+961', name: 'LB +961' },
+        { code: '+964', name: 'IQ +964' }, { code: '+90', name: 'TR +90' }, { code: '+44', name: 'GB +44' },
+        { code: '+1', name: 'US +1' }
     ],
     activities: [
         'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
@@ -160,25 +160,66 @@
     <div class="relative flex overflow-x-hidden">
         <div class="flex-1 w-full transition-all duration-300">
 
-            <!-- FIRST PAGE / HERO SECTION -->
-            <section id="home" class="relative bg-brand-900 text-white py-20 lg:py-32 px-4 overflow-hidden">
+            <!-- FIRST PAGE / HERO SECTION WITH GET IN TOUCH CARD -->
+            <section id="home" class="relative bg-brand-900 text-white py-16 lg:py-24 px-4 overflow-hidden">
                 <img src="/bg.jpg" alt="Doha Skyline Background" class="absolute inset-0 w-full h-full object-cover opacity-25 animate-float pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1578898835026-00438a0c20df?auto=format&fit=crop&w=1920&q=80'">
-                <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
-                        SET UP YOUR BUSINESS in Qatar
-                    </h1>
-                    <p class="text-blue-100 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
-                        Licensed Qatar consultancy guiding you through company formation with <strong class="text-white font-bold">100% foreign ownership</strong> options. Our experts explain the requirements and help you prepare your documents.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3 pt-4">
-                        <a href="https://wa.me/97470442825" target="_blank" class="bg-white hover:bg-blue-50 text-brand-900 px-8 py-3.5 rounded-xl font-extrabold flex items-center gap-2 transition shadow-xl text-sm hover:scale-105">
-                            Get Started Now
-                        </a>
+                
+                <div class="relative z-10 max-w-5xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left text info -->
+                    <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold text-blue-200 backdrop-blur-md">
+                            <i class="fa-solid fa-shield-halved text-cyan-400"></i> #1 Business Formation, PRO, Liquidation & Visa Partner in Qatar
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
+                            SET UP, MANAGE OR CLOSE YOUR BUSINESS IN QATAR
+                        </h1>
+                        <p class="text-blue-100 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
+                            Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances, legal translations, and secure company liquidation or share transfer.
+                        </p>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2 text-xs text-blue-200 font-semibold">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> 100% Foreign Ownership</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> Bilingual Expert Team</span>
+                        </div>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-6 pt-6 text-xs text-blue-200 font-semibold">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> 100% Foreign Ownership</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> Bilingual Expert Team</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> MOCI-Listed Consultancy</span>
+
+                    <!-- Right Side: Get in Touch Card (Matching Screenshot) -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-slate-900/85 backdrop-blur-xl border border-white/15 p-6 sm:p-8 rounded-3xl shadow-2xl relative text-white space-y-5 max-w-md mx-auto">
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl sm:text-2xl font-black text-white">Get in Touch</h3>
+                                <p class="text-xs text-blue-200">Free consultation with a licensed advisor</p>
+                                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full mt-2"></div>
+                            </div>
+
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Get in Touch Request from ' + $refs.heroName.value + ' (' + heroCountryCode + ' ' + $refs.heroPhone.value + '): Business: ' + $refs.heroBus.value + ' - ' + $refs.heroMsg.value), '_blank');" class="space-y-3.5 text-xs">
+                                <div>
+                                    <input type="text" x-ref="heroName" required class="w-full p-3.5 bg-white text-gray-900 rounded-xl placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 font-semibold" placeholder="Your Name">
+                                </div>
+                                <div>
+                                    <input type="email" required class="w-full p-3.5 bg-white text-gray-900 rounded-xl placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 font-semibold" placeholder="Your Email">
+                                </div>
+                                <div class="grid grid-cols-12 gap-2">
+                                    <select x-model="heroCountryCode" class="col-span-5 p-3.5 bg-white text-gray-900 rounded-xl font-bold text-xs focus:outline-none">
+                                        <template x-for="c in countryCodes" :key="c.code + c.name">
+                                            <option :value="c.code" x-text="c.name"></option>
+                                        </template>
+                                    </select>
+                                    <input type="tel" x-ref="heroPhone" required class="col-span-7 p-3.5 bg-white text-gray-900 rounded-xl placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 font-semibold" placeholder="Phone Number">
+                                </div>
+                                <div>
+                                    <input type="text" x-ref="heroBus" required class="w-full p-3.5 bg-white text-gray-900 rounded-xl placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 font-semibold" placeholder="Nature of Business *">
+                                </div>
+                                <div>
+                                    <textarea rows="2" x-ref="heroMsg" required class="w-full p-3.5 bg-white text-gray-900 rounded-xl placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 font-semibold" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-[#0256cc] hover:bg-blue-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition cursor-pointer text-xs uppercase tracking-wider">
+                                    Send Message
+                                </button>
+                                <div class="text-center pt-1">
+                                    <span class="text-[11px] text-gray-300 flex items-center justify-center gap-1.5"><i class="fa-solid fa-lock text-emerald-400"></i> Your information is secure and confidential</span>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -810,7 +851,7 @@
                                 <div class="grid grid-cols-12 gap-2">
                                     <select x-model="contactCountryCode" class="col-span-5 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-xs font-bold focus:outline-none">
                                         <template x-for="c in countryCodes" :key="c.code + c.name">
-                                            <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                            <option :value="c.code" x-text="c.name"></option>
                                         </template>
                                     </select>
                                     <input type="tel" x-ref="cphone" required class="col-span-7 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-500 font-semibold" placeholder="Phone Number">
@@ -899,7 +940,7 @@
                         <div class="grid grid-cols-12 gap-1.5">
                             <select x-model="calcData.countryCode" class="col-span-5 p-2.5 border border-gray-300 rounded-xl text-xs font-bold bg-white">
                                 <template x-for="c in countryCodes" :key="c.code + c.name">
-                                    <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                    <option :value="c.code" x-text="c.name"></option>
                                 </template>
                             </select>
                             <input type="tel" x-model="calcData.phone" required class="col-span-7 p-2.5 border border-gray-300 rounded-xl text-xs font-semibold" placeholder="Phone Number">
@@ -1037,7 +1078,7 @@
                     <div class="grid grid-cols-12 gap-2">
                         <select x-model="modalCountryCode" class="col-span-5 p-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-800">
                             <template x-for="c in countryCodes" :key="c.code + c.name">
-                                <option :value="c.code" x-text="c.name + ' ' + c.code"></option>
+                                <option :value="c.code" x-text="c.name"></option>
                             </template>
                         </select>
                         <input type="tel" x-ref="mphone" required class="col-span-7 p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600" placeholder="Phone Number">
