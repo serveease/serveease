@@ -182,7 +182,7 @@
                         </div>
                     </div>
 
-                    <!-- Right Side: Get in Touch Card (Matching Screenshot) -->
+                    <!-- Right Side: Get in Touch Card -->
                     <div class="lg:col-span-6">
                         <div class="bg-slate-900/85 backdrop-blur-xl border border-white/15 p-6 sm:p-8 rounded-3xl shadow-2xl relative text-white space-y-5 max-w-md mx-auto">
                             <div class="text-center space-y-1.5">
@@ -864,13 +864,21 @@
                 </div>
             </section>
 
-            <!-- FOOTER -->
-            <footer class="bg-black text-white py-8 border-t border-white/10 text-xs text-gray-400">
-                <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-                    <div>&copy; 2024-2026 Serve Ease Business Solutions. Registered with MOCI, Qatar. All Rights Reserved.</div>
-                    <div class="flex items-center gap-6">
-                        <a href="tel:+97470442825" class="hover:text-white"><i class="fa-solid fa-phone text-blue-400 mr-1"></i> +974 70 4428 25</a>
-                        <a href="mailto:serveeaseqtr@gmail.com" class="hover:text-white"><i class="fa-solid fa-envelope text-blue-400 mr-1"></i> serveeaseqtr@gmail.com</a>
+            <!-- FOOTER WITH MOCI DISCLAIMER AND REGISTRATION DETAILS -->
+            <footer class="bg-black text-white py-12 border-t border-white/10 text-xs text-gray-400">
+                <div class="max-w-7xl mx-auto px-4 space-y-6 text-center">
+                    <p class="max-w-3xl mx-auto text-[11px] text-gray-400 leading-relaxed">
+                        Disclaimer - We are a private service provider and not affiliated with any government agency. Government applications can be made directly, often at no cost or lower cost.
+                    </p>
+                    <p class="max-w-4xl mx-auto text-[11px] text-gray-400 leading-relaxed">
+                        &copy; 2024-2026 Serve Ease Business Solutions. This website operates as a brand owned and managed by Serve Ease Business Solutions, registered with the Ministry of Commerce and Industry (MOCI), State of Qatar[cite: 32]. Serve Ease is a licensed private consultancy listed on the official MOCI Service Providers register[cite: 32]. We provide business setup and company formation consultancy services in Qatar[cite: 32].
+                    </p>
+                    <div>
+                        <a href="#" class="text-blue-400 hover:underline font-semibold text-xs">Verify Serve Ease on the official MOCI Service Providers register</a>[cite: 32]
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                        <div>&copy; 2026 Serve Ease Business Solutions. All Rights Reserved.</div>
+                        <div class="text-gray-400 hover:text-white">Privacy Policy</div>
                     </div>
                 </div>
             </footer>
@@ -966,7 +974,7 @@
         </aside>
     </div>
 
-    <!-- THREE FLOATING ACTION BUTTONS AT BOTTOM RIGHT (CALL, WHATSAPP, AND AI ROBOT) -->
+    <!-- THREE FLOATING ACTION BUTTONS AT BOTTOM RIGHT -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
         <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl transition hover:scale-110 border-2 border-white cursor-pointer" title="Call Us Now">
             <i class="fa-solid fa-phone"></i>
@@ -1071,7 +1079,7 @@
             <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + quoteTitle + '] from ' + $refs.mname.value + ' (' + modalCountryCode + ' ' + $refs.mphone.value + ')'), '_blank'); quoteModal = false;" class="space-y-4 text-xs">
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Full Name *</label>
-                    <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
+                <input type="text" x-ref="mname" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl font-semibold focus:outline-none focus:border-brand-600">
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
