@@ -434,6 +434,28 @@
                             <button @click="openQuoteModal('Ready to Operate Quote')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow cursor-pointer">Get Detailed Quote</button>
                         </div>
                     </div>
+
+                    <!-- Call To Action Buttons Banner -->
+                    <div class="bg-brand-900 text-white rounded-3xl p-8 sm:p-10 text-center space-y-6 shadow-2xl">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold">Start Your Company Formation Journey</h3>
+                            <p class="text-xs sm:text-sm text-blue-100">Expert guidance for smooth business setup in Qatar</p>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button @click="calcDrawerOpen = true; calcStep = 1;" class="bg-white text-brand-900 px-6 py-3 rounded-xl text-xs font-bold transition shadow hover:bg-blue-50 cursor-pointer inline-flex items-center gap-2">
+                                <i class="fa-solid fa-calculator text-brand-600"></i> Cost Calculator
+                            </button>
+                            <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition shadow inline-flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </a>
+                            <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition shadow inline-flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-xs"></i> Call Us
+                            </a>
+                            <button @click="openQuoteModal('General Inquiry')" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition shadow inline-flex items-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-envelope text-xs"></i> Email Us
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
