@@ -52,6 +52,7 @@
     serviceModal: false,
     calcDrawerOpen: false,
     calcStep: 1,
+    maxCalcSteps: 12,
     ecomSearch: '',
     selectedStructure: null,
     activeFaq: null,
@@ -77,14 +78,16 @@
         { code: '+1', name: 'US +1' }
     ],
     calcData: { 
-        purpose: 'New Company Registration', 
-        activity: 'Business Consultancy', 
-        jurisdiction: 'Mainland MOCI (WLL / LLC)', 
-        owners: '1-2 Partners', 
-        visas: '1-5 Employee Visas', 
-        office: 'Serviced Physical Office', 
-        timeline: 'Immediate (Within 1-2 weeks)',
-        additionalServices: [],
+        step1_purpose: 'New Company Registration', 
+        step2_jurisdiction: 'Mainland MOCI (WLL / LLC)', 
+        step3_activityType: 'General Trading & Contracting', 
+        step4_shareholders: '1-2 Shareholders / Partners', 
+        step5_visas: '1-5 Employee Visas', 
+        step6_officeType: 'Serviced Physical Office Space', 
+        step7_bankAccount: 'Corporate Bank Account Assistance Needed',
+        step8_vatTax: 'VAT & Tax Registration Required',
+        step9_timeline: 'Immediate (Within 1-2 Weeks)',
+        step10_express: 'Standard Processing',
         fullName: '',
         email: '',
         countryCode: '+974',
@@ -689,4 +692,634 @@
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div @click="openService('Tourist & Hayya Visas', '
+                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.', '24-48 Hours', ['Valid Passport Copy', 'Return Flight Confirmation', 'Hotel Booking or Host Address'], 'From QAR 350', 'Qatar Tourism', 'bg-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
+                                <p class="text-sm text-gray-700">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit (QID) sponsorship.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate', 'Marriage & Birth Certificates Attested'], 'From QAR 500', 'MOI Passports', 'bg-indigo-900', 'fa-people-roof', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
+                                <p class="text-sm text-gray-700">Metrash2 Family Visit visa applications, residence permit (QID) sponsorship.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <div @click="openService('Work Permits & Labor Quotas', 'Ministry of Labor work visa quota application, employment contracts, and staff QID issuance.', '5-7 Working Days', ['Company Computer Card', 'Commercial Registration (CR)', 'Drafted Standard Ministry Labor Contracts'], 'From QAR 800', 'Ministry of Labor', 'bg-slate-900', 'fa-id-card-clip', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Work Permits & Labor Quotas</h3>
+                                <p class="text-sm text-gray-700">Labor department quota approvals, work visas, and staff QID processing.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, MoA notarization.', '1-3 Working Days', ['Passports of Shareholders', 'Trade Names English/Arabic', 'Lease Agreement'], 'From QAR 1,500', 'MOCI Qatar', 'bg-blue-950', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
+                                <p class="text-sm text-gray-700">Commercial Registration (CR) creation, amendments, and activity additions.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRO PACKAGES SECTION -->
+            <section class="py-24 bg-slate-50 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-4">
+                        <span class="bg-blue-50 text-brand-700 text-sm font-extrabold px-4.5 py-1.5 rounded-full uppercase tracking-wider">Corporate PRO Services</span>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-brand-900">Tailored PRO Packages for Every Business Size</h2>
+                        <p class="text-sm sm:text-base text-gray-700">Stay compliant, save time & reduce overhead costs with our expert PRO team</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-10 rounded-3xl border border-gray-200 space-y-6 shadow-sm flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase">Basic Package</span>
+                                <h3 class="text-2xl font-extrabold text-brand-900">SMEs (Up to 10 Employees)</h3>
+                                <ul class="space-y-3 text-sm text-gray-700">
+                                    <li>✓ Visa processing (new, renewal, cancellation)</li>
+                                    <li>✓ Emigration and immigration support</li>
+                                    <li>✓ Municipality and Labor Department services</li>
+                                    <li>✓ Regular updates via WhatsApp/Email</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="text-xl font-black text-brand-900 mb-4">QAR 500 <span class="text-sm font-normal text-gray-500">/ month</span></div>
+                                <button @click="openQuoteModal('Basic PRO Package')" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3.5 rounded-xl text-sm font-bold transition">Choose Basic</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-10 rounded-3xl border-2 border-brand-600 space-y-6 shadow-xl flex flex-col justify-between relative">
+                            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase">Most Popular</div>
+                            <div class="space-y-4 pt-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase">Standard Package</span>
+                                <h3 class="text-2xl font-extrabold text-brand-900">Medium (Up to 40 Employees)</h3>
+                                <ul class="space-y-3 text-sm text-gray-700">
+                                    <li>✓ All Basic Package services</li>
+                                    <li>✓ Labor procedures and documentation</li>
+                                    <li>✓ WPS registration and salary processing</li>
+                                    <li>✓ Cloud-based document management</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="text-xl font-black text-brand-900 mb-4">QAR 1,500 <span class="text-sm font-normal text-gray-500">/ month</span></div>
+                                <button @click="openQuoteModal('Standard PRO Package')" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3.5 rounded-xl text-sm font-bold transition">Choose Standard</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-10 rounded-3xl border border-gray-200 space-y-6 shadow-sm flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase">Premium Package</span>
+                                <h3 class="text-2xl font-extrabold text-brand-900">Large (50+ Staff, 2+ Branches)</h3>
+                                <ul class="space-y-3 text-sm text-gray-700">
+                                    <li>✓ All Standard Package services</li>
+                                    <li>✓ Coordination with all ministries</li>
+                                    <li>✓ Legal and court-related matters</li>
+                                    <li>✓ Dedicated team & HR support</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="text-xl font-black text-brand-900 mb-4">QAR 5,000 <span class="text-sm font-normal text-gray-500">/ month</span></div>
+                                <button @click="openQuoteModal('Premium PRO Package')" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3.5 rounded-xl text-sm font-bold transition">Choose Premium</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAX CLEARANCE & COMPANY LIQUIDATION SECTION -->
+            <section id="liquidation" class="py-24 bg-white border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-4">
+                        <span class="text-amber-700 font-extrabold text-sm uppercase tracking-widest bg-amber-50 px-5 py-2 rounded-full border border-amber-200">Corporate Restructuring & Exit Strategies</span>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900">Tax Clearance, Penalty Appeals & Company Liquidation</h2>
+                        <p class="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto">Seamless legal closures, official liquidator appointment, and tax compliance assistance in Qatar.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 space-y-5 flex flex-col justify-between shadow-sm">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 bg-amber-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                                <h3 class="font-extrabold text-xl text-brand-900">Tax Clearance Assistance</h3>
+                                <p class="text-sm text-gray-700 leading-relaxed">Obtaining tax clearance certificates from General Tax Authority (GTA) confirming no tax liabilities for license renewal or profit repatriation.</p>
+                            </div>
+                            <button @click="openQuoteModal('Tax Clearance Quote')" class="w-full bg-brand-600 text-white py-3 rounded-xl text-sm font-bold">Request Tax Assistance</button>
+                        </div>
+
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 space-y-5 flex flex-col justify-between shadow-sm">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md"><i class="fa-solid fa-scale-balanced"></i></div>
+                                <h3 class="font-extrabold text-xl text-brand-900">Penalty Removals & Appeals</h3>
+                                <p class="text-sm text-gray-700 leading-relaxed">Resolving and appealing fines due to late tax filings, non-renewals, or immigration delays through proper government representation.</p>
+                            </div>
+                            <button @click="openQuoteModal('Penalty Appeal Quote')" class="w-full bg-brand-600 text-white py-3 rounded-xl text-sm font-bold">Request Appeal Support</button>
+                        </div>
+
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 space-y-5 flex flex-col justify-between shadow-sm">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 bg-red-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-md"><i class="fa-solid fa-file-circle-xmark"></i></div>
+                                <h3 class="font-extrabold text-xl text-brand-900">Complete Company Closure</h3>
+                                <p class="text-sm text-gray-700 leading-relaxed">Winding up WLL/Establishments, settling labor/immigration files, tax clearance, canceling CR, and closing bank accounts.</p>
+                            </div>
+                            <button @click="openQuoteModal('Company Closure Quote')" class="w-full bg-brand-600 text-white py-3 rounded-xl text-sm font-bold">Request Closure Support</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
+            <section id="leadership" class="py-24 bg-[#000a17] text-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="bg-[#031127] rounded-3xl p-10 sm:p-14 shadow-2xl relative border border-slate-800">
+                        <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                            <div class="lg:col-span-5 flex flex-col items-center">
+                                <div class="relative w-68 sm:w-80 rounded-3xl neon-glow-card bg-white p-3 text-center">
+                                    <div class="rounded-2xl overflow-hidden bg-white">
+                                        <img src="/shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-80 sm:h-96 object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+                                    </div>
+                                    <div class="mt-3 bg-[#0284c7] text-white font-extrabold text-xs sm:text-sm py-2.5 px-5 rounded-xl uppercase tracking-wider shadow-md">
+                                        FOUNDER & MANAGING DIRECTOR
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 space-y-6">
+                                <div>
+                                    <span class="bg-[#0f2a4a] text-blue-300 border border-blue-500/30 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider inline-flex items-center gap-2">
+                                        VISION <i class="fa-solid fa-ribbon text-cyan-400 text-sm"></i> LEADERSHIP
+                                    </span>
+                                </div>
+                                <div class="space-y-2">
+                                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">Shafir Kottupurath Basheer</h2>
+                                    <p class="text-blue-400 font-semibold text-sm sm:text-base">Founder & Managing Director - Serve Ease Business Solutions</p>
+                                </div>
+                                <div class="bg-[#071a36] p-6 sm:p-8 rounded-2xl border border-blue-900/40 relative space-y-3">
+                                    <i class="fa-solid fa-quote-left text-3xl text-blue-500/40"></i>
+                                    <p class="text-slate-200 text-sm sm:text-base italic font-medium leading-relaxed">
+                                        "Our core mission in Qatar is to bridge global ambition with seamless local execution."
+                                    </p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 pt-2">
+                                    <div class="bg-[#081e3e] p-5 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-xl sm:text-2xl font-black text-cyan-400">10+</div>
+                                        <div class="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider">Years Experience</div>
+                                    </div>
+                                    <div class="bg-[#081e3e] p-5 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-xl sm:text-2xl font-black text-cyan-400">3000+</div>
+                                        <div class="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider">Setup Clients</div>
+                                    </div>
+                                    <div class="bg-[#081e3e] p-5 rounded-2xl border border-blue-950 text-center space-y-1">
+                                        <div class="text-xl sm:text-2xl font-black text-emerald-400">100%</div>
+                                        <div class="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider">Compliance Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BUSINESS SETUP IN QATAR - FAQ SECTION -->
+            <section class="py-24 bg-white border-b border-gray-200">
+                <div class="max-w-4xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-4">
+                        <span class="bg-blue-50 text-brand-700 text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider">Frequently Asked Questions</span>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-brand-900">Business Setup in Qatar - FAQ</h2>
+                        <p class="text-sm sm:text-base text-gray-700">Everything you need to know about starting and registering a business in Qatar</p>
+                    </div>
+                    <div class="space-y-4">
+                        <template x-for="(faq, index) in faqs" :key="index">
+                            <div class="bg-white border border-gray-200 rounded-3xl shadow-xs overflow-hidden transition">
+                                <button @click="activeFaq = (activeFaq === index ? null : index)" class="w-full p-6 text-left flex justify-between items-center cursor-pointer hover:bg-gray-50 transition">
+                                    <span class="font-extrabold text-sm sm:text-base text-brand-900" x-text="faq.q"></span>
+                                    <i class="fa-solid fa-chevron-down text-gray-400 text-sm transition-transform duration-300" :class="activeFaq === index ? 'rotate-180 text-brand-600' : ''"></i>
+                                </button>
+                                <div x-show="activeFaq === index" x-cloak class="px-6 pb-6 pt-3 border-t border-gray-100 bg-blue-50/20">
+                                    <p class="text-sm sm:text-base text-gray-700 leading-relaxed" x-text="faq.a"></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DARK CONTACT SECTION -->
+            <section id="contact" class="py-24 bg-brand-dark text-white border-t border-white/10">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-4">
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-white">Ready to Set Up Your Business?</h2>
+                        <p class="text-sm sm:text-base text-blue-200 max-w-2xl mx-auto">Speak with a licensed Serve Ease advisor for free guidance.</p>
+                    </div>
+                    <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                        <div class="lg:col-span-5 bg-white/5 border border-white/10 p-10 rounded-3xl space-y-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-extrabold text-white">Contact Information</h3>
+                            <div class="space-y-6 text-sm sm:text-base text-blue-100">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div><h4 class="font-bold text-white text-base">Visit Us</h4><p class="text-sm text-blue-200 mt-1">Zone 55, Street 185, Building 86, Office 5, Al Aziziya, Doha - Qatar</p></div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-phone"></i></div>
+                                    <div><h4 class="font-bold text-white text-base">Call Us</h4><a href="tel:+97470442825" class="text-sm text-blue-200 hover:text-white transition mt-1 block">+974 70 4428 25 / +974 7012 0012</a></div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-brand-600/30 border border-brand-500/30 text-blue-300 rounded-full flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-envelope"></i></div>
+                                    <div><h4 class="font-bold text-white text-base">Email Us</h4><a href="mailto:serveeaseqtr@gmail.com" class="text-sm text-blue-200 hover:text-white transition mt-1 block">serveeaseqtr@gmail.com</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 bg-white/5 border border-white/10 p-10 rounded-3xl">
+                            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Contact Request from ' + $refs.cname.value + ' ('+ contactCountryCode + ' ' + $refs.cphone.value + '): ' + $refs.cmsg.value), '_blank');" class="space-y-5 text-sm">
+                                <div><input type="text" x-ref="cname" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 font-semibold text-base" placeholder="Enter your full name"></div>
+                                <div><input type="email" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 font-semibold text-base" placeholder="email@example.com"></div>
+                                <div class="grid grid-cols-12 gap-3">
+                                    <select x-model="contactCountryCode" class="col-span-5 p-4 bg-brand-dark border border-white/10 rounded-xl text-white text-sm font-bold">
+                                        <template x-for="c in countryCodes" :key="c.code + c.name">
+                                            <option :value="c.code" x-text="c.name"></option>
+                                        </template>
+                                    </select>
+                                    <input type="tel" x-ref="cphone" required class="col-span-7 p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 font-semibold text-base" placeholder="Phone Number">
+                                </div>
+                                <div><textarea rows="4" x-ref="cmsg" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 font-semibold text-base" placeholder="Your Message"></textarea></div>
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-extrabold py-4 rounded-xl shadow-lg transition cursor-pointer text-base uppercase tracking-wider">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="bg-black text-white py-14 border-t border-white/10 text-sm text-gray-400">
+                <div class="max-w-7xl mx-auto px-4 space-y-6 text-center">
+                    <p class="max-w-3xl mx-auto text-xs text-gray-400 leading-relaxed">
+                        Disclaimer - We are a private service provider and not affiliated with any government agency. Government applications can be made directly, often at no cost or lower cost.
+                    </p>
+                    <p class="max-w-4xl mx-auto text-xs text-gray-400 leading-relaxed">
+                        &copy; 2024–2026 Serve Ease Business Solutions. Email: serveeaseqtr@gmail.com. Registered with the Ministry of Commerce and Industry (MOCI), State of Qatar.
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- RIGHT SIDE DRAWER: AI COST CALCULATOR (12 STEPS/PAGES) -->
+        <aside x-show="calcDrawerOpen" x-cloak
+            x-transition:enter="transition transform ease-out duration-300"
+            x-transition:enter-start="translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition transform ease-in duration-200"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="translate-x-full"
+            class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 border-l border-gray-200 flex flex-col justify-between">
+            
+            <!-- Drawer Header with Progress -->
+            <div class="p-6 border-b border-gray-100 bg-slate-900 text-white flex flex-col gap-2">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="inline-block bg-brand-500 text-white text-xs font-extrabold px-2.5 py-1 rounded uppercase tracking-wider mb-1"><i class="fa-solid fa-robot mr-1"></i> AI Quote Assistant</span>
+                        <h3 class="text-lg font-extrabold leading-tight">Business Setup Cost Finder</h3>
+                    </div>
+                    <button @click="calcDrawerOpen = false" class="text-gray-300 hover:text-white text-xl p-1 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <!-- Step Indicator Bar -->
+                <div class="flex items-center justify-between text-xs text-blue-200 font-bold pt-1">
+                    <span>Step <span x-text="calcStep"></span> of 12</span>
+                    <span x-text="Math.round((calcStep / 12) * 100) + '% Completed'"></span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div class="bg-cyan-400 h-full transition-all duration-300" :style="'width: ' + (calcStep / 12 * 100) + '%'"></div>
+                </div>
+            </div>
+
+            <!-- Drawer Body (12 Distinct Pages/Steps) -->
+            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-sm">
+                
+                <!-- Step 1 -->
+                <div x-show="calcStep === 1" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 1 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 1: Select Main Purpose</h4>
+                    <div class="space-y-2">
+                        <template x-for="p in ['New Company Registration', 'PRO & Visa Services', 'Company Liquidation / Closure']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step1_purpose === p ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p1" :value="p" x-model="calcData.step1_purpose" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="p"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div x-show="calcStep === 2" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 2 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 2: Select Legal Structure / Jurisdiction</h4>
+                    <div class="space-y-2">
+                        <template x-for="j in ['Mainland MOCI (WLL / LLC)', 'Single Owner Company', 'Free Zone Entity (QFC / QFZA)', 'Branch Office']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step2_jurisdiction === j ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p2" :value="j" x-model="calcData.step2_jurisdiction" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="j"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div x-show="calcStep === 3" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 3 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 3: Select Business Activity Sector</h4>
+                    <div class="space-y-2">
+                        <template x-for="a in ['General Trading & Contracting', 'E-Commerce & Digital Retail', 'Management & Business Consultancy', 'Food & Restaurant / Cafeteria', 'IT Services & Software']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step3_activityType === a ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p3" :value="a" x-model="calcData.step3_activityType" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="a"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div x-show="calcStep === 4" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 4 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 4: Number of Shareholders / Partners</h4>
+                    <div class="space-y-2">
+                        <template x-for="sh in ['Single Shareholder (100%)', '1-2 Shareholders / Partners', '3-5 Partners', '5+ Shareholders']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step4_shareholders === sh ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p4" :value="sh" x-model="calcData.step4_shareholders" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="sh"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div x-show="calcStep === 5" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 5 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 5: Number of Employee Visas Required</h4>
+                    <div class="space-y-2">
+                        <template x-for="v in ['No Visas (License Only)', '1-5 Employee Visas', '6-15 Employee Visas', '15+ Employee Visas']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step5_visas === v ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p5" :value="v" x-model="calcData.step5_visas" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="v"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div x-show="calcStep === 6" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 6 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 6: Office Space & Location Requirement</h4>
+                    <div class="space-y-2">
+                        <template x-for="o in ['Serviced Physical Office Space', 'Virtual / Flexi Desk', 'Warehouse / Industrial Yard', 'Retail Shop / Restaurant Outlet']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step6_officeType === o ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p6" :value="o" x-model="calcData.step6_officeType" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="o"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div x-show="calcStep === 7" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 7 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 7: Corporate Bank Account Assistance</h4>
+                    <div class="space-y-2">
+                        <template x-for="ba in ['Corporate Bank Account Assistance Needed', 'Already Have Bank Account Connection']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step7_bankAccount === ba ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p7" :value="ba" x-model="calcData.step7_bankAccount" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="ba"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div x-show="calcStep === 8" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 8 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 8: VAT & Tax Registration</h4>
+                    <div class="space-y-2">
+                        <template x-for="tx in ['VAT & Tax Registration Required', 'Not Required Currently']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step8_vatTax === tx ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p8" :value="tx" x-model="calcData.step8_vatTax" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="tx"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 9 -->
+                <div x-show="calcStep === 9" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 9 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 9: Expected Timeline</h4>
+                    <div class="space-y-2">
+                        <template x-for="t in ['Immediate (Within 1-2 Weeks)', 'Within 1 Month', 'Flexible / Exploring Options']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step9_timeline === t ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p9" :value="t" x-model="calcData.step9_timeline" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="t"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 10 -->
+                <div x-show="calcStep === 10" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 10 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 10: Processing Speed Preference</h4>
+                    <div class="space-y-2">
+                        <template x-for="ex in ['Standard Processing', 'Express Priority Processing (Fast-Track)']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.step10_express === ex ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="p10" :value="ex" x-model="calcData.step10_express" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="ex"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 11 -->
+                <div x-show="calcStep === 11" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 11 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 11: Review Your Selections</h4>
+                    <div class="bg-blue-50 p-4 rounded-xl space-y-2 text-xs text-gray-800 border border-blue-100">
+                        <div><strong>Purpose:</strong> <span x-text="calcData.step1_purpose"></span></div>
+                        <div><strong>Structure:</strong> <span x-text="calcData.step2_jurisdiction"></span></div>
+                        <div><strong>Activity:</strong> <span x-text="calcData.step3_activityType"></span></div>
+                        <div><strong>Partners:</strong> <span x-text="calcData.step4_shareholders"></span></div>
+                        <div><strong>Visas:</strong> <span x-text="calcData.step5_visas"></span></div>
+                        <div><strong>Office:</strong> <span x-text="calcData.step6_officeType"></span></div>
+                        <div><strong>Bank:</strong> <span x-text="calcData.step7_bankAccount"></span></div>
+                        <div><strong>Tax:</strong> <span x-text="calcData.step8_vatTax"></span></div>
+                        <div><strong>Timeline:</strong> <span x-text="calcData.step9_timeline"></span></div>
+                        <div><strong>Speed:</strong> <span x-text="calcData.step10_express"></span></div>
+                    </div>
+                </div>
+
+                <!-- Step 12 -->
+                <div x-show="calcStep === 12" class="space-y-4">
+                    <span class="text-xs font-bold text-brand-600 bg-blue-50 px-3 py-1 rounded-full">Page 12 of 12</span>
+                    <h4 class="font-bold text-base text-gray-900">Step 12: Enter Contact Details & Send Estimate</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">Full Name *</label>
+                            <input type="text" x-model="calcData.fullName" required class="w-full p-3.5 border rounded-xl font-semibold" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">Email *</label>
+                            <input type="email" x-model="calcData.email" required class="w-full p-3.5 border rounded-xl font-semibold" placeholder="email@example.com">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">WhatsApp Phone Number *</label>
+                            <div class="grid grid-cols-12 gap-2">
+                                <select x-model="calcCountryCode" class="col-span-5 p-3.5 border rounded-xl font-bold text-xs">
+                                    <template x-for="c in countryCodes" :key="c.code + c.name">
+                                        <option :value="c.code" x-text="c.name"></option>
+                                    </template>
+                                </select>
+                                <input type="tel" x-model="calcData.phone" required class="col-span-7 p-3.5 border rounded-xl font-semibold" placeholder="Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Drawer Footer -->
+            <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-between items-center">
+                <button x-show="calcStep > 1" @click="calcStep--" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer">Back</button>
+                <div x-show="calcStep === 1"></div>
+                <button x-show="calcStep < 12" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ml-auto">Next Step</button>
+                <button x-show="calcStep === 12" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('AI Cost Calculator 12-Step Estimate Request:\n1. Purpose: ' + calcData.step1_purpose + '\n2. Structure: ' + calcData.step2_jurisdiction + '\n3. Activity: ' + calcData.step3_activityType + '\n4. Shareholders: ' + calcData.step4_shareholders + '\n5. Visas: ' + calcData.step5_visas + '\n6. Office: ' + calcData.step6_officeType + '\n7. Bank: ' + calcData.step7_bankAccount + '\n8. Tax: ' + calcData.step8_vatTax + '\n9. Timeline: ' + calcData.step9_timeline + '\n10. Speed: ' + calcData.step10_express + '\n\nContact Details:\nName: ' + calcData.fullName + '\nEmail: ' + calcData.email + '\nPhone: ' + calcCountryCode + ' ' + calcData.phone), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ml-auto flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Send Estimate via WhatsApp
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3.5 items-end">
+        <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 border-2 border-white cursor-pointer" title="Call Us Now"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition hover:scale-110 border-2 border-white cursor-pointer" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <!-- FULL-SCREEN SERVICE MODAL WITH 194 ACTIVITIES INSIDE -->
+    <div x-show="serviceModal" x-cloak class="fixed inset-0 bg-white z-50 overflow-y-auto flex flex-col min-h-screen">
+        <div class="sticky top-0 z-30 bg-white border-b border-gray-200 px-6 py-5 flex items-center justify-between shadow-xs">
+            <button @click="serviceModal = false" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-5 py-2.5 rounded-xl text-sm font-extrabold flex items-center gap-2.5 transition cursor-pointer">
+                <i class="fa-solid fa-arrow-left"></i> Back to Main Website
+            </button>
+            <button @click="serviceModal = false" class="bg-gray-900 hover:bg-black text-white w-12 h-12 rounded-2xl flex items-center justify-center text-xl cursor-pointer transition shrink-0"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="relative h-80 w-full shrink-0 flex items-end p-10 bg-slate-900 overflow-hidden">
+            <img :src="selectedService.ministryImg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none">
+            <div class="relative z-10 space-y-3">
+                <span class="bg-brand-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider" x-text="selectedService.ministry"></span>
+                <h1 class="text-3xl sm:text-5xl font-black text-white" x-text="selectedService.title"></h1>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 py-16 space-y-12 flex-1 w-full">
+            <div class="space-y-4">
+                <h3 class="text-xl font-extrabold text-brand-900">Overview</h3>
+                <p class="text-base sm:text-lg text-gray-700 leading-relaxed" x-text="selectedService.desc"></p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 space-y-2">
+                    <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">Processing Time</span>
+                    <div class="text-xl font-extrabold text-brand-900" x-text="selectedService.time"></div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 space-y-2">
+                    <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">Starting Price</span>
+                    <div class="text-xl font-extrabold text-emerald-700" x-text="selectedService.price"></div>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                <h3 class="text-xl font-extrabold text-brand-900">Required Documents & Checklist</h3>
+                <div class="space-y-4">
+                    <template x-for="(doc, idx) in selectedService.docs" :key="idx">
+                        <div class="flex items-start gap-3.5 bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                            <span class="text-sm sm:text-base font-bold text-gray-900" x-text="doc"></span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- COMPLETE 194 ACTIVITIES LIST INSIDE MODAL -->
+            <div x-show="selectedService.isEcomList" class="bg-slate-50 p-6 sm:p-10 rounded-3xl border border-gray-200 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h3 class="text-2xl font-black text-brand-900">Browse MOCI Approved E-Commerce Activities (Complete 194 List)</h3>
+                        <p class="text-sm text-gray-600 mt-1">Select your activity and click to send details directly to company WhatsApp:</p>
+                    </div>
+                    <div class="w-full sm:w-72">
+                        <input type="text" x-model="ecomSearch" placeholder="Search activity code or name..." class="w-full p-3.5 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-brand-600 shadow-xs">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl bg-white max-h-[550px] overflow-y-auto divide-y divide-gray-100 shadow-xs">
+                    <template x-for="act in ecomActivities.filter(a => a.name.toLowerCase().includes(ecomSearch.toLowerCase()) || a.code.includes(ecomSearch) || a.arabic.includes(ecomSearch))" :key="act.code">
+                        <div class="p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:bg-blue-50/50 transition">
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-brand-100 text-brand-800 text-xs font-black px-2.5 py-1 rounded-md" x-text="act.code"></span>
+                                    <span class="font-bold text-gray-900 text-base" x-text="act.name"></span>
+                                </div>
+                                <p class="text-xs text-gray-500 font-medium" x-text="act.arabic"></p>
+                            </div>
+                            <button @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Selected E-Commerce Activity Request:\nActivity Code: ' + act.code + '\nActivity Name: ' + act.name + '\nArabic Name: ' + act.arabic), '_blank');" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-xs cursor-pointer shrink-0 flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Select & Send to WhatsApp
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 flex flex-wrap gap-6 items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-base text-gray-900">Ready to proceed with this service?</h4>
+                    <p class="text-sm text-gray-600">Our PRO experts will handle all ministry formalities for you.</p>
+                </div>
+                <button @click="serviceModal = false; openQuoteModal(selectedService.title + ' Quote')" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-2xl text-sm font-black uppercase tracking-wider shadow-lg transition cursor-pointer">
+                    Request Quote for this Service
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILED QUOTE MODAL -->
+    <div x-show="quoteModal" x-cloak class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 relative text-gray-900 shadow-2xl space-y-6">
+            <button @click="quoteModal = false" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 text-xl p-2 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div>
+                <h3 class="text-2xl font-bold text-brand-900 mb-1.5" x-text="modalQuoteTitle">Get Detailed Quote</h3>
+                <p class="text-sm text-gray-600" x-text="modalQuoteDesc">Leave your details and our experts will contact you.</p>
+            </div>
+            <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Detailed Quote Request for [' + modalQuoteTitle + '] from ' + $refs.mname.value + ' ('+ modalCountryCode + ' ' + $refs.mphone.value + '): ' + $refs.mdetails.value), '_blank'); quoteModal = false;" class="space-y-4 text-sm">
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1.5">Full Name *</label>
+                    <input type="text" x-ref="mname" required class="w-full p-4 bg-gray-50 border rounded-xl font-semibold text-base">
+                </div>
+                <div>
+                    <label class="label block font-bold text-gray-700 mb-1.5">Phone Number (WhatsApp) *</label>
+                    <div class="grid grid-cols-12 gap-2">
+                        <select x-model="modalCountryCode" class="col-span-5 p-4 bg-gray-50 border rounded-xl font-bold text-sm">
+                            <template x-for="c in countryCodes" :key="c.code + c.name">
+                                <option :value="c.code" x-text="c.name"></option>
+                            </template>
+                        </select>
+                        <input type="tel" x-ref="mphone" required class="col-span-7 p-4 bg-gray-50 border rounded-xl font-semibold text-base" placeholder="Phone Number">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1.5">Business / Visa Details</label>
+                    <textarea x-ref="mdetails" rows="3" class="w-full p-4 bg-gray-50 border rounded-xl font-semibold text-base" placeholder="Specify details..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl uppercase tracking-wider cursor-pointer shadow hover:bg-brand-700 transition text-base">Request via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
