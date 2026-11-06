@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serve Ease Business Solutions | Company Formation, PRO Services, Liquidation & Visa Solutions Qatar</title>
+    <title>Serve Ease Business Solutions | Company Formation, PRO Services, Visa Solutions & Liquidation Qatar</title>
+    <meta name="description" content="Leading corporate consultancy and business setup agency in Doha, Qatar. Commercial registration (CR), 100% foreign ownership structures, PRO services, visa clearance, and tax liquidation.">
+    <meta name="keywords" content="Qatar company formation, MOCI CR Doha, PRO services Qatar, WLL company setup, visa clearance Qatar, tax card Dhareeba, company liquidation Qatar">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -40,30 +42,12 @@
     <style>
         html { scroll-behavior: smooth; }
         [x-cloak] { display: none !important; }
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 35px -10px rgba(1, 67, 163, 0.15);
-            border-color: #0256cc;
-        }
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        .animate-float {
-            animation: floatSlow 4s ease-in-out infinite;
-        }
-        .neon-glow-card {
-            box-shadow: 0 0 25px 3px rgba(6, 182, 212, 0.6), inset 0 0 15px rgba(6, 182, 212, 0.4);
-            border: 2px solid #06b6d4;
-        }
-        .hero-banner-bg {
-            background: linear-gradient(rgba(0, 26, 65, 0.90), rgba(0, 26, 65, 0.82)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-        }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 35px -10px rgba(1, 67, 163, 0.15); border-color: #0256cc; }
+        @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+        .neon-glow-card { box-shadow: 0 0 25px 3px rgba(6, 182, 212, 0.6), inset 0 0 15px rgba(6, 182, 212, 0.4); border: 2px solid #06b6d4; }
+        .hero-banner-bg { background: linear-gradient(rgba(0, 26, 65, 0.90), rgba(0, 26, 65, 0.82)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased m-0 p-0 overflow-x-hidden" x-data="{ 
@@ -102,22 +86,19 @@
         'Management Consultancy', 'Marketing Services', 'Media Services', 'Online Education', 'Other'
     ],
     structures: [
-        { id: 'llc', name: 'Limited Liability Company (LLC)', desc: 'The most common business structure in Qatar, offering limited liability protection to shareholders while allowing flexible management structures.' },
-        { id: 'gp', name: 'General Partnership', desc: 'A partnership structure where two or more partners share equal responsibility and liability for the business operations.' },
-        { id: 'lp', name: 'Limited Partnership', desc: 'Consists of general partners who manage the business and limited partners whose liability is restricted to their investment.' },
-        { id: 'holding', name: 'Holding Company', desc: 'Designed to hold shares or equities in other companies with centralized management and financial control.' },
-        { id: 'jv', name: 'Joint Venture', desc: 'An agreement between two or more parties to undertake a specific economic activity together.' },
-        { id: 'psc', name: 'Public Shareholding Company', desc: 'Suitable for large-scale enterprises with public share offerings regulated by Qatar financial authorities.' },
-        { id: 'ca', name: 'Commercial Agencies', desc: 'Represents foreign principals to distribute, sell or provide goods and services in Qatar.' },
-        { id: 'bo', name: 'Branch Office', desc: 'An extension of a foreign parent company allowed to execute specific projects or contracts in Qatar.' },
-        { id: 'ro', name: 'Representative Office', desc: 'A non-trading office established solely for market research, promotion, and liaison activities.' }
+        { id: 'wll', name: 'With Limited Liability (WLL)', desc: 'A With Limited Liability (WLL) company is the most common business structure in Qatar, suitable for both foreign and local investors. It can have up to 50 shareholders and is ideal for trading, contracting, consulting, and general commercial activities.' },
+        { id: 'single', name: 'Single Owner Company', desc: 'A Single Owner Company (100% Qatari or 100% foreign-owned in approved sectors) allows an individual to establish a business under their name or a corporate entity, with full liability protection.' },
+        { id: 'jv', name: 'Joint Venture Company', desc: 'A Joint Venture Company is a type of business structure formed when two or more companies come together to undertake a specific project or business activity, combining resources, expertise, and assets to achieve a common goal.' },
+        { id: 'psc', name: 'Public Shareholding Company', desc: 'A Public Shareholding Company’s shares are traded on the Qatar Stock Exchange. Suitable for large-scale businesses looking to raise capital by issuing shares to the public under strict regulatory compliance.' },
+        { id: 'bo', name: 'Branch Office', desc: 'A Branch Office is a business structure allowing a foreign company to conduct business activities and execute projects in Qatar under its parent company identity.' },
+        { id: 'ro', name: 'Representative Office', desc: 'A Representative Office allows a foreign company to promote their business and explore opportunities in Qatar solely for promotional and liaison activities without generating local commercial income.' }
     ],
     faqs: [
         { q: 'What is company formation in Qatar and how does the process work?', a: 'Company formation involves registering your business entity with the Ministry of Commerce and Industry (MOCI), obtaining commercial registration, and municipal licenses.' },
         { q: 'Can foreigners own 100% of a company in Qatar without a local sponsor?', a: 'Yes, under specific sectors and free zones, foreign investors can enjoy 100% ownership.' },
-        { q: 'What types of business entities can be formed in Qatar?', a: 'You can form WLL (LLC), branches, representative offices, holding companies, and free zone entities.' },
-        { q: 'What is the minimum capital requirement for company formation in Qatar?', a: 'Minimum capital varies depending on the legal structure and commercial activity, often starting from QAR 200,000 for standard WLL companies unless exempt.' },
-        { q: 'What documents are required for company registration in Qatar?', a: 'Passport copies of shareholders, CVs, proposed trade names, lease agreement, and incorporation documents.' },
+        { q: 'What types of business entities can be formed in Qatar?', a: 'You can form WLL, Single Owner, branches, representative offices, holding companies, and free zone entities.' },
+        { q: 'What is the minimum capital requirement for company formation in Qatar?', a: 'Minimum capital varies depending on the legal structure and commercial activity, starting from standard requirements unless exempt.' },
+        { q: 'What documents are required for company registration in Qatar?', a: 'Passport copies of shareholders, QIDs, proposed trade names, lease agreements, and incorporation documents.' },
         { q: 'How long does it take to register a company in Qatar?', a: 'Typically between 3 to 7 working days once all documentation and MOCI approvals are in order.' },
         { q: 'What is the difference between MOCI registration, QFC, and Free Zone company formation?', a: 'MOCI covers Qatar mainland operations, QFC offers an independent onshore legal environment, and Free Zones provide 100% foreign ownership.' },
         { q: 'What are the costs involved in company formation in Qatar?', a: 'Costs include government filing fees, municipal licenses, CR fees, and professional consultancy service charges.' },
@@ -147,9 +128,10 @@
     <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             
-            <!-- LEFT CORNER: Exact Logo Style -->
+            <!-- LEFT CORNER: Exact Logo Image Integration with Fallback -->
             <a href="#home" class="flex items-center gap-3 text-left no-underline group shrink-0">
-                <div class="flex flex-col leading-tight">
+                <img src="/logo.png" alt="Serve Ease Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="flex-col leading-tight hidden">
                     <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.025em;">
                         <span style="color: #0f172a;">Serve</span> <span style="color: #2563eb;">Ease</span>
                     </div>
@@ -249,87 +231,60 @@
                 </div>
             </section>
 
-            <!-- ABOUT US SECTION & MAINLAND / FREE ZONE OVERVIEW -->
+            <!-- ABOUT US SECTION & MAINLAND / FREE ZONE ADVANTAGES -->
             <section id="about-us" class="py-20 bg-gray-100 border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
                     <div class="text-center space-y-3 max-w-3xl mx-auto">
                         <span class="bg-blue-50 text-brand-700 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">Company Formation Overview</span>
-                        <h2 class="text-3xl md:text-5xl font-black text-brand-900">Mainland & Free Zone Setup</h2>
+                        <h2 class="text-3xl md:text-5xl font-black text-brand-900">Mainland & Free Zone Advantages</h2>
                     </div>
 
-                    <!-- 3 Grid Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-white p-7 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
-                            <div>
-                                <div class="w-10 h-10 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center font-bold text-lg mb-4">🏢</div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-3">Core Services</h3>
-                                <ul class="space-y-2.5 text-xs text-gray-600 font-medium">
-                                    <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Company Formation (Mainland & Free Zone)</li>
-                                    <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> PRO & Visa Clearance Services</li>
-                                    <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Company Liquidation & Share Transfers</li>
-                                    <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Legal Translation & Auditing</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-7 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
-                            <div>
-                                <div class="w-10 h-10 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center font-bold text-lg mb-4">📋</div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">A Licensed Business Setup Consultancy in Qatar</h3>
-                                <p class="text-xs text-gray-500 mb-6 leading-relaxed">Guiding founders through company formation with care</p>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                <span class="text-[11px] font-semibold uppercase tracking-wider text-blue-800 block">Leadership</span>
-                                <span class="text-sm font-bold text-gray-900 block mt-0.5">Shafir Kottupurath Basheer</span>
-                                <span class="text-xs text-gray-500 block">Founder & Managing Director</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-7 rounded-3xl border border-gray-900 shadow-sm flex flex-col justify-between text-center">
-                            <div>
-                                <h3 class="text-gray-900 font-bold text-base mb-1">A Licensed Business Setup Consultancy in Qatar</h3>
-                                <p class="text-xs text-gray-600 mb-4">Guiding founders through company formation with care</p>
-                                <div class="my-3">
-                                    <span class="text-2xl font-black tracking-tight text-gray-900">Google</span>
-                                    <span class="block text-xs text-gray-500 mt-0.5">Reviews</span>
-                                </div>
-                                <div class="flex items-center justify-center gap-2 text-base font-bold text-gray-800 my-2">
-                                    <span>Reviews</span>
-                                    <span class="text-lg text-gray-900 font-extrabold">4.8/5</span>
-                                    <span class="text-amber-400 text-lg">★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mainland vs Freezone Details Box -->
-                    <div class="grid md:grid-cols-2 gap-8 pt-4">
-                        <div class="bg-white p-8 rounded-3xl border border-gray-200 space-y-4 shadow-sm">
-                            <h3 class="text-xl font-bold text-brand-900 flex items-center gap-2">
-                                <i class="fa-solid fa-landmark text-brand-600">></i> Mainland Company Formation (MOCI)
+                    <!-- Mainland vs Freezone Detailed Breakdown -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-3xl border border-gray-200 space-y-5 shadow-sm">
+                            <h3 class="text-2xl font-black text-brand-900 flex items-center gap-2">
+                                <i class="fa-solid fa-landmark text-brand-600"></i> Mainland Company Formation (MOCI)
                             </h3>
-                            <p class="text-xs text-gray-600 leading-relaxed">
-                                Setting up a business in the mainland allows full access to Qatar’s local economy and flexibility in operations. Ideal for retail, contracting, hospitality, and direct government contracting.
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Setting up a business in the mainland allows for full access to Qatar’s local economy and flexibility in operations. It’s ideal for businesses planning to serve the Qatari market directly or engage with government clients.
                             </p>
-                            <ul class="space-y-2 text-xs text-gray-700">
-                                <li class="flex items-start gap-2"><span class="text-brand-600 font-bold">✓</span> <strong>Local Market Access:</strong> Trade directly across Qatar without restrictions.</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-600 font-bold">✓</span> <strong>Government Contracts:</strong> Eligible to bid for high-value public sector projects.</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-600 font-bold">✓</span> <strong>100% Foreign Ownership:</strong> Available in specific sectors under new investment laws.</li>
-                            </ul>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Local Market Access:</strong> <p class="text-xs text-gray-600">Trade and provide services directly within Qatar without restrictions. Ideal for retail, contracting, hospitality, and service-based businesses.</p></div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Government Contracts:</strong> <p class="text-xs text-gray-600">Participate in government tenders and public sector projects, which are often high-value and long-term.</p></div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Diverse Activities & Location:</strong> <p class="text-xs text-gray-600">Cover commercial, industrial, and professional activities with strategic office locations anywhere in Qatar.</p></div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="bg-white p-8 rounded-3xl border border-gray-200 space-y-4 shadow-sm">
-                            <h3 class="text-xl font-bold text-brand-900 flex items-center gap-2">
+                        <div class="bg-white p-8 rounded-3xl border border-gray-200 space-y-5 shadow-sm">
+                            <h3 class="text-2xl font-black text-brand-900 flex items-center gap-2">
                                 <i class="fa-solid fa-globe text-emerald-600"></i> Free Zone Company (QFZA / QFC)
                             </h3>
-                            <p class="text-xs text-gray-600 leading-relaxed">
-                                Designed for international investors, tech firms, logistics companies, and service providers wanting global trade incentives and world-class infrastructure.
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Designed to attract international investors, tech firms, logistics companies, and service providers who want to benefit from global trade incentives and operate in a world-class environment.
                             </p>
-                            <ul class="space-y-2 text-xs text-gray-700">
-                                <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span> <strong>100% Foreign Ownership:</strong> Retain full ownership without local partner.</li>
-                                <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span> <strong>Tax Exemptions:</strong> Enjoy 0% corporate tax, no personal income tax.</li>
-                                <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span> <strong>Profit Repatriation:</strong> Freely repatriate all capital and profits globally.</li>
-                            </ul>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">100% Foreign Ownership:</strong> <p class="text-xs text-gray-600">Investors can retain full ownership of the business without the requirement of a local partner.</p></div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Tax Exemptions & Benefits:</strong> <p class="text-xs text-gray-600">Enjoy 0% corporate tax, customs duty exemptions, and no personal income tax, significantly reducing operational cost.</p></div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Profit Repatriation:</strong> <p class="text-xs text-gray-600">Freely repatriate all capital and profits, making global financial management seamless.</p></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -410,8 +365,8 @@
                 <div class="max-w-4xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
                         <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">Business Structure Guide</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Find the Right Business Structure for Your Venture</h2>
-                        <p class="text-xs sm:text-sm text-gray-600">Our experts guide you in choosing the most suitable legal setup in Qatar (WLL, Single Owner, Joint Venture, Public Shareholding, Branch Office, Representative Office)</p>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">Types of Company Formation in Qatar</h2>
+                        <p class="text-xs sm:text-sm text-gray-600">Choose the optimal legal entity for your venture: WLL, Single Owner, Joint Venture, Public Shareholding, Branch Office, or Representative Office.</p>
                     </div>
 
                     <div class="space-y-4 pt-4">
@@ -532,7 +487,7 @@
                 </div>
             </section>
 
-            <!-- VISA & PRO SERVICES SECTION -->
+            <!-- VISA & PRO SERVICES SECTION (8 EXPANDED CARDS WITH INSIDE MODALS) -->
             <section id="visas" class="py-20 bg-white border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
@@ -540,8 +495,9 @@
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Qatar Visa Clearance & Government PRO Services</h2>
                         <p class="text-xs text-gray-600 max-w-2xl mx-auto">Click any service to view full inside details, requirements & timeline, or request a quote.</p>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, A1/A2 travel clearances.', '24-48 Hours', ['Valid Passport', 'Flight Confirmation', 'Hotel Booking'], 'From QAR 350', 'Qatar Tourism', 'bg-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.', '24-48 Hours', ['Valid Passport Copy', 'Return Flight Confirmation', 'Hotel Booking or Host Address'], 'From QAR 350', 'Qatar Tourism', 'bg-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
                                 <p class="text-xs text-gray-600">Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.</p>
@@ -557,6 +513,14 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
+                        <div @click="openService('Work Permits & Labor Quotas', 'Ministry of Labor work visa quota application, employment contracts, and staff QID issuance.', '5-7 Working Days', ['Company Computer Card', 'Commercial Registration (CR)', 'Drafted Standard Ministry Labor Contracts'], 'From QAR 800', 'Ministry of Labor', 'bg-slate-900', 'fa-id-card-clip', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Work Permits & Labor Quotas</h3>
+                                <p class="text-xs text-gray-600">Labor department quota approvals, work visas, and staff QID processing.</p>
+                            </div>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                        </div>
+
                         <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, MoA notarization.', '1-3 Working Days', ['Passports of Shareholders', 'Trade Names English/Arabic', 'Lease Agreement'], 'From QAR 1,500', 'MOCI Qatar', 'bg-blue-950', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
@@ -565,10 +529,34 @@
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
 
-                        <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance & signatory manager registration.', '24 Hours', ['CR Copy', 'Valid QID of Signatory', 'Official Company Stamp'], 'From QAR 400', 'MOI Qatar', 'bg-slate-900', 'fa-id-card', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                        <div @click="openService('Computer Card Clearance', 'Establishment ID (Computer Card) issuance & signatory manager registration.', '24 Hours', ['CR Copy', 'Valid QID of Signatory', 'Official Company Stamp'], 'From QAR 400', 'MOI Qatar', 'bg-cyan-900', 'fa-id-card', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Computer Card Clearance</h3>
                                 <p class="text-xs text-gray-600">Establishment ID (Computer Card) issuance & signatory manager registration.</p>
+                            </div>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                        </div>
+
+                        <div @click="openService('Commercial Trade License', 'Baladiya municipal license approval, office inspection, and renewals.', '2-4 Working Days', ['Lease Agreement & Title Deed', 'Building Completion Certificate', 'Signboard Photo & Kahramaa Number'], 'From QAR 1,200', 'Ministry of Municipality', 'bg-emerald-900', 'fa-shop', 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Commercial Trade License</h3>
+                                <p class="text-xs text-gray-600">Baladiya municipal license approval, office inspection, and renewals.</p>
+                            </div>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                        </div>
+
+                        <div @click="openService('MOFA Certificate Attestation', 'Official document attestation through MOFA Qatar and embassies.', '48-72 Hours', ['Original Document', 'Passport/QID Copy', 'Chamber of Commerce Pre-Attestation'], 'From QAR 300', 'MOFA Qatar', 'bg-purple-900', 'fa-certificate', 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">MOFA Certificate Attestation</h3>
+                                <p class="text-xs text-gray-600">Official document attestation through MOFA Qatar and embassies.</p>
+                            </div>
+                            <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
+                        </div>
+
+                        <div @click="openService('Customs & Import/Export Code', 'Customs registration and import/export license clearance.', '2-3 Working Days', ['Valid CR and Trade License', 'Computer Card Copy', 'Customs Application Form'], 'From QAR 1,000', 'Qatar Customs Authority', 'bg-amber-900', 'fa-ship', 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80')" class="bg-slate-50 p-6 rounded-3xl border border-gray-200 card-hover space-y-4 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-base text-brand-900 group-hover:text-brand-600 transition">Customs & Import/Export Code</h3>
+                                <p class="text-xs text-gray-600">Customs registration and import/export license clearance.</p>
                             </div>
                             <div class="text-xs font-bold text-brand-600 flex items-center gap-1">View Details & Requirements <i class="fa-solid fa-arrow-right text-[10px]"></i></div>
                         </div>
@@ -641,7 +629,7 @@
                 </div>
             </section>
 
-            <!-- COMPANY LIQUIDATION & TAX SERVICES SECTION -->
+            <!-- TAX CLEARANCE & COMPANY LIQUIDATION SECTION -->
             <section id="liquidation" class="py-20 bg-white border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
