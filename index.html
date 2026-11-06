@@ -124,19 +124,19 @@
     modalCountryCode: '+974'
 }">
 
-    <!-- NAVIGATION BAR: Left Corner Exact Logo & Right Corner Buttons -->
+    <!-- NAVIGATION BAR: Logo Image + Text side-by-side & Right Call/WhatsApp -->
     <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             
-            <!-- LEFT CORNER: Exact Logo Image Integration with Fallback -->
+            <!-- LEFT CORNER: Logo Image + Text Side-by-Side -->
             <a href="#home" class="flex items-center gap-3 text-left no-underline group shrink-0">
-                <img src="/logo.png" alt="Serve Ease Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="flex-col leading-tight hidden">
-                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.025em;">
+                <img src="/logo.png" alt="Serve Ease Logo" class="h-10 sm:h-12 w-auto object-contain">
+                <div class="flex flex-col leading-tight">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.025em;">
                         <span style="color: #0f172a;">Serve</span> <span style="color: #2563eb;">Ease</span>
                     </div>
                     <div style="border-top: 1px solid #475569; margin-top: 2px; padding-top: 2px;">
-                        <span style="color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;">
+                        <span style="color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;">
                             BUSINESS SOLUTIONS
                         </span>
                     </div>
@@ -177,11 +177,15 @@
                         <p class="text-blue-100 text-xs sm:text-sm lg:text-base font-normal leading-relaxed">
                             Licensed Qatar consultancy guiding you through company formation, government PRO services, visa clearances, legal translations, and secure company liquidation or share transfer.
                         </p>
-                        <div class="pt-2">
+                        <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
                             <button @click="calcDrawerOpen = true; calcStep = 1;" class="bg-white hover:bg-blue-50 text-brand-900 px-8 py-4 rounded-2xl text-sm font-extrabold shadow-xl transition hover:scale-105 cursor-pointer inline-flex items-center gap-2">
-                                <span>Get Started Now</span>
-                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                                <span>AI Cost Calculator</span>
+                                <i class="fa-solid fa-robot text-xs"></i>
                             </button>
+                            <a href="#visas" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-2xl text-sm font-extrabold shadow-xl transition hover:scale-105 inline-flex items-center gap-2">
+                                <span>Explore Services</span>
+                                <i class="fa-solid fa-arrow-down text-xs"></i>
+                            </a>
                         </div>
                         <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2 text-xs text-blue-200 font-semibold">
                             <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> 100% Foreign Ownership</span>
@@ -239,27 +243,22 @@
                         <h2 class="text-3xl md:text-5xl font-black text-brand-900">Mainland & Free Zone Advantages</h2>
                     </div>
 
-                    <!-- Mainland vs Freezone Detailed Breakdown -->
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-white p-8 rounded-3xl border border-gray-200 space-y-5 shadow-sm">
                             <h3 class="text-2xl font-black text-brand-900 flex items-center gap-2">
                                 <i class="fa-solid fa-landmark text-brand-600"></i> Mainland Company Formation (MOCI)
                             </h3>
                             <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                                Setting up a business in the mainland allows for full access to Qatar’s local economy and flexibility in operations. It’s ideal for businesses planning to serve the Qatari market directly or engage with government clients.
+                                Setting up a business in the mainland allows for full access to Qatar’s local economy and flexibility in operations. Ideal for businesses planning to serve the Qatari market directly or engage with government clients.
                             </p>
                             <div class="space-y-3 pt-2">
                                 <div class="flex items-start gap-2.5">
                                     <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">Local Market Access:</strong> <p class="text-xs text-gray-600">Trade and provide services directly within Qatar without restrictions. Ideal for retail, contracting, hospitality, and service-based businesses.</p></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Local Market Access:</strong> <p class="text-xs text-gray-600">Trade and provide services directly within Qatar without restrictions.</p></div>
                                 </div>
                                 <div class="flex items-start gap-2.5">
                                     <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">Government Contracts:</strong> <p class="text-xs text-gray-600">Participate in government tenders and public sector projects, which are often high-value and long-term.</p></div>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <div class="w-5 h-5 rounded-full bg-blue-100 text-brand-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">Diverse Activities & Location:</strong> <p class="text-xs text-gray-600">Cover commercial, industrial, and professional activities with strategic office locations anywhere in Qatar.</p></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Government Contracts:</strong> <p class="text-xs text-gray-600">Participate in high-value government tenders and public sector projects.</p></div>
                                 </div>
                             </div>
                         </div>
@@ -269,20 +268,16 @@
                                 <i class="fa-solid fa-globe text-emerald-600"></i> Free Zone Company (QFZA / QFC)
                             </h3>
                             <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                                Designed to attract international investors, tech firms, logistics companies, and service providers who want to benefit from global trade incentives and operate in a world-class environment.
+                                Designed to attract international investors, tech firms, logistics companies, and service providers who want global trade incentives and world-class infrastructure.
                             </p>
                             <div class="space-y-3 pt-2">
                                 <div class="flex items-start gap-2.5">
                                     <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">100% Foreign Ownership:</strong> <p class="text-xs text-gray-600">Investors can retain full ownership of the business without the requirement of a local partner.</p></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">100% Foreign Ownership:</strong> <p class="text-xs text-gray-600">Full ownership without local partner requirement.</p></div>
                                 </div>
                                 <div class="flex items-start gap-2.5">
                                     <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">Tax Exemptions & Benefits:</strong> <p class="text-xs text-gray-600">Enjoy 0% corporate tax, customs duty exemptions, and no personal income tax, significantly reducing operational cost.</p></div>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></div>
-                                    <div><strong class="text-xs text-gray-900 block font-bold">Profit Repatriation:</strong> <p class="text-xs text-gray-600">Freely repatriate all capital and profits, making global financial management seamless.</p></div>
+                                    <div><strong class="text-xs text-gray-900 block font-bold">Tax Exemptions:</strong> <p class="text-xs text-gray-600">Enjoy 0% corporate tax and customs duty exemptions.</p></div>
                                 </div>
                             </div>
                         </div>
@@ -299,62 +294,36 @@
                         <p class="text-sm sm:text-base text-gray-600">Discover the advantages of establishing your company in one of the world's fastest-growing economies.</p>
                     </div>
 
-                    <div class="grid lg:grid-cols-12 gap-12 items-center bg-white p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-sm">
-                        <div class="lg:col-span-5 space-y-4">
-                            <div class="bg-slate-50 p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4 text-center">
-                                <div class="rounded-2xl overflow-hidden shadow-md">
-                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Work" class="w-full h-56 object-cover">
-                                </div>
-                                <div class="bg-brand-50 p-4 rounded-2xl border border-blue-100 inline-block w-full">
-                                    <div class="text-3xl font-black text-brand-600">3000+</div>
-                                    <div class="text-[11px] text-gray-600 uppercase font-bold tracking-wider mt-1">Companies Successfully Assisted</div>
-                                </div>
-                            </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">01</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">Strategic Location</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Gateway to Middle East, Africa, and Asian markets with world-class connectivity</p>
                         </div>
-
-                        <div class="lg:col-span-7 space-y-5">
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-900 leading-tight">Unlock Your Business Potential in Qatar</h3>
-                            <div class="space-y-3.5 text-sm text-gray-700">
-                                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200"><strong class="text-brand-900 block mb-1 font-extrabold">Strategic Business Hub:</strong> Position your company at the crossroads of East and West with access to lucrative regional markets.</div>
-                                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200"><strong class="text-brand-900 block mb-1 font-extrabold">World-Class Infrastructure:</strong> Benefit from state-of-the-art logistics, telecommunications, and modern office spaces.</div>
-                                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200"><strong class="text-brand-900 block mb-1 font-extrabold">100% Foreign Ownership:</strong> Set up eligible business structures with complete international ownership without requiring a local partner.</div>
-                            </div>
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">02</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">Tax Benefits</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">No personal income tax and competitive corporate tax rates</p>
                         </div>
-                    </div>
-
-                    <!-- 6 Grid Feature Cards -->
-                    <div class="space-y-8 pt-6">
-                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">01</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">Strategic Location</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">Gateway to Middle East, Africa, and Asian markets with world-class connectivity</p>
-                            </div>
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">02</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">Tax Benefits</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">No personal income tax and competitive corporate tax rates</p>
-                            </div>
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">03</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">World-Class Infrastructure</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">Modern facilities, advanced technology, and excellent logistics networks</p>
-                            </div>
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">04</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">Economic Growth</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">One of the fastest-growing economies with massive investment opportunities</p>
-                            </div>
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">05</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">100% Foreign Ownership</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">Full ownership rights in most sectors without local sponsor requirement</p>
-                            </div>
-                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                                <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">06</div>
-                                <h4 class="font-extrabold text-brand-900 text-base">Business-Friendly Environment</h4>
-                                <p class="text-xs text-gray-600 leading-relaxed">Streamlined processes, stable government, and strong legal framework</p>
-                            </div>
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">03</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">World-Class Infrastructure</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Modern facilities, advanced technology, and excellent logistics networks</p>
+                        </div>
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">04</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">Economic Growth</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">One of the fastest-growing economies with massive investment opportunities</p>
+                        </div>
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">05</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">100% Foreign Ownership</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Full ownership rights in most sectors without local sponsor requirement</p>
+                        </div>
+                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">06</div>
+                            <h4 class="font-extrabold text-brand-900 text-base">Business-Friendly Environment</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Streamlined processes, stable government, and strong legal framework</p>
                         </div>
                     </div>
                 </div>
@@ -403,91 +372,51 @@
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-comments"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">01</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Initial Consultation</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Analysis of business concept, structure selection (WLL/Single Owner), and MOCI activity alignment.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-comments"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">1. Initial Consultation</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Analysis of business concept, structure selection (WLL/Single Owner), and MOCI activity alignment.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-file-lines"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">02</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Document Collection</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Collecting QIDs, passports, trade names, capital details, and national address certificates.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-file-lines"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">2. Document Collection</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Collecting QIDs, passports, trade names, capital details, and national address certificates.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-laptop-file"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">03</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Project Report Preparation</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Drafting application details covering shareholders, Ultimate Beneficial Owner, and capital structure.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-laptop-file"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">3. Project Report Prep</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Drafting application details covering shareholders, Ultimate Beneficial Owner, and capital structure.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-stamp"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">04</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Application & Approvals</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">CR Approval, Trade Name reservation, AOA signing at Ministry of Justice (3-7 working days).</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-stamp"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">4. Application & Approvals</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">CR Approval, Trade Name reservation, AOA signing at Ministry of Justice (3-7 working days).</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-id-card"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">05</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Payment & CR Issuance</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Issuance of CR, Labor Confirmation, Trade Name Certificate, Tax Card, and Computer Card.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-id-card"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">5. Payment & CR Issuance</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Issuance of CR, Labor Confirmation, Trade Name Certificate, Tax Card, and Computer Card.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-store"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">06</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Office Space & License</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Securing commercial lease, Baladiya municipal license approval, and office signboard compliance.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-store"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">6. Office & Commercial License</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Securing commercial lease, Baladiya municipal license approval, and office signboard compliance.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-signature"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">07</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Company Stamp & Letterhead</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Creating official company stamp and branded corporate letterheads for banking and official use.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-signature"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">7. Stamp & Letterhead</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Creating official company stamp and branded corporate letterheads for banking and official use.</p>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 flex flex-col justify-between shadow-sm">
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-users-gear"></i></div>
-                                    <span class="text-2xl font-black text-blue-200">08</span>
-                                </div>
-                                <h3 class="font-extrabold text-base text-brand-900 text-left">Immigration & Labor Setup</h3>
-                                <p class="text-xs text-gray-600 text-left leading-relaxed">Setting up Labor Department portal, initiating work visas, residence permits, and employment contracts.</p>
-                            </div>
+                        <div class="bg-white border border-gray-200 rounded-3xl p-6 text-center space-y-4 shadow-sm">
+                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-xl mx-auto shadow-md"><i class="fa-solid fa-users-gear"></i></div>
+                            <h3 class="font-extrabold text-base text-brand-900">8. Immigration & Labor</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Setting up Labor Department portal, initiating work visas, residence permits, and employment contracts.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- VISA & PRO SERVICES SECTION (8 EXPANDED CARDS WITH INSIDE MODALS) -->
+            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION -->
             <section id="visas" class="py-20 bg-white border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-3">
