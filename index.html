@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serve Ease Business Solutions | Company Formation, PRO Services, Visa Solutions & Liquidation Qatar</title>
     <meta name="description" content="Leading corporate consultancy and business setup agency in Doha, Qatar. Commercial registration (CR), 100% foreign ownership structures, PRO services, visa clearance, and tax liquidation.">
-    <meta name="keywords" content="Qatar company formation, MOCI CR Doha, PRO services Qatar, WLL company setup, visa clearance Qatar, tax card Dhareeba, company liquidation Qatar">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -44,8 +43,6 @@
         [x-cloak] { display: none !important; }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 35px -10px rgba(1, 67, 163, 0.15); border-color: #0256cc; }
-        @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
         .neon-glow-card { box-shadow: 0 0 25px 3px rgba(6, 182, 212, 0.6), inset 0 0 15px rgba(6, 182, 212, 0.4); border: 2px solid #06b6d4; }
         .hero-banner-bg { background: linear-gradient(rgba(0, 26, 65, 0.90), rgba(0, 26, 65, 0.82)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; }
     </style>
@@ -55,7 +52,6 @@
     serviceModal: false,
     calcDrawerOpen: false,
     calcStep: 1,
-    searchActivity: '',
     ecomSearch: '',
     selectedStructure: null,
     activeFaq: null,
@@ -80,12 +76,24 @@
         { code: '+964', name: 'IQ +964' }, { code: '+90', name: 'TR +90' }, { code: '+44', name: 'GB +44' },
         { code: '+1', name: 'US +1' }
     ],
-    activities: [
-        'Advertising', 'Architecture', 'Business Consultancy', 'Design Services', 
-        'E-Commerce', 'Event Management', 'Fashion Design Consultancy', 'Food & Beverage Trading', 
-        'General Trading', 'Human Resources Consultancy', 'Interior Design', 'IT Consultancy', 
-        'Management Consultancy', 'Marketing Services', 'Media Services', 'Online Education', 'Other'
-    ],
+    calcData: { 
+        purpose: 'New Company Registration', 
+        activity: 'Business Consultancy', 
+        jurisdiction: 'Mainland MOCI (WLL / LLC)', 
+        owners: '1-2 Partners', 
+        visas: '1-5 Employee Visas', 
+        office: 'Serviced Physical Office', 
+        timeline: 'Immediate (Within 1-2 weeks)',
+        additionalServices: [],
+        fullName: '',
+        email: '',
+        countryCode: '+974',
+        phone: ''
+    },
+    heroCountryCode: '+974',
+    contactCountryCode: '+974',
+    modalCountryCode: '+974',
+    calcCountryCode: '+974',
     ecomActivities: [
         { code: '479101', name: 'MOCI Approved E-Commerce & Online Retail Trade Activity Item #1 in Qatar', arabic: 'نشاط التجارة الإلكترونية الرقمية والتجزئة عبر الإنترنت رقم #1' },
         { code: '479102', name: 'MOCI Approved E-Commerce & Online Retail Trade Activity Item #2 in Qatar', arabic: 'نشاط التجارة الإلكترونية الرقمية والتجزئة عبر الإنترنت رقم #2' },
@@ -301,24 +309,7 @@
         { q: 'What are the costs involved in company formation in Qatar?', a: 'Costs include government filing fees, municipal licenses, CR fees, and professional consultancy service charges.' },
         { q: 'How do I open a corporate bank account in Qatar after company formation?', a: 'With your CR, Computer Card, and corporate documents, our team assists you with tier-1 bank account openings in Qatar.' },
         { q: 'Can I get a residence visa through company formation in Qatar?', a: 'Yes, setting up a company grants you eligibility for investor and employee residence visas (QIDs).' }
-    ],
-    calcData: { 
-        purpose: 'New Company Registration', 
-        activity: 'Business Consultancy', 
-        jurisdiction: 'Mainland MOCI (WLL / LLC)', 
-        owners: '1-2 Partners', 
-        visas: '1-5 Employee Visas', 
-        office: 'Serviced Physical Office', 
-        timeline: 'Immediate (Within 1-2 weeks)',
-        additionalServices: [],
-        fullName: '',
-        email: '',
-        countryCode: '+974',
-        phone: ''
-    },
-    heroCountryCode: '+974',
-    contactCountryCode: '+974',
-    modalCountryCode: '+974'
+    ]
 }">
 
     <!-- NAVIGATION BAR -->
@@ -976,19 +967,92 @@
             x-transition:leave-start="translate-x-0"
             x-transition:leave-end="translate-x-full"
             class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 border-l border-gray-200 flex flex-col justify-between">
-            <div class="p-6 border-b border-gray-100 bg-slate-900 text-white">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="inline-block bg-brand-500 text-white text-xs font-extrabold px-2.5 py-1 rounded uppercase tracking-wider mb-1"><i class="fa-solid fa-robot mr-1"></i> AI Quote Assistant</span>
-                        <h3 class="text-lg font-extrabold leading-tight">Business Setup Cost Finder</h3>
+            
+            <!-- Drawer Header -->
+            <div class="p-6 border-b border-gray-100 bg-slate-900 text-white flex justify-between items-start">
+                <div>
+                    <span class="inline-block bg-brand-500 text-white text-xs font-extrabold px-2.5 py-1 rounded uppercase tracking-wider mb-1"><i class="fa-solid fa-robot mr-1"></i> AI Quote Assistant</span>
+                    <h3 class="text-lg font-extrabold leading-tight">Business Setup Cost Finder</h3>
+                </div>
+                <button @click="calcDrawerOpen = false" class="text-gray-300 hover:text-white text-xl p-1 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Drawer Body -->
+            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-sm">
+                <!-- Step 1 -->
+                <div x-show="calcStep === 1" class="space-y-4">
+                    <h4 class="font-bold text-base text-gray-900">Step 1: Select Purpose</h4>
+                    <div class="space-y-2">
+                        <template x-for="p in ['New Company Registration', 'PRO & Visa Services', 'Company Liquidation / Closure']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.purpose === p ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="purpose" :value="p" x-model="calcData.purpose" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="p"></span>
+                            </label>
+                        </template>
                     </div>
-                    <button @click="calcDrawerOpen = false" class="text-gray-300 hover:text-white text-xl p-1 cursor-pointer">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                </div>
+
+                <!-- Step 2 -->
+                <div x-show="calcStep === 2" class="space-y-4">
+                    <h4 class="font-bold text-base text-gray-900">Step 2: Select Legal Structure</h4>
+                    <div class="space-y-2">
+                        <template x-for="j in ['Mainland MOCI (WLL / LLC)', 'Single Owner Company', 'Free Zone Entity (QFC / QFZA)', 'Branch Office']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.jurisdiction === j ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="jurisdiction" :value="j" x-model="calcData.jurisdiction" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="j"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div x-show="calcStep === 3" class="space-y-4">
+                    <h4 class="font-bold text-base text-gray-900">Step 3: Number of Employee Visas Required</h4>
+                    <div class="space-y-2">
+                        <template x-for="v in ['No Visas (License Only)', '1-5 Employee Visas', '6-15 Employee Visas', '15+ Employee Visas']">
+                            <label class="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:bg-gray-50 transition" :class="calcData.visas === v ? 'border-brand-600 bg-blue-50/50' : 'border-gray-200'">
+                                <input type="radio" name="visas" :value="v" x-model="calcData.visas" class="text-brand-600">
+                                <span class="font-bold text-gray-800" x-text="v"></span>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div x-show="calcStep === 4" class="space-y-4">
+                    <h4 class="font-bold text-base text-gray-900">Step 4: Enter Contact Details to Receive Estimate</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">Full Name *</label>
+                            <input type="text" x-model="calcData.fullName" required class="w-full p-3.5 border rounded-xl font-semibold" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">Email *</label>
+                            <input type="email" x-model="calcData.email" required class="w-full p-3.5 border rounded-xl font-semibold" placeholder="email@example.com">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 text-xs mb-1">WhatsApp Phone Number *</label>
+                            <div class="grid grid-cols-12 gap-2">
+                                <select x-model="calcCountryCode" class="col-span-5 p-3.5 border rounded-xl font-bold text-xs">
+                                    <template x-for="c in countryCodes" :key="c.code + c.name">
+                                        <option :value="c.code" x-text="c.name"></option>
+                                    </template>
+                                </select>
+                                <input type="tel" x-model="calcData.phone" required class="col-span-7 p-3.5 border rounded-xl font-semibold" placeholder="Phone Number">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-sm">
-                <p class="text-gray-600">Complete the steps to calculate setup costs.</p>
+
+            <!-- Drawer Footer -->
+            <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-between items-center">
+                <button x-show="calcStep > 1" @click="calcStep--" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer">Back</button>
+                <div x-show="calcStep === 1"></div>
+                <button x-show="calcStep < 4" @click="calcStep++" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ml-auto">Next Step</button>
+                <button x-show="calcStep === 4" @click="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('AI Cost Calculator Estimate Request:\nPurpose: ' + calcData.purpose + '\nStructure: ' + calcData.jurisdiction + '\nVisas: ' + calcData.visas + '\nName: ' + calcData.fullName + '\nPhone: ' + calcCountryCode + ' ' + calcData.phone), '_blank'); calcDrawerOpen = false;" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ml-auto flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Send Estimate via WhatsApp
+                </button>
             </div>
         </aside>
     </div>
