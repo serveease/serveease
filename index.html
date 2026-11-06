@@ -750,7 +750,7 @@
                 </div>
             </section>
 
-            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION -->
+            <!-- EXPANDED VISA & GOVERNMENT PRO SERVICES SECTION (12 BOXES TOTAL) -->
             <section id="visas" class="py-24 bg-white border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 space-y-12">
                     <div class="text-center space-y-4">
@@ -759,7 +759,8 @@
                         <p class="text-base text-gray-700 max-w-2xl mx-auto">Click any service to view full inside details, requirements & timeline, or request a quote.</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        <!-- Box 1 -->
                         <div @click="openService('Tourist & Hayya Visas', 'Hayya entry permits, tourist visa extensions, and A1/A2 travel clearances.', '24-48 Hours', ['Valid Passport Copy', 'Return Flight Confirmation', 'Hotel Booking or Host Address'], 'From QAR 350', 'Qatar Tourism', 'bg-blue-900', 'fa-passport', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Tourist & Hayya Visas</h3>
@@ -768,6 +769,7 @@
                             <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
                         </div>
 
+                        <!-- Box 2 -->
                         <div @click="openService('Family Visit & RP Visas', 'Metrash2 Family Visit visa applications, permanent residence permit (QID) sponsorship.', '3-5 Working Days', ['QID Copy of Sponsor', 'Salary Certificate', 'Marriage & Birth Certificates Attested'], 'From QAR 500', 'MOI Passports', 'bg-indigo-900', 'fa-people-roof', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Family Visit & RP Visas</h3>
@@ -776,6 +778,7 @@
                             <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
                         </div>
 
+                        <!-- Box 3 -->
                         <div @click="openService('Work Permits & Labor Quotas', 'Ministry of Labor work visa quota application, employment contracts, and staff QID issuance.', '5-7 Working Days', ['Company Computer Card', 'Commercial Registration (CR)', 'Drafted Standard Ministry Labor Contracts'], 'From QAR 800', 'Ministry of Labor', 'bg-slate-900', 'fa-id-card-clip', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Work Permits & Labor Quotas</h3>
@@ -784,10 +787,83 @@
                             <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
                         </div>
 
+                        <!-- Box 4 -->
                         <div @click="openService('MOCI CR Formation', 'Commercial Registration (CR) creation, trade name reservation, MoA notarization.', '1-3 Working Days', ['Passports of Shareholders', 'Trade Names English/Arabic', 'Lease Agreement'], 'From QAR 1,500', 'MOCI Qatar', 'bg-blue-950', 'fa-building', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
                             <div class="space-y-3">
                                 <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">MOCI CR Formation</h3>
                                 <p class="text-sm text-gray-700">Commercial Registration (CR) creation, amendments, and activity additions.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 5 -->
+                        <div @click="openService('Company Computer Card (Establishment ID)', 'Issuance and annual renewal of official Computer Card (Establishment Card) from Ministry of Interior.', '2-3 Working Days', ['CR Copy & Commercial License', 'QID of Authorized Signatory', 'Lease Agreement / Baladiya Approval'], 'From QAR 600', 'MOI Immigration', 'bg-cyan-900', 'fa-id-card', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Computer Card Issuance & Renewal</h3>
+                                <p class="text-sm text-gray-700">Establishment ID registration, authorized signatory updates, and annual renewals.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 6 -->
+                        <div @click="openService('Trade License (Baladiya Clearance)', 'Commercial license issuance from Ministry of Municipality, location inspection, and signboard clearance.', '3-5 Working Days', ['CR Copy & Computer Card', 'Commercial Lease Contract (Tawtheeq)', 'Civil Defence Approval'], 'From QAR 1,000', 'Ministry of Municipality', 'bg-teal-900', 'fa-store', 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Trade License (Baladiya Clearance)</h3>
+                                <p class="text-sm text-gray-700">Municipal licensing, office/shop location approvals, and signboard compliance.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 7 -->
+                        <div @click="openService('WPS Payroll Registration', 'Wage Protection System setup, QCB compliant payroll portal integration, and bank file authorization.', '2-4 Working Days', ['Company Computer Card', 'Corporate Bank Account Details', 'Employee QID & Salary List'], 'From QAR 750', 'Ministry of Labor', 'bg-emerald-950', 'fa-money-check-dollar', 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">WPS Payroll Registration</h3>
+                                <p class="text-sm text-gray-700">Wage Protection System (WPS) setup, corporate banking linkage, and payroll compliance.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 8 -->
+                        <div @click="openService('Ministry Legal Translation & Attestation', 'Certified Arabic/English legal translations, MOFA attestations, embassy legalizations.', '1-3 Working Days', ['Original Document Copy', 'Passport / QID Copy of Owner'], 'From QAR 250', 'MOFA Qatar', 'bg-sky-950', 'fa-language', 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Legal Translation & Attestation</h3>
+                                <p class="text-sm text-gray-700">MOFA document attestation, embassy stamp clearance, and official Arabic translations.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 9 -->
+                        <div @click="openService('Company Share Transfer & MoA Amendment', 'Legal transfer of company shares, adding/removing partners, MoA notarization at Ministry of Justice.', '3-5 Working Days', ['Current CR & MoA Copy', 'QIDs/Passports of Buyer & Seller', 'Share Sale Agreement Draft'], 'From QAR 2,000', 'Ministry of Justice', 'bg-blue-900', 'fa-file-signature', 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Share Transfer & MoA Amendment</h3>
+                                <p class="text-sm text-gray-700">Share equity transfers, modifying corporate structure, and Ministry of Justice notarizations.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 10 -->
+                        <div @click="openService('Investor Visa (Residence Permit)', '100% foreign investor residency permit issuance, property owner visa processing.', '4-7 Working Days', ['CR Copy & Computer Card', 'Valid Passport Copy', 'Criminal Clearance (PCC) Attested'], 'From QAR 1,200', 'MOI Passports', 'bg-indigo-950', 'fa-user-tie', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Investor Visa & Partner Residency</h3>
+                                <p class="text-sm text-gray-700">Investor QID processing, partner residence permits, and high-net-worth investor Visas.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 11 -->
+                        <div @click="openService('Civil Defence (QCDD) Approval', 'Qatar Civil Defence Department (QCDD) safety inspection and architectural fire safety clearances.', '5-8 Working Days', ['Engineering Layout Drawings', 'Building Safety Specs', 'Baladiya Lease Approval'], 'From QAR 1,800', 'Civil Defence (QCDD)', 'bg-red-950', 'fa-shield-cat', 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Civil Defence (QCDD) Approval</h3>
+                                <p class="text-sm text-gray-700">Commercial layout fire safety clearance, building compliance, and official inspection certificates.</p>
+                            </div>
+                            <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
+                        </div>
+
+                        <!-- Box 12 -->
+                        <div @click="openService('Tax Card & Dhareeba Portal Clearance', 'Tax card generation, Dhareeba account creation, and General Tax Authority (GTA) registration.', '2-3 Working Days', ['CR Copy & Computer Card', 'Commercial License Copy', 'Authorized Signatory QID'], 'From QAR 400', 'General Tax Authority', 'bg-slate-900', 'fa-receipt', 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80', false)" class="bg-slate-50 p-8 rounded-3xl border border-gray-200 card-hover space-y-5 flex flex-col justify-between cursor-pointer group">
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-brand-900 group-hover:text-brand-600 transition">Tax Card & Dhareeba Registration</h3>
+                                <p class="text-sm text-gray-700">Official GTA Tax Card generation, Dhareeba electronic portal setup, and tax filings.</p>
                             </div>
                             <div class="text-sm font-bold text-brand-600 flex items-center gap-1.5">View Details & Requirements <i class="fa-solid fa-arrow-right text-xs"></i></div>
                         </div>
