@@ -240,44 +240,54 @@
                 </div>
             </section>
 
-            <!-- GOOGLE REVIEWS SECTION (MOVED TO 2ND POSITION) -->
-            <section id="reviews" class="py-20 bg-slate-50 border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 space-y-12">
-                    <div class="text-center space-y-3">
-                        <span class="bg-emerald-50 text-emerald-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">Client Testimonials</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">What Our Clients Say on Google</h2>
-                        <div class="flex items-center justify-center gap-1 text-amber-500 text-lg pt-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-xs font-bold text-gray-700 ml-2">4.9 / 5.0 Rating on Google Reviews</span>
-                        </div>
+            <!-- SECOND SECTION: WHY QATAR WITH GOOGLE REVIEWS BADGE -->
+            <section id="why-qatar" class="py-20 bg-slate-50 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+                    <div class="text-center space-y-3 max-w-3xl mx-auto">
+                        <span class="bg-blue-50 text-brand-700 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">GCC Economic Hub</span>
+                        <h2 class="text-3xl md:text-5xl font-black text-brand-900">Why Qatar</h2>
+                        <p class="text-sm sm:text-base text-gray-600">Discover the advantages of establishing your company in one of the world's fastest-growing economies.</p>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <template x-for="rev in googleReviews" :key="rev.name">
-                            <div class="bg-white p-7 rounded-3xl border border-gray-200 space-y-4 shadow-sm flex flex-col justify-between card-hover">
-                                <div class="space-y-3">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex text-amber-400 text-xs">
-                                            <template x-for="i in rev.rating"><i class="fa-solid fa-star"></i></template>
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="p-6 bg-white rounded-3xl border border-gray-200 shadow-sm space-y-4">
+                                <span class="bg-blue-50 text-brand-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">A Licensed Business Setup Consultancy in Qatar</span>
+                                <h3 class="font-bold text-gray-900 text-sm">Guiding founders through company formation with care</h3>
+                                <div class="pt-2 border-t border-gray-100 flex items-center gap-3">
+                                    <div class="text-left">
+                                        <div class="font-extrabold text-sm text-gray-900 flex items-center gap-1">
+                                            <span class="text-blue-600">Google</span> <span class="text-red-500">R</span><span class="text-yellow-500">e</span><span class="text-blue-600">v</span><span class="text-green-600">i</span><span class="text-red-500">e</span><span class="text-blue-600">w</span><span class="text-gray-900">s</span>
                                         </div>
-                                        <span class="text-[11px] text-gray-400 font-semibold" x-text="rev.date"></span>
-                                    </div>
-                                    <p class="text-xs text-gray-700 italic leading-relaxed" x-text="'&ldquo;' + rev.text + '&rdquo;'"></p>
-                                </div>
-                                <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                    <div class="w-9 h-9 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-xs" x-text="rev.name.charAt(0)"></div>
-                                    <div>
-                                        <h4 class="font-bold text-xs text-brand-900" x-text="rev.name"></h4>
-                                        <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1"><i class="fa-brands fa-google text-[9px]"></i> Verified Google Review</span>
+                                        <div class="text-xs font-bold text-gray-700">Reviews <span class="text-brand-600">4.8/5</span> <span class="text-amber-400">★★★★★</span></div>
                                     </div>
                                 </div>
                             </div>
-                        </template>
+                        </div>
+
+                        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 card-hover shadow-sm">
+                                <h4 class="font-extrabold text-brand-900 text-base">Strategic Business Hub</h4>
+                                <p class="text-xs text-gray-600 leading-relaxed">Position your company at the crossroads of Asia, Europe, and Africa, with unparalleled access to emerging markets.</p>
+                            </div>
+                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 card-hover shadow-sm">
+                                <h4 class="font-extrabold text-brand-900 text-base">World-Class Infrastructure</h4>
+                                <p class="text-xs text-gray-600 leading-relaxed">Benefit from state-of-the-art facilities, advanced telecommunications, and modern transportation networks.</p>
+                            </div>
+                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 card-hover shadow-sm">
+                                <h4 class="font-extrabold text-brand-900 text-base">Investment Protection</h4>
+                                <p class="text-xs text-gray-600 leading-relaxed">Enjoy robust legal frameworks, bilateral investment treaties, and strong intellectual property protection.</p>
+                            </div>
+                            <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 card-hover shadow-sm">
+                                <h4 class="font-extrabold text-brand-900 text-base">100% Foreign Ownership</h4>
+                                <p class="text-xs text-gray-600 leading-relaxed">Set up eligible business structures with complete international ownership without requiring a local partner.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ABOUT US SECTION & MAINLAND / FREE ZONE ADVANTAGES (3RD POSITION WITH ACTION BAR AT THE END) -->
+            <!-- THIRD SECTION: ABOUT US / MAINLAND ADVANTAGES WITH AI CALCULATOR, WHATSAPP, CALL & EMAIL BUTTONS -->
             <section id="about-us" class="py-20 bg-gray-100 border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
                     <div class="text-center space-y-3 max-w-3xl mx-auto">
@@ -325,7 +335,7 @@
                         </div>
                     </div>
 
-                    <!-- ACTION BANNER AT THE END OF 3RD SECTION -->
+                    <!-- ACTION BANNER WITH AI CALCULATOR, WHATSAPP, CALL, EMAIL AT THE END OF 3RD SECTION -->
                     <div class="bg-brand-900 rounded-3xl p-8 sm:p-12 text-white text-center space-y-6 shadow-2xl relative overflow-hidden mt-12">
                         <div class="relative z-10 space-y-2 max-w-2xl mx-auto">
                             <h3 class="text-2xl sm:text-3xl font-black text-white">Start Your Company Formation Journey</h3>
@@ -344,50 +354,6 @@
                             <a href="mailto:serveeaseqtr@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-2xl text-xs font-black shadow-lg transition hover:scale-105 inline-flex items-center gap-2">
                                 <i class="fa-solid fa-envelope text-xs"></i> Email Us
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- WHY QATAR SECTION -->
-            <section id="why-qatar" class="py-20 bg-slate-50 border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
-                    <div class="text-center space-y-3 max-w-3xl mx-auto">
-                        <span class="bg-blue-50 text-brand-700 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">GCC Economic Hub</span>
-                        <h2 class="text-3xl md:text-5xl font-black text-brand-900">Why Qatar</h2>
-                        <p class="text-sm sm:text-base text-gray-600">Discover the advantages of establishing your company in one of the world's fastest-growing economies.</p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">01</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">Strategic Location</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">Gateway to Middle East, Africa, and Asian markets with world-class connectivity</p>
-                        </div>
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">02</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">Tax Benefits</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">No personal income tax and competitive corporate tax rates</p>
-                        </div>
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">03</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">World-Class Infrastructure</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">Modern facilities, advanced technology, and excellent logistics networks</p>
-                        </div>
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">04</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">Economic Growth</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">One of the fastest-growing economies with massive investment opportunities</p>
-                        </div>
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">05</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">100% Foreign Ownership</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">Full ownership rights in most sectors without local sponsor requirement</p>
-                        </div>
-                        <div class="p-7 bg-white rounded-3xl border border-gray-200 space-y-3 text-center card-hover shadow-sm">
-                            <div class="w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center font-black mx-auto text-sm shadow-md">06</div>
-                            <h4 class="font-extrabold text-brand-900 text-base">Business-Friendly Environment</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">Streamlined processes, stable government, and strong legal framework</p>
                         </div>
                     </div>
                 </div>
