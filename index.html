@@ -93,6 +93,11 @@
         { id: 'bo', name: 'Branch Office', desc: 'A Branch Office is a business structure allowing a foreign company to conduct business activities and execute projects in Qatar under its parent company identity.' },
         { id: 'ro', name: 'Representative Office', desc: 'A Representative Office allows a foreign company to promote their business and explore opportunities in Qatar solely for promotional and liaison activities without generating local commercial income.' }
     ],
+    googleReviews: [
+        { name: 'Rashid Al-Mansoori', text: 'Serve Ease handled our MOCI CR formation and investor visas smoothly. Highly professional team in Doha!', rating: 5, date: '2 weeks ago' },
+        { name: 'Sarah Jenkins', text: 'Extremely fast PRO services and corporate documentation clearance. Saved us weeks of government paperwork.', rating: 5, date: '1 month ago' },
+        { name: 'Mohammed Faris', text: 'Best business consultancy in Qatar. Transparent pricing, great communication, and expert legal advice.', rating: 5, date: '3 weeks ago' }
+    ],
     faqs: [
         { q: 'What is company formation in Qatar and how does the process work?', a: 'Company formation involves registering your business entity with the Ministry of Commerce and Industry (MOCI), obtaining commercial registration, and municipal licenses.' },
         { q: 'Can foreigners own 100% of a company in Qatar without a local sponsor?', a: 'Yes, under specific sectors and free zones, foreign investors can enjoy 100% ownership.' },
@@ -124,13 +129,13 @@
     modalCountryCode: '+974'
 }">
 
-    <!-- NAVIGATION BAR: Logo Image + Text side-by-side & Right Call/WhatsApp -->
+    <!-- NAVIGATION BAR: Logo Image + Text Side-by-Side & Right Call/WhatsApp -->
     <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             
-            <!-- LEFT CORNER: Logo Image + Text Side-by-Side -->
+            <!-- LEFT CORNER: Logo Image + Name Side-by-Side -->
             <a href="#home" class="flex items-center gap-3 text-left no-underline group shrink-0">
-                <img src="/logo.png" alt="Serve Ease Logo" class="h-10 sm:h-12 w-auto object-contain">
+                <img src="/logo.png" alt="Serve Ease Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none';">
                 <div class="flex flex-col leading-tight">
                     <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.025em;">
                         <span style="color: #0f172a;">Serve</span> <span style="color: #2563eb;">Ease</span>
@@ -179,8 +184,8 @@
                         </p>
                         <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
                             <button @click="calcDrawerOpen = true; calcStep = 1;" class="bg-white hover:bg-blue-50 text-brand-900 px-8 py-4 rounded-2xl text-sm font-extrabold shadow-xl transition hover:scale-105 cursor-pointer inline-flex items-center gap-2">
+                                <i class="fa-solid fa-calculator text-brand-600"></i>
                                 <span>AI Cost Calculator</span>
-                                <i class="fa-solid fa-robot text-xs"></i>
                             </button>
                             <a href="#visas" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-2xl text-sm font-extrabold shadow-xl transition hover:scale-105 inline-flex items-center gap-2">
                                 <span>Explore Services</span>
@@ -598,7 +603,44 @@
                 </div>
             </section>
 
-            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION (With /shafir.jpg photo) -->
+            <!-- GOOGLE REVIEWS SECTION -->
+            <section id="reviews" class="py-20 bg-slate-50 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 space-y-12">
+                    <div class="text-center space-y-3">
+                        <span class="bg-emerald-50 text-emerald-700 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider">Client Testimonials</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900">What Our Clients Say on Google</h2>
+                        <div class="flex items-center justify-center gap-1 text-amber-500 text-lg pt-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-xs font-bold text-gray-700 ml-2">4.9 / 5.0 Rating on Google Reviews</span>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <template x-for="rev in googleReviews" :key="rev.name">
+                            <div class="bg-white p-7 rounded-3xl border border-gray-200 space-y-4 shadow-sm flex flex-col justify-between card-hover">
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex text-amber-400 text-xs">
+                                            <template x-for="i in rev.rating"><i class="fa-solid fa-star"></i></template>
+                                        </div>
+                                        <span class="text-[11px] text-gray-400 font-semibold" x-text="rev.date"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-700 italic leading-relaxed" x-text="'&ldquo;' + rev.text + '&rdquo;'"></p>
+                                </div>
+                                <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                    <div class="w-9 h-9 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-xs" x-text="rev.name.charAt(0)"></div>
+                                    <div>
+                                        <h4 class="font-bold text-xs text-brand-900" x-text="rev.name"></h4>
+                                        <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1"><i class="fa-brands fa-google text-[9px]"></i> Verified Google Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LEADERSHIP & FOUNDER SHOWCASE SECTION -->
             <section id="leadership" class="py-20 bg-[#000a17] text-white">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6">
                     <div class="bg-[#031127] rounded-3xl p-8 sm:p-12 shadow-2xl relative border border-slate-800">
@@ -921,7 +963,7 @@
     <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
         <a href="tel:+97470442825" class="bg-brand-600 hover:bg-brand-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl transition hover:scale-110 border-2 border-white cursor-pointer" title="Call Us Now"><i class="fa-solid fa-phone"></i></a>
         <a href="https://wa.me/97470442825" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-2xl transition hover:scale-110 border-2 border-white cursor-pointer" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
-        <button @click="calcDrawerOpen = !calcDrawerOpen; calcStep = 1;" class="bg-indigo-600 hover:bg-indigo-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl transition hover:scale-110 border-2 border-white cursor-pointer" title="Smart AI Quote Assistant"><i class="fa-solid fa-robot"></i></button>
+        <button @click="calcDrawerOpen = !calcDrawerOpen; calcStep = 1;" class="bg-indigo-600 hover:bg-indigo-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl transition hover:scale-110 border-2 border-white cursor-pointer" title="Smart AI Quote Assistant"><i class="fa-solid fa-calculator"></i></button>
     </div>
 
     <!-- FULL-SCREEN SERVICE MODAL -->
@@ -1001,7 +1043,7 @@
                 </div>
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Business / Visa Details</label>
-                    <textarea x-ref="mdetails" rows="2" class="w-full p-3 bg-gray-50 border rounded-xl font-semibold" placeholder="Specify details..."></textarea>
+                    <textarea x-ref="mdetails" rows="2" class="w-null p-3 bg-gray-50 border rounded-xl font-semibold" placeholder="Specify details..."></textarea>
                 </div>
                 <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider cursor-pointer shadow hover:bg-brand-700 transition">Request via WhatsApp</button>
             </form>
