@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serve Ease Business Solutions | Company Formation & PRO Services Qatar</title>
 
-    <meta name="description" content="Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and compliance solutions in Qatar.">
+    <meta name="description" content="Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, special approvals and compliance solutions in Qatar.">
     <link rel="canonical" href="https://serveeasebusinesssolutions.com/">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -354,7 +354,8 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 text-left no-underline cursor-pointer group">
-                <div class="flex items-center gap-2">
+                <img src="logo.png" alt="Serve Ease Business Solutions" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="flex items-center gap-2" style="display:none;">
                     <div class="w-10 h-10 rounded-xl bg-brand-800 flex items-center justify-center text-white font-black text-lg shadow-md">SE</div>
                     <div class="flex flex-col">
                         <span class="font-black text-brand-800 text-sm tracking-tight leading-none">SERVE EASE</span>
@@ -636,7 +637,7 @@
             <div class="max-w-5xl mx-auto bg-brand-700/70 rounded-3xl p-8 sm:p-12 shadow-2xl border border-brand-600 grid md:grid-cols-12 gap-8 items-center" data-aos="zoom-in">
                 <div class="md:col-span-5 text-center">
                     <div class="relative inline-block p-2 rounded-2xl bg-gradient-to-b from-brand-500 to-brand-700 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover">
+                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover shadow-inner" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
                         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white font-bold text-[10px] px-4 py-1.5 rounded-full shadow-md whitespace-nowrap border border-white/20">
                             FOUNDER & MANAGING DIRECTOR
                         </div>
@@ -741,15 +742,59 @@
 
     <!-- COST CALCULATOR VIEW -->
     <div x-show="currentRoute === 'calculator'" x-cloak class="py-16 bg-brand-50/50 min-h-screen">
-        <div class="max-w-5xl mx-auto px-4 space-y-12" data-aos="fade-in">
+        <div class="max-w-5xl mx-auto px-4 space-y-8" data-aos="fade-in">
             <button @click="currentRoute = 'home'; window.scrollTo(0,0);" class="inline-flex items-center gap-2 bg-white border border-brand-200 text-brand-800 font-bold px-4 py-2.5 rounded-xl shadow-sm text-xs cursor-pointer">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
 
             <div class="text-center space-y-3 max-w-2xl mx-auto">
                 <span class="bg-brand-100 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Transparent Pricing</span>
-                <h1 class="text-2xl sm:text-4xl font-extrabold text-brand-800">Tailored PRO Packages & Cost Calculator</h1>
-                <p class="text-xs sm:text-sm text-gray-600">Stay compliant, save time & reduce overhead costs with our expert PRO team or calculate your exact setup cost.</p>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-brand-800">Tailored Cost Calculator</h1>
+                <p class="text-xs sm:text-sm text-gray-600">Select options below to estimate your company setup and PRO service charges in Qatar.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-2">Company Entity Type</label>
+                        <select x-model="calcType" class="w-full p-3 bg-brand-50 border border-brand-200 rounded-xl text-xs font-semibold text-brand-800">
+                            <option value="wll">W.L.L. (Limited Liability Company)</option>
+                            <option value="branch">Branch of Foreign Company</option>
+                            <option value="freezone">Free Zone Entity (QFZ / QFC)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-2">Number of Investor / Employee Visas: <span class="text-brand-600 font-black" x-text="calcVisas"></span></label>
+                        <input type="range" min="1" max="10" x-model="calcVisas" class="w-full accent-brand-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-2">Office Requirement</label>
+                        <select x-model="calcOffice" class="w-full p-3 bg-brand-50 border border-brand-200 rounded-xl text-xs font-semibold text-brand-800">
+                            <option value="virtual">Virtual Lease / Business Address</option>
+                            <option value="shared">Shared Co-Working Space</option>
+                            <option value="physical">Dedicated Physical Commercial Premises</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-2">Commercial Activities Count: <span class="text-brand-600 font-black" x-text="calcActivities"></span></label>
+                        <input type="range" min="1" max="10" x-model="calcActivities" class="w-full accent-brand-600">
+                    </div>
+                </div>
+
+                <div class="bg-brand-800 text-white p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-xs text-blue-200 font-bold uppercase tracking-wider">Estimated Total Cost</span>
+                        <div class="text-4xl font-black mt-2 text-white">QAR <span x-text="totalCost.toLocaleString()"></span></div>
+                        <p class="text-blue-100 text-xs mt-2 leading-relaxed">Includes estimated governmental registration fees, initial PRO assistance, and setup documentation support.</p>
+                    </div>
+
+                    <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Estimation:\nCompany Type: ' + calcType + '\nVisas: ' + calcVisas + '\nOffice: ' + calcOffice + '\nActivities: ' + calcActivities + '\nEstimated Total: QAR ' + totalCost)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Confirm Proposal on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </div>
