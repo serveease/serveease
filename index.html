@@ -29,15 +29,18 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-bg { background: linear-gradient(rgba(0, 26, 65, 0.90), rgba(0, 26, 65, 0.82)), url('bg.jpg'); background-size: cover; background-position: center; }
+        .hero-bg { background: linear-gradient(rgba(0, 26, 65, 0.92), rgba(0, 26, 65, 0.85)), url('bg.jpg'); background-size: cover; background-position: center; }
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
         .animate-float { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased text-xs sm:text-sm" x-data="{ 
+<body class="bg-white text-gray-900 font-sans antialiased text-sm" x-data="{ 
     currentRoute: 'home',
+    selectedItem: null,
     ecomSearch: '',
     selectedCountry: '+974',
+    servicesDropdown: false,
+    approvalsDropdown: false,
     countries: [
         {name: 'Afghanistan', code: '+93'}, {name: 'Albania', code: '+355'}, {name: 'Algeria', code: '+213'}, {name: 'Andorra', code: '+376'}, {name: 'Angola', code: '+244'},
         {name: 'Argentina', code: '+54'}, {name: 'Armenia', code: '+374'}, {name: 'Australia', code: '+61'}, {name: 'Austria', code: '+43'}, {name: 'Azerbaijan', code: '+994'},
@@ -73,6 +76,26 @@
         {name: 'Turkmenistan', code: '+993'}, {name: 'Uganda', code: '+256'}, {name: 'Ukraine', code: '+380'}, {name: 'United Arab Emirates', code: '+971'}, {name: 'United Kingdom', code: '+44'},
         {name: 'United States', code: '+1'}, {name: 'Uruguay', code: '+598'}, {name: 'Uzbekistan', code: '+998'}, {name: 'Venezuela', code: '+58'}, {name: 'Vietnam', code: '+84'},
         {name: 'Yemen', code: '+967'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
+    ],
+    proServices: [
+        { id: 'visa-quota', title: '1. New Visa Quota & Allocation', desc: 'Secure labor approvals and official visa allocations from the Ministry of Labor for mainland and free zone entities.', time: '2-4 Working Days', price: 'QAR 850', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80', docs: ['Company CR Copy', 'Establishment Card', 'Office Lease Agreement (Ejari)'] },
+        { id: 'residency-visa', title: '2. Employment & Family Residency Visas', desc: 'End-to-end processing of entry visas, medical tests, fingerprinting, and QID issuance for employees and dependents.', time: '3-6 Working Days', price: 'QAR 1,200', ministry: 'Ministry of Interior (MOI)', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', docs: ['Passport Copies', 'Medical Fitness Certificate', 'Salary Certificate / Contract'] },
+        { id: 'trade-license', title: '3. Trade License & CR Renewal', desc: 'Timely renewal of commercial registrations, municipal licenses, and chamber of commerce memberships.', time: '1-3 Working Days', price: 'QAR 1,000 + Fees', ministry: 'Ministry of Commerce & Industry', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', docs: ['Current Trade License', 'Lease Agreement', 'Audited Financials'] },
+        { id: 'establishment-card', title: '4. Computer Card / Establishment Card', desc: 'Issuance and renewal of corporate establishment cards required for all official government transactions.', time: '2 Working Days', price: 'QAR 600', ministry: 'Ministry of Interior', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', docs: ['Valid CR Copy', 'Authorized Signatory ID', 'Application Form'] },
+        { id: 'labor-contract', title: '5. Labor Contract Attestation', desc: 'Electronic attestation and registration of employment contracts with the Ministry of Labor department.', time: '1-2 Working Days', price: 'QAR 350', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', docs: ['Signed Contract', 'Passport & QID Copy', 'CR Copy'] },
+        { id: 'medical-commission', title: '6. Medical Commission & Fingerprinting', desc: 'Fast-track booking, VIP coordination, and status tracking for mandatory health screenings.', time: '2-3 Working Days', price: 'QAR 450', ministry: 'Ministry of Public Health', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80', docs: ['Original Passport', 'Visa Entry Paper', 'Photos'] },
+        { id: 'traffic-dept', title: '7. Traffic Department (Metrash2) Services', desc: 'Corporate vehicle registration, ownership transfer, traffic clearance certificates, and driver license procedures.', time: '1-2 Working Days', price: 'QAR 500', ministry: 'Ministry of Interior (Traffic)', image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80', docs: ['Vehicle Ownership Papers', 'Establishment Card', 'Insurance Policy'] },
+        { id: 'chamber-commerce', title: '8. Chamber of Commerce Membership', desc: 'New membership registration and annual renewals for Qatar Chamber of Commerce and Industry.', time: '1 Working Day', price: 'QAR 400 + Fees', ministry: 'Qatar Chamber', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', docs: ['Valid CR', 'Manager QID', 'Application Form'] },
+        { id: 'mofa-legalize', title: '9. MOFA Document Legalization', desc: 'Official attestation and legalization of commercial invoices, certificates, and power of attorneys.', time: '1 Working Day', price: 'QAR 300 / doc', ministry: 'Ministry of Foreign Affairs', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', docs: ['Original Document with prior stamps', 'Passport Copy'] },
+        { id: 'municipality-signage', title: '10. Municipal Signage & Advertising Permits', desc: 'Obtaining official municipal permits for shopfront signage, billboards, and promotional outdoor advertising.', time: '4-7 Working Days', price: 'QAR 1,500', ministry: 'Ministry of Municipality', image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f8f96?auto=format&fit=crop&w=800&q=80', docs: ['Shopfront Photos & Dimensions', 'Lease Agreement', 'Trade License'] },
+        { id: 'exit-permit', title: '11. Exit Permits & Residency Cancellations', desc: 'Processing official residency cancellations, final exit clearances, and employee transfer paperwork.', time: '1 Working Day', price: 'QAR 300', ministry: 'Ministry of Interior', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80', docs: ['Residency Cancellation Form', 'Passport Copy', 'Clearance Letter'] },
+        { id: 'corporate-bank', title: '12. Corporate Bank Account Assistance', desc: 'Complete liaison with top Qatari banks for seamless corporate bank account opening and compliance.', time: '5-10 Working Days', price: 'QAR 2,000', ministry: 'Central Bank / Commercial Banks', image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80', docs: ['CR Copy', 'Board Resolution', 'Passport Copies of Shareholders'] }
+    ],
+    specialApprovals: [
+        { id: 'transport', title: '1. Transport & Logistics Approvals', desc: 'Specialized permits from the Ministry of Transport for fleet operations, freight forwarding, delivery vans, and heavy transport licensing in Qatar.', time: '5-10 Working Days', price: 'Custom Quotation', ministry: 'Ministry of Transport', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', docs: ['Company CR & Establishment Card', 'Fleet Specifications', 'Warehouse Lease', 'Operations Plan'] },
+        { id: 'gym', title: '2. Gym & Fitness Center Approvals', desc: 'Mandatory health, safety, and operational clearances from MOPH and Municipality for gymnasiums, fitness studios, and sports clubs.', time: '7-14 Working Days', price: 'Custom Quotation', ministry: 'Ministry of Public Health & Municipality', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', docs: ['Facility Architectural Layout', 'Trainer Health Cards', 'Equipment Safety Standards', 'Civil Defense Fire Approval'] },
+        { id: 'traffic-permit', title: '3. Traffic & Road Clearance Permits', desc: 'Special road closure permits, heavy vehicle route permissions, and traffic impact study approvals from General Directorate of Traffic.', time: '4-8 Working Days', price: 'Custom Quotation', ministry: 'General Directorate of Traffic (MOI)', image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80', docs: ['Project Plan & Location Map', 'Contractor CR Copy', 'Vehicle Permits', 'Safety Signage Plan'] },
+        { id: 'fire-safety', title: '4. Civil Defense Fire Safety Approvals', desc: 'Mandatory fire safety design approvals, sprinkler/alarm system certifications, and building occupancy safety clearances from Qatar Civil Defense.', time: '5-10 Working Days', price: 'Custom Quotation', ministry: 'Qatar Civil Defense Department', image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f8f96?auto=format&fit=crop&w=800&q=80', docs: ['Approved Architectural Drawings', 'Fire Suppression System Layout', 'Lease Agreement', 'Maintenance Agreement'] }
     ],
     ecomActivities: [
         { code: '461022', name: 'Online wholesale', arabic: 'البيع بالجملة عن طريق الإنترنت' },
@@ -191,7 +214,7 @@
         { code: '464971', name: 'Wholesale of photographic and optical goods', arabic: 'البيع بالجملة للسلع الفوتوغرافية والبصرية والنظارات والمناظير والمكبرات' },
         { code: '464981', name: 'Wholesale of watches and clocks', arabic: 'البيع بالجملة للساعات' },
         { code: '464983', name: 'Wholesale of gifts', arabic: 'البيع بالجملة للهدايا والكماليات' },
-        { code: '464990', name: 'Wholesale of smoking equipment and accessories', arabic: 'البيع بالجملة لأ أدوات التدخين ومعداته' },
+        { code: '464990', name: 'Wholesale of smoking equipment and accessories', arabic: 'البيع بالجملة لأدوات التدخين ومعداته' },
         { code: '464991', name: 'Wholesale of woodenware, wickerwork and corkware', arabic: 'البيع بالجملة للمنتجات الخشبية والفلينية والبلاستيكية' },
         { code: '464992', name: 'Wholesale of bicycles and their parts and accessories', arabic: 'البيع بالجملة للدراجات الهوائية وقطع الغيار والإكسسوارات' },
         { code: '464993', name: 'Wholesale of leather goods and travel accessories', arabic: 'البيع بالجملة للسلع الجلدية وتوابع السفر عدا الملبوسات' },
@@ -292,13 +315,46 @@
                 </div>
             </a>
 
+            <!-- NAVIGATION -->
             <nav class="hidden lg:flex items-center gap-6 font-semibold text-xs text-gray-700">
                 <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'home' ? 'text-brand-600 font-bold' : ''">Home</a>
                 <a @click="currentRoute = 'ecommerce'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'ecommerce' ? 'text-brand-600 font-bold' : ''">194 E-Commerce Activities</a>
-                <a href="#services" class="hover:text-brand-600 transition cursor-pointer">Services</a>
-                <a href="#about" class="hover:text-brand-600 transition cursor-pointer">About Us</a>
-                <a href="#leadership" class="hover:text-brand-600 transition cursor-pointer">Leadership</a>
-                <a href="#contact" class="hover:text-brand-600 transition cursor-pointer">Contact</a>
+                
+                <!-- SERVICES DROPDOWN WITH ARROW -->
+                <div class="relative py-4" @mouseenter="servicesDropdown = true" @mouseleave="servicesDropdown = false">
+                    <button class="flex items-center gap-1 hover:text-brand-600 transition cursor-pointer">
+                        <span>PRO Services (12)</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" :class="servicesDropdown ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="servicesDropdown" x-cloak class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50 max-h-96 overflow-y-auto">
+                        <template x-for="s in proServices" :key="s.id">
+                            <a @click="selectedItem = s; currentRoute = 'detail'; servicesDropdown = false; window.scrollTo(0,0);" class="block px-4 py-2 hover:bg-brand-50 text-xs font-bold text-gray-800 transition cursor-pointer border-b border-gray-50 last:border-0 flex items-center justify-between">
+                                <span x-text="s.title"></span>
+                                <i class="fa-solid fa-arrow-right text-brand-600 text-[10px]"></i>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- APPROVALS DROPDOWN WITH ARROW -->
+                <div class="relative py-4" @mouseenter="approvalsDropdown = true" @mouseleave="approvalsDropdown = false">
+                    <button class="flex items-center gap-1 hover:text-brand-600 transition cursor-pointer">
+                        <span>Approvals (4)</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" :class="approvalsDropdown ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="approvalsDropdown" x-cloak class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50">
+                        <template x-for="a in specialApprovals" :key="a.id">
+                            <a @click="selectedItem = a; currentRoute = 'detail'; approvalsDropdown = false; window.scrollTo(0,0);" class="block px-4 py-2 hover:bg-brand-50 text-xs font-bold text-gray-800 transition cursor-pointer border-b border-gray-50 last:border-0 flex items-center justify-between">
+                                <span x-text="a.title"></span>
+                                <i class="fa-solid fa-arrow-right text-cyan-600 text-[10px]"></i>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <a @click="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100);" class="hover:text-brand-600 transition cursor-pointer">About Us</a>
+                <a @click="currentRoute = 'home'; setTimeout(() => document.getElementById('leadership').scrollIntoView({behavior: 'smooth'}), 100);" class="hover:text-brand-600 transition cursor-pointer">Leadership</a>
+                <a @click="currentRoute = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100);" class="hover:text-brand-600 transition cursor-pointer">Contact</a>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -309,9 +365,9 @@
         </div>
     </header>
 
-    <!-- HOME VIEW -->
+    <!-- HOME VIEW (5-7 SECTIONS WITH PICTURES & ANIMATIONS) -->
     <div x-show="currentRoute === 'home'" x-cloak>
-        <!-- HERO SECTION WITH ANIMATION -->
+        <!-- SECTION 1: HERO -->
         <section id="hero" class="hero-bg relative py-20 lg:py-32 px-4 text-white overflow-hidden">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
                 <div class="lg:col-span-7 space-y-5 text-center lg:text-left" data-aos="fade-right">
@@ -341,48 +397,68 @@
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
+        <!-- SECTION 2: SERVICES OVERVIEW & 12 PRO SERVICES -->
         <section id="services" class="py-20 bg-slate-50 px-4">
             <div class="max-w-7xl mx-auto space-y-12">
                 <div class="text-center space-y-3 max-w-2xl mx-auto" data-aos="fade-up">
                     <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Our Expertise</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900">Comprehensive Corporate Solutions</h2>
-                    <p class="text-xs sm:text-sm text-gray-600">End-to-end government liaison, licensing, and compliance services tailored for enterprises in Qatar.</p>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900">12 Essential PRO Services & Company Setup</h2>
+                    <p class="text-xs sm:text-sm text-gray-600">Click on any service below to view full details, required documents, pricing, and government ministry timelines.</p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition hover:-translate-y-1.5 duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Formation" class="w-full h-48 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="font-extrabold text-base text-gray-900">Company Formation</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed">Mainland WLL, Branch setup, Free Zone registration, and commercial trade license renewals.</p>
-                            <a href="https://wa.me/97470442825" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600">Enquire Now <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <template x-for="service in proServices" :key="service.id">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition hover:-translate-y-1.5 duration-300 flex flex-col justify-between" data-aos="fade-up">
+                            <div>
+                                <img :src="service.image" :alt="service.title" class="w-full h-44 object-cover">
+                                <div class="p-5 space-y-2">
+                                    <h3 class="font-extrabold text-sm sm:text-base text-gray-900" x-text="service.title"></h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="service.desc"></p>
+                                </div>
+                            </div>
+                            <div class="p-5 pt-0">
+                                <button @click="selectedItem = service; currentRoute = 'detail'; window.scrollTo(0,0);" class="w-full bg-blue-50 hover:bg-brand-600 text-brand-700 hover:text-white py-2.5 px-4 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer">
+                                    <span>View Details & Requirements</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition hover:-translate-y-1.5 duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80" alt="PRO" class="w-full h-48 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="font-extrabold text-base text-gray-900">PRO & Visa Services</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed">Labor quota allocations, employment visas, QID processing, medical commission, and MOI transactions.</p>
-                            <a href="https://wa.me/97470442825" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600">Enquire Now <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition hover:-translate-y-1.5 duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Approvals" class="w-full h-48 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="font-extrabold text-base text-gray-900">Special Ministerial Approvals</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed">Transport permits, Civil Defense fire safety, MOPH health licenses, and municipal signages.</p>
-                            <a href="https://wa.me/97470442825" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600">Enquire Now <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                        </div>
-                    </div>
+                    </template>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT US SECTION -->
-        <section id="about" class="py-20 px-4 bg-white">
+        <!-- SECTION 3: SPECIAL MINISTERIAL APPROVALS (4 APPROVALS) -->
+        <section class="py-20 bg-white px-4 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3 max-w-2xl mx-auto" data-aos="fade-up">
+                    <span class="bg-cyan-50 text-cyan-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Government Permits</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900">4 Special Ministerial Approvals</h2>
+                    <p class="text-xs sm:text-sm text-gray-600">Specialized clearance permits from Transport, Civil Defense, and Health ministries.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <template x-for="appr in specialApprovals" :key="appr.id">
+                        <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition hover:-translate-y-1 duration-300 flex flex-col sm:flex-row" data-aos="fade-up">
+                            <img :src="appr.image" :alt="appr.title" class="w-full sm:w-48 h-48 sm:h-auto object-cover">
+                            <div class="p-6 flex flex-col justify-between flex-1 space-y-3">
+                                <div>
+                                    <h3 class="font-extrabold text-sm sm:text-base text-gray-900" x-text="appr.title"></h3>
+                                    <p class="text-xs text-gray-600 mt-1 leading-relaxed" x-text="appr.desc"></p>
+                                </div>
+                                <button @click="selectedItem = appr; currentRoute = 'detail'; window.scrollTo(0,0);" class="bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded-xl text-xs font-bold transition inline-flex items-center justify-between cursor-pointer">
+                                    <span>View Approval Details</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ABOUT US -->
+        <section id="about" class="py-20 px-4 bg-slate-50">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-6 space-y-5" data-aos="fade-right">
                     <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">About Serve Ease</span>
@@ -391,11 +467,11 @@
                         Managed by experienced professionals, Serve Ease Business Solutions specializes in corporate structuring, regulatory compliance, commercial documentation, and seamless liaison with Qatari ministries.
                     </p>
                     <div class="grid grid-cols-2 gap-4 pt-2">
-                        <div class="p-4 rounded-xl bg-brand-50/50 border border-brand-100">
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
                             <div class="text-xl font-black text-brand-700">100%</div>
                             <div class="text-xs text-gray-600 font-medium mt-0.5">Government Compliance</div>
                         </div>
-                        <div class="p-4 rounded-xl bg-brand-50/50 border border-brand-100">
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
                             <div class="text-xl font-black text-brand-700">24/7</div>
                             <div class="text-xs text-gray-600 font-medium mt-0.5">Dedicated Support</div>
                         </div>
@@ -409,14 +485,14 @@
             </div>
         </section>
 
-        <!-- LEADERSHIP SECTION -->
-        <section id="leadership" class="py-20 bg-slate-50 px-4">
+        <!-- SECTION 5: LEADERSHIP -->
+        <section id="leadership" class="py-20 bg-white px-4">
             <div class="max-w-7xl mx-auto space-y-12 text-center">
                 <div class="space-y-3 max-w-2xl mx-auto" data-aos="fade-up">
                     <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Executive Management</span>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900">Leadership & Guidance</h2>
                 </div>
-                <div class="max-w-md mx-auto bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-4" data-aos="zoom-in">
+                <div class="max-w-md mx-auto bg-slate-50 rounded-2xl p-6 shadow-sm border border-gray-200 space-y-4" data-aos="zoom-in">
                     <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-24 h-24 rounded-full mx-auto object-cover shadow-md" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'">
                     <div>
                         <h3 class="font-extrabold text-base text-gray-900">Shafir Kottupurath Basheer</h3>
@@ -429,8 +505,8 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION WITH 240 COUNTRY CODES -->
-        <section id="contact" class="py-20 px-4 bg-white">
+        <!-- SECTION 6 & 7: CONTACT FORM WITH 240 COUNTRY CODES -->
+        <section id="contact" class="py-20 px-4 bg-slate-50">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-5" data-aos="fade-right">
                     <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Get in Touch</span>
@@ -473,6 +549,57 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- SEPARATE DETAIL PAGE VIEW (When user clicks any PRO Service or Approval) -->
+    <div x-show="currentRoute === 'detail'" x-cloak class="py-16 bg-slate-50 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 space-y-8" data-aos="fade-in">
+            <button @click="currentRoute = 'home'; window.scrollTo(0,0);" class="inline-flex items-center gap-2 bg-white border border-gray-300 text-brand-900 font-bold px-4 py-2.5 rounded-xl shadow-sm text-xs cursor-pointer">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 p-6 sm:p-10 space-y-8">
+                <div class="space-y-4">
+                    <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase" x-text="selectedItem ? selectedItem.ministry : ''"></span>
+                    <h1 class="text-2xl sm:text-4xl font-black text-brand-900" x-text="selectedItem ? selectedItem.title : ''"></h1>
+                    <p class="text-sm sm:text-base text-gray-700 leading-relaxed" x-text="selectedItem ? selectedItem.desc : ''"></p>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md max-h-80">
+                    <img :src="selectedItem ? selectedItem.image : ''" class="w-full h-full object-cover">
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6 bg-slate-50 p-6 rounded-2xl border border-gray-100">
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-gray-500 uppercase">Estimated Timeframe</span>
+                        <div class="text-base font-extrabold text-brand-900" x-text="selectedItem ? selectedItem.time : ''"></div>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-gray-500 uppercase">Government / Service Fee</span>
+                        <div class="text-base font-extrabold text-emerald-600" x-text="selectedItem ? selectedItem.price : ''"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-lg font-extrabold text-gray-900">Required Documents & Prerequisites</h3>
+                    <ul class="space-y-2">
+                        <template x-for="doc in (selectedItem ? selectedItem.docs : [])">
+                            <li class="flex items-center gap-3 text-xs sm:text-sm text-gray-700 bg-blue-50/50 p-3 rounded-xl border border-blue-100 font-medium">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span x-text="doc"></span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
+                    <div class="text-xs text-gray-500 font-medium">Need immediate expert assistance for this service?</div>
+                    <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('I want to apply for service:\n' + (selectedItem ? selectedItem.title : ''))" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold text-xs inline-flex items-center gap-2 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Enquire via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 194 E-COMMERCE ACTIVITIES DIRECTORY VIEW -->
