@@ -38,7 +38,7 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('hero.jpg'); background-size: cover; background-position: center; }
+        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
         .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
     </style>
 </head>
@@ -347,7 +347,7 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 text-left no-underline cursor-pointer group">
-                <img src="logo.png" alt="Serve Ease Business Solutions Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80';">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80" alt="Serve Ease Business Solutions Logo" class="h-12 w-auto object-contain">
             </a>
 
             <nav class="hidden lg:flex items-center gap-7 font-semibold text-xs text-gray-700">
@@ -552,7 +552,7 @@
                     <template x-for="service in proServices" :key="service.id">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-brand-100 transition hover:-translate-y-1.5 duration-300 flex flex-col justify-between" data-aos="fade-up">
                             <div>
-                                <img :src="service.image" :alt="service.title" class="w-full h-44 object-cover" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'">
+                                <img :src="service.image" :alt="service.title" class="w-full h-44 object-cover">
                                 <div class="p-5 space-y-2">
                                     <h3 class="font-extrabold text-sm sm:text-base text-brand-800" x-text="service.title"></h3>
                                     <p class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="service.desc"></p>
@@ -575,7 +575,7 @@
             <div class="max-w-5xl mx-auto bg-brand-700/70 rounded-3xl p-8 sm:p-12 shadow-2xl border border-brand-600 grid md:grid-cols-12 gap-8 items-center" data-aos="zoom-in">
                 <div class="md:col-span-5 text-center">
                     <div class="relative inline-block p-2 rounded-2xl bg-gradient-to-b from-brand-500 to-brand-700 shadow-lg">
-                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80';">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover">
                         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white font-bold text-[10px] px-4 py-1.5 rounded-full shadow-md whitespace-nowrap border border-white/20">
                             FOUNDER & MANAGING DIRECTOR
                         </div>
