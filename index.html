@@ -38,8 +38,8 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('https://images.unsplash.com/photo-1578895101408-1a3640de3a0d?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
-        .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.90), rgba(0, 38, 99, 0.92)), url('hero.jpg'), url('https://images.unsplash.com/photo-1578895101408-1a3640de3a0d?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
+        .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.88), rgba(0, 15, 36, 0.92)), url('https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased text-sm" x-data="{ 
@@ -88,8 +88,8 @@
         {name: 'Yemen', code: '+967'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
     ],
     proServices: [
-        { id: 'visa-quota', title: 'New Visa Quota & Allocation', desc: 'Secure labor approvals and official visa allocations from the Ministry of Labor for mainland and free zone entities.', time: '2-4 Working Days', price: 'QAR 850', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80', docs: ['Company CR Copy', 'Establishment Card', 'Office Lease Agreement'] },
-        { id: 'residency-visa', title: 'Employment & Family Residency Visas', desc: 'End-to-end processing of entry visas, medical tests, fingerprinting, and QID issuance for employees and dependents.', time: '3-6 Working Days', price: 'QAR 1,200', ministry: 'Ministry of Interior (MOI)', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', docs: ['Passport Copies', 'Medical Fitness Certificate', 'Salary Certificate / Contract'] },
+        { id: 'visa-quota', title: 'New Visa Quota & Allocation', desc: 'Secure labor approvals and official visa allocations from the Ministry of Labor for mainland and free zone entities.', time: '2-4 Working Days', price: 'QAR 850', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=800&q=80', docs: ['Company CR Copy', 'Establishment Card', 'Office Lease Agreement'] },
+        { id: 'residency-visa', title: 'Employment & Family Residency Visas', desc: 'End-to-end processing of entry visas, medical tests, fingerprinting, and QID issuance for employees and dependents.', time: '3-6 Working Days', price: 'QAR 1,200', ministry: 'Ministry of Interior (MOI)', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80', docs: ['Passport Copies', 'Medical Fitness Certificate', 'Salary Certificate / Contract'] },
         { id: 'trade-license', title: 'Trade License & CR Renewal', desc: 'Timely renewal of commercial registrations, municipal licenses, and chamber of commerce memberships.', time: '1-3 Working Days', price: 'QAR 1,000 + Fees', ministry: 'Ministry of Commerce & Industry', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', docs: ['Current Trade License', 'Lease Agreement', 'Audited Financials'] },
         { id: 'establishment-card', title: 'Computer Card / Establishment Card', desc: 'Issuance and renewal of corporate establishment cards required for all official government transactions.', time: '2 Working Days', price: 'QAR 600', ministry: 'Ministry of Interior', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', docs: ['Valid CR Copy', 'Authorized Signatory ID', 'Application Form'] },
         { id: 'labor-contract', title: 'Labor Contract Attestation', desc: 'Electronic attestation and registration of employment contracts with the Ministry of Labor department.', time: '1-2 Working Days', price: 'QAR 350', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', docs: ['Signed Contract', 'Passport & QID Copy', 'CR Copy'] },
@@ -295,7 +295,7 @@
     ]
 }">
 
-    <!-- RIGHT SIDEBAR FLOATING ICONS (WhatsApp / Phone / Bot) -->
+    <!-- RIGHT SIDEBAR FLOATING ICONS -->
     <div class="fixed right-6 bottom-6 z-50 flex flex-col gap-3 items-end">
         <button @click="chatbotOpen = !chatbotOpen" class="w-13 h-13 rounded-full bg-brand-600 hover:bg-brand-700 text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-white/20 relative group">
             <i class="fa-solid fa-robot text-lg"></i>
@@ -342,23 +342,12 @@
         </form>
     </div>
 
-    <!-- HEADER NAVIGATION (CLEAR LOGO & DIRECT WHATSAPP CONNECT) -->
+    <!-- HEADER NAVIGATION (ACTUAL GITHUB logo.png INTEGRATED) -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 text-left no-underline cursor-pointer group">
-                <div class="w-11 h-11 rounded-xl bg-brand-600 flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300">
-                    <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg>
-                </div>
-                <div class="flex flex-col leading-tight">
-                    <span class="text-xl font-black tracking-tight text-brand-800">
-                        Serve <span class="text-brand-600">Ease</span>
-                    </span>
-                    <span class="text-[10px] font-extrabold tracking-[0.2em] text-gray-500 uppercase">
-                        BUSINESS SOLUTIONS
-                    </span>
-                </div>
+                <!-- Connected logo.png from Repo with fallback SVG -->
+                <img src="logo.png" alt="Serve Ease Business Solutions Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80';">
             </a>
 
             <nav class="hidden lg:flex items-center gap-7 font-semibold text-xs text-gray-700">
@@ -394,7 +383,7 @@
         </div>
     </header>
 
-    <!-- MAIN HOME PAGE WITH QATAR/ARAB CULTURALLY ALIGNED IMAGES -->
+    <!-- MAIN HOME PAGE WITH QATAR/ARAB & HANDSHAKE CULTURALLY ALIGNED IMAGES -->
     <div x-show="currentRoute === 'home'" x-cloak>
         <section id="hero" class="hero-banner relative py-20 lg:py-32 px-4 text-white overflow-hidden">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
@@ -417,10 +406,10 @@
                         </button>
                     </div>
                 </div>
-                <!-- RIGHT SIDE IMAGE ALIGNED TO QATAR/ARAB COMMUNITY -->
+                <!-- RIGHT SIDE BANNER IMAGE: QATARI EXECUTIVE SHAKING HANDS WITH FOREIGN BUSINESS PARTNER -->
                 <div class="lg:col-span-5 hidden lg:block" data-aos="fade-left">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Doha Qatar Skyline & Business" class="w-full h-[380px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=800&q=80" alt="Qatari Executive Shaking Hands with Foreign Partner" class="w-full h-[380px] object-cover">
                     </div>
                 </div>
             </div>
@@ -436,14 +425,14 @@
                         Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and compliance solutions in Qatar.
                     </p>
                     <div>
-                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease%2C%20I%20want%20to%20Contact%20You%20regarding%20business%20setup." target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-7 py-3 rounded-full text-xs font-bold shadow-md inline-flex items-center gap-2 cursor-pointer transition">
-                            <i class="fa-solid fa-envelope"></i> Contact Us
+                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease%2C%20I%20want%20to%20Get%20In%20Touch%20regarding%20business%20setup." target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-7 py-3 rounded-full text-xs font-bold shadow-md inline-flex items-center gap-2 cursor-pointer transition">
+                            <i class="fa-solid fa-envelope"></i> Get In Touch
                         </a>
                     </div>
                     <div class="pt-4 flex items-center gap-4 border-t border-gray-100">
                         <div class="flex -space-x-2">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Hijab Executive Client">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Qatari Client">
                         </div>
                         <span class="text-xs font-extrabold text-gray-700">100+ Successful Customers</span>
                     </div>
@@ -451,7 +440,8 @@
 
                 <div class="lg:col-span-6" data-aos="fade-left">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-brand-50">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Professional Business Meeting Doha" class="w-full h-[420px] object-cover">
+                        <!-- HIJAB FEMALE PROFESSIONAL & QATARI TEAM WORK PHOTO -->
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Arab Muslim Female Executive & Qatari Team Working" class="w-full h-[420px] object-cover">
                         <div class="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-gray-100 text-center">
                             <div class="text-2xl font-black text-brand-600">50+</div>
                             <div class="text-[10px] font-extrabold text-gray-700 uppercase">Members Active Worldwide</div>
@@ -484,7 +474,7 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5" data-aos="fade-right">
                     <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Qatar Professional Support" class="w-full h-[450px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Arab & Qatari Business Consultation" class="w-full h-[450px] object-cover">
                     </div>
                 </div>
                 <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
@@ -581,12 +571,12 @@
             </div>
         </section>
 
-        <!-- LEADERSHIP -->
+        <!-- LEADERSHIP (CONNECTED shafir.jpg FROM REPO) -->
         <section id="leadership" class="py-20 bg-brand-800 text-white px-4">
             <div class="max-w-5xl mx-auto bg-brand-700/70 rounded-3xl p-8 sm:p-12 shadow-2xl border border-brand-600 grid md:grid-cols-12 gap-8 items-center" data-aos="zoom-in">
                 <div class="md:col-span-5 text-center">
                     <div class="relative inline-block p-2 rounded-2xl bg-gradient-to-b from-brand-500 to-brand-700 shadow-lg">
-                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'">
+                        <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-48 h-56 rounded-xl object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80';">
                         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white font-bold text-[10px] px-4 py-1.5 rounded-full shadow-md whitespace-nowrap border border-white/20">
                             FOUNDER & MANAGING DIRECTOR
                         </div>
@@ -617,7 +607,7 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- CONTACT SECTION WITH GET IN TOUCH & 240+ COUNTRIES -->
         <section id="contact" class="py-20 px-4 bg-white">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700" data-aos="fade-right">
@@ -659,7 +649,7 @@
                 </div>
 
                 <div class="bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700 space-y-4" data-aos="fade-left">
-                    <h3 class="text-xl font-extrabold text-blue-200">Quick Inquiry</h3>
+                    <h3 class="text-xl font-extrabold text-blue-200">Get In Touch</h3>
                     <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Inquiry from Website:\nName: ' + $refs.name.value + '\nPhone: ' + selectedCountry + ' ' + $refs.phone.value + '\nMessage: ' + $refs.msg.value), '_blank')" class="space-y-4">
                         <div>
                             <label class="text-xs text-blue-100 block mb-1 font-medium">Full Name</label>
