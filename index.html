@@ -38,8 +38,8 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
-        .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f8f96?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
+        .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased text-sm" x-data="{ 
@@ -48,10 +48,11 @@
     ecomSearch: '',
     selectedCountry: '+974',
     servicesDropdown: false,
+    approvalsDropdown: false,
     chatbotOpen: false,
     chatMessage: '',
     chatHistory: [
-        { sender: 'bot', text: 'Hello! Welcome to Serve Ease Business Solutions. How can I assist you with your company setup in Qatar today?' }
+        { sender: 'bot', text: 'Hello! Welcome to Serve Ease Business Solutions. How can I assist you with your company setup and special approvals in Qatar today?' }
     ],
     calcType: 'wll',
     calcVisas: 2,
@@ -87,6 +88,12 @@
         {name: 'Uganda', code: '+256'}, {name: 'Ukraine', code: '+380'}, {name: 'Uruguay', code: '+598'}, {name: 'Uzbekistan', code: '+998'},
         {name: 'Vanuatu', code: '+678'}, {name: 'Vatican City', code: '+379'}, {name: 'Venezuela', code: '+58'}, {name: 'Vietnam', code: '+84'},
         {name: 'Yemen', code: '+967'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
+    ],
+    specialApprovals: [
+        { id: 'app-gym', title: 'Gym & Fitness Center Approval', desc: 'Ministry of Sports & Youth and Municipal approvals for fitness centers, sports clubs, and gym facilities.', time: '3-5 Working Days', price: 'Special Rate', ministry: 'Ministry of Sports & Youth / Municipality', icon: 'fa-dumbbell', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', docs: ['Commercial Registration (CR)', 'Facility Blueprints & Layout', 'Lease Agreement', 'Civil Defense Safety Plan'] },
+        { id: 'app-transport', title: 'Transport Activity Approval', desc: 'MOT Ministry of Transport clearances for logistics, passenger transport, delivery services, and heavy vehicles.', time: '2-4 Working Days', price: 'Special Rate', ministry: 'Ministry of Transport (MOT)', icon: 'fa-truck-fast', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', docs: ['Valid CR Copy', 'Vehicle Registration / Fleet Details', 'Driver QIDs & Licenses', 'Office/Parking Location Approval'] },
+        { id: 'app-fire', title: 'Fire Safety Approval (QCDD Civil Defense)', desc: 'Qatar Civil Defense Department (QCDD) fire safety compliance, building inspections, and annual clearance certificates.', time: '3-7 Working Days', price: 'Special Rate', ministry: 'Civil Defense (MOI)', icon: 'fa-fire-extinguisher', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', docs: ['Engineering Drawings Approval', 'Annual Maintenance Contract (AMC)', 'Site Safety Inspection Request', 'Building Lease & Permit'] },
+        { id: 'app-traffic', title: 'Traffic Department Approval', desc: 'MOI Traffic Department approvals for automotive businesses, delivery fleets, vehicle licensing, and rental companies.', time: '1-3 Working Days', price: 'Special Rate', ministry: 'Traffic Department (MOI)', icon: 'fa-car-side', image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80', docs: ['Valid CR & Computer Card', 'Traffic Department Application Form', 'Exterior Building/Shop Photos', 'Tenancy Acknowledgement'] }
     ],
     proServices: [
         { id: 'visa-quota', title: 'New Visa Quota & Allocation', desc: 'Secure labor approvals and official visa allocations from the Ministry of Labor for mainland and free zone entities.', time: '2-4 Working Days', price: 'QAR 850', ministry: 'Ministry of Labor', image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=800&q=80', docs: ['Company CR Copy', 'Establishment Card', 'Office Lease Agreement'] },
@@ -210,7 +217,7 @@
         { code: '464940', name: 'Wholesale of cutlery, china and glassware', arabic: 'البيع بالجملة للأواني المنزلية وملحقات الموائد' },
         { code: '464952', name: 'Wholesale of perfumeries, cosmetics and soaps', arabic: 'البيع بالجملة للعطور ومستحضرات التجميل وصابون التجميل' },
         { code: '464959', name: 'Wholesale of other pharmaceutical and medical goods, medical equipment and appliances, and perfumeries, cosmetics and soaps', arabic: 'البيع بالجملة للسلع الصيدلانية والطبية والأدوات والأجهزة الطبية والعطور ومستحضرات التجميل الأخرى' },
-        { code: '464962', name: 'Wholesale of stationery', arabic: 'البيع بالجملة للأدوات المكتبية (القرطاسية)' },
+        { code: '464962', name: 'Wholesale of stationery', arabic: 'البيع بالتجزئة للأدوات المكتبية (القرطاسية)' },
         { code: '464963', name: 'Wholesale of prepaid cards', arabic: 'البيع بالجملة للكروت مسبقة الدفع' },
         { code: '464971', name: 'Wholesale of photographic and optical goods', arabic: 'البيع بالجملة للسلع الفوتوغرافية والبصرية والنظارات والمناظير والمكبرات' },
         { code: '464981', name: 'Wholesale of watches and clocks', arabic: 'البيع بالجملة للساعات' },
@@ -338,7 +345,7 @@
         </div>
 
         <form @submit.prevent="if(chatMessage.trim() !== '') { chatHistory.push({sender: 'user', text: chatMessage}); let userQ = chatMessage; chatMessage = ''; setTimeout(() => { chatHistory.push({sender: 'bot', text: 'Thank you for your query regarding ' + userQ + '. Connecting you with our WhatsApp team (+974 7044 2825)...'}); setTimeout(() => window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Inquiry: ' + userQ), '_blank'), 1000); }, 800); }" class="p-3 bg-white border-t border-gray-200 flex gap-2">
-            <input type="text" x-model="chatMessage" placeholder="Ask about company formation..." class="flex-1 p-2.5 rounded-xl border border-gray-300 text-xs focus:outline-none focus:border-brand-600">
+            <input type="text" x-model="chatMessage" placeholder="Ask about approvals or company setup..." class="flex-1 p-2.5 rounded-xl border border-gray-300 text-xs focus:outline-none focus:border-brand-600">
             <button type="submit" class="bg-brand-600 hover:bg-brand-700 text-white px-4 rounded-xl font-bold text-xs cursor-pointer"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
     </div>
@@ -347,14 +354,40 @@
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 text-left no-underline cursor-pointer group">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80" alt="Serve Ease Business Solutions Logo" class="h-12 w-auto object-contain">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-brand-800 flex items-center justify-center text-white font-black text-lg shadow-md">SE</div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-brand-800 text-sm tracking-tight leading-none">SERVE EASE</span>
+                        <span class="text-[9px] font-bold text-gray-500 tracking-wider uppercase mt-0.5">Business Solutions</span>
+                    </div>
+                </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-7 font-semibold text-xs text-gray-700">
+            <nav class="hidden lg:flex items-center gap-6 font-semibold text-xs text-gray-700">
                 <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'home' ? 'text-brand-600 font-bold' : ''">Home</a>
                 <a @click="currentRoute = 'calculator'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'calculator' ? 'text-brand-600 font-bold' : ''">Cost Calculator</a>
                 <a @click="currentRoute = 'ecommerce'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'ecommerce' ? 'text-brand-600 font-bold' : ''">194 E-Commerce Activities</a>
                 
+                <!-- APPROVALS DROPDOWN (GYM, TRANSPORT, FIRE, TRAFFIC) -->
+                <div class="relative py-4" @mouseenter="approvalsDropdown = true" @mouseleave="approvalsDropdown = false">
+                    <button class="flex items-center gap-1 hover:text-brand-600 transition cursor-pointer font-bold text-brand-800">
+                        <span>Approvals</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div x-show="approvalsDropdown" x-cloak class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50">
+                        <template x-for="app in specialApprovals" :key="app.id">
+                            <a @click="selectedItem = app; currentRoute = 'detail'; approvalsDropdown = false; window.scrollTo(0,0);" class="block px-4 py-2.5 hover:bg-brand-50 text-xs font-bold text-gray-800 transition cursor-pointer flex items-center justify-between border-b border-gray-50 last:border-0">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid text-brand-600" :class="app.icon"></i>
+                                    <span x-text="app.title"></span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brand-600 text-[10px]"></i>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- SERVICES DROPDOWN -->
                 <div class="relative py-4" @mouseenter="servicesDropdown = true" @mouseleave="servicesDropdown = false">
                     <button class="flex items-center gap-1 hover:text-brand-600 transition cursor-pointer">
                         <span>Services</span>
@@ -395,7 +428,7 @@
                         SET UP, MANAGE OR CLOSE YOUR BUSINESS IN QATAR
                     </h1>
                     <p class="text-blue-100 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
-                        Licensed Qatar consultancy guiding you through company formation, government PRO services, Special Ministerial Approvals, and E-Commerce licenses.
+                        Licensed Qatar consultancy guiding you through company formation, PRO services, special Government Approvals (Gym, Transport, Fire & Traffic), and E-Commerce licenses.
                     </p>
                     <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
                         <a href="https://wa.me/97470442825?text=Hello%2C%20I%20want%20to%20Book%20Now%20a%20consultation%20for%20company%20setup." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl text-xs font-extrabold shadow-lg cursor-pointer transition flex items-center gap-2">
@@ -406,7 +439,6 @@
                         </button>
                     </div>
                 </div>
-                <!-- RIGHT SIDE IMAGE: QATARI & FOREIGNERS HANDSHAKE -->
                 <div class="lg:col-span-5 hidden lg:block" data-aos="fade-left">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Qatari and Foreign Partners Handshake" class="w-full h-[380px] object-cover">
@@ -415,14 +447,43 @@
             </div>
         </section>
 
-        <!-- ABOUT SECTION WITH HIJAB PROFESSIONAL -->
-        <section id="about" class="py-20 bg-white px-4 border-b border-gray-100">
+        <!-- SPECIAL APPROVALS SECTION (GYM, TRANSPORT, FIRE, TRAFFIC) -->
+        <section class="py-20 bg-white px-4 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3 max-w-2xl mx-auto" data-aos="fade-up">
+                    <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Government Approvals</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-800">Specialized Approvals in Qatar</h2>
+                    <p class="text-xs sm:text-sm text-gray-600">Complete end-to-end liaison and approval processing for regulated activities across Qatar.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <template x-for="app in specialApprovals" :key="app.id">
+                        <div @click="selectedItem = app; currentRoute = 'detail'; window.scrollTo(0,0);" class="bg-brand-50/50 hover:bg-white rounded-2xl p-6 border border-brand-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between group" data-aos="fade-up">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition">
+                                    <i class="fa-solid text-lg" :class="app.icon"></i>
+                                </div>
+                                <h3 class="font-extrabold text-sm text-brand-800" x-text="app.title"></h3>
+                                <p class="text-xs text-gray-600 leading-relaxed" x-text="app.desc"></p>
+                            </div>
+                            <div class="pt-6 flex items-center justify-between text-xs font-bold text-brand-600 border-t border-brand-100/50 mt-4">
+                                <span x-text="app.time"></span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-20 bg-brand-50/30 px-4 border-b border-gray-100">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
                     <span class="bg-brand-50 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Corporate Excellence</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-800">Serve Ease Business Solutions</h2>
                     <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                        Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and compliance solutions in Qatar.
+                        Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and specialized approvals (Gym, Transport, Fire & Traffic) in Qatar.
                     </p>
                     <div>
                         <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease%2C%20I%20want%20to%20Get%20In%20Touch%20regarding%20business%20setup." target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-7 py-3 rounded-full text-xs font-bold shadow-md inline-flex items-center gap-2 cursor-pointer transition">
@@ -709,7 +770,16 @@
                     <img :src="selectedItem ? selectedItem.image : ''" class="w-full h-full object-cover">
                 </div>
 
-                <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Enquiry for: ' + (selectedItem ? selectedItem.title : ''))" target="_blank" class="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold text-xs inline-flex items-center gap-2 shadow-md">
+                <div x-show="selectedItem && selectedItem.docs" class="space-y-3 pt-4 border-t border-gray-100">
+                    <h3 class="font-bold text-brand-800 text-sm">Required Documents:</h3>
+                    <ul class="list-disc pl-5 text-xs text-gray-600 space-y-1">
+                        <template x-for="doc in selectedItem.docs" :key="doc">
+                            <li x-text="doc"></li>
+                        </template>
+                    </ul>
+                </div>
+
+                <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Enquiry for Approval / Service: ' + (selectedItem ? selectedItem.title : ''))" target="_blank" class="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold text-xs inline-flex items-center gap-2 shadow-md">
                     <i class="fa-brands fa-whatsapp text-sm"></i> Enquire via WhatsApp
                 </a>
             </div>
