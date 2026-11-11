@@ -173,12 +173,12 @@
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-slate-700">
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-slate-700">
                 <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'home' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">Home</a>
                 <a href="#about" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">About Us</a>
                 
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
-                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
+                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Services</span>
                         <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
@@ -209,7 +209,7 @@
                 <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
 
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
-                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
+                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Approvals</span>
                         <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
@@ -233,35 +233,11 @@
                     </div>
                 </div>
 
-                <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
-
-                <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
-                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
-                        <span>Approvals</span>
-                        <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div x-show="open" x-transition class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
-                        <template x-for="aId in [1,2,3,4]">
-                            <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs" x-text="aId === 1 ? '🏢' : aId === 2 ? '🚚' : aId === 3 ? '🛡️' : '🚦'"></div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
-                                    <p class="text-[10px] text-slate-500">Ministry Clearance Page</p>
-                                </div>
-                            </a>
-                        </template>
-                    </div>
-                </div>
-
                 <a href="#contact" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">Contact Us</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <button @click="calcStep = 1; calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                    <span>Cost Calculator</span>
-                </button>
-                <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
+                <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
                     Book Now
                 </a>
             </div>
