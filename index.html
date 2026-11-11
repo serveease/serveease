@@ -106,6 +106,10 @@
         if(this.calcActivity === 'Local Partnership') base = 10000;
         if(this.calcActivity === 'Corporate Bank Account') base = 3000;
         if(this.calcActivity === 'Feasibility Study') base = 8500;
+        if(this.calcActivity === 'Gym Approval') base = 12500;
+        if(this.calcActivity === 'Transport Approval') base = 9500;
+        if(this.calcActivity === 'Fire Safety Approval') base = 11000;
+        if(this.calcActivity === 'Traffic Clearance') base = 4000;
 
         if(this.calcJurisdiction.includes('Free zone')) base += 2000;
         if(this.calcJurisdiction.includes('QFC')) base += 4500;
@@ -132,10 +136,19 @@
     }
 }" x-init="AOS.init({ once: true, duration: 800 })">
 
+    <!-- Floating WhatsApp & Call Buttons on Right Side -->
+    <div class="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
+        <a href="tel:+97470442825" class="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110" title="Call Us Directly">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </a>
+        <a href="https://wa.me/97470442825" target="_blank" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110" title="Chat on WhatsApp">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.198-.198.347-.764.967-.937 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+    </div>
+
     <!-- Top Navigation Bar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo & Name -->
             <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top: 0, behavior: 'smooth'});" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 flex items-center justify-center text-corporate font-bold text-xl group-hover:scale-105 transition-transform overflow-hidden">
                     <img src="logo.png" alt="Serve Ease" class="w-12 h-12 object-contain" onerror="this.src='https://placehold.co/100x100/031243/ffffff?text=SE'">
@@ -146,12 +159,10 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-slate-700">
                 <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'home' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">Home</a>
                 <a href="#about" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">About Us</a>
                 
-                <!-- Services Dropdown (8 Dedicated Services) -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
                         <span>Services</span>
@@ -170,10 +181,8 @@
                     </div>
                 </div>
 
-                <!-- 194 E-Commerce Nav Link -->
                 <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
 
-                <!-- Approvals Dropdown (4 Dedicated Approval Pages) -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
                         <span>Approvals</span>
@@ -195,7 +204,6 @@
                 <a href="#contact" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">Contact Us</a>
             </nav>
 
-            <!-- CTA Actions -->
             <div class="flex items-center gap-3">
                 <button @click="calcStep = 1; calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
@@ -212,27 +220,28 @@
     <main>
         <!-- HOME VIEW -->
         <div x-show="currentRoute === 'home'">
-            <!-- Hero Section -->
-            <section class="relative pt-12 pb-24 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/40 to-slate-100">
+            <!-- Hero Section with bg.jpg -->
+            <section class="relative pt-16 pb-28 overflow-hidden bg-corporate">
+                <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('bg.jpg')"></div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7" data-aos="fade-right">
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold mb-6 shadow-sm">
-                                <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/60 border border-blue-400/30 text-blue-300 text-xs font-semibold mb-6 shadow-sm">
+                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                                 #1 Corporate Setup Partner in Qatar
                             </div>
-                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
                                 Set Up, Manage & Scale Your Business in Qatar
                             </h1>
-                            <p class="text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                            <p class="text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
                                 Serve Ease Business Solutions delivers complete company formation, licensing, PRO government support, corporate banking, and legal attestation across Doha.
                             </p>
                             <div class="flex flex-wrap items-center gap-4">
-                                <button @click="calcStep = 1; calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                <button @click="calcStep = 1; calcModalOpen = true" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                                     Calculate Setup Costs
                                 </button>
-                                <a href="#contact" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
+                                <a href="#contact" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
                                     Book Consultation
                                 </a>
                             </div>
@@ -240,29 +249,29 @@
 
                         <!-- Hero Right Get in Touch Card -->
                         <div class="lg:col-span-5" data-aos="fade-left">
-                            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-100">
+                            <div class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-100">
                                 <h3 class="text-2xl font-bold text-slate-900 mb-2">Get in Touch</h3>
                                 <p class="text-sm text-slate-500 mb-6">Free consultation with a licensed advisor (Supports 240+ Country Codes)</p>
                                 <form @submit.prevent="alert('Thank you! Your message has been sent successfully.');" class="space-y-4">
                                     <div>
-                                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div class="grid grid-cols-3 gap-2">
-                                        <select class="px-3 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold">
+                                        <select class="px-3 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-900">
                                             <template x-for="c in countryCodesList">
                                                 <option :value="c.code" x-text="`${c.code} (${c.name})`" :selected="c.code === '+974'"></option>
                                             </template>
                                         </select>
-                                        <input type="tel" placeholder="Phone Number" required class="col-span-2 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                                        <input type="tel" placeholder="Phone Number" required class="col-span-2 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="Nature of Business *" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                                        <input type="text" placeholder="Nature of Business *" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <textarea rows="3" placeholder="Your Message" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"></textarea>
+                                        <textarea rows="3" placeholder="Your Message" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900"></textarea>
                                     </div>
                                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-sm">
                                         Send Message via WhatsApp
@@ -435,7 +444,7 @@
                         </div>
                         <div class="space-y-4">
                             <div class="flex gap-2">
-                                <input type="text" x-model="aiQuery" @keyup.enter="askAI()" placeholder="e.g. What are the requirements for a Transport Activity Approval (MOT) in Qatar?" class="flex-1 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <input type="text" x-model="aiQuery" @keyup.enter="askAI()" placeholder="e.g. What are the requirements for a Transport Activity Approval (MOT) in Qatar?" class="flex-1 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900">
                                 <button @click="askAI()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-md whitespace-nowrap">
                                     Ask AI
                                 </button>
@@ -536,12 +545,10 @@
         <!-- SERVICE DETAIL VIEW (8 Dedicated Pages) -->
         <div x-show="currentRoute === 'service'" class="py-16 bg-slate-50 min-h-screen">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Back Button -->
                 <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
                     &larr; Back to Home
                 </button>
 
-                <!-- Service Header Banner -->
                 <div class="bg-corporate text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-12 relative overflow-hidden">
                     <div class="absolute right-0 bottom-0 opacity-10 translate-x-10 translate-y-10">
                         <svg class="w-96 h-96" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -569,32 +576,13 @@
                     "></p>
                 </div>
 
-                <!-- Tailored Service Content Sections -->
                 <div class="grid gap-8">
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                             <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold" x-text="serviceId"></span>
-                            <span x-text="
-                                serviceId === 1 ? 'Company Formation Workflow & Schedule' : 
-                                serviceId === 2 ? 'Share Transfer Legal Restructuring Process' : 
-                                serviceId === 3 ? 'PRO Government Retainer Operations' : 
-                                serviceId === 4 ? 'Ministry Certified Legal Translation Protocol' : 
-                                serviceId === 5 ? 'MOFA & Embassy Attestation Protocol' : 
-                                serviceId === 6 ? 'Trusted Local Qatari Partnership Setup' : 
-                                serviceId === 7 ? 'Fast-Track Corporate Banking Setup' : 
-                                'Comprehensive Feasibility Study Scope'
-                            "></span>
+                            <span>Workflow & Schedule</span>
                         </h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6" x-text="
-                            serviceId === 1 ? 'We manage all documentation, MOCI submissions, trade name reservations, and commercial registry issuance without administrative delays.' :
-                            serviceId === 2 ? 'Our legal experts handle board resolutions, notary public attestations, and commercial registry amendments efficiently.' :
-                            serviceId === 3 ? 'Our dedicated PRO team manages residency visas, labor quotas, Ministry of Labor clearances, and ID renewals.' :
-                            serviceId === 4 ? 'Certified translators deliver accurate, legally accepted translations approved by the Ministry of Justice and embassies.' :
-                            serviceId === 5 ? 'Fast-track verification and stamping of commercial invoices, educational degrees, and corporate certificates.' :
-                            serviceId === 6 ? 'Secure and trusted Qatari nationals to act as local sleeping partners or active sponsors for your commercial entities.' :
-                            serviceId === 7 ? 'Complete dossier preparation, KYC compliance, and direct introduction to relationship managers at leading banks in Qatar.' :
-                            'Detailed financial modeling, competitor analysis, and comprehensive business plans tailored to Qatari investor requirements.'
-                        "></p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">We manage all documentation, MOCI submissions, trade name reservations, and commercial registry issuance without administrative delays.</p>
 
                         <div class="grid sm:grid-cols-3 gap-4">
                             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
@@ -627,16 +615,7 @@
 
                     <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl font-bold mb-2" x-text="
-                                serviceId === 1 ? 'Ready to Form Your Company?' :
-                                serviceId === 2 ? 'Ready to Amend Share Transfer?' :
-                                serviceId === 3 ? 'Ready for PRO Retainer Support?' :
-                                serviceId === 4 ? 'Need Certified Translation?' :
-                                serviceId === 5 ? 'Need Document Attestation?' :
-                                serviceId === 6 ? 'Need Local Partnership?' :
-                                serviceId === 7 ? 'Need Corporate Banking Support?' :
-                                'Ready for Feasibility Study?'
-                            "></h3>
+                            <h3 class="text-2xl font-bold mb-2">Ready to Start Your Application?</h3>
                             <p class="text-slate-300 text-sm">Launch our cost calculator pre-filled with this service or connect with our Doha advisors.</p>
                         </div>
                         <button @click="
@@ -661,12 +640,10 @@
         <!-- APPROVAL DETAIL VIEW (4 Dedicated Pages) -->
         <div x-show="currentRoute === 'approval'" class="py-16 bg-slate-50 min-h-screen">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Back Button -->
                 <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
                     &larr; Back to Home
                 </button>
 
-                <!-- Approval Header Banner -->
                 <div class="bg-corporate text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-12 relative overflow-hidden">
                     <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold uppercase tracking-wider mb-4 inline-block" x-text="`Government Approval 0${approvalId} of 04`"></span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" x-text="
@@ -683,7 +660,6 @@
                     "></p>
                 </div>
 
-                <!-- Approval Workflow Details -->
                 <div class="grid gap-8">
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
@@ -796,10 +772,8 @@
     <!-- COST CALCULATOR MODAL (Steps 1 to 5) -->
     <div x-show="calcModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" x-cloak>
         <div class="bg-white rounded-3xl shadow-2xl max-w-xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto" @click.away="calcModalOpen = false">
-            <!-- Close Button -->
             <button @click="calcModalOpen = false" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 font-bold">&times;</button>
 
-            <!-- Modal Header -->
             <div class="mb-6">
                 <h3 class="text-2xl font-extrabold text-slate-900">Business Setup & Service Cost Calculator</h3>
                 <p class="text-sm text-slate-500">Get an instant estimate tailored to your selected service or activity in Qatar</p>
@@ -812,7 +786,6 @@
                 </div>
             </div>
 
-            <!-- Step 1 -->
             <div x-show="calcStep === 1">
                 <h4 class="font-bold text-slate-900 text-lg mb-4">What is the purpose of your business in Qatar?</h4>
                 <div class="space-y-3">
@@ -827,10 +800,9 @@
                 </div>
             </div>
 
-            <!-- Step 2 -->
             <div x-show="calcStep === 2">
                 <h4 class="font-bold text-slate-900 text-lg mb-4">Select Your Service or Business Activity</h4>
-                <select x-model="calcActivity" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm font-medium">
+                <select x-model="calcActivity" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm font-medium text-slate-900">
                     <option value="Business Consultancy">Company Formation - Business Consultancy</option>
                     <option value="Share Transfer">Share Transfer & Equity Amending</option>
                     <option value="Corporate PRO Retainer">Corporate PRO Retainer Package</option>
@@ -847,7 +819,6 @@
                 </select>
             </div>
 
-            <!-- Step 3 -->
             <div x-show="calcStep === 3">
                 <h4 class="font-bold text-slate-900 text-lg mb-4">Select Jurisdiction</h4>
                 <div class="space-y-3">
@@ -866,7 +837,6 @@
                 </div>
             </div>
 
-            <!-- Step 4 -->
             <div x-show="calcStep === 4">
                 <h4 class="font-bold text-slate-900 text-lg mb-4">How Many Owners will be involved?</h4>
                 <div class="space-y-3">
@@ -881,25 +851,23 @@
                 </div>
             </div>
 
-            <!-- Step 5 (Final Step with Estimate & Contact Info) -->
             <div x-show="calcStep === 5">
                 <h4 class="font-bold text-slate-900 text-lg mb-2">Estimated Cost & Contact Information</h4>
                 <p class="text-xs text-slate-500 mb-4">Estimated Total Cost: <strong class="text-blue-600 text-base" x-text="`QAR ${estimatedCost}`"></strong></p>
                 <div class="space-y-3">
-                    <input type="text" x-model="calcName" placeholder="Full Name *" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
-                    <input type="email" x-model="calcEmail" placeholder="Email Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
+                    <input type="text" x-model="calcName" placeholder="Full Name *" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900">
+                    <input type="email" x-model="calcEmail" placeholder="Email Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900">
                     <div class="grid grid-cols-3 gap-2">
-                        <select x-model="calcCountryCode" class="px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold">
+                        <select x-model="calcCountryCode" class="px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-900">
                             <template x-for="c in countryCodesList">
                                 <option :value="c.code" x-text="`${c.code} (${c.name})`"></option>
                             </template>
                         </select>
-                        <input type="tel" x-model="calcPhone" placeholder="Phone Number *" required class="col-span-2 px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
+                        <input type="tel" x-model="calcPhone" placeholder="Phone Number *" required class="col-span-2 px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900">
                     </div>
                 </div>
             </div>
 
-            <!-- Modal Navigation Buttons (1 to 5 steps) -->
             <div class="flex justify-between items-center mt-8 pt-4 border-t border-slate-100">
                 <button x-show="calcStep > 1" @click="calcStep--" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50">
                     &larr; Previous Step
@@ -916,7 +884,6 @@
         </div>
     </div>
 
-    <!-- AOS Initialization -->
     <script>
         AOS.init({ once: true, duration: 800 });
     </script>
