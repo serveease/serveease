@@ -173,7 +173,7 @@
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-slate-700">
+            <nav class="hidden lg:flex items-center gap-10 font-medium text-sm text-slate-700">
                 <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'home' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">Home</a>
                 <a href="#about" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">About Us</a>
                 
@@ -603,7 +603,6 @@
                         'Comprehensive market research, financial projections, and strategic business planning for Qatar.'
                     "></p>
                     
-                    <!-- Service Feature Photo -->
                     <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-64 sm:h-80 relative mt-6">
                         <img :src="
                             serviceId === 1 ? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80' :
@@ -655,13 +654,11 @@
                         </ul>
                     </div>
 
-                    <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Ready to Start Your Application?</h3>
-                            <p class="text-slate-300 text-sm">Consult directly with our senior business advisors in Doha today.</p>
-                        </div>
-                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
-                            Book Now
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Need Assistance with This Service?</h3>
+                        <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Our team handles government submissions and licensing procedures with top Qatari authorities.</p>
+                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block">
+                            Book Consultation Now
                         </a>
                     </div>
                 </div>
@@ -693,7 +690,6 @@
                         'Ministry of Interior (MOI) Traffic Department clearances for commercial vehicles, parking quotas, and driver permits.'
                     "></p>
 
-                    <!-- Approval Feature Photo -->
                     <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-64 sm:h-80 relative mt-6">
                         <img :src="
                             approvalId === 1 ? 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80' :
@@ -751,13 +747,11 @@
                         </ul>
                     </div>
 
-                    <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Need This Approval Urgently?</h3>
-                            <p class="text-slate-300 text-sm">Let our government liaison experts handle your ministry paperwork today.</p>
-                        </div>
-                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
-                            Book Now
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Need This Approval Urgently?</h3>
+                        <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Let our government liaison experts handle your ministry paperwork today.</p>
+                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block">
+                            Book Approval Assistance
                         </a>
                     </div>
                 </div>
