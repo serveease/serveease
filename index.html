@@ -64,6 +64,24 @@
     calcEmail: '',
     calcCountryCode: '+974',
     calcPhone: '',
+
+    get estimatedCost() {
+        let base = 6500;
+        if(this.calcPurpose === 'Branch Registration') base += 2000;
+        if(this.calcJurisdiction.includes('QFC')) base += 4000;
+        if(this.calcOwners === 'Multiple') base += 1500;
+        return base.toLocaleString();
+    },
+
+    submitCalculator() {
+        if(!this.calcName || !this.calcPhone) {
+            alert('Please fill in your name and phone number.');
+            return;
+        }
+        const msg = encodeURIComponent(`Hello Serve Ease, I need an estimate for ${this.calcActivity} (${this.calcPurpose}, Jurisdiction: ${this.calcJurisdiction}). Estimated Cost: QAR ${this.estimatedCost}. My name is ${this.calcName}, Phone: ${this.calcCountryCode} ${this.calcPhone}.`);
+        window.open(`https://wa.me/97470442825?text=${msg}`, '_blank');
+        this.calcModalOpen = false;
+    },
     
     countryCodesList: [
         {code: '+974', name: 'Qatar'}, {code: '+971', name: 'UAE'}, {code: '+966', name: 'Saudi Arabia'}, {code: '+968', name: 'Oman'}, {code: '+973', name: 'Bahrain'}, {code: '+965', name: 'Kuwait'},
@@ -111,42 +129,17 @@
         description: `Official MOCI approved digital trading, online store domain, and automated transaction scope #${i + 1} for Qatari commercial establishment.`
     })),
 
-    get estimatedCost() {
-        let base = 7500;
-        if(this.calcActivity === 'Share Transfer') base = 4500;
-        if(this.calcActivity === 'Corporate PRO Retainer') base = 3500;
-        if(this.calcActivity === 'Legal Translation') base = 1500;
-        if(this.calcActivity === 'MOFA Attestation') base = 2000;
-        if(this.calcActivity === 'Local Partnership') base = 10000;
-        if(this.calcActivity === 'Corporate Bank Account') base = 3000;
-        if(this.calcActivity === 'Feasibility Study') base = 8500;
-        if(this.calcActivity === 'Gym Approval') base = 12500;
-        if(this.calcActivity === 'Transport Approval') base = 9500;
-        if(this.calcActivity === 'Fire Safety Approval') base = 11000;
-        if(this.calcActivity === 'Traffic Clearance') base = 4000;
-
-        if(this.calcJurisdiction.includes('Free zone')) base += 2000;
-        if(this.calcJurisdiction.includes('QFC')) base += 4500;
-        if(this.calcVisas === 'Yes') base += 3500;
-        if(this.calcOffice.includes('Medium')) base += 5000;
-        if(this.calcOffice.includes('Large')) base += 10000;
-        return base;
-    },
-
-    openCalcForService(activityName) {
-        this.calcActivity = activityName;
-        this.calcStep = 2; // Directly start at Step 2 with the selected service pre-filled
-        this.calcModalOpen = true;
-    },
-
-    submitCalculator() {
-        if(!this.calcName || !this.calcPhone) {
-            alert('Please fill out your Full Name and Phone Number.');
-            return;
+    scrollToContact() {
+        if(this.currentRoute !== 'home') {
+            this.currentRoute = 'home';
+            setTimeout(() => {
+                const el = document.getElementById('contact');
+                if(el) el.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        } else {
+            const el = document.getElementById('contact');
+            if(el) el.scrollIntoView({behavior: 'smooth'});
         }
-        const text = `*New Business Setup Inquiry*%0A%0AName: ${this.calcName}%0APhone: ${this.calcCountryCode} ${this.calcPhone}%0APurpose: ${this.calcPurpose}%0AActivity/Service: ${this.calcActivity}%0AJurisdiction: ${this.calcJurisdiction}%0AEst. Cost: QAR ${this.estimatedCost}`;
-        window.open(`https://wa.me/97470442825?text=${text}`, '_blank');
-        this.calcModalOpen = false;
     }
 }" x-init="AOS.init({ once: true, duration: 800 })">
 
@@ -177,30 +170,17 @@
                 <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'home' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">Home</a>
                 <a href="#about" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">About Us</a>
                 
+                <!-- Services Dropdown (Text only, no images) -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Services</span>
                         <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div x-show="open" x-transition class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
+                    <div x-show="open" x-transition class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
                         <template x-for="sId in [1,2,3,4,5,6,7,8]">
-                            <a href="#" @click.prevent="currentRoute = 'service'; serviceId = sId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0">
-                                    <img :src="
-                                        sId === 1 ? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 2 ? 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 3 ? 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 4 ? 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 5 ? 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 6 ? 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=100&q=80' :
-                                        sId === 7 ? 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=100&q=80' :
-                                        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80'
-                                    " alt="Service thumbnail" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-900" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer & Equity Amending' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Certified Legal Translation' : sId === 5 ? 'MOFA Document Attestation' : sId === 6 ? 'Local Partnership Facilitation' : sId === 7 ? 'Corporate Bank Account' : 'Feasibility Study & Advisory'"></h4>
-                                    <p class="text-[10px] text-slate-500">View Service</p>
-                                </div>
+                            <a href="#" @click.prevent="currentRoute = 'service'; serviceId = sId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-3 rounded-xl hover:bg-slate-50 transition-colors flex flex-col">
+                                <h4 class="text-xs font-bold text-slate-900" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer & Equity Amending' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Certified Legal Translation' : sId === 5 ? 'MOFA Document Attestation' : sId === 6 ? 'Local Partnership Facilitation' : sId === 7 ? 'Corporate Bank Account' : 'Feasibility Study & Advisory'"></h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5">View Service Details</p>
                             </a>
                         </template>
                     </div>
@@ -208,6 +188,7 @@
 
                 <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
 
+                <!-- Approvals Dropdown (Text only, no images) -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Approvals</span>
@@ -215,29 +196,19 @@
                     </button>
                     <div x-show="open" x-transition class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
                         <template x-for="aId in [1,2,3,4]">
-                            <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
-                                    <img :src="
-                                        aId === 1 ? 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=100&q=80' :
-                                        aId === 2 ? 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=100&q=80' :
-                                        aId === 3 ? 'https://images.unsplash.com/photo-1541888946425-d0fbb17887e5?auto=format&fit=crop&w=100&q=80' :
-                                        'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=100&q=80'
-                                    " alt="Approval thumbnail" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
-                                    <p class="text-[10px] text-slate-500">Ministry Approval</p>
-                                </div>
+                            <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-3 rounded-xl hover:bg-slate-50 transition-colors flex flex-col">
+                                <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Ministry Approval</p>
                             </a>
                         </template>
                     </div>
                 </div>
 
-                <a href="#contact" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">Contact Us</a>
+                <a href="#contact" @click.prevent="scrollToContact()" class="hover:text-blue-600 transition-colors">Contact Us</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
+                <a href="#contact" @click.prevent="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
                     Book Now
                 </a>
             </div>
@@ -269,7 +240,7 @@
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                                     Calculate Setup Costs
                                 </button>
-                                <a href="#contact" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
+                                <a href="#contact" @click.prevent="scrollToContact()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
                                     Book Consultation
                                 </a>
                             </div>
@@ -351,8 +322,7 @@
                 </div>
             </section>
 
-            <!-- Empowering Business Growth Banner -->
-            <!-- Core Services Grid (8 Services with Pictures instead of Numbers) -->
+            <!-- Core Services Grid -->
             <section id="services" class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
@@ -385,7 +355,7 @@
                 </div>
             </section>
 
-            <!-- Specialized Municipal & Ministry Approvals Section (4 Dedicated Pages) -->
+            <!-- Specialized Municipal & Ministry Approvals Section -->
             <section class="py-20 bg-slate-50" data-aos="fade-up">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -406,7 +376,7 @@
                 </div>
             </section>
 
-            <!-- Founder & Managing Director Profile Section with shafir.jpg -->
+            <!-- Founder & Managing Director Profile Section -->
             <section class="py-20 bg-corporate text-white" data-aos="fade-up">
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="bg-corporate-light/40 border border-slate-700 p-8 sm:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center">
@@ -445,7 +415,7 @@
                             const apiKey = '';
                             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
                             const payload = {
-                                contents: [{ parts: [{ text: `You are an expert Qatari corporate formation consultant at Serve Ease Business Solutions, Doha. Answer this user question concisely and professionally: ${q}` }] }],
+                                contents: [{ parts: [{ text: `You are an expert Qatari corporate formation and licensing consultant at Serve Ease Business Solutions in Doha, Qatar. Provide a precise, accurate, and professional response to this inquiry: ${q}` }] }],
                                 tools: [{ 'google_search': {} }]
                             };
                             const res = await fetch(apiUrl, {
@@ -455,7 +425,7 @@
                             });
                             const data = await res.json();
                             const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                            this.aiAnswer = text || 'Sorry, I could not fetch details at the moment. Please contact our Doha office directly.';
+                            this.aiAnswer = text || 'Please contact our Doha office directly for precise licensing details.';
                         } catch(e) {
                             this.aiAnswer = 'Error connecting to AI advisor. Please reach out via WhatsApp.';
                         }
@@ -554,7 +524,7 @@
                                     <h4 class="font-bold text-slate-900 text-sm mt-1" x-text="act.title"></h4>
                                     <p class="text-xs text-slate-500 mt-1" x-text="act.description"></p>
                                 </div>
-                                <button @click="openCalcForService('E-Commerce')" class="mt-4 text-xs font-bold text-blue-600 hover:underline text-left">Apply for Activity &rarr;</button>
+                                <button @click="calcActivity = 'E-Commerce'; calcStep = 2; calcModalOpen = true;" class="mt-4 text-xs font-bold text-blue-600 hover:underline text-left">Apply for Activity &rarr;</button>
                             </div>
                         </template>
                     </div>
@@ -563,14 +533,14 @@
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Need a Custom E-Commerce Activity Approved?</h3>
                     <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Our team handles MOCI submissions and payment gateway integration support with top Qatari banks.</p>
-                    <button @click="openCalcForService('E-Commerce')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105">
+                    <button @click="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block">
                         Get E-Commerce License Estimate
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- SERVICE DETAIL VIEW (8 Dedicated Pages with Photos & Animations) -->
+        <!-- SERVICE DETAIL VIEW -->
         <div x-show="currentRoute === 'service'" class="py-16 bg-slate-50 min-h-screen">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
@@ -657,7 +627,7 @@
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Need Assistance with This Service?</h3>
                         <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Our team handles government submissions and licensing procedures with top Qatari authorities.</p>
-                        <button type="button" @click="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
+                        <button type="button" @click="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
                             Book Consultation Now
                         </button>
                     </div>
@@ -665,7 +635,7 @@
             </div>
         </div>
 
-        <!-- APPROVAL DETAIL VIEW (4 Dedicated Pages without Company Formation references + Photos & Animations) -->
+        <!-- APPROVAL DETAIL VIEW -->
         <div x-show="currentRoute === 'approval'" class="py-16 bg-slate-50 min-h-screen">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
@@ -750,7 +720,7 @@
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Need This Approval Urgently?</h3>
                         <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Let our government liaison experts handle your ministry paperwork today.</p>
-                        <button type="button" @click="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
+                        <button type="button" @click="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
                             Book Approval Assistance
                         </button>
                     </div>
@@ -759,7 +729,7 @@
         </div>
     </main>
 
-    <!-- FOOTER (Centered Logo without background container + Name + Correct Working Hours) -->
+    <!-- FOOTER -->
     <footer id="contact" class="bg-corporate text-white pt-16 pb-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center text-center mb-12">
@@ -777,7 +747,7 @@
                         <li><a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="hover:text-blue-400 transition-colors">Home</a></li>
                         <li><a href="#" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('services').scrollIntoView({behavior:'smooth'}), 100)" class="hover:text-blue-400 transition-colors">Services</a></li>
                         <li><a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'})" class="hover:text-blue-400 transition-colors">194 E-Commerce Directory</a></li>
-                        <li><a href="#" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior:'smooth'}), 100)" class="hover:text-blue-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" @click.prevent="scrollToContact()" class="hover:text-blue-400 transition-colors">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
@@ -800,7 +770,7 @@
         </div>
     </footer>
 
-    <!-- COST CALCULATOR MODAL (Steps 1 to 5) -->
+    <!-- COST CALCULATOR MODAL -->
     <div x-show="calcModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" x-cloak>
         <div class="bg-white rounded-3xl shadow-2xl max-w-xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto" @click.away="calcModalOpen = false">
             <button @click="calcModalOpen = false" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 font-bold">&times;</button>
