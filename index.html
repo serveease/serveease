@@ -170,7 +170,7 @@
                 <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'home' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">Home</a>
                 <a href="#about" @click.prevent="currentRoute = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-blue-600 transition-colors">About Us</a>
                 
-                <!-- Services Dropdown (Text only, no images) -->
+                <!-- Services Dropdown -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Services</span>
@@ -188,7 +188,7 @@
 
                 <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
 
-                <!-- Approvals Dropdown (Text only, no images) -->
+                <!-- Approvals Dropdown -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors py-2">
                         <span>Approvals</span>
