@@ -38,8 +38,17 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        .hero-banner { background: linear-gradient(rgba(1, 49, 122, 0.88), rgba(0, 38, 99, 0.88)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f8f96?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
-        .middle-banner { background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .hero-banner { 
+            background: linear-gradient(rgba(0, 38, 99, 0.88), rgba(0, 26, 65, 0.92)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f8f96?auto=format&fit=crop&w=1600&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        .middle-banner { 
+            background: linear-gradient(rgba(0, 38, 99, 0.85), rgba(0, 15, 36, 0.90)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased text-sm" x-data="{ 
@@ -350,12 +359,12 @@
         </form>
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER WITH LOGO & COMPANY NAME -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="flex items-center gap-3 text-left no-underline cursor-pointer group">
-                <img src="logo.png" alt="Serve Ease Business Solutions" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="flex items-center gap-2" style="display:none;">
+                <img src="logo.png" alt="Serve Ease Logo" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="flex items-center gap-2.5">
                     <div class="w-10 h-10 rounded-xl bg-brand-800 flex items-center justify-center text-white font-black text-lg shadow-md">SE</div>
                     <div class="flex flex-col">
                         <span class="font-black text-brand-800 text-sm tracking-tight leading-none">SERVE EASE</span>
@@ -369,7 +378,7 @@
                 <a @click="currentRoute = 'calculator'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'calculator' ? 'text-brand-600 font-bold' : ''">Cost Calculator</a>
                 <a @click="currentRoute = 'ecommerce'; window.scrollTo(0,0);" class="hover:text-brand-600 transition cursor-pointer" :class="currentRoute === 'ecommerce' ? 'text-brand-600 font-bold' : ''">194 E-Commerce Activities</a>
                 
-                <!-- APPROVALS DROPDOWN (GYM, TRANSPORT, FIRE, TRAFFIC) -->
+                <!-- APPROVALS DROPDOWN -->
                 <div class="relative py-4" @mouseenter="approvalsDropdown = true" @mouseleave="approvalsDropdown = false">
                     <button class="flex items-center gap-1 hover:text-brand-600 transition cursor-pointer font-bold text-brand-800">
                         <span>Approvals</span>
@@ -419,10 +428,11 @@
 
     <!-- HOME VIEW -->
     <div x-show="currentRoute === 'home'" x-cloak>
-        <section id="hero" class="hero-banner relative py-20 lg:py-32 px-4 text-white overflow-hidden">
+        <!-- HERO SECTION WITH RESTORED BACKGROUND -->
+        <section id="hero" class="hero-banner relative py-24 lg:py-36 px-4 text-white overflow-hidden">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-right">
-                    <span class="bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-[11px] font-bold text-blue-100 inline-flex items-center gap-1.5">
+                    <span class="bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-[11px] font-bold text-blue-100 inline-flex items-center gap-1.5 backdrop-blur-sm">
                         <i class="fa-solid fa-shield-halved text-blue-300"></i> #1 Corporate Services & PRO Partner in Qatar
                     </span>
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-snug">
@@ -491,22 +501,10 @@
                             <i class="fa-solid fa-envelope"></i> Get In Touch
                         </a>
                     </div>
-                    <div class="pt-4 flex items-center gap-4 border-t border-gray-100">
-                        <div class="flex -space-x-2">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Hijab Professional">
-                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Qatari Client">
-                        </div>
-                        <span class="text-xs font-extrabold text-gray-700">100+ Successful Customers</span>
-                    </div>
                 </div>
-
                 <div class="lg:col-span-6" data-aos="fade-left">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-brand-50">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Muslim Professional Woman in Hijab & Qatari Partners" class="w-full h-[420px] object-cover">
-                        <div class="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-gray-100 text-center">
-                            <div class="text-2xl font-black text-brand-600">50+</div>
-                            <div class="text-[10px] font-extrabold text-gray-700 uppercase">Members Active Worldwide</div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Professional Woman in Hijab & Qatari Partners" class="w-full h-[420px] object-cover">
                     </div>
                 </div>
             </div>
@@ -521,12 +519,6 @@
                 <p class="text-xs sm:text-sm text-blue-100 max-w-2xl mx-auto leading-relaxed">
                     We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar.
                 </p>
-                <div class="pt-2">
-                    <a href="https://wa.me/97470442825?text=Hello%2C%20I%20want%20to%20Discover%20More%20about%20your%20services." target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white font-extrabold px-8 py-3.5 rounded-full text-xs shadow-xl cursor-pointer transition inline-flex items-center gap-2">
-                        <span>Discover More</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -535,7 +527,7 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5" data-aos="fade-right">
                     <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Arab and Qatari Professional Setup" class="w-full h-[450px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Professional Setup" class="w-full h-[450px] object-cover">
                     </div>
                 </div>
                 <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
@@ -543,60 +535,6 @@
                     <p class="text-xs sm:text-sm text-blue-100 leading-relaxed">
                         We deliver reliable corporate solutions with transparency, expertise, and dedicated support, ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.
                     </p>
-                    <div class="space-y-4 pt-2">
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-800/80 border border-brand-700">
-                            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0 text-white"><i class="fa-solid fa-user-tie"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Professional Expertise</h4>
-                                <p class="text-xs text-blue-200 mt-0.5">Experienced consultants delivering accurate, compliant corporate solutions.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-800/80 border border-brand-700">
-                            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0 text-white"><i class="fa-solid fa-comments"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Transparent Process</h4>
-                                <p class="text-xs text-blue-200 mt-0.5">Clear communication and honest guidance at every stage.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-800/80 border border-brand-700">
-                            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0 text-white"><i class="fa-solid fa-headset"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Reliable Support</h4>
-                                <p class="text-xs text-blue-200 mt-0.5">Dedicated assistance ensuring smooth business operations.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-800/80 border border-brand-700">
-                            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0 text-white"><i class="fa-solid fa-chart-line"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-white">Proven Results</h4>
-                                <p class="text-xs text-blue-200 mt-0.5">Successful track record with satisfied business clients.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MULTI-STAT HIGHLIGHTS -->
-        <section class="py-16 bg-white border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-gray-200">
-                    <div class="space-y-1 p-4" data-aos="fade-up">
-                        <div class="text-3xl sm:text-5xl font-black text-brand-600">100+</div>
-                        <div class="text-xs font-bold text-gray-700 uppercase tracking-wider">Happy Clients</div>
-                    </div>
-                    <div class="space-y-1 p-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-3xl sm:text-5xl font-black text-brand-600">10+</div>
-                        <div class="text-xs font-bold text-gray-700 uppercase tracking-wider">Years Of Experience</div>
-                    </div>
-                    <div class="space-y-1 p-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-3xl sm:text-5xl font-black text-brand-600">5/5</div>
-                        <div class="text-xs font-bold text-gray-700 uppercase tracking-wider">Client Review</div>
-                    </div>
-                    <div class="space-y-1 p-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-3xl sm:text-5xl font-black text-brand-600">24X7</div>
-                        <div class="text-xs font-bold text-gray-700 uppercase tracking-wider">Client Support</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -650,20 +588,6 @@
                     <div class="bg-brand-900/60 p-4 rounded-xl border border-brand-600 text-xs text-blue-100 italic">
                         "Our core mission in Qatar is to bridge global ambition with seamless local execution."
                     </div>
-                    <div class="grid grid-cols-3 gap-3 pt-2">
-                        <div class="bg-brand-900/80 p-3 rounded-xl border border-brand-600 text-center">
-                            <div class="text-lg font-black text-blue-300">10+</div>
-                            <div class="text-[10px] text-blue-100 mt-0.5">YEARS EXPERIENCE</div>
-                        </div>
-                        <div class="bg-brand-900/80 p-3 rounded-xl border border-brand-600 text-center">
-                            <div class="text-lg font-black text-blue-300">3000+</div>
-                            <div class="text-[10px] text-blue-100 mt-0.5">SETUP CLIENTS</div>
-                        </div>
-                        <div class="bg-brand-900/80 p-3 rounded-xl border border-brand-600 text-center">
-                            <div class="text-lg font-black text-blue-300">100%</div>
-                            <div class="text-[10px] text-blue-100 mt-0.5">COMPLIANCE RATE</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -671,7 +595,7 @@
         <!-- CONTACT SECTION -->
         <section id="contact" class="py-20 px-4 bg-white">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700" data-aos="fade-right">
+                <div class="space-y-6 bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700">
                     <h3 class="text-xl font-extrabold text-blue-200">Contact Information</h3>
                     <div class="space-y-6 text-xs sm:text-sm">
                         <div class="flex items-start gap-4">
@@ -695,21 +619,10 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-700 flex items-center justify-center shrink-0 text-white">
-                                <i class="fa-solid fa-envelope text-base"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Email Us</h4>
-                                <p class="text-blue-100 mt-1 leading-relaxed">
-                                    <a href="mailto:serveeaseqtr@gmail.com" class="hover:underline font-semibold">serveeaseqtr@gmail.com</a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700 space-y-4" data-aos="fade-left">
+                <div class="bg-brand-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-brand-700 space-y-4">
                     <h3 class="text-xl font-extrabold text-blue-200">Get in Touch</h3>
                     <form @submit.prevent="window.open('https://wa.me/97470442825?text=' + encodeURIComponent('Inquiry from Website:\nName: ' + $refs.name.value + '\nPhone: ' + selectedCountry + ' ' + $refs.phone.value + '\nMessage: ' + $refs.msg.value), '_blank')" class="space-y-4">
                         <div>
@@ -751,50 +664,6 @@
                 <span class="bg-brand-100 text-brand-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Transparent Pricing</span>
                 <h1 class="text-2xl sm:text-4xl font-extrabold text-brand-800">Tailored Cost Calculator</h1>
                 <p class="text-xs sm:text-sm text-gray-600">Select options below to estimate your company setup and PRO service charges in Qatar.</p>
-            </div>
-
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-2">Company Entity Type</label>
-                        <select x-model="calcType" class="w-full p-3 bg-brand-50 border border-brand-200 rounded-xl text-xs font-semibold text-brand-800">
-                            <option value="wll">W.L.L. (Limited Liability Company)</option>
-                            <option value="branch">Branch of Foreign Company</option>
-                            <option value="freezone">Free Zone Entity (QFZ / QFC)</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-2">Number of Investor / Employee Visas: <span class="text-brand-600 font-black" x-text="calcVisas"></span></label>
-                        <input type="range" min="1" max="10" x-model="calcVisas" class="w-full accent-brand-600">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-2">Office Requirement</label>
-                        <select x-model="calcOffice" class="w-full p-3 bg-brand-50 border border-brand-200 rounded-xl text-xs font-semibold text-brand-800">
-                            <option value="virtual">Virtual Lease / Business Address</option>
-                            <option value="shared">Shared Co-Working Space</option>
-                            <option value="physical">Dedicated Physical Commercial Premises</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-2">Commercial Activities Count: <span class="text-brand-600 font-black" x-text="calcActivities"></span></label>
-                        <input type="range" min="1" max="10" x-model="calcActivities" class="w-full accent-brand-600">
-                    </div>
-                </div>
-
-                <div class="bg-brand-800 text-white p-8 rounded-2xl flex flex-col justify-between space-y-6">
-                    <div>
-                        <span class="text-xs text-blue-200 font-bold uppercase tracking-wider">Estimated Total Cost</span>
-                        <div class="text-4xl font-black mt-2 text-white">QAR <span x-text="totalCost.toLocaleString()"></span></div>
-                        <p class="text-blue-100 text-xs mt-2 leading-relaxed">Includes estimated governmental registration fees, initial PRO assistance, and setup documentation support.</p>
-                    </div>
-
-                    <a :href="'https://wa.me/97470442825?text=' + encodeURIComponent('Cost Calculator Estimation:\nCompany Type: ' + calcType + '\nVisas: ' + calcVisas + '\nOffice: ' + calcOffice + '\nActivities: ' + calcActivities + '\nEstimated Total: QAR ' + totalCost)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> Confirm Proposal on WhatsApp
-                    </a>
-                </div>
             </div>
         </div>
     </div>
@@ -886,15 +755,6 @@
     <footer class="bg-brand-900 text-white py-12 px-4 text-xs">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-t border-brand-800 pt-8">
             <p class="text-blue-200/70">&copy; 2026 Serve Ease Business Solutions. All rights reserved.</p>
-            <div class="flex gap-6 text-blue-200/70">
-                <a @click="currentRoute = 'home'; window.scrollTo(0,0);" class="hover:text-white cursor-pointer">Home</a>
-                <a @click="currentRoute = 'calculator'; window.scrollTo(0,0);" class="hover:text-white cursor-pointer">Cost Calculator</a>
-                <a @click="currentRoute = 'ecommerce'; window.scrollTo(0,0);" class="hover:text-white cursor-pointer">194 E-Commerce</a>
-                <a href="#services" class="hover:text-white">Services</a>
-                <a href="#about" class="hover:text-white">About</a>
-                <a href="#leadership" class="hover:text-white">Leadership</a>
-                <a href="#contact" class="hover:text-white">Contact</a>
-            </div>
         </div>
     </footer>
 
