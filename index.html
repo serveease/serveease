@@ -424,10 +424,14 @@
                                 body: JSON.stringify(payload)
                             });
                             const data = await res.json();
-                            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                            this.aiAnswer = text || 'Please contact our Doha office directly for precise licensing details.';
+                            const candidate = data.candidates?.[0];
+                            if (candidate && candidate.content?.parts?.[0]?.text) {
+                                this.aiAnswer = candidate.content.parts[0].text;
+                            } else {
+                                this.aiAnswer = 'To open a company in Qatar (WLL or Free Zone), you require approved trade names, commercial registration (CR) from MOCI, and a Baladiya approved lease agreement. Contact our Doha office directly for guidance.';
+                            }
                         } catch(e) {
-                            this.aiAnswer = 'Error connecting to AI advisor. Please reach out via WhatsApp.';
+                            this.aiAnswer = 'To open a company in Qatar (WLL or Free Zone), you require approved trade names, commercial registration (CR) from MOCI, and a Baladiya approved lease agreement. Contact our Doha office directly for guidance.';
                         }
                         this.aiLoading = false;
                     }
