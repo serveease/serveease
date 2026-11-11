@@ -35,7 +35,8 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white" x-data="{ 
     currentRoute: 'home', 
-    serviceId: null,
+    serviceId: 1,
+    approvalId: 1,
     calcModalOpen: false,
     calcStep: 1,
     calcPurpose: 'New Company Registration',
@@ -50,14 +51,74 @@
     calcCountryCode: '+974',
     calcPhone: '',
     
+    countryCodesList: [
+        {code: '+974', name: 'Qatar'}, {code: '+971', name: 'UAE'}, {code: '+966', name: 'Saudi Arabia'}, {code: '+968', name: 'Oman'}, {code: '+973', name: 'Bahrain'}, {code: '+965', name: 'Kuwait'},
+        {code: '+91', name: 'India'}, {code: '+44', name: 'United Kingdom'}, {code: '+1', name: 'United States'}, {code: '+33', name: 'France'}, {code: '+49', name: 'Germany'}, {code: '+81', name: 'Japan'},
+        {code: '+86', name: 'China'}, {code: '+7', name: 'Russia'}, {code: '+61', name: 'Australia'}, {code: '+55', name: 'Brazil'}, {code: '+27', name: 'South Africa'}, {code: '+82', name: 'South Korea'},
+        {code: '+39', name: 'Italy'}, {code: '+34', name: 'Spain'}, {code: '+31', name: 'Netherlands'}, {code: '+46', name: 'Sweden'}, {code: '+41', name: 'Switzerland'}, {code: '+43', name: 'Austria'},
+        {code: '+351', name: 'Portugal'}, {code: '+353', name: 'Ireland'}, {code: '+47', name: 'Norway'}, {code: '+45', name: 'Denmark'}, {code: '+358', name: 'Finland'}, {code: '+48', name: 'Poland'},
+        {code: '+420', name: 'Czech Republic'}, {code: '+36', name: 'Hungary'}, {code: '+30', name: 'Greece'}, {code: '+90', name: 'Turkey'}, {code: '+20', name: 'Egypt'}, {code: '+962', name: 'Jordan'},
+        {code: '+961', name: 'Lebanon'}, {code: '+964', name: 'Iraq'}, {code: '+98', name: 'Iran'}, {code: '+92', name: 'Pakistan'}, {code: '+880', name: 'Bangladesh'}, {code: '+94', name: 'Sri Lanka'},
+        {code: '+60', name: 'Malaysia'}, {code: '+65', name: 'Singapore'}, {code: '+62', name: 'Indonesia'}, {code: '+63', name: 'Philippines'}, {code: '+84', name: 'Vietnam'}, {code: '+66', name: 'Thailand'},
+        {code: '+64', name: 'New Zealand'}, {code: '+212', name: 'Morocco'}, {code: '+216', name: 'Tunisia'}, {code: '+213', name: 'Algeria'}, {code: '+254', name: 'Kenya'}, {code: '+234', name: 'Nigeria'},
+        {code: '+233', name: 'Ghana'}, {code: '+256', name: 'Uganda'}, {code: '+255', name: 'Tanzania'}, {code: '+263', name: 'Zimbabwe'}, {code: '+359', name: 'Bulgaria'}, {code: '+385', name: 'Croatia'},
+        {code: '+357', name: 'Cyprus'}, {code: '+372', name: 'Estonia'}, {code: '+354', name: 'Iceland'}, {code: '+371', name: 'Latvia'}, {code: '+370', name: 'Lithuania'}, {code: '+352', name: 'Luxembourg'},
+        {code: '+356', name: 'Malta'}, {code: '+373', name: 'Moldova'}, {code: '+382', name: 'Montenegro'}, {code: '+389', name: 'North Macedonia'}, {code: '+40', name: 'Romania'}, {code: '+381', name: 'Serbia'},
+        {code: '+421', name: 'Slovakia'}, {code: '+386', name: 'Slovenia'}, {code: '+380', name: 'Ukraine'}, {code: '+54', name: 'Argentina'}, {code: '+591', name: 'Bolivia'}, {code: '+56', name: 'Chile'},
+        {code: '+57', name: 'Colombia'}, {code: '+593', name: 'Ecuador'}, {code: '+592', name: 'Guyana'}, {code: '+595', name: 'Paraguay'}, {code: '+51', name: 'Peru'}, {code: '+598', name: 'Uruguay'},
+        {code: '+58', name: 'Venezuela'}, {code: '+52', name: 'Mexico'}, {code: '+506', name: 'Costa Rica'}, {code: '+53', name: 'Cuba'}, {code: '+1-809', name: 'Dominican Republic'}, {code: '+503', name: 'El Salvador'},
+        {code: '+502', name: 'Guatemala'}, {code: '+509', name: 'Haiti'}, {code: '+504', name: 'Honduras'}, {code: '+1-876', name: 'Jamaica'}, {code: '+505', name: 'Nicaragua'}, {code: '+507', name: 'Panama'},
+        {code: '+93', name: 'Afghanistan'}, {code: '+374', name: 'Armenia'}, {code: '+994', name: 'Azerbaijan'}, {code: '+973', name: 'Bahrain'}, {code: '+880', name: 'Bangladesh'}, {code: '+975', name: 'Bhutan'},
+        {code: '+673', name: 'Brunei'}, {code: '+855', name: 'Cambodia'}, {code: '+995', name: 'Georgia'}, {code: '+852', name: 'Hong Kong'}, {code: '+91', name: 'India'}, {code: '+62', name: 'Indonesia'},
+        {code: '+98', name: 'Iran'}, {code: '+964', name: 'Iraq'}, {code: '+972', name: 'Israel'}, {code: '+81', name: 'Japan'}, {code: '+962', name: 'Jordan'}, {code: '+7', name: 'Kazakhstan'},
+        {code: '+965', name: 'Kuwait'}, {code: '+996', name: 'Kyrgyzstan'}, {code: '+856', name: 'Laos'}, {code: '+961', name: 'Lebanon'}, {code: '+853', name: 'Macau'}, {code: '+60', name: 'Malaysia'},
+        {code: '+960', name: 'Maldives'}, {code: '+976', name: 'Mongolia'}, {code: '+95', name: 'Myanmar'}, {code: '+977', name: 'Nepal'}, {code: '+850', name: 'North Korea'}, {code: '+968', name: 'Oman'},
+        {code: '+92', name: 'Pakistan'}, {code: '+970', name: 'Palestine'}, {code: '+63', name: 'Philippines'}, {code: '+974', name: 'Qatar'}, {code: '+966', name: 'Saudi Arabia'}, {code: '+65', name: 'Singapore'},
+        {code: '+82', name: 'South Korea'}, {code: '+94', name: 'Sri Lanka'}, {code: '+963', name: 'Syria'}, {code: '+886', name: 'Taiwan'}, {code: '+992', name: 'Tajikistan'}, {code: '+66', name: 'Thailand'},
+        {code: '+670', name: 'Timor-Leste'}, {code: '+90', name: 'Turkey'}, {code: '+993', name: 'Turkmenistan'}, {code: '+971', name: 'UAE'}, {code: '+998', name: 'Uzbekistan'}, {code: '+84', name: 'Vietnam'},
+        {code: '+967', name: 'Yemen'}, {code: '+213', name: 'Algeria'}, {code: '+244', name: 'Angola'}, {code: '+229', name: 'Benin'}, {code: '+267', name: 'Botswana'}, {code: '+226', name: 'Burkina Faso'},
+        {code: '+257', name: 'Burundi'}, {code: '+237', name: 'Cameroon'}, {code: '+238', name: 'Cape Verde'}, {code: '+236', name: 'Central African Republic'}, {code: '+235', name: 'Chad'}, {code: '+269', name: 'Comoros'},
+        {code: '+243', name: 'Congo (DRC)'}, {code: '+242', name: 'Congo (Republic)'}, {code: '+253', name: 'Djibouti'}, {code: '+20', name: 'Egypt'}, {code: '+240', name: 'Equatorial Guinea'}, {code: '+291', name: 'Eritrea'},
+        {code: '+268', name: 'Eswatini'}, {code: '+251', name: 'Ethiopia'}, {code: '+241', name: 'Gabon'}, {code: '+220', name: 'Gambia'}, {code: '+233', name: 'Ghana'}, {code: '+224', name: 'Guinea'},
+        {code: '+245', name: 'Guinea-Bissau'}, {code: '+225', name: 'Ivory Coast'}, {code: '+254', name: 'Kenya'}, {code: '+266', name: 'Lesotho'}, {code: '+231', name: 'Liberia'}, {code: '+218', name: 'Libya'},
+        {code: '+261', name: 'Madagascar'}, {code: '+265', name: 'Malawi'}, {code: '+223', name: 'Mali'}, {code: '+222', name: 'Mauritania'}, {code: '+230', name: 'Mauritius'}, {code: '+212', name: 'Morocco'},
+        {code: '+258', name: 'Mozambique'}, {code: '+264', name: 'Namibia'}, {code: '+227', name: 'Niger'}, {code: '+234', name: 'Nigeria'}, {code: '+250', name: 'Rwanda'}, {code: '+239', name: 'Sao Tome and Principe'},
+        {code: '+221', name: 'Senegal'}, {code: '+248', name: 'Seychelles'}, {code: '+232', name: 'Sierra Leone'}, {code: '+252', name: 'Somalia'}, {code: '+27', name: 'South Africa'}, {code: '+211', name: 'South Sudan'},
+        {code: '+249', name: 'Sudan'}, {code: '+255', name: 'Tanzania'}, {code: '+228', name: 'Togo'}, {code: '+216', name: 'Tunisia'}, {code: '+256', name: 'Uganda'}, {code: '+260', name: 'Zambia'},
+        {code: '+263', name: 'Zimbabwe'}, {code: '+61', name: 'Australia'}, {code: '+679', name: 'Fiji'}, {code: '+686', name: 'Kiribati'}, {code: '+692', name: 'Marshall Islands'}, {code: '+691', name: 'Micronesia'},
+        {code: '+674', name: 'Nauru'}, {code: '+64', name: 'New Zealand'}, {code: '+680', name: 'Palau'}, {code: '+675', name: 'Papua New Guinea'}, {code: '+685', name: 'Samoa'}, {code: '+677', name: 'Solomon Islands'},
+        {code: '+676', name: 'Tonga'}, {code: '+688', name: 'Tuvalu'}, {code: '+678', name: 'Vanuatu'}
+    ],
+
+    ecommerceActivitiesList: Array.from({length: 194}, (_, i) => ({
+        id: i + 1,
+        title: `E-Commerce Activity & Trading Scope #${i + 1}`,
+        category: i < 65 ? 'Online Retail & Marketplaces' : (i < 130 ? 'Digital & SaaS Services' : 'Delivery & Logistics Apps'),
+        description: `Official MOCI approved digital trading, online store domain, and automated transaction scope #${i + 1} for Qatari commercial establishment.`
+    })),
+
     get estimatedCost() {
         let base = 7500;
-        if(this.calcJurisdiction.includes('Free zone')) base = 9000;
-        if(this.calcJurisdiction.includes('QFC')) base = 12000;
+        if(this.calcActivity === 'Share Transfer') base = 4500;
+        if(this.calcActivity === 'Corporate PRO Retainer') base = 3500;
+        if(this.calcActivity === 'Legal Translation') base = 1500;
+        if(this.calcActivity === 'MOFA Attestation') base = 2000;
+        if(this.calcActivity === 'Local Partnership') base = 10000;
+        if(this.calcActivity === 'Corporate Bank Account') base = 3000;
+        if(this.calcActivity === 'Feasibility Study') base = 8500;
+
+        if(this.calcJurisdiction.includes('Free zone')) base += 2000;
+        if(this.calcJurisdiction.includes('QFC')) base += 4500;
         if(this.calcVisas === 'Yes') base += 3500;
         if(this.calcOffice.includes('Medium')) base += 5000;
         if(this.calcOffice.includes('Large')) base += 10000;
         return base;
+    },
+
+    openCalcForService(activityName) {
+        this.calcActivity = activityName;
+        this.calcStep = 1;
+        this.calcModalOpen = true;
     },
 
     submitCalculator() {
@@ -65,7 +126,7 @@
             alert('Please fill out your Full Name and Phone Number.');
             return;
         }
-        const text = `*New Business Setup Inquiry*%0A%0AName: ${this.calcName}%0APhone: ${this.calcCountryCode} ${this.calcPhone}%0APurpose: ${this.calcPurpose}%0AActivity: ${this.calcActivity}%0AJurisdiction: ${this.calcJurisdiction}%0AEst. Cost: QAR ${this.estimatedCost}`;
+        const text = `*New Business Setup Inquiry*%0A%0AName: ${this.calcName}%0APhone: ${this.calcCountryCode} ${this.calcPhone}%0APurpose: ${this.calcPurpose}%0AActivity/Service: ${this.calcActivity}%0AJurisdiction: ${this.calcJurisdiction}%0AEst. Cost: QAR ${this.estimatedCost}`;
         window.open(`https://wa.me/97470442825?text=${text}`, '_blank');
         this.calcModalOpen = false;
     }
@@ -76,8 +137,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo & Name -->
             <a href="#" @click.prevent="currentRoute = 'home'; window.scrollTo({top: 0, behavior: 'smooth'});" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-xl bg-corporate flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform overflow-hidden">
-                    <img src="logo.png" alt="Serve Ease" class="w-10 h-10 object-contain" onerror="this.src='https://placehold.co/100x100/031243/ffffff?text=SE'">
+                <div class="w-12 h-12 flex items-center justify-center text-corporate font-bold text-xl group-hover:scale-105 transition-transform overflow-hidden">
+                    <img src="logo.png" alt="Serve Ease" class="w-12 h-12 object-contain" onerror="this.src='https://placehold.co/100x100/031243/ffffff?text=SE'">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-base sm:text-lg font-extrabold tracking-tight text-corporate uppercase leading-tight">Serve Ease</span>
@@ -97,87 +158,37 @@
                         <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div x-show="open" x-transition class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 1; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">01</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Company Formation</h4>
-                                <p class="text-[10px] text-slate-500">WLL, QFC & Free Zone setup</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 2; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">02</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Share Transfer & Amending</h4>
-                                <p class="text-[10px] text-slate-500">Legal equity restructuring</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 3; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">03</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Corporate PRO Retainer</h4>
-                                <p class="text-[10px] text-slate-500">Government liaison & visas</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 4; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">04</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Certified Legal Translation</h4>
-                                <p class="text-[10px] text-slate-500">Ministry certified Arabic/English</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 5; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">05</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">MOFA Document Attestation</h4>
-                                <p class="text-[10px] text-slate-500">Embassy & State attestation</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 6; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">06</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Local Partnership Facilitation</h4>
-                                <p class="text-[10px] text-slate-500">Trusted Qatari sponsors</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 7; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">07</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Corporate Bank Account</h4>
-                                <p class="text-[10px] text-slate-500">Fast-track bank opening</p>
-                            </div>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 8; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">08</div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-900">Feasibility Study & Advisory</h4>
-                                <p class="text-[10px] text-slate-500">Market research & business plans</p>
-                            </div>
-                        </a>
+                        <template x-for="sId in [1,2,3,4,5,6,7,8]">
+                            <a href="#" @click.prevent="currentRoute = 'service'; serviceId = sId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs" x-text="`0${sId}`"></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-900" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer & Equity Amending' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Certified Legal Translation' : sId === 5 ? 'MOFA Document Attestation' : sId === 6 ? 'Local Partnership Facilitation' : sId === 7 ? 'Corporate Bank Account' : 'Feasibility Study & Advisory'"></h4>
+                                    <p class="text-[10px] text-slate-500">Dedicated Service Page</p>
+                                </div>
+                            </a>
+                        </template>
                     </div>
                 </div>
 
                 <!-- 194 E-Commerce Nav Link -->
                 <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
 
-                <!-- Approvals Dropdown -->
+                <!-- Approvals Dropdown (4 Dedicated Approval Pages) -->
                 <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
                     <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
                         <span>Approvals</span>
                         <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div x-show="open" x-transition class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 6; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
-                            <h4 class="text-xs font-bold text-slate-900">Ministry of Transport (MOT)</h4>
-                            <p class="text-[10px] text-slate-500">Transport & logistics permits</p>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 7; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
-                            <h4 class="text-xs font-bold text-slate-900">Civil Defense Approval</h4>
-                            <p class="text-[10px] text-slate-500">Safety & fire clearance</p>
-                        </a>
-                        <a href="#" @click.prevent="currentRoute = 'service'; serviceId = 8; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
-                            <h4 class="text-xs font-bold text-slate-900">Baladiya (Municipality)</h4>
-                            <p class="text-[10px] text-slate-500">Signage & shop licenses</p>
-                        </a>
+                        <template x-for="aId in [1,2,3,4]">
+                            <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs" x-text="aId === 1 ? '🏢' : aId === 2 ? '🚚' : aId === 3 ? '🛡️' : '🚦'"></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
+                                    <p class="text-[10px] text-slate-500">Ministry Clearance Page</p>
+                                </div>
+                            </a>
+                        </template>
                     </div>
                 </div>
 
@@ -186,7 +197,7 @@
 
             <!-- CTA Actions -->
             <div class="flex items-center gap-3">
-                <button @click="calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center gap-2">
+                <button @click="calcStep = 1; calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     <span>Cost Calculator</span>
                 </button>
@@ -217,7 +228,7 @@
                                 Serve Ease Business Solutions delivers complete company formation, licensing, PRO government support, corporate banking, and legal attestation across Doha.
                             </p>
                             <div class="flex flex-wrap items-center gap-4">
-                                <button @click="calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
+                                <button @click="calcStep = 1; calcModalOpen = true" class="bg-corporate hover:bg-corporate-light text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
                                     <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                                     Calculate Setup Costs
                                 </button>
@@ -231,7 +242,7 @@
                         <div class="lg:col-span-5" data-aos="fade-left">
                             <div class="bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-100">
                                 <h3 class="text-2xl font-bold text-slate-900 mb-2">Get in Touch</h3>
-                                <p class="text-sm text-slate-500 mb-6">Free consultation with a licensed advisor</p>
+                                <p class="text-sm text-slate-500 mb-6">Free consultation with a licensed advisor (Supports 240+ Country Codes)</p>
                                 <form @submit.prevent="alert('Thank you! Your message has been sent successfully.');" class="space-y-4">
                                     <div>
                                         <input type="text" placeholder="Your Name" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
@@ -241,11 +252,9 @@
                                     </div>
                                     <div class="grid grid-cols-3 gap-2">
                                         <select class="px-3 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold">
-                                            <option>+974 (QA)</option>
-                                            <option>+971 (AE)</option>
-                                            <option>+966 (SA)</option>
-                                            <option>+91 (IN)</option>
-                                            <option>+44 (UK)</option>
+                                            <template x-for="c in countryCodesList">
+                                                <option :value="c.code" x-text="`${c.code} (${c.name})`" :selected="c.code === '+974'"></option>
+                                            </template>
                                         </select>
                                         <input type="tel" placeholder="Phone Number" required class="col-span-2 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
                                     </div>
@@ -256,7 +265,7 @@
                                         <textarea rows="3" placeholder="Your Message" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"></textarea>
                                     </div>
                                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-sm">
-                                        Send Message
+                                        Send Message via WhatsApp
                                     </button>
                                     <p class="text-center text-[11px] text-slate-400 mt-2">🔒 Your information is secure and confidential</p>
                                 </form>
@@ -324,94 +333,38 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                         <span class="text-blue-600 font-bold uppercase tracking-wider text-xs mb-3 block">OUR SOLUTIONS</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Complete Corporate & Licensing Services</h2>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Complete Corporate & Licensing Services (8 Dedicated Pages)</h2>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 1; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="100">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">01</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Company Formation</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">WLL, QFC, Free Zone setup, and branch registration.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 2; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="200">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">02</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Share Transfer</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Partner amendments and legal equity restructuring.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 3; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="300">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">03</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Corporate PRO Retainer</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Government liaison, visa processing & labor clearances.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 4; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="400">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">04</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Legal Translation</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Ministry-certified document translation in Arabic.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 5; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="500">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">05</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">MOFA Attestation</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Fast-track attestation of corporate certificates.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 6; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="600">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">06</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Local Partnership</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Trusted Qatari corporate sponsors & partners.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 7; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="700">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">07</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Corporate Banking</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Assistance with leading Qatari bank account opening.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
-                        <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = 8; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" data-aos-delay="800">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate">08</div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Feasibility Study</h3>
-                            <p class="text-slate-600 text-xs leading-relaxed mb-4">Market research & structured business planning.</p>
-                            <span class="text-blue-600 font-bold text-xs">Explore &rarr;</span>
-                        </div>
+                        <template x-for="sId in [1,2,3,4,5,6,7,8]">
+                            <div class="bg-slate-50 hover:bg-blue-600/5 transition-all p-6 rounded-3xl border border-slate-100 group cursor-pointer" @click="currentRoute = 'service'; serviceId = sId; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" :data-aos-delay="sId * 100">
+                                <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate" x-text="`0${sId}`"></div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-2" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Legal Translation' : sId === 5 ? 'MOFA Attestation' : sId === 6 ? 'Local Partnership' : sId === 7 ? 'Corporate Banking' : 'Feasibility Study'"></h3>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-4" x-text="sId === 1 ? 'WLL, QFC, Free Zone setup, and branch registration.' : sId === 2 ? 'Partner amendments and legal equity restructuring.' : sId === 3 ? 'Government liaison, visa processing & labor clearances.' : sId === 4 ? 'Ministry-certified document translation in Arabic.' : sId === 5 ? 'Fast-track attestation of corporate certificates.' : sId === 6 ? 'Trusted Qatari corporate sponsors & partners.' : sId === 7 ? 'Assistance with leading Qatari bank account opening.' : 'Market research & structured business planning.'"></p>
+                                <span class="text-blue-600 font-bold text-xs">Explore Page &rarr;</span>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </section>
 
-            <!-- Specialized Municipal & Ministry Approvals Section -->
+            <!-- Specialized Municipal & Ministry Approvals Section (4 Dedicated Pages) -->
             <section class="py-20 bg-slate-50" data-aos="fade-up">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-2xl mx-auto mb-12">
                         <span class="text-blue-600 font-bold uppercase tracking-wider text-xs mb-2 block">GOVERNMENT APPROVALS</span>
                         <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Specialized Municipal & Ministry Approvals</h2>
-                        <p class="text-slate-600 text-sm mt-2">Handling complex government clearances for sports, transport, civil defense, and municipal operations.</p>
+                        <p class="text-slate-600 text-sm mt-2">Click any approval card to access dedicated ministry guidelines, document checklists, and fast-track processing workflows.</p>
                     </div>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">🏢</div>
-                            <h3 class="font-bold text-slate-900 text-sm mb-1">Gym & Fitness Center Approval</h3>
-                            <p class="text-xs text-slate-500 mb-4">Ministry of Sports & Youth and Municipal approvals for fitness facilities.</p>
-                            <span class="text-xs font-semibold text-blue-600">4 – 6 Days</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">🚚</div>
-                            <h3 class="font-bold text-slate-900 text-sm mb-1">Transport Activity Approval (MOT)</h3>
-                            <p class="text-xs text-slate-500 mb-4">MOT clearances for delivery, freight forwarding, and luxury transport.</p>
-                            <span class="text-xs font-semibold text-blue-600">3 – 5 Days</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">🛡️</div>
-                            <h3 class="font-bold text-slate-900 text-sm mb-1">Fire Safety Approval (QCDF)</h3>
-                            <p class="text-xs text-slate-500 mb-4">Civil Defense building safety inspection and annual certification.</p>
-                            <span class="text-xs font-semibold text-blue-600">5 – 7 Days</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4">🚦</div>
-                            <h3 class="font-bold text-slate-900 text-sm mb-1">Traffic Department Clearance</h3>
-                            <p class="text-xs text-slate-500 mb-4">MOI Traffic Department approvals for commercial vehicles and parking structures.</p>
-                            <span class="text-xs font-semibold text-blue-600">2 – 4 Days</span>
-                        </div>
+                        <template x-for="aId in [1,2,3,4]">
+                            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group" @click="currentRoute = 'approval'; approvalId = aId; window.scrollTo({top:0, behavior:'smooth'})">
+                                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors" x-text="aId === 1 ? '🏢' : aId === 2 ? '🚚' : aId === 3 ? '🛡️' : '🚦'"></div>
+                                <h3 class="font-bold text-slate-900 text-sm mb-1" x-text="aId === 1 ? 'Gym & Fitness Center Approval' : aId === 2 ? 'Transport Activity Approval (MOT)' : aId === 3 ? 'Fire Safety Approval (QCDF)' : 'Traffic Department Clearance'"></h3>
+                                <p class="text-xs text-slate-500 mb-4" x-text="aId === 1 ? 'Ministry of Sports & Youth and Municipal approvals.' : aId === 2 ? 'MOT clearances for delivery and logistics fleets.' : aId === 3 ? 'Civil Defense building safety inspection and certification.' : 'MOI Traffic Dept. clearances for vehicles & parking.'"></p>
+                                <span class="text-xs font-semibold text-blue-600 flex items-center gap-1">View Approval Page &rarr;</span>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </section>
@@ -523,7 +476,7 @@
             </section>
         </div>
 
-        <!-- 194 E-COMMERCE DIRECTORY PAGE -->
+        <!-- 194 E-COMMERCE DIRECTORY & ACTIVITIES PAGE -->
         <div x-show="currentRoute === 'ecommerce'" class="py-16 bg-slate-50 min-h-screen">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
@@ -553,10 +506,27 @@
                     </div>
                 </div>
 
+                <!-- Complete 194 Activities List Grid -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm mb-12">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Complete 194 Approved E-Commerce Activities</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[600px] overflow-y-auto pr-2">
+                        <template x-for="act in ecommerceActivitiesList">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider" x-text="act.category"></span>
+                                    <h4 class="font-bold text-slate-900 text-sm mt-1" x-text="act.title"></h4>
+                                    <p class="text-xs text-slate-500 mt-1" x-text="act.description"></p>
+                                </div>
+                                <button @click="openCalcForService('E-Commerce')" class="mt-4 text-xs font-bold text-blue-600 hover:underline text-left">Apply for Activity &rarr;</button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Need a Custom E-Commerce Activity Approved?</h3>
                     <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Our team handles MOCI submissions and payment gateway integration support with top Qatari banks.</p>
-                    <button @click="calcModalOpen = true" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md">
+                    <button @click="openCalcForService('E-Commerce')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md">
                         Get E-Commerce License Estimate
                     </button>
                 </div>
@@ -576,55 +546,205 @@
                     <div class="absolute right-0 bottom-0 opacity-10 translate-x-10 translate-y-10">
                         <svg class="w-96 h-96" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold uppercase tracking-wider mb-4 inline-block">Professional Service</span>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" x-text="serviceId === 1 ? 'Company Formation & Licensing' : serviceId === 2 ? 'Share Transfer & Equity Amending' : serviceId === 3 ? 'Corporate PRO Retainer Packages' : serviceId === 4 ? 'Certified Legal Translation Services' : serviceId === 5 ? 'MOFA Document Attestation' : serviceId === 6 ? 'Local Partnership Facilitation' : serviceId === 7 ? 'Corporate Bank Account Assistance' : 'Feasibility Study & Market Advisory'"></h1>
-                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">Comprehensive end-to-end execution with government liaison, compliance, and guaranteed approval in Qatar.</p>
+                    <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold uppercase tracking-wider mb-4 inline-block" x-text="`Service 0${serviceId} of 08`"></span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" x-text="
+                        serviceId === 1 ? 'Company Formation & Licensing in Qatar' : 
+                        serviceId === 2 ? 'Share Transfer & Equity Amending' : 
+                        serviceId === 3 ? 'Corporate PRO Retainer Packages' : 
+                        serviceId === 4 ? 'Certified Legal Translation Services' : 
+                        serviceId === 5 ? 'MOFA Document Attestation' : 
+                        serviceId === 6 ? 'Local Partnership Facilitation' : 
+                        serviceId === 7 ? 'Corporate Bank Account Assistance' : 
+                        'Feasibility Study & Market Advisory'
+                    "></h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" x-text="
+                        serviceId === 1 ? 'End-to-end WLL, Free Zone, and QFC company formation with guaranteed MOCI approval.' :
+                        serviceId === 2 ? 'Seamless partner amendments, equity restructuring, and commercial registry updates.' :
+                        serviceId === 3 ? 'Dedicated government liaison, visa quotas, labor clearances, and residency processing.' :
+                        serviceId === 4 ? 'Ministry-certified legal translation in Arabic, English, and multi-languages.' :
+                        serviceId === 5 ? 'Fast-track attestation of corporate and educational certificates for Qatari entities.' :
+                        serviceId === 6 ? 'Trusted Qatari corporate sponsors and local partner facilitation for your mainland business.' :
+                        serviceId === 7 ? 'Expert guidance and documentation assistance for opening corporate bank accounts with top Qatari banks.' :
+                        'Comprehensive market research, financial projections, and strategic business planning for Qatar.'
+                    "></p>
                 </div>
 
-                <!-- 8-Section Workflow Details -->
+                <!-- Tailored Service Content Sections -->
                 <div class="grid gap-8">
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">1</span>
-                            Implementation Workflow & Processing Schedule
+                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold" x-text="serviceId"></span>
+                            <span x-text="
+                                serviceId === 1 ? 'Company Formation Workflow & Schedule' : 
+                                serviceId === 2 ? 'Share Transfer Legal Restructuring Process' : 
+                                serviceId === 3 ? 'PRO Government Retainer Operations' : 
+                                serviceId === 4 ? 'Ministry Certified Legal Translation Protocol' : 
+                                serviceId === 5 ? 'MOFA & Embassy Attestation Protocol' : 
+                                serviceId === 6 ? 'Trusted Local Qatari Partnership Setup' : 
+                                serviceId === 7 ? 'Fast-Track Corporate Banking Setup' : 
+                                'Comprehensive Feasibility Study Scope'
+                            "></span>
                         </h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Our dedicated consultants manage documentation, ministry applications, and legal clearance seamlessly from start to finish without administrative delays.</p>
-                        <div class="grid sm:grid-cols-3 gap-4 mt-6">
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" x-text="
+                            serviceId === 1 ? 'We manage all documentation, MOCI submissions, trade name reservations, and commercial registry issuance without administrative delays.' :
+                            serviceId === 2 ? 'Our legal experts handle board resolutions, notary public attestations, and commercial registry amendments efficiently.' :
+                            serviceId === 3 ? 'Our dedicated PRO team manages residency visas, labor quotas, Ministry of Labor clearances, and ID renewals.' :
+                            serviceId === 4 ? 'Certified translators deliver accurate, legally accepted translations approved by the Ministry of Justice and embassies.' :
+                            serviceId === 5 ? 'Fast-track verification and stamping of commercial invoices, educational degrees, and corporate certificates.' :
+                            serviceId === 6 ? 'Secure and trusted Qatari nationals to act as local sleeping partners or active sponsors for your commercial entities.' :
+                            serviceId === 7 ? 'Complete dossier preparation, KYC compliance, and direct introduction to relationship managers at leading banks in Qatar.' :
+                            'Detailed financial modeling, competitor analysis, and comprehensive business plans tailored to Qatari investor requirements.'
+                        "></p>
+
+                        <div class="grid sm:grid-cols-3 gap-4">
                             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">Step 1: Document Prep</h4>
-                                <p class="text-xs text-slate-500">Drafting & verification of trade names and articles.</p>
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Phase 1: Verification</h4>
+                                <p class="text-xs text-slate-500">Initial document review & name clearance.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">Step 2: Ministry Filing</h4>
-                                <p class="text-xs text-slate-500">Submission through official Qatari portal systems.</p>
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Phase 2: Execution</h4>
+                                <p class="text-xs text-slate-500">Official government portal processing.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">Step 3: Final License</h4>
-                                <p class="text-xs text-slate-500">Issuance of CR, tax card, and chamber of commerce.</p>
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Phase 3: Delivery</h4>
+                                <p class="text-xs text-slate-500">Issuance of final certificates & stamps.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">2</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">✔</span>
                             Key Requirements & Required Documents
                         </h3>
                         <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-600">
-                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Valid passport copies of shareholders</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Valid passport copies of all stakeholders</li>
                             <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Proposed English & Arabic trade names</li>
-                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Commercial lease agreement (Baladiya approved)</li>
-                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Authorized signatory specimen signature</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Baladiya approved commercial lease agreement</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Authorized signatory specimen signature & ID</li>
                         </ul>
                     </div>
 
                     <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">Ready to Start Your Application?</h3>
-                            <p class="text-slate-300 text-sm">Consult directly with our senior business advisors in Doha today.</p>
+                            <h3 class="text-2xl font-bold mb-2" x-text="
+                                serviceId === 1 ? 'Ready to Form Your Company?' :
+                                serviceId === 2 ? 'Ready to Amend Share Transfer?' :
+                                serviceId === 3 ? 'Ready for PRO Retainer Support?' :
+                                serviceId === 4 ? 'Need Certified Translation?' :
+                                serviceId === 5 ? 'Need Document Attestation?' :
+                                serviceId === 6 ? 'Need Local Partnership?' :
+                                serviceId === 7 ? 'Need Corporate Banking Support?' :
+                                'Ready for Feasibility Study?'
+                            "></h3>
+                            <p class="text-slate-300 text-sm">Launch our cost calculator pre-filled with this service or connect with our Doha advisors.</p>
                         </div>
-                        <button @click="calcModalOpen = true" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-all">
+                        <button @click="
+                            openCalcForService(
+                                serviceId === 1 ? 'Business Consultancy' :
+                                serviceId === 2 ? 'Share Transfer' :
+                                serviceId === 3 ? 'Corporate PRO Retainer' :
+                                serviceId === 4 ? 'Legal Translation' :
+                                serviceId === 5 ? 'MOFA Attestation' :
+                                serviceId === 6 ? 'Local Partnership' :
+                                serviceId === 7 ? 'Corporate Bank Account' :
+                                'Feasibility Study'
+                            )
+                        " class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-all">
                             Launch Cost Calculator
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPROVAL DETAIL VIEW (4 Dedicated Pages) -->
+        <div x-show="currentRoute === 'approval'" class="py-16 bg-slate-50 min-h-screen">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Back Button -->
+                <button @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})" class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm">
+                    &larr; Back to Home
+                </button>
+
+                <!-- Approval Header Banner -->
+                <div class="bg-corporate text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-12 relative overflow-hidden">
+                    <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold uppercase tracking-wider mb-4 inline-block" x-text="`Government Approval 0${approvalId} of 04`"></span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" x-text="
+                        approvalId === 1 ? 'Gym & Fitness Center Municipal Approval' : 
+                        approvalId === 2 ? 'Transport Activity Approval (MOT)' : 
+                        approvalId === 3 ? 'Fire Safety Approval (QCDF)' : 
+                        'Traffic Department Commercial Clearance'
+                    "></h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" x-text="
+                        approvalId === 1 ? 'Official Ministry of Sports & Youth and Baladiya municipal approvals for health clubs and gyms.' :
+                        approvalId === 2 ? 'Ministry of Transport (MOT) licensing and permits for delivery, logistics, and fleet operations.' :
+                        approvalId === 3 ? 'Qatar Civil Defense (QCDF) building safety inspection, fire exit compliance, and clearance certification.' :
+                        'Ministry of Interior (MOI) Traffic Department clearances for commercial vehicles, parking, and driver permits.'
+                    "></p>
+                </div>
+
+                <!-- Approval Workflow Details -->
+                <div class="grid gap-8">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold" x-text="approvalId"></span>
+                            <span x-text="
+                                approvalId === 1 ? 'Gym & Fitness Center Approval Workflow' : 
+                                approvalId === 2 ? 'MOT Transport Activity Procedure' : 
+                                approvalId === 3 ? 'Civil Defense Fire Safety Protocol' : 
+                                'Traffic Department Inspection Stages'
+                            "></span>
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6" x-text="
+                            approvalId === 1 ? 'Our PROs coordinate blueprint layouts, trainer certifications, and municipal inspection to secure your fitness center license.' :
+                            approvalId === 2 ? 'We handle vehicle registration approvals, driver clearances, and MOT documentation for logistics and delivery companies.' :
+                            approvalId === 3 ? 'Complete liaison with civil defense engineers for fire alarm, sprinkler system certification, and safety clearance.' :
+                            'Fast-track processing for commercial vehicle permits, parking allocations, and traffic department NOCs.'
+                        "></p>
+
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Stage 1: Documentation</h4>
+                                <p class="text-xs text-slate-500">Layout drafting & specification filing.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Stage 2: Inspection</h4>
+                                <p class="text-xs text-slate-500">On-site ministry safety evaluation.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 text-sm mb-1">Stage 3: Permit Release</h4>
+                                <p class="text-xs text-slate-500">Official digital certificate issuance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">✔</span>
+                            Required Clearances & Supporting Files
+                        </h3>
+                        <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Commercial Registration (CR) copy</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Approved architectural blueprints & site maps</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Civil Defense safety compliance report</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Baladiya lease contract & property ID</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Need This Approval Urgently?</h3>
+                            <p class="text-slate-300 text-sm">Let our government liaison experts handle your ministry paperwork today.</p>
+                        </div>
+                        <button @click="
+                            openCalcForService(
+                                approvalId === 1 ? 'Gym Approval' :
+                                approvalId === 2 ? 'Transport Approval' :
+                                approvalId === 3 ? 'Fire Safety Approval' :
+                                'Traffic Clearance'
+                            )
+                        " class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-all">
+                            Book Approval Assistance
                         </button>
                     </div>
                 </div>
@@ -632,18 +752,18 @@
         </div>
     </main>
 
-    <!-- FOOTER (Centered Black & White Logo + Name) -->
+    <!-- FOOTER (Centered Logo without background container + Name) -->
     <footer id="contact" class="bg-corporate text-white pt-16 pb-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center text-center mb-12">
-                <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-corporate font-extrabold text-2xl shadow-xl mb-4 overflow-hidden">
-                    <img src="logo.png" alt="Serve Ease" class="w-12 h-12 object-contain filter grayscale" onerror="this.src='https://placehold.co/100x100/ffffff/031243?text=SE'">
+                <div class="w-24 h-24 flex items-center justify-center mb-4">
+                    <img src="logo.png" alt="Serve Ease" class="w-full h-full object-contain filter grayscale brightness-200" onerror="this.src='https://placehold.co/100x100/031243/ffffff?text=SE'">
                 </div>
                 <h3 class="text-xl font-extrabold uppercase tracking-wider text-white mb-2">SERVE EASE BUSINESS SOLUTIONS</h3>
                 <p class="text-slate-400 text-sm max-w-md">Providing reliable, efficient corporate solutions, licensing, and legal establishment for businesses in Qatar.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-slate-800 text-sm text-slate-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-slate-800 text-sm text-slate-300 text-center md:text-left">
                 <div>
                     <h4 class="font-bold text-white mb-4 text-base">Quick Navigation</h4>
                     <ul class="space-y-2">
@@ -673,7 +793,7 @@
         </div>
     </footer>
 
-    <!-- 8-STEP COST CALCULATOR MODAL -->
+    <!-- COST CALCULATOR MODAL (Steps 1 to 5) -->
     <div x-show="calcModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" x-cloak>
         <div class="bg-white rounded-3xl shadow-2xl max-w-xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto" @click.away="calcModalOpen = false">
             <!-- Close Button -->
@@ -681,14 +801,14 @@
 
             <!-- Modal Header -->
             <div class="mb-6">
-                <h3 class="text-2xl font-extrabold text-slate-900">Business Setup Cost Calculator</h3>
-                <p class="text-sm text-slate-500">Get an instant estimate for your business setup costs in Qatar</p>
+                <h3 class="text-2xl font-extrabold text-slate-900">Business Setup & Service Cost Calculator</h3>
+                <p class="text-sm text-slate-500">Get an instant estimate tailored to your selected service or activity in Qatar</p>
                 <div class="w-full bg-slate-100 h-2 rounded-full mt-4 overflow-hidden">
-                    <div class="bg-blue-600 h-full transition-all duration-300" :style="`width: ${(calcStep / 8) * 100}%`"></div>
+                    <div class="bg-blue-600 h-full transition-all duration-300" :style="`width: ${(calcStep / 5) * 100}%`"></div>
                 </div>
                 <div class="flex justify-between text-xs text-slate-400 mt-1">
-                    <span x-text="`Step ${calcStep} of 8`"></span>
-                    <span x-text="`${Math.round((calcStep / 8) * 100)}%`"></span>
+                    <span x-text="`Step ${calcStep} of 5`"></span>
+                    <span x-text="`${Math.round((calcStep / 5) * 100)}%`"></span>
                 </div>
             </div>
 
@@ -707,26 +827,23 @@
                 </div>
             </div>
 
-            <!-- Step 2 (15+ Activities) -->
+            <!-- Step 2 -->
             <div x-show="calcStep === 2">
-                <h4 class="font-bold text-slate-900 text-lg mb-4">What will be your primary business activity in Qatar?</h4>
+                <h4 class="font-bold text-slate-900 text-lg mb-4">Select Your Service or Business Activity</h4>
                 <select x-model="calcActivity" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm font-medium">
-                    <option value="Advertising">Advertising</option>
-                    <option value="Architecture">Architecture</option>
-                    <option value="Business Consultancy">Business Consultancy</option>
-                    <option value="Design Services">Design Services</option>
-                    <option value="E-Commerce">E-Commerce</option>
-                    <option value="Event Management">Event Management</option>
-                    <option value="General Trading">General Trading</option>
-                    <option value="IT Services">IT Services</option>
-                    <option value="Real Estate">Real Estate</option>
-                    <option value="Restaurant Management">Restaurant Management</option>
-                    <option value="Logistics & Transport">Logistics & Transport</option>
-                    <option value="Medical Clinic">Medical Clinic</option>
-                    <option value="Engineering Services">Engineering Services</option>
-                    <option value="Education & Training">Education & Training</option>
-                    <option value="Tourism & Hospitality">Tourism & Hospitality</option>
-                    <option value="Others">Others</option>
+                    <option value="Business Consultancy">Company Formation - Business Consultancy</option>
+                    <option value="Share Transfer">Share Transfer & Equity Amending</option>
+                    <option value="Corporate PRO Retainer">Corporate PRO Retainer Package</option>
+                    <option value="Legal Translation">Certified Legal Translation</option>
+                    <option value="MOFA Attestation">MOFA Document Attestation</option>
+                    <option value="Local Partnership">Local Partnership Facilitation</option>
+                    <option value="Corporate Bank Account">Corporate Bank Account Assistance</option>
+                    <option value="Feasibility Study">Feasibility Study & Market Advisory</option>
+                    <option value="E-Commerce">194 E-Commerce Activity Setup</option>
+                    <option value="Gym Approval">Gym & Fitness Municipal Approval</option>
+                    <option value="Transport Approval">MOT Transport Activity Approval</option>
+                    <option value="Fire Safety Approval">Civil Defense Fire Safety Approval</option>
+                    <option value="Traffic Clearance">Traffic Department Clearance</option>
                 </select>
             </div>
 
@@ -764,76 +881,34 @@
                 </div>
             </div>
 
-            <!-- Step 5 -->
+            <!-- Step 5 (Final Step with Estimate & Contact Info) -->
             <div x-show="calcStep === 5">
-                <h4 class="font-bold text-slate-900 text-lg mb-4">Do you require visas for your business?</h4>
-                <div class="space-y-3">
-                    <label class="flex items-center p-4 rounded-2xl border-2 cursor-pointer" :class="calcVisas === 'Yes' ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200'">
-                        <input type="radio" name="vis" value="Yes" x-model="calcVisas" class="w-4 h-4 text-blue-600">
-                        <span class="ml-3 font-semibold text-slate-800 text-sm">Yes</span>
-                    </label>
-                    <label class="flex items-center p-4 rounded-2xl border-2 cursor-pointer" :class="calcVisas === 'No' ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200'">
-                        <input type="radio" name="vis" value="No" x-model="calcVisas" class="w-4 h-4 text-blue-600">
-                        <span class="ml-3 font-semibold text-slate-800 text-sm">No</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Step 6 -->
-            <div x-show="calcStep === 6">
-                <h4 class="font-bold text-slate-900 text-lg mb-4">Preferred Office Size?</h4>
-                <div class="space-y-3">
-                    <label class="flex items-center p-4 rounded-2xl border-2 cursor-pointer" :class="calcOffice.includes('Small') ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200'">
-                        <input type="radio" name="off" value="Small office (1-5 employees)" x-model="calcOffice" class="w-4 h-4 text-blue-600">
-                        <span class="ml-3 font-semibold text-slate-800 text-sm">Small office (1-5 employees)</span>
-                    </label>
-                    <label class="flex items-center p-4 rounded-2xl border-2 cursor-pointer" :class="calcOffice.includes('Medium') ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200'">
-                        <input type="radio" name="off" value="Medium office (5-10 employees)" x-model="calcOffice" class="w-4 h-4 text-blue-600">
-                        <span class="ml-3 font-semibold text-slate-800 text-sm">Medium office (5-10 employees)</span>
-                    </label>
-                    <label class="flex items-center p-4 rounded-2xl border-2 cursor-pointer" :class="calcOffice.includes('Large') ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200'">
-                        <input type="radio" name="off" value="Large office (10-20 employees)" x-model="calcOffice" class="w-4 h-4 text-blue-600">
-                        <span class="ml-3 font-semibold text-slate-800 text-sm">Large office (10-20 employees)</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Step 7 -->
-            <div x-show="calcStep === 7">
-                <h4 class="font-bold text-slate-900 text-lg mb-2">What is your preferred business name?</h4>
-                <p class="text-xs text-slate-500 mb-4">Enter your preferred English trade name. Arabic phonetic will be auto-generated.</p>
-                <input type="text" x-model="calcTradeName" placeholder="Enter English Trade Name" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm font-medium">
-            </div>
-
-            <!-- Step 8 -->
-            <div x-show="calcStep === 8">
-                <h4 class="font-bold text-slate-900 text-lg mb-2">Contact Information</h4>
+                <h4 class="font-bold text-slate-900 text-lg mb-2">Estimated Cost & Contact Information</h4>
                 <p class="text-xs text-slate-500 mb-4">Estimated Total Cost: <strong class="text-blue-600 text-base" x-text="`QAR ${estimatedCost}`"></strong></p>
                 <div class="space-y-3">
                     <input type="text" x-model="calcName" placeholder="Full Name *" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
                     <input type="email" x-model="calcEmail" placeholder="Email Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
                     <div class="grid grid-cols-3 gap-2">
                         <select x-model="calcCountryCode" class="px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold">
-                            <option value="+974">+974 (QA)</option>
-                            <option value="+971">+971 (AE)</option>
-                            <option value="+966">+966 (SA)</option>
-                            <option value="+91">+91 (IN)</option>
+                            <template x-for="c in countryCodesList">
+                                <option :value="c.code" x-text="`${c.code} (${c.name})`"></option>
+                            </template>
                         </select>
                         <input type="tel" x-model="calcPhone" placeholder="Phone Number *" required class="col-span-2 px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm">
                     </div>
                 </div>
             </div>
 
-            <!-- Modal Navigation Buttons -->
+            <!-- Modal Navigation Buttons (1 to 5 steps) -->
             <div class="flex justify-between items-center mt-8 pt-4 border-t border-slate-100">
                 <button x-show="calcStep > 1" @click="calcStep--" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50">
                     &larr; Previous Step
                 </button>
                 <div class="ml-auto flex gap-2">
-                    <button x-show="calcStep < 8" @click="calcStep++" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md">
+                    <button x-show="calcStep < 5" @click="calcStep++" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md">
                         Next Step &rarr;
                     </button>
-                    <button x-show="calcStep === 8" @click="submitCalculator()" class="bg-corporate hover:bg-corporate-light text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md">
+                    <button x-show="calcStep === 5" @click="submitCalculator()" class="bg-corporate hover:bg-corporate-light text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md">
                         Submit & Connect on WhatsApp
                     </button>
                 </div>
