@@ -135,7 +135,7 @@
 
     openCalcForService(activityName) {
         this.calcActivity = activityName;
-        this.calcStep = 1;
+        this.calcStep = 2; // Directly start at Step 2 with the selected service pre-filled
         this.calcModalOpen = true;
     },
 
@@ -185,10 +185,48 @@
                     <div x-show="open" x-transition class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
                         <template x-for="sId in [1,2,3,4,5,6,7,8]">
                             <a href="#" @click.prevent="currentRoute = 'service'; serviceId = sId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs" x-text="`0${sId}`"></div>
+                                <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0">
+                                    <img :src="
+                                        sId === 1 ? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 2 ? 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 3 ? 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 4 ? 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 5 ? 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 6 ? 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=100&q=80' :
+                                        sId === 7 ? 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=100&q=80' :
+                                        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80'
+                                    " alt="Service thumbnail" class="w-full h-full object-cover">
+                                </div>
                                 <div>
                                     <h4 class="text-xs font-bold text-slate-900" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer & Equity Amending' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Certified Legal Translation' : sId === 5 ? 'MOFA Document Attestation' : sId === 6 ? 'Local Partnership Facilitation' : sId === 7 ? 'Corporate Bank Account' : 'Feasibility Study & Advisory'"></h4>
-                                    <p class="text-[10px] text-slate-500">Dedicated Service Page</p>
+                                    <p class="text-[10px] text-slate-500">View Service</p>
+                                </div>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <a href="#" @click.prevent="currentRoute = 'ecommerce'; window.scrollTo({top:0, behavior:'smooth'});" :class="currentRoute === 'ecommerce' ? 'text-blue-600 font-semibold' : 'hover:text-blue-600 transition-colors'">194 E-Commerce</a>
+
+                <div class="relative group" x-data="{ open: false }" @mouseleave="open = false">
+                    <button @mouseenter="open = true" @click="open = !open" class="flex items-center gap-1 hover:text-blue-600 transition-colors py-2">
+                        <span>Approvals</span>
+                        <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="open" x-transition class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 grid gap-1 z-50">
+                        <template x-for="aId in [1,2,3,4]">
+                            <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
+                                    <img :src="
+                                        aId === 1 ? 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=100&q=80' :
+                                        aId === 2 ? 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=100&q=80' :
+                                        aId === 3 ? 'https://images.unsplash.com/photo-1541888946425-d0fbb17887e5?auto=format&fit=crop&w=100&q=80' :
+                                        'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=100&q=80'
+                                    " alt="Approval thumbnail" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
+                                    <p class="text-[10px] text-slate-500">Ministry Approval</p>
                                 </div>
                             </a>
                         </template>
@@ -338,33 +376,33 @@
             </section>
 
             <!-- Empowering Business Growth Banner -->
-            <section class="relative py-24 bg-corporate text-white overflow-hidden">
-                <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')"></div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl" data-aos="zoom-in">
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">Empowering Business Growth Through Feasibility Study & Local Partnership Facilitations</h2>
-                    <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
-                        We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar.
-                    </p>
-                    <button @click="currentRoute = 'service'; serviceId = 8; window.scrollTo({top:0, behavior:'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:scale-105">
-                        Explore Feasibility & Advisory
-                    </button>
-                </div>
-            </section>
-
-            <!-- Core Services Grid (8 Services) -->
+            <!-- Core Services Grid (8 Services with Pictures instead of Numbers) -->
             <section id="services" class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                         <span class="text-blue-600 font-bold uppercase tracking-wider text-xs mb-3 block">OUR SOLUTIONS</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Complete Corporate & Licensing Services (8 Dedicated Pages)</h2>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Complete Corporate & Licensing Services</h2>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <template x-for="sId in [1,2,3,4,5,6,7,8]">
-                            <div class="bg-slate-50 hover:bg-blue-600/5 transition-all duration-300 p-6 rounded-3xl border border-slate-100 group cursor-pointer transform hover:-translate-y-2 hover:shadow-xl" @click="currentRoute = 'service'; serviceId = sId; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" :data-aos-delay="sId * 100">
-                                <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md group-hover:bg-corporate group-hover:rotate-6 transition-transform" x-text="`0${sId}`"></div>
-                                <h3 class="text-lg font-bold text-slate-900 mb-2" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Legal Translation' : sId === 5 ? 'MOFA Attestation' : sId === 6 ? 'Local Partnership' : sId === 7 ? 'Corporate Banking' : 'Feasibility Study'"></h3>
-                                <p class="text-slate-600 text-xs leading-relaxed mb-4" x-text="sId === 1 ? 'WLL, QFC, Free Zone setup, and branch registration.' : sId === 2 ? 'Partner amendments and legal equity restructuring.' : sId === 3 ? 'Government liaison, visa processing & labor clearances.' : sId === 4 ? 'Ministry-certified document translation in Arabic.' : sId === 5 ? 'Fast-track attestation of corporate certificates.' : sId === 6 ? 'Trusted Qatari corporate sponsors & partners.' : sId === 7 ? 'Assistance with leading Qatari bank account opening.' : 'Market research & structured business planning.'"></p>
-                                <span class="text-blue-600 font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore Page &rarr;</span>
+                            <div class="bg-slate-50 hover:bg-white transition-all duration-300 p-6 rounded-3xl border border-slate-100 group cursor-pointer transform hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between" @click="currentRoute = 'service'; serviceId = sId; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" :data-aos-delay="sId * 100">
+                                <div>
+                                    <div class="w-full h-40 rounded-2xl overflow-hidden mb-5 shadow-sm">
+                                        <img :src="
+                                            sId === 1 ? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 2 ? 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 3 ? 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 4 ? 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 5 ? 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 6 ? 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80' :
+                                            sId === 7 ? 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80' :
+                                            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'
+                                        " alt="Service image" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Legal Translation' : sId === 5 ? 'MOFA Attestation' : sId === 6 ? 'Local Partnership' : sId === 7 ? 'Corporate Banking' : 'Feasibility Study'"></h3>
+                                    <p class="text-slate-600 text-xs leading-relaxed mb-4" x-text="sId === 1 ? 'WLL, QFC, Free Zone setup, and branch registration.' : sId === 2 ? 'Partner amendments and legal equity restructuring.' : sId === 3 ? 'Government liaison, visa processing & labor clearances.' : sId === 4 ? 'Ministry-certified document translation in Arabic.' : sId === 5 ? 'Fast-track attestation of corporate certificates.' : sId === 6 ? 'Trusted Qatari corporate sponsors & partners.' : sId === 7 ? 'Assistance with leading Qatari bank account opening.' : 'Market research & structured business planning.'"></p>
+                                </div>
+                                <span class="text-blue-600 font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore Service &rarr;</span>
                             </div>
                         </template>
                     </div>
@@ -644,22 +682,11 @@
                     <div class="bg-gradient-to-r from-corporate to-corporate-light text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
                             <h3 class="text-2xl font-bold mb-2">Ready to Start Your Application?</h3>
-                            <p class="text-slate-300 text-sm">Launch our cost calculator pre-filled with this service or connect with our Doha advisors.</p>
+                            <p class="text-slate-300 text-sm">Consult directly with our senior business advisors in Doha today.</p>
                         </div>
-                        <button @click="
-                            openCalcForService(
-                                serviceId === 1 ? 'Business Consultancy' :
-                                serviceId === 2 ? 'Share Transfer' :
-                                serviceId === 3 ? 'Corporate PRO Retainer' :
-                                serviceId === 4 ? 'Legal Translation' :
-                                serviceId === 5 ? 'MOFA Attestation' :
-                                serviceId === 6 ? 'Local Partnership' :
-                                serviceId === 7 ? 'Corporate Bank Account' :
-                                'Feasibility Study'
-                            )
-                        " class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
-                            Launch Cost Calculator
-                        </button>
+                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>
@@ -753,16 +780,9 @@
                             <h3 class="text-2xl font-bold mb-2">Need This Approval Urgently?</h3>
                             <p class="text-slate-300 text-sm">Let our government liaison experts handle your ministry paperwork today.</p>
                         </div>
-                        <button @click="
-                            openCalcForService(
-                                approvalId === 1 ? 'Gym Approval' :
-                                approvalId === 2 ? 'Transport Approval' :
-                                approvalId === 3 ? 'Fire Safety Approval' :
-                                'Traffic Clearance'
-                            )
-                        " class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
-                            Book Approval Assistance
-                        </button>
+                        <a href="#contact" @click.prevent="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg whitespace-nowrap transition-transform hover:scale-105">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>
