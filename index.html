@@ -141,7 +141,7 @@
             if(el) el.scrollIntoView({behavior: 'smooth'});
         }
     }
-}" x-init="AOS.init({ once: true, duration: 800 })">
+}" x-init="calcModalOpen = false; AOS.init({ once: true, duration: 800 })">
 
     <!-- Floating WhatsApp & Call Buttons on Right Side -->
     <div class="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
