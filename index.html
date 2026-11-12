@@ -35,9 +35,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <div class="flex items-center gap-3 cursor-pointer" @click="currentRoute = 'home'; window.scrollTo({top:0, behavior:'smooth'})">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
-                    SE
-                </div>
+                <img src="logo.png" alt="Serve Ease Logo" class="w-10 h-10 rounded-xl object-contain bg-blue-700 p-1 shadow-md" onerror="this.src='https://placehold.co/100x100/1d4ed8/ffffff?text=SE'">
                 <div>
                     <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">SERVE EASE</span>
                     <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600">Business Solutions</span>
@@ -116,7 +114,7 @@
             <!-- Hero Section -->
             <section class="relative min-h-[90vh] flex items-center bg-slate-900 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80" alt="Doha Qatar Skyline" class="w-full h-full object-cover opacity-40 animate-slow-zoom">
+                    <img src="bg.jpg" alt="Doha Qatar Skyline" class="w-full h-full object-cover opacity-40 animate-slow-zoom" onerror="this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80'">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
                 </div>
 
@@ -193,6 +191,74 @@
                 </div>
             </section>
 
+            <!-- Who We Are / Strategic Business Support Section -->
+            <section class="py-24 bg-white" id="about">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-5" data-aos="fade-right">
+                            <div class="p-2 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Qatari & International Business Meeting" class="rounded-2xl object-cover w-full h-[380px]" onerror="this.src='https://placehold.co/800x600/0f172a/ffffff?text=Serve+Ease+Meeting'">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
+                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-4 py-2 rounded-full">Who We Are</span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Strategic Business Support Solutions</h2>
+                            <p class="text-slate-600 text-base leading-relaxed">
+                                We are dedicated corporate service professionals delivering reliable company formation, legal compliance, banking, translation, and business support solutions across Qatar.
+                            </p>
+                            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                                <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm"><i class="fas fa-chart-line"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-900">Professional Expertise</h4>
+                                        <p class="text-xs text-slate-500">Accurate formation & compliance.</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm"><i class="fas fa-shield-alt"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-900">Comprehensive Support</h4>
+                                        <p class="text-xs text-slate-500">End-to-end setup for growth.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md text-sm inline-flex items-center gap-2">
+                                    <span>Discover More</span>
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complete Corporate & Licensing Services Section -->
+            <section class="py-24 bg-slate-50" id="services-grid">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-4 py-2 rounded-full">Core Solutions</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Complete Corporate & Licensing Services</h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-3">Select any service below to explore complete requirements, regulatory steps, and direct booking options.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <template x-for="sId in [1,2,3,4,5,6,7,8]" :key="sId">
+                            <div class="bg-white hover:bg-slate-50 transition-all duration-300 p-6 rounded-3xl border border-slate-100 group cursor-pointer transform hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between" @click="currentRoute = 'service'; serviceId = sId; window.scrollTo({top:0, behavior:'smooth'})" data-aos="fade-up" :data-aos-delay="sId * 100">
+                                <div>
+                                    <div class="w-full h-40 rounded-2xl overflow-hidden mb-5 shadow-sm">
+                                        <img :src="servicesCatalog[sId].introImg" :alt="servicesCatalog[sId].title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Serve+Ease+Service'">
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 text-base mb-2 group-hover:text-blue-600 transition-colors" x-text="servicesCatalog[sId].title"></h3>
+                                    <p class="text-xs text-slate-500 leading-relaxed mb-4" x-text="servicesCatalog[sId].subtitle"></p>
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 inline-flex items-center gap-1">Explore Service &rarr;</span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+
             <!-- Services Grid Section -->
             <section class="py-24 bg-white" id="services-grid">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -215,6 +281,26 @@
                                 <span class="text-xs font-bold text-blue-600 inline-flex items-center gap-1">Explore Service &rarr;</span>
                             </div>
                         </template>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Founder / Leadership Section (Shafir Kottupurath Basheer) -->
+            <section class="py-16 bg-slate-950 text-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl" data-aos="zoom-in">
+                        <div class="w-28 h-28 rounded-full border-4 border-blue-500 mx-auto overflow-hidden shadow-xl mb-6">
+                            <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x300/0f172a/ffffff?text=Shafir'">
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-950 border border-blue-500/30 px-4 py-1.5 rounded-full">Founder & Managing Director</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-4 mb-3">Shafir Kottupurath Basheer</h3>
+                        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto italic leading-relaxed mb-8">
+                            "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution."
+                        </p>
+                        <a href="https://wa.me/97470442825?text=Hello%20Shafir,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20business%20setup%20in%20Qatar." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/30 transition-all inline-flex items-center gap-3 text-sm">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Consult Managing Director & Senior Business Consultant</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -247,6 +333,33 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Founder & Managing Director Section -->
+            <section class="py-20 bg-slate-950 text-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full p-1 bg-gradient-to-tr from-blue-600 to-indigo-500 shadow-xl">
+                            <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/200x200/0f172a/ffffff?text=Shafir'">
+                        </div>
+
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-blue-900/50 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">
+                            Founder & Managing Director
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Shafir Kottupurath Basheer</h2>
+                        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8 italic">
+                            "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution."
+                        </p>
+
+                        <a href="https://wa.me/97470442825?text=Hello%20Shafir,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20business%20setup%20in%20Qatar." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/30 inline-flex items-center gap-3 transition-all transform hover:-translate-y-0.5 text-sm">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Consult Managing Director & Senior Business Consultant</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- SERVICE DETAIL ROUTE -->
@@ -254,15 +367,15 @@
             <!-- Service Hero Banner -->
             <section class="relative py-28 bg-slate-900 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <img :src="servicesCatalog[serviceId].heroImg" alt="Service Hero" class="w-full h-full object-cover opacity-30 animate-slow-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+                    <img :src="servicesCatalog[serviceId].heroImg" alt="Service Hero" class="w-full h-full object-cover opacity-20 animate-slow-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-slate-950/90"></div>
                 </div>
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 border border-blue-500/30 px-4 py-2 rounded-full" x-text="servicesCatalog[serviceId].badge"></span>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mt-4 mb-4" x-text="servicesCatalog[serviceId].title"></h1>
-                    <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto" x-text="servicesCatalog[serviceId].subtitle"></p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/60 border border-blue-500/40 px-4 py-2 rounded-full shadow-lg" x-text="servicesCatalog[serviceId].badge"></span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mt-4 mb-4 drop-shadow-md" x-text="servicesCatalog[serviceId].title"></h1>
+                    <p class="text-slate-200 text-base sm:text-xl max-w-3xl mx-auto drop-shadow" x-text="servicesCatalog[serviceId].subtitle"></p>
                     <div class="mt-8">
-                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20a%20consultation%20for%20this%20service." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/30 inline-flex items-center gap-3">
+                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20a%20consultation%20for%20this%20service." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/30 inline-flex items-center gap-3 transition-transform hover:-translate-y-0.5">
                             <i class="fab fa-whatsapp text-lg"></i>
                             <span>Book Consultation Now</span>
                         </a>
@@ -275,10 +388,10 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
-                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg" x-text="servicesCatalog[serviceId].introTag"></span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100" x-text="servicesCatalog[serviceId].introTag"></span>
                             <h2 class="text-3xl font-extrabold text-slate-900" x-text="servicesCatalog[serviceId].introTitle"></h2>
-                            <p class="text-slate-600 text-base leading-relaxed" x-text="servicesCatalog[serviceId].introDesc1"></p>
-                            <p class="text-slate-600 text-base leading-relaxed" x-text="servicesCatalog[serviceId].introDesc2"></p>
+                            <p class="text-slate-700 text-base leading-relaxed" x-text="servicesCatalog[serviceId].introDesc1"></p>
+                            <p class="text-slate-700 text-base leading-relaxed" x-text="servicesCatalog[serviceId].introDesc2"></p>
                         </div>
                         <div class="lg:col-span-5" data-aos="fade-left">
                             <div class="p-2 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl shadow-xl">
@@ -289,7 +402,7 @@
                 </div>
             </section>
 
-            <!-- Grid Options Section -->
+            <!-- 6-Card Detailed Options Section -->
             <section class="py-20 bg-slate-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
@@ -311,7 +424,7 @@
                 </div>
             </section>
 
-            <!-- Luxury Chevron Banner -->
+            <!-- Luxury Blue & White Chevron Banner -->
             <section class="relative py-24 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 overflow-hidden text-white">
                 <div class="absolute inset-0 opacity-10 flex items-center justify-between pointer-events-none">
                     <i class="fas fa-chevron-right text-9xl text-blue-400"></i>
@@ -346,15 +459,15 @@
             <!-- Approval Hero Banner -->
             <section class="relative py-28 bg-slate-900 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <img :src="approvalsCatalog[approvalId].heroImg" alt="Approval Hero" class="w-full h-full object-cover opacity-30 animate-slow-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+                    <img :src="approvalsCatalog[approvalId].heroImg" alt="Approval Hero" class="w-full h-full object-cover opacity-20 animate-slow-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-slate-950/90"></div>
                 </div>
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 border border-blue-500/30 px-4 py-2 rounded-full" x-text="approvalsCatalog[approvalId].badge"></span>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mt-4 mb-4" x-text="approvalsCatalog[approvalId].title"></h1>
-                    <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto" x-text="approvalsCatalog[approvalId].subtitle"></p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/60 border border-blue-500/40 px-4 py-2 rounded-full shadow-lg" x-text="approvalsCatalog[approvalId].badge"></span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mt-4 mb-4 drop-shadow-md" x-text="approvalsCatalog[approvalId].title"></h1>
+                    <p class="text-slate-200 text-base sm:text-xl max-w-3xl mx-auto drop-shadow" x-text="approvalsCatalog[approvalId].subtitle"></p>
                     <div class="mt-8">
-                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20approval%20assistance." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/30 inline-flex items-center gap-3">
+                        <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20approval%20assistance." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-600/30 inline-flex items-center gap-3 transition-transform hover:-translate-y-0.5">
                             <i class="fab fa-whatsapp text-lg"></i>
                             <span>Book Approval Assistance</span>
                         </a>
@@ -367,10 +480,10 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
-                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg" x-text="approvalsCatalog[approvalId].introTag"></span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100" x-text="approvalsCatalog[approvalId].introTag"></span>
                             <h2 class="text-3xl font-extrabold text-slate-900" x-text="approvalsCatalog[approvalId].introTitle"></h2>
-                            <p class="text-slate-600 text-base leading-relaxed" x-text="approvalsCatalog[approvalId].introDesc1"></p>
-                            <p class="text-slate-600 text-base leading-relaxed" x-text="approvalsCatalog[approvalId].introDesc2"></p>
+                            <p class="text-slate-700 text-base leading-relaxed" x-text="approvalsCatalog[approvalId].introDesc1"></p>
+                            <p class="text-slate-700 text-base leading-relaxed" x-text="approvalsCatalog[approvalId].introDesc2"></p>
                         </div>
                         <div class="lg:col-span-5" data-aos="fade-left">
                             <div class="p-2 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl shadow-xl">
@@ -381,7 +494,7 @@
                 </div>
             </section>
 
-            <!-- Grid Options Section -->
+            <!-- 6-Card Detailed Options Section -->
             <section class="py-20 bg-slate-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
@@ -403,7 +516,7 @@
                 </div>
             </section>
 
-            <!-- Luxury Chevron Banner -->
+            <!-- Luxury Blue & White Chevron Banner -->
             <section class="relative py-24 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 overflow-hidden text-white">
                 <div class="absolute inset-0 opacity-10 flex items-center justify-between pointer-events-none">
                     <i class="fas fa-chevron-right text-9xl text-blue-400"></i>
@@ -462,7 +575,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-md">SE</div>
+                        <img src="logo.png" alt="Serve Ease Logo" class="w-10 h-10 rounded-xl object-contain bg-blue-700 p-1 shadow-md" onerror="this.src='https://placehold.co/100x100/1d4ed8/ffffff?text=SE'">
                         <div>
                             <span class="text-xl font-extrabold tracking-tight block leading-none">SERVE EASE</span>
                             <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-400">Business Solutions</span>
@@ -480,14 +593,14 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-sm mb-4 tracking-wider text-blue-400 uppercase">Contact Doha Office</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">West Bay, Doha, Qatar</p>
-                    <p class="text-xs text-slate-400 mt-2">Call / WhatsApp: +974 7044 2825</p>
-                    <p class="text-xs text-slate-400 mt-1">Email: info@serveease.qa</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Zone 55, Street 185, Building 86, Office No 05, Al Aziziyah, Doha - Qatar</p>
+                    <p class="text-xs text-slate-400 mt-2">Mob: +974 7044 2825</p>
+                    <p class="text-xs text-slate-400 mt-1">Email: serveeaseqtr@gmail.com</p>
                 </div>
                 <div>
                     <h4 class="font-bold text-sm mb-4 tracking-wider text-blue-400 uppercase">Office Hours</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Sunday – Thursday: 8:00 AM – 6:00 PM</p>
-                    <p class="text-xs text-slate-400 mt-2">Friday – Saturday: Closed</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Saturday – Thursday: 08:00 AM – 10:00 PM</p>
+                    <p class="text-xs text-slate-400 mt-2">Friday: Closed</p>
                 </div>
             </div>
             <div class="border-t border-slate-800 mt-12 pt-8 text-center text-xs text-slate-500">
@@ -608,11 +721,14 @@
                         introDesc2: 'We assist with every stage of registration, including structure selection, licensing, and coordination with relevant authorities, ensuring a smooth and transparent process from start to finish.',
                         introImg: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
                         gridTag: 'WHAT WE OFFER',
-                        gridTitle: 'Business Setup Options in Qatar',
+                        gridTitle: 'Comprehensive Company Formation Options',
                         gridOptions: [
                             { icon: 'fas fa-building', title: 'Mainland WLL', desc: 'Full MOCI registration allowing trading across all Qatari markets.' },
                             { icon: 'fas fa-globe', title: 'Free Zone (QFZ)', desc: '100% foreign ownership with tax exemptions and customs privileges.' },
-                            { icon: 'fas fa-landmark', title: 'QFC Branch', desc: 'Independent regulatory environment tailored for professional services.' }
+                            { icon: 'fas fa-landmark', title: 'QFC Branch', desc: 'Independent regulatory environment tailored for professional services.' },
+                            { icon: 'fas fa-file-contract', title: 'Articles of Association', desc: 'Bespoke bilingual drafting and notary authentication.' },
+                            { icon: 'fas fa-stamp', title: 'Commercial Registration', desc: 'Fast-track issuance of official MOCI business license.' },
+                            { icon: 'fas fa-id-card', title: 'Establishment Card', desc: 'Ministry of Interior immigration ID setup for visa allocation.' }
                         ],
                         bannerTag: 'BUSINESS SETUP SOLUTIONS',
                         bannerTitle: 'WLL Companies Support Services',
@@ -638,7 +754,10 @@
                         gridOptions: [
                             { icon: 'fas fa-exchange-alt', title: 'Share Transfer', desc: 'Legal transfer of shares between existing or new partners.' },
                             { icon: 'fas fa-user-plus', title: 'Partner Addition', desc: 'Adding or removing partners with updated AOA notarization.' },
-                            { icon: 'fas fa-file-invoice', title: 'CR Modification', desc: 'Updating capital, activities, and board authority.' }
+                            { icon: 'fas fa-file-invoice', title: 'CR Modification', desc: 'Updating capital, activities, and board authority.' },
+                            { icon: 'fas fa-balance-scale', title: 'Tax Clearance', desc: 'General Tax Authority compliance clearance certification.' },
+                            { icon: 'fas fa-signature', title: 'MOJ Attestation', desc: 'Ministry of Justice notary signature verification.' },
+                            { icon: 'fas fa-shield-alt', title: 'Legal Protection', desc: 'Safeguarding shareholder rights and profit distribution.' }
                         ],
                         bannerTag: 'LEGAL EQUITY GOVERNANCE',
                         bannerTitle: 'MOJ & MOCI Restructuring Support',
@@ -664,7 +783,10 @@
                         gridOptions: [
                             { icon: 'fas fa-passport', title: 'Visa Processing', desc: 'Employment, family, and investor visa quotas and stamping.' },
                             { icon: 'fas fa-id-card', title: 'QIDs & Health Cards', desc: 'Qatar ID issuance, medical test coordination, and renewals.' },
-                            { icon: 'fas fa-sync-alt', title: 'License Renewals', desc: 'Annual municipal, civil defense, and Chamber of Commerce renewals.' }
+                            { icon: 'fas fa-sync-alt', title: 'License Renewals', desc: 'Annual municipal, civil defense, and Chamber of Commerce renewals.' },
+                            { icon: 'fas fa-file-signature', title: 'MADLSA Contracts', desc: 'Labor ministry contract registration and dispute liaison.' },
+                            { icon: 'fas fa-mobile-alt', title: 'Metrash2 Management', desc: 'Institutional portal management and delegation setup.' },
+                            { icon: 'fas fa-user-shield', title: 'Dedicated PRO', desc: 'Assigned specialist for on-ground government transactions.' }
                         ],
                         bannerTag: 'DEDICATED PRO RETAINERS',
                         bannerTitle: 'Streamlined Ministry Operations',
@@ -690,7 +812,10 @@
                         gridOptions: [
                             { icon: 'fas fa-file-contract', title: 'Legal Contracts', desc: 'AOA, employment agreements, and court submissions.' },
                             { icon: 'fas fa-certificate', title: 'Certificates', desc: 'Educational degrees, birth certificates, and financial statements.' },
-                            { icon: 'fas fa-stamp', title: 'Certified Stamps', desc: 'Ministry-recognized official translator stamps.' }
+                            { icon: 'fas fa-stamp', title: 'Certified Stamps', desc: 'Ministry-recognized official translator stamps.' },
+                            { icon: 'fas fa-globe', title: 'Multi-Language', desc: 'Arabic, English, French, Spanish, German, and more.' },
+                            { icon: 'fas fa-university', title: 'Embassy Certified', desc: 'Official stamps recognized by foreign missions in Doha.' },
+                            { icon: 'fas fa-bolt', title: 'Express Turnaround', desc: 'Same-day urgent translation services for tenders.' }
                         ],
                         bannerTag: 'MINISTRY ACCREDITED',
                         bannerTitle: 'Certified Stamps Accepted Nationwide',
@@ -712,11 +837,14 @@
                         introDesc2: 'Serve Ease manages the entire attestation chain—from home-country foreign ministry and Qatar Embassy legalization to final Ministry of Foreign Affairs (MOFA) stamping in Doha.',
                         introImg: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
                         gridTag: 'ATTESTATION SCOPE',
-                        gridTitle: 'Cross-Border Legalization',
+                        gridTitle: 'Cross-Border Legalization Scope',
                         gridOptions: [
                             { icon: 'fas fa-globe-americas', title: 'Home Country', desc: 'Foreign ministry and embassy stamping abroad.' },
                             { icon: 'fas fa-university', title: 'Qatar MOFA', desc: 'Final attestation stamp at Ministry of Foreign Affairs in Doha.' },
-                            { icon: 'fas fa-shield-alt', title: 'Verification', desc: 'Ensuring 100% compliance with Qatari embassy standards.' }
+                            { icon: 'fas fa-shield-alt', title: 'Verification', desc: 'Ensuring 100% compliance with Qatari embassy standards.' },
+                            { icon: 'fas fa-file-alt', title: 'Corporate Papers', desc: 'Board resolutions, certificates of incorporation, and invoices.' },
+                            { icon: 'fas fa-graduation-cap', title: 'Academic Degrees', desc: 'University certificates and professional diplomas legalization.' },
+                            { icon: 'fas fa-truck-loading', title: 'Secure Courier', desc: 'Safe doorstep pickup and delivery of sensitive papers.' }
                         ],
                         bannerTag: 'VERIFIED AUTHENTICATION',
                         bannerTitle: 'Complete Cross-Border Legalization',
@@ -738,11 +866,14 @@
                         introDesc2: 'Serve Ease connects international investors with reputable, financially sound Qatari corporate sponsors backed by ironclad legal protection agreements.',
                         introImg: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
                         gridTag: 'PARTNERSHIP MODELS',
-                        gridTitle: 'Secure Local Sponsorship',
+                        gridTitle: 'Secure Local Sponsorship Frameworks',
                         gridOptions: [
                             { icon: 'fas fa-handshake', title: 'Corporate Sponsors', desc: 'Reputable Qatari partners and institutional entities.' },
                             { icon: 'fas fa-file-invoice-dollar', title: 'Side Agreements', desc: 'Guaranteed 100% financial and operational control for founders.' },
-                            { icon: 'fas fa-balance-scale', title: 'Legal Protection', desc: 'Bespoke contracts safeguarding investor rights and dividends.' }
+                            { icon: 'fas fa-balance-scale', title: 'Legal Protection', desc: 'Bespoke contracts safeguarding investor rights and dividends.' },
+                            { icon: 'fas fa-user-tie', title: 'Vetted Profiles', desc: 'Background-checked Qatari nationals and established firms.' },
+                            { icon: 'fas fa-chart-pie', title: 'Profit Allocation', desc: 'Transparent revenue sharing and corporate structuring.' },
+                            { icon: 'fas fa-gavel', title: 'Dispute Resolution', desc: 'Robust legal clauses protecting investor interests in Qatar.' }
                         ],
                         bannerTag: 'PROTECTED GOVERNANCE',
                         bannerTitle: '100% Operational Control Frameworks',
@@ -764,11 +895,14 @@
                         introDesc2: 'Serve Ease prepares a bank-ready compliance dossier and coordinates directly with relationship managers at Qatar’s premier banks to accelerate account activation.',
                         introImg: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
                         gridTag: 'BANKING SOLUTIONS',
-                        gridTitle: 'Premier Bank Partnerships',
+                        gridTitle: 'Premier Bank Partnerships & KYC',
                         gridOptions: [
                             { icon: 'fas fa-university', title: 'Tier-1 Banks', desc: 'Direct access to QNB, QIB, CBQ, and Doha Bank.' },
                             { icon: 'fas fa-file-alt', title: 'KYC & Compliance', desc: 'Expert preparation of business profiles and cash-flow plans.' },
-                            { icon: 'fas fa-credit-card', title: 'Merchant Services', desc: 'POS terminals, online payment gateways, and corporate cards.' }
+                            { icon: 'fas fa-credit-card', title: 'Merchant Services', desc: 'POS terminals, online payment gateways, and corporate cards.' },
+                            { icon: 'fas fa-coins', title: 'Multi-Currency', desc: 'USD, EUR, GBP, and QAR corporate accounts.' },
+                            { icon: 'fas fa-user-check', title: 'UBO Declaration', desc: 'Ultimate Beneficial Owner compliance documentation.' },
+                            { icon: 'fas fa-bolt', title: 'Fast-Track RM', desc: 'Priority introductions to bank relationship managers.' }
                         ],
                         bannerTag: 'PRIORITY BANKING ACCESS',
                         bannerTitle: 'Faster KYC & Compliance Approval',
@@ -794,7 +928,10 @@
                         gridOptions: [
                             { icon: 'fas fa-chart-line', title: 'Financial Projections', desc: '5-year P&L, cash flow, and ROI modeling.' },
                             { icon: 'fas fa-search-dollar', title: 'Market Analysis', desc: 'Competitor benchmarking and target audience sizing in Doha.' },
-                            { icon: 'fas fa-file-signature', title: 'Bank-Ready Reports', desc: 'Comprehensive studies accepted by Qatari banks and ministries.' }
+                            { icon: 'fas fa-file-signature', title: 'Bank-Ready Reports', desc: 'Comprehensive studies accepted by Qatari banks and ministries.' },
+                            { icon: 'fas fa-map-marked-alt', title: 'Location Assessment', desc: 'Retail and industrial zoning analysis across Qatar.' },
+                            { icon: 'fas fa-bullseye', title: 'Risk Mitigation', desc: 'Regulatory and economic risk assessment models.' },
+                            { icon: 'fas fa-flag', title: 'Vision 2030 Alignment', desc: 'Strategic alignment with Qatar National Vision goals.' }
                         ],
                         bannerTag: 'INSTITUTIONAL STANDARDS',
                         bannerTitle: 'Bank & Ministry Ready Business Plans',
@@ -822,7 +959,10 @@
                         gridOptions: [
                             { icon: 'fas fa-dumbbell', title: 'Ministry of Sports', desc: 'Activity license & coaching staff credential verification.' },
                             { icon: 'fas fa-building', title: 'Baladiya NOC', desc: 'Municipal zoning and commercial space approval.' },
-                            { icon: 'fas fa-fire-extinguisher', title: 'Civil Defense', desc: 'Fire safety and emergency exit certification.' }
+                            { icon: 'fas fa-fire-extinguisher', title: 'Civil Defense', desc: 'Fire safety and emergency exit certification.' },
+                            { icon: 'fas fa-user-md', title: 'Health Inspections', desc: 'Sanitary and hygiene compliance approvals.' },
+                            { icon: 'fas fa-certificate', title: 'Trainer Credentials', desc: 'Attestation of professional fitness certifications.' },
+                            { icon: 'fas fa-shield-alt', title: 'Safety Equipment', desc: 'First aid and emergency protocol compliance.' }
                         ],
                         bannerTitle: 'Compliant Health Club Operations in Doha',
                         bannerImg: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
@@ -846,7 +986,10 @@
                         gridOptions: [
                             { icon: 'fas fa-truck', title: 'Fleet Permits', desc: 'Commercial vehicle registration and licensing.' },
                             { icon: 'fas fa-warehouse', title: 'Parking Yards', desc: 'Approved depot and warehouse clearances.' },
-                            { icon: 'fas fa-id-badge', title: 'Driver Badges', desc: 'Ministry authorized driver card processing.' }
+                            { icon: 'fas fa-id-badge', title: 'Driver Badges', desc: 'Ministry authorized driver card processing.' },
+                            { icon: 'fas fa-shipping-fast', title: 'Cargo Operations', desc: 'Logistics and freight distribution permissions.' },
+                            { icon: 'fas fa-clipboard-check', title: 'Vehicle Inspections', desc: 'Fahes and traffic department clearances.' },
+                            { icon: 'fas fa-file-contract', title: 'MOT Compliance', desc: 'Regulatory filings for transport businesses.' }
                         ],
                         bannerTitle: 'Streamlined Logistics & Transport Licensing',
                         bannerImg: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
@@ -870,7 +1013,10 @@
                         gridOptions: [
                             { icon: 'fas fa-drafting-compass', title: 'Engineering Drawings', desc: 'CAD floor plan approvals by certified fire consultants.' },
                             { icon: 'fas fa-fire-extinguisher', title: 'Safety Equipment', desc: 'Sprinkler, alarm, and extinguisher compliance.' },
-                            { icon: 'fas fa-clipboard-check', title: 'Inspection & License', desc: 'Final Civil Defense certificate issuance.' }
+                            { icon: 'fas fa-clipboard-check', title: 'Inspection & License', desc: 'Final Civil Defense certificate issuance.' },
+                            { icon: 'fas fa-exclamation-triangle', title: 'Emergency Exits', desc: 'Evacuation route planning and signage approval.' },
+                            { icon: 'fas fa-industry', title: 'Industrial Safety', desc: 'Hazardous material and warehouse safety compliance.' },
+                            { icon: 'fas fa-bolt', title: 'Fast-Track NOC', desc: 'Expedited safety certification for commercial tenants.' }
                         ],
                         bannerTitle: 'Fast-Track Civil Defense Approvals',
                         bannerImg: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
@@ -894,7 +1040,10 @@
                         gridOptions: [
                             { icon: 'fas fa-car-side', title: 'Showroom Permits', desc: 'Traffic flow and parking impact approvals.' },
                             { icon: 'fas fa-shipping-fast', title: 'Commercial Plates', desc: 'Registration and insurance processing for company fleets.' },
-                            { icon: 'fas fa-road', title: 'NOC Issuance', desc: 'Road transport and heavy machinery operation permits.' }
+                            { icon: 'fas fa-road', title: 'NOC Issuance', desc: 'Road transport and heavy machinery operation permits.' },
+                            { icon: 'fas fa-parking', title: 'Parking Allocations', desc: 'Municipal and traffic department bay approvals.' },
+                            { icon: 'fas fa-id-card', title: 'Driver Clearances', desc: 'Commercial driving license authorizations.' },
+                            { icon: 'fas fa-shield-alt', title: 'MOI Compliance', desc: 'General Directorate of Traffic regulatory filings.' }
                         ],
                         bannerTitle: 'MOI Traffic Department Compliance',
                         bannerImg: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
