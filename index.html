@@ -62,25 +62,120 @@
               return base.toLocaleString() + ' QAR onwards';
           },
           services: [
-              { id: 1, title: 'Company Formation', desc: 'Complete business registration and licensing services with end-to-end support in Qatar.', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', icon: 'fa-building', details: 'We handle all aspects of commercial registration (CR), municipal licensing, chamber of commerce registration, and corporate structuring tailored to your exact industry requirements.' },
-              { id: 2, title: 'Share Transfer & Equity Amending', desc: 'Seamless partner restructuring, equity transfer, and Commercial Registration amendments in Qatar.', image: 'shafir.jpg', icon: 'fa-handshake', details: 'Expert handling of partner additions, share capital adjustments, MoA amendments, and official Ministry of Commerce & Industry (MoCI) filings.' },
-              { id: 3, title: 'Corporate PRO Retainer', desc: 'Dedicated government liaison, immigration, labor quotas, and compliance management in Qatar.', image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', icon: 'fa-id-card', details: 'Full outsourced PRO services including residence permits, visa stamping, medical appointments, Qatar ID renewals, and ministry document processing.' },
-              { id: 4, title: 'Certified Legal Translation', desc: 'Ministry-accredited Arabic, English, and multi-language legal translation services in Doha.', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', icon: 'fa-language', details: 'Official translation of legal contracts, corporate bylaws, financial statements, and personal certificates recognized by all Qatari embassies and ministries.' },
-              { id: 5, title: 'MOFA Document Attestation', desc: 'Fast-track Ministry of Foreign Affairs & embassy attestation for corporate and personal documents.', image: 'bg.jpg', icon: 'fa-stamp', details: 'End-to-end verification, notarization, and attestation services for educational certificates, marriage certificates, and commercial invoices.' },
-              { id: 6, title: 'Local Partnership Facilitation', desc: 'Trusted, vetted Qatari corporate sponsors and joint-venture partners for mainland businesses.', image: 'shafir.jpg', icon: 'fa-user-tie', details: 'Secure, reliable corporate sponsorship arrangements with robust legal agreements safeguarding 100% operational and financial control for foreign investors.' },
-              { id: 7, title: 'Corporate Bank Account', desc: 'Dedicated assistance for opening corporate bank accounts with leading Qatari and international banks.', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', icon: 'fa-landmark', details: 'Preparation of corporate business plans, KYC documentation, introduction to premier relationship managers at QNB, QIB, CBQ, and HSBC Qatar.' },
-              { id: 8, title: 'Feasibility Study & Advisory', desc: 'Bank-grade market research, financial modeling, and strategic advisory for Qatar ventures.', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80', icon: 'fa-chart-pie', details: 'Comprehensive feasibility reports required for bank financing, investor pitches, and governmental industrial licensing approvals.' }
+              { 
+                  id: 1, 
+                  title: 'Company Formation', 
+                  desc: 'Complete business registration and licensing services with end-to-end support in Qatar.', 
+                  image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-building', 
+                  details: 'We handle all aspects of commercial registration (CR), municipal licensing, chamber of commerce registration, and corporate structuring tailored to your exact industry requirements.',
+                  checklist: ['Commercial Registration (CR) processing', 'Municipal License (Baladiya)', 'Chamber of Commerce Membership', 'Establishment Card & Computer Card', 'Ministry of Commerce & Industry (MoCI) approvals']
+              },
+              { 
+                  id: 2, 
+                  title: 'Share Transfer & Equity Amending', 
+                  desc: 'Seamless partner restructuring, equity transfer, and Commercial Registration amendments in Qatar.', 
+                  image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-handshake', 
+                  details: 'Expert handling of partner additions, share capital adjustments, MoA amendments, and official Ministry of Commerce & Industry (MoCI) filings.',
+                  checklist: ['Partner Resolution & Board Approval', 'Amended Memorandum of Association (MoA)', 'Commercial Registration Amendment', 'Qatari Authentication & Notary Services', 'Bank Signatory Update Support']
+              },
+              { 
+                  id: 3, 
+                  title: 'Corporate PRO Retainer', 
+                  desc: 'Dedicated government liaison, immigration, labor quotas, and compliance management in Qatar.', 
+                  image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-id-card', 
+                  details: 'Full outsourced PRO services including residence permits, visa stamping, medical appointments, Qatar ID renewals, and ministry document processing.',
+                  checklist: ['Residence Permit (RP) & Qatar ID Issuance', 'Labor Quota & Ministry Applications', 'Medical Commission & Fingerprinting Coordination', 'Visa Stamping & Document Clearance', 'Immigration & Labour Ministry Compliance']
+              },
+              { 
+                  id: 4, 
+                  title: 'Certified Legal Translation', 
+                  desc: 'Ministry-accredited Arabic, English, and multi-language legal translation services in Doha.', 
+                  image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-language', 
+                  details: 'Official translation of legal contracts, corporate bylaws, financial statements, and personal certificates recognized by all Qatari embassies and ministries.',
+                  checklist: ['Ministry of Justice Accredited Translation', 'Corporate Contracts & MoAs', 'Financial Audits & Bank Statements', 'Personal Certificates & Degrees', 'Fast-Track Express Delivery Available']
+              },
+              { 
+                  id: 5, 
+                  title: 'MOFA Document Attestation', 
+                  desc: 'Fast-track Ministry of Foreign Affairs & embassy attestation for corporate and personal documents.', 
+                  image: 'bg.jpg', 
+                  icon: 'fa-stamp', 
+                  details: 'End-to-end verification, notarization, and attestation services for educational certificates, marriage certificates, and commercial invoices.',
+                  checklist: ['Ministry of Foreign Affairs (MOFA) Qatar', 'Embassy & Consulate Attestation', 'Educational Certificate Verification', 'Commercial Invoices & Origin Certificates', 'Notary Public Verification']
+              },
+              { 
+                  id: 6, 
+                  title: 'Local Partnership Facilitation', 
+                  desc: 'Trusted, vetted Qatari corporate sponsors and joint-venture partners for mainland businesses.', 
+                  image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-user-tie', 
+                  details: 'Secure, reliable corporate sponsorship arrangements with robust legal agreements safeguarding 100% operational and financial control for foreign investors.',
+                  checklist: ['Vetted & Reliable Qatari Partners', 'Secure Side Agreements & Power of Attorney', 'Profit & Loss Distribution Safeguards', 'Mainland Company Compliance', 'Full Operational Autonomy']
+              },
+              { 
+                  id: 7, 
+                  title: 'Corporate Bank Account', 
+                  desc: 'Dedicated assistance for opening corporate bank accounts with leading Qatari and international banks.', 
+                  image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-landmark', 
+                  details: 'Preparation of corporate business plans, KYC documentation, introduction to premier relationship managers at QNB, QIB, CBQ, and HSBC Qatar.',
+                  checklist: ['Bank Account Opening Assistance', 'Corporate Business Plan Formulation', 'KYC & Compliance Documentation', 'Direct Bank Relationship Manager Setup', 'QNB, QIB, CBQ & HSBC Coordination']
+              },
+              { 
+                  id: 8, title: 'Feasibility Study & Advisory', 
+                  desc: 'Bank-grade market research, financial modeling, and strategic advisory for Qatar ventures.', 
+                  image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80', 
+                  icon: 'fa-chart-pie', 
+                  details: 'Comprehensive feasibility reports required for bank financing, investor pitches, and governmental industrial licensing approvals.',
+                  checklist: ['Bank-Grade Financial Modeling', 'Market Research & Competitor Analysis', 'Risk Assessment & Mitigation Strategy', 'Government Grant & Loan Application Support', 'Strategic Business Expansion Advisory']
+              }
           ],
           approvals: [
-              { id: 1, title: 'Gym & Fitness Center Approval', desc: 'Ministry of Sports & Youth and Municipal approvals.', image: 'logo.png', icon: 'fa-dumbbell', details: 'Specialized licensing for fitness clubs, gyms, and sports training centers adhering to structural safety, zoning, and sanitary regulations.' },
-              { id: 2, title: 'Transport Activity Approval (MGT)', desc: 'MOCI clearances for delivery and logistics fleets.', image: 'logo.png', icon: 'fa-truck', details: 'Acquiring Ministry of Transport permits, vehicle branding clearances, and driver commercial compliance documentation.' },
-              { id: 3, title: 'Fire Safety Approval (QCDD)', desc: 'Civil Defense building safety inspection and certification.', image: 'logo.png', icon: 'fa-fire-extinguisher', details: 'Complete engineering drawing reviews, fire alarm system sign-offs, and Qatar Civil Defense Department operational licensing.' },
-              { id: 4, title: 'Traffic Department Clearance', desc: 'MOI Traffic sign-offs, clearance for vehicles & parking.', image: 'logo.png', icon: 'fa-car', details: 'Coordination with General Directorate of Traffic for commercial parking allocation, transport permits, and fleet clearances.' }
+              { 
+                  id: 1, 
+                  title: 'Gym & Fitness Center Approval', 
+                  desc: 'Ministry of Sports & Youth and Municipal approvals.', 
+                  image: 'logo.png', 
+                  icon: 'fa-dumbbell', 
+                  details: 'Specialized licensing for fitness clubs, gyms, and sports training centers adhering to structural safety, zoning, and sanitary regulations.',
+                  checklist: ['Ministry of Sports & Youth NOC', 'Baladiya (Municipality) Zoning Approval', 'Civil Defense Safety Layout', 'Sanitary & Health Inspection Clearance', 'Qualified Trainer Certification Approval']
+              },
+              { 
+                  id: 2, 
+                  title: 'Transport Activity Approval (MGT)', 
+                  desc: 'MOCI clearances for delivery and logistics fleets.', 
+                  image: 'logo.png', 
+                  icon: 'fa-truck', 
+                  details: 'Acquiring Ministry of Transport permits, vehicle branding clearances, and driver commercial compliance documentation.',
+                  checklist: ['Ministry of Transport (MOT) Permit', 'Vehicle Fleet Registration & Inspection', 'Commercial Branding Approval', 'Driver Commercial License Verification', 'Logistics Hub Zoning Clearance']
+              },
+              { 
+                  id: 3, 
+                  title: 'Fire Safety Approval (QCDD)', 
+                  desc: 'Civil Defense building safety inspection and certification.', 
+                  image: 'logo.png', 
+                  icon: 'fa-fire-extinguisher', 
+                  details: 'Complete engineering drawing reviews, fire alarm system sign-offs, and Qatar Civil Defense Department operational licensing.',
+                  checklist: ['QCDD Engineering Drawing Review', 'Fire Suppression & Alarm Certification', 'Emergency Exit & Lighting Inspection', 'Safety Officer Onsite Sign-off', 'Final Civil Defense Operational License']
+              },
+              { 
+                  id: 4, 
+                  title: 'Traffic Department Clearance', 
+                  desc: 'MOI Traffic sign-offs, clearance for vehicles & parking.', 
+                  image: 'logo.png', 
+                  icon: 'fa-car', 
+                  details: 'Coordination with General Directorate of Traffic for commercial parking allocation, transport permits, and fleet clearances.',
+                  checklist: ['General Directorate of Traffic NOC', 'Commercial Parking Allocation Approval', 'Vehicle Registration Clearances', 'Traffic Sign-off for Commercial Outlets', 'Driver Record Compliance']
+              }
           ]
       }">
 
     <!-- Top Navigation -->
-    <header class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-gray-800">
+    <header class="sticky top-0 z-50 bg-[#0f172a] border-b border-gray-800 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" @click.prevent="activePage = 'home'" class="flex items-center gap-3 group">
@@ -181,7 +276,7 @@
     </div>
 
     <!-- MAIN CONTENT AREA -->
-    <main>
+    <main class="bg-[#0b0f19] min-h-screen text-gray-100">
 
         <!-- ================= HOME PAGE ================= -->
         <div x-show="activePage === 'home'" x-cloak>
@@ -414,16 +509,16 @@
         </div>
 
 
-        <!-- ================= SERVICE DETAIL PAGE ================= -->
-        <div x-show="activePage === 'service-detail'" x-cloak class="py-16">
+        <!-- ================= SERVICE DETAIL PAGE (Dedicated 8 Inside Pages) ================= -->
+        <div x-show="activePage === 'service-detail'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 <!-- Back Button -->
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold">
+                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
                     <i class="fa-solid fa-arrow-left"></i> Back to Home
                 </button>
 
                 <!-- Header Banner -->
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
                     <div class="max-w-2xl space-y-4">
                         <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Professional Service</span>
                         <h1 class="text-3xl sm:text-4xl font-extrabold text-white" x-text="selectedService ? selectedService.title : ''"></h1>
@@ -433,23 +528,27 @@
 
                 <!-- Detailed Content -->
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8">
+                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8 shadow-xl">
                         <h3 class="text-xl font-bold text-white flex items-center gap-2">
                             <i class="fa-solid fa-circle-info text-blue-500"></i> Complete Service Overview
                         </h3>
                         <p class="text-gray-300 leading-relaxed" x-text="selectedService ? selectedService.details : ''"></p>
+                        
                         <div class="space-y-3 pt-4 border-t border-gray-800">
-                            <h4 class="font-semibold text-white">Why Choose Serve Ease?</h4>
+                            <h4 class="font-semibold text-white">Required Documents & Features Checklist</h4>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Fast-track ministry coordination and documentation.</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Transparent pricing with no hidden government fees.</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Dedicated corporate consultant assigned to your account.</li>
+                                <template x-for="item in (selectedService ? selectedService.checklist : [])">
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-check text-blue-500"></i>
+                                        <span x-text="item"></span>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Quick Action Card -->
-                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit">
+                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit shadow-xl">
                         <h3 class="text-lg font-bold text-white">Ready to Get Started?</h3>
                         <p class="text-xs text-gray-400">Speak directly with our senior corporate consultant in Doha today.</p>
                         <a :href="'https://wa.me/97470442825?text=Hello,%20I%20am%20interested%20in%20service:%20' + (selectedService ? selectedService.title : '')" target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-sm">
@@ -464,16 +563,16 @@
         </div>
 
 
-        <!-- ================= APPROVAL DETAIL PAGE ================= -->
-        <div x-show="activePage === 'approval-detail'" x-cloak class="py-16">
+        <!-- ================= APPROVAL DETAIL PAGE (Dedicated 4 Inside Pages) ================= -->
+        <div x-show="activePage === 'approval-detail'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 <!-- Back Button -->
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold">
+                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
                     <i class="fa-solid fa-arrow-left"></i> Back to Home
                 </button>
 
                 <!-- Header Banner -->
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
                     <div class="max-w-2xl space-y-4">
                         <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Government Approval</span>
                         <h1 class="text-3xl sm:text-4xl font-extrabold text-white" x-text="selectedApproval ? selectedApproval.title : ''"></h1>
@@ -483,24 +582,27 @@
 
                 <!-- Detailed Content -->
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8">
+                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8 shadow-xl">
                         <h3 class="text-xl font-bold text-white flex items-center gap-2">
                             <i class="fa-solid fa-file-shield text-blue-500"></i> Approval Process & Guidelines
                         </h3>
                         <p class="text-gray-300 leading-relaxed" x-text="selectedApproval ? selectedApproval.details : ''"></p>
+                        
                         <div class="space-y-3 pt-4 border-t border-gray-800">
-                            <h4 class="font-semibold text-white">Required Documents Checklist</h4>
+                            <h4 class="font-semibold text-white">Required Documents & Approval Checklist</h4>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Valid Commercial Registration (CR) copy</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Authorized signatory Qatar ID copies</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Municipality lease agreement (Baladiya)</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> Engineering layout and safety compliance certificates</li>
+                                <template x-for="item in (selectedApproval ? selectedApproval.checklist : [])">
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-check text-blue-500"></i>
+                                        <span x-text="item"></span>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Quick Action Card -->
-                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit">
+                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit shadow-xl">
                         <h3 class="text-lg font-bold text-white">Fast-Track Filing</h3>
                         <p class="text-xs text-gray-400">Let our expert PRO team handle your ministry submissions seamlessly.</p>
                         <a :href="'https://wa.me/97470442825?text=Hello,%20I%20need%20assistance%20with%20approval:%20' + (selectedApproval ? selectedApproval.title : '')" target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-sm">
@@ -513,33 +615,101 @@
 
 
         <!-- ================= 194 E-COMMERCE DIRECTORY PAGE ================= -->
-        <div x-show="activePage === 'ecommerce'" x-cloak class="py-16">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold">
+        <div x-show="activePage === 'ecommerce'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
                     <i class="fa-solid fa-arrow-left"></i> Back to Home
                 </button>
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 text-center space-y-4">
-                    <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Directory</span>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">194 E-Commerce Activities Directory</h1>
-                    <p class="text-gray-300 max-w-2xl mx-auto text-sm">Explore approved e-commerce and digital commercial activities authorized under Qatari regulations for rapid licensing.</p>
+                
+                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-2xl">
+                    <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Official Licensing Directory</span>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">194 Approved E-Commerce Activities in Qatar</h1>
+                    <p class="text-gray-300 max-w-3xl mx-auto text-sm">Browse through all authorized digital and online commercial activities. Select any activity to immediately initiate licensing and registration with our Doha consultants.</p>
                 </div>
+
+                <!-- 194 Activities Grid -->
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-3">
-                        <div class="text-blue-500 font-bold">Category 01: Retail & Marketplace</div>
-                        <p class="text-xs text-gray-400">General e-commerce trading, online retail stores, multi-vendor marketplaces, and digital storefronts.</p>
-                        <a href="https://wa.me/97470442825?text=I%20want%20to%20register%20an%20E-Commerce%20Retail%20license." target="_blank" class="text-blue-400 text-xs font-semibold flex items-center gap-1 pt-2">Register Activity <i class="fa-solid fa-arrow-right"></i></a>
+                    
+                    <!-- Category 1 -->
+                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 01</span>
+                                <span class="text-xs text-gray-400 font-mono">Activities #01 - #65</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Online Retail & E-Marketplaces</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Covers general trading portals, multi-vendor electronic stores, apparel & fashion e-shops, consumer electronics retailing, grocery delivery apps, and digital supermarkets.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
+                                <li>• General Online Consumer Goods Trading</li>
+                                <li>• Fashion, Apparel & Footwear E-Stores</li>
+                                <li>• Electronic Gadgets & Appliances Online Shop</li>
+                                <li>• Supermarket & Grocery E-Commerce App</li>
+                                <li>• Perfumes, Cosmetics & Beauty E-Trading</li>
+                                <li>• +60 Additional Retail Activities</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20an%20Online%20Retail%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Register Retail License
+                        </a>
                     </div>
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-3">
-                        <div class="text-blue-500 font-bold">Category 02: Digital Services</div>
-                        <p class="text-xs text-gray-400">Software development, web design portals, advertising agencies, and IT consultancy platforms.</p>
-                        <a href="https://wa.me/97470442825?text=I%20want%20to%20register%20a%20Digital%20Services%20license." target="_blank" class="text-blue-400 text-xs font-semibold flex items-center gap-1 pt-2">Register Activity <i class="fa-solid fa-arrow-right"></i></a>
+
+                    <!-- Category 2 -->
+                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 02</span>
+                                <span class="text-xs text-gray-400 font-mono">Activities #66 - #130</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Digital Services & IT Platforms</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Includes software-as-a-service (SaaS) portals, web design and hosting platforms, digital marketing agencies, mobile app development, and IT tech consultancy.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
+                                <li>• Software Development & SaaS Portals</li>
+                                <li>• Web Design & Hosting Services</li>
+                                <li>• Digital Marketing & Advertising Agency</li>
+                                <li>• Mobile Application Development</li>
+                                <li>• IT Systems Integration & Support</li>
+                                <li>• +60 Additional IT & Tech Activities</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20a%20Digital%20Services%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Register Digital License
+                        </a>
                     </div>
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-3">
-                        <div class="text-blue-500 font-bold">Category 03: Logistics & Delivery Apps</div>
-                        <p class="text-xs text-gray-400">Online food delivery ordering platforms, courier booking applications, and freight matching services.</p>
-                        <a href="https://wa.me/97470442825?text=I%20want%20to%20register%20a%20Logistics%20App%20license." target="_blank" class="text-blue-400 text-xs font-semibold flex items-center gap-1 pt-2">Register Activity <i class="fa-solid fa-arrow-right"></i></a>
+
+                    <!-- Category 3 -->
+                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 03</span>
+                                <span class="text-xs text-gray-400 font-mono">Activities #131 - #194</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Logistics Apps & Specialized Services</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Encompasses online food ordering platforms, courier booking apps, freight matching services, online ticketing portals, and digital booking directories.</p>
+                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
+                                <li>• Online Food Delivery & Restaurant Apps</li>
+                                <li>• Courier & Parcel Booking Platforms</li>
+                                <li>• Freight Forwarding & Cargo Matching Apps</li>
+                                <li>• Event & Travel Ticketing Portals</li>
+                                <li>• Online Booking & Reservation Services</li>
+                                <li>• +60 Additional Specialized Activities</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20a%20Logistics%20or%20Specialized%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Register Specialized License
+                        </a>
                     </div>
+
                 </div>
+
+                <!-- Callout Banner -->
+                <div class="bg-gradient-to-r from-blue-900/40 to-[#0f172a] border border-blue-500/30 rounded-3xl p-8 text-center space-y-4 shadow-xl">
+                    <h3 class="text-xl font-bold text-white">Need a Custom E-Commerce Activity Combination?</h3>
+                    <p class="text-gray-300 text-sm max-w-2xl mx-auto">Our licensing experts at Serve Ease Business Solutions can bundle multiple activities under a single Commercial Registration (CR) quickly and cost-effectively.</p>
+                    <a href="https://wa.me/97470442825?text=Hello,%20I%20need%20help%20selecting%20and%20registering%20custom%20e-commerce%20activities%20in%20Qatar." target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Consult Our Licensing Expert
+                    </a>
+                </div>
+
             </div>
         </div>
 
