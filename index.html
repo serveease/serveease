@@ -183,7 +183,6 @@
                         <template x-for="sId in [1,2,3,4,5,6,7,8]">
                             <a href="#" @click.prevent="currentRoute = 'service'; serviceId = sId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-3 rounded-xl hover:bg-slate-50 transition-colors flex flex-col">
                                 <h4 class="text-xs font-bold text-slate-900" x-text="sId === 1 ? 'Company Formation' : sId === 2 ? 'Share Transfer & Equity Amending' : sId === 3 ? 'Corporate PRO Retainer' : sId === 4 ? 'Certified Legal Translation' : sId === 5 ? 'MOFA Document Attestation' : sId === 6 ? 'Local Partnership Facilitation' : sId === 7 ? 'Corporate Bank Account' : 'Feasibility Study & Advisory'"></h4>
-                                <p class="text-[10px] text-slate-500 mt-0.5">View Service Details</p>
                             </a>
                         </template>
                     </div>
