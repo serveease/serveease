@@ -211,7 +211,7 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="#contact" @click.prevent="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
+                <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all">
                     Book Now
                 </a>
             </div>
@@ -243,7 +243,7 @@
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                                     Calculate Setup Costs
                                 </button>
-                                <a href="#contact" @click.prevent="scrollToContact()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
+                                <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease,%20I%20would%20like%20to%20book%20a%20business%20consultation." target="_blank" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base shadow-sm transition-all">
                                     Book Consultation
                                 </a>
                             </div>
@@ -251,29 +251,40 @@
 
                         <!-- Hero Right Get in Touch Card -->
                         <div class="lg:col-span-5" data-aos="fade-left">
-                            <div class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-100">
+                            <div class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-100" x-data="{
+                                hName: '',
+                                hEmail: '',
+                                hCode: '+974',
+                                hPhone: '',
+                                hBusiness: '',
+                                hMsg: '',
+                                sendHeroWhatsApp() {
+                                    const text = encodeURIComponent(`Hello Serve Ease, I would like a consultation.\nName: ${this.hName}\nEmail: ${this.hEmail}\nPhone: ${this.hCode} ${this.hPhone}\nNature of Business: ${this.hBusiness}\nMessage: ${this.hMsg}`);
+                                    window.open(`https://wa.me/97470442825?text=${text}`, '_blank');
+                                }
+                            }">
                                 <h3 class="text-2xl font-bold text-slate-900 mb-2">Get in Touch</h3>
                                 <p class="text-sm text-slate-500 mb-6">Free consultation with a licensed advisor (Supports 240+ Country Codes)</p>
-                                <form @submit.prevent="alert('Thank you! Your message has been sent successfully.');" class="space-y-4">
+                                <form @submit.prevent="sendHeroWhatsApp()" class="space-y-4">
                                     <div>
-                                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
+                                        <input type="text" x-model="hName" placeholder="Your Name" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
+                                        <input type="email" x-model="hEmail" placeholder="Your Email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div class="grid grid-cols-3 gap-2">
-                                        <select class="px-3 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-900">
+                                        <select x-model="hCode" class="px-3 py-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-900">
                                             <template x-for="c in countryCodesList">
                                                 <option :value="c.code" x-text="`${c.code} (${c.name})`" :selected="c.code === '+974'"></option>
                                             </template>
                                         </select>
-                                        <input type="tel" placeholder="Phone Number" required class="col-span-2 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
+                                        <input type="tel" x-model="hPhone" placeholder="Phone Number" required class="col-span-2 px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="Nature of Business *" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
+                                        <input type="text" x-model="hBusiness" placeholder="Nature of Business *" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900">
                                     </div>
                                     <div>
-                                        <textarea rows="3" placeholder="Your Message" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900"></textarea>
+                                        <textarea rows="3" x-model="hMsg" placeholder="Your Message" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm text-slate-900"></textarea>
                                     </div>
                                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-sm">
                                         Send Message via WhatsApp
