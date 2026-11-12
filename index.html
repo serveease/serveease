@@ -200,7 +200,6 @@
                         <template x-for="aId in [1,2,3,4]">
                             <a href="#" @click.prevent="currentRoute = 'approval'; approvalId = aId; open = false; window.scrollTo({top:0, behavior:'smooth'});" class="p-3 rounded-xl hover:bg-slate-50 transition-colors flex flex-col">
                                 <h4 class="text-xs font-bold text-slate-900" x-text="aId === 1 ? 'Gym & Fitness Approval' : aId === 2 ? 'Transport Activity (MOT)' : aId === 3 ? 'Fire Safety (QCDF)' : 'Traffic Dept. Clearance'"></h4>
-                                <p class="text-[10px] text-slate-500 mt-0.5">Ministry Approval</p>
                             </a>
                         </template>
                     </div>
