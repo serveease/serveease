@@ -13,6 +13,9 @@
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -631,9 +634,9 @@
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Need Assistance with This Service?</h3>
                         <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Our team handles government submissions and licensing procedures with top Qatari authorities.</p>
-                        <button type="button" @click="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
+                        <a :href="`https://wa.me/97470442825?text=${encodeURIComponent('Hello Serve Ease, I need consultation regarding Service #' + serviceId)}`" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
                             Book Consultation Now
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -724,9 +727,9 @@
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Need This Approval Urgently?</h3>
                         <p class="text-slate-600 text-sm mb-6 max-w-xl mx-auto">Let our government liaison experts handle your ministry paperwork today.</p>
-                        <button type="button" @click="scrollToContact()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
+                        <a :href="`https://wa.me/97470442825?text=${encodeURIComponent('Hello Serve Ease, I need assistance regarding Government Approval #' + approvalId)}`" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-transform hover:scale-105 inline-block cursor-pointer">
                             Book Approval Assistance
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
