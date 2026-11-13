@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سرو ايس بسنس سلوشنس | تأسيس الأعمال والعمليات التشغيلية في قطر</title>
+  <meta name="description" content="تقدم سرو ايس بسنس سلوشنس خدمات تأسيس الشركات والتراخيص التجارية وخدمات المندوبين والحسابات البنكية في الدوحة، قطر." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Cairo"', 'sans-serif'],
+            english: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            royal: {
+              950: '#051336',
+              900: '#0A2463',
+              800: '#10348C',
+              700: '#1D4ED8',
+              600: '#2563EB',
+            },
+            skybrand: {
+              500: '#0284C7',
+              400: '#38BDF8',
+              100: '#E0F2FE',
+              50: '#F0F9FF',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #FFFFFF;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+    .solid-royal-dark { background-color: #051336; }
+    .solid-royal { background-color: #0A2463; }
+    .solid-royal-mid { background-color: #10348C; }
+    .solid-royal-bright { background-color: #1D4ED8; }
+    .solid-sky { background-color: #0284C7; }
+    .solid-sky-light { background-color: #E0F2FE; }
+
+    .page-view {
+      display: none;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .page-view.active {
+      display: block;
+      position: relative;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.05); }
+    }
+    .floating-action-badge {
+      animation: floatPulse 2.5s ease-in-out infinite;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: block;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #0A2463; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- MAIN NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo + Company Name -->
+        <button onclick="navigateTo('home')" class="flex items-center gap-3 focus:outline-none cursor-pointer group">
+          <img src="logo.png" alt="سرو ايس" class="h-11 w-auto object-contain"
+               onerror="this.style.display='none'; document.getElementById('fallback-logo-icon').style.display='flex';">
+          <div id="fallback-logo-icon" class="hidden w-11 h-11 solid-royal rounded-lg items-center justify-center text-white font-extrabold text-xl border-2 border-skybrand-400">
+            SE
+          </div>
+          <div class="text-right">
+            <div class="text-royal-900 font-extrabold text-lg sm:text-xl leading-tight">سرو ايس </div>
+            <div class="text-skybrand-500 font-bold text-[11px] tracking-wide">بسنس سلوشنس</div>
+          </div>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-700">
+          <button onclick="navigateTo('home')" class="nav-link text-royal-700 font-extrabold transition py-2 cursor-pointer" data-target="home">الرئيسية</button>
+          <button onclick="navigateTo('about')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="about">من نحن</button>
+
+          <!-- Services Dropdown -->
+          <div class="relative nav-dropdown py-2">
+            <button onclick="navigateTo('services')" class="nav-link hover:text-royal-700 transition flex items-center gap-1 cursor-pointer" data-target="services">
+              <span>خدماتنا</span>
+              <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="nav-dropdown-menu hidden absolute right-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50 text-right">
+              <button onclick="openDetailPage('service', 'company-formation')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>تأسيس الشركات (ملكية أجنبية ١٠٠٪ / QFC)</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'share-transfer')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>نقل الحصص وإعادة الهيكلة</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'pro-retainer')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>خدمات المندوبين (PRO) للشركات</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'legal-translation')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>الترجمة القانونية المعتمدة</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'mofa-attestation')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>تصديق المستندات (الخارجية)</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'local-partnership')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>الشريك القطري المحلي</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'corporate-banking')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>فتح الحسابات البنكية للشركات</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('service', 'feasibility-study')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>دراسة الجدوى وخطة العمل</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+            </div>
+          </div>
+
+          <button onclick="navigateTo('ecommerce')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="ecommerce">١٩٤ نشاط تجارة إلكترونية</button>
+
+          <!-- Approvals Dropdown -->
+          <div class="relative nav-dropdown py-2">
+            <button onclick="navigateTo('approvals')" class="nav-link hover:text-royal-700 transition flex items-center gap-1 cursor-pointer" data-target="approvals">
+              <span>الموافقات الحكومية</span>
+              <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="nav-dropdown-menu hidden absolute right-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50 text-right">
+              <button onclick="openDetailPage('approval', 'gym-fitness')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>موافقات الأندية الرياضية واللياقة</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'transport-mot')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>موافقات أنشطة النقل (MOT)</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'fire-safety')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>شهادة الدفاع المدني (QCDF)</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'traffic-clearance')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>تصاريح إدارة المرور</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'baladiya-municipality')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>الرخصة التجارية (البلدية)</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'food-moph')" class="w-full px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-semibold flex items-center justify-between cursor-pointer">
+                <span>موافقات الصحة العامة والأغذية</span>
+                <span class="text-skybrand-500 font-bold">←</span>
+              </button>
+            </div>
+          </div>
+
+          <button onclick="navigateTo('contact')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="contact">تواصل معنا</button>
+        </nav>
+
+        <!-- Language Switcher (English), CTA & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="border-2 border-royal-900 text-royal-900 hover:bg-royal-900 hover:text-white font-english font-bold text-sm px-4 py-2 rounded-full transition">
+            English
+          </a>
+
+          <button onclick="openBookingModal('استشارة شركات عامة')" class="solid-royal-bright hover:bg-royal-900 text-white text-sm font-bold px-5 py-2.5 rounded-full transition shadow-sm hidden sm:block cursor-pointer">
+            احجز الآن
+          </button>
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg border border-slate-200 text-royal-900 cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-2 text-right">
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">الرئيسية</button>
+      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">من نحن</button>
+      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">جميع خدمات الشركات</button>
+      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">١٩٤ نشاط تجارة إلكترونية</button>
+      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">الموافقات الوزارية</button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-right px-3 py-2 font-bold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">تواصل معنا</button>
+      <div class="pt-2 border-t border-slate-100">
+        <a href="index.html" class="block w-full text-center py-2.5 font-english font-bold text-white solid-royal rounded-lg">Switch to English</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FLOATING WHATSAPP & CALL WIDGET (RIGHT SIDE) -->
+  <div class="fixed right-6 bottom-8 z-50 flex flex-col gap-3 floating-action-badge">
+    <a href="https://wa.me/97470442825?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B3%D9%8A%D8%B1%D9%81%20%D8%A5%D9%8A%D8%B2%20%D9%84%D8%AD%D9%84%D9%88%D9%84%20%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20%D9%81%D9%8A%20%D9%82%D8%B7%D8%B1." target="_blank" rel="noopener noreferrer"
+       class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110 border-2 border-white" title="تواصل عبر واتساب">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+    <a href="tel:+97470442825" class="w-14 h-14 solid-royal-bright hover:bg-royal-900 text-white rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110 border-2 border-white" title="اتصل بسيرف إيز">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+  </div>
+
+  <div class="relative overflow-hidden min-h-screen">
+    <!-- ===================================================================== -->
+    <!-- PAGE 1: HOME PAGE                                                     -->
+    <!-- ===================================================================== -->
+    <main id="page-home" class="page-view active">
+
+      <!-- 1. HERO SECTION -->
+      <section class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100 text-right">
+        <div class="absolute inset-0 z-0 overflow-hidden bg-royal-950">
+          <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-65" onerror="this.style.display='none';">
+            <source src="hero-bg.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 bg-royal-950/70"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <!-- Right Content -->
+            <div class="lg:col-span-6 text-white">
+              <div class="inline-flex items-center gap-2 bg-royal-900 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold px-3.5 py-1.5 rounded-full mb-5">
+                <span class="w-2 h-2 rounded-full solid-sky"></span>
+                <span>الاستشارات المؤسسية الرائدة في الدوحة</span>
+              </div>
+              <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.2] mb-6">
+                سرو ايس بسنس سلوشنس
+              </h1>
+              <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+                تقدم سرو ايس بسنس سلوشنس خدمات متكاملة لتأسيس الشركات، الدعم القانوني، فتح الحسابات البنكية، الترجمة، التصديقات، والامتثال الوزاري في دولة قطر.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 mb-10">
+                <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md cursor-pointer">
+                  تواصل معنا
+                </button>
+                <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition cursor-pointer">
+                  +١٩٤ نشاط تجارة إلكترونية
+                </button>
+              </div>
+
+              <!-- Client Avatars -->
+              <div class="border-t border-royal-800 pt-6 flex items-center gap-4">
+                <div class="flex -space-x-3 space-x-reverse">
+                  <img src="photo 2.jpg" alt="عميل" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 3.jpg" alt="عميل" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 4.jpg" alt="عميل" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 5.jpg" alt="عميل" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                </div>
+                <div class="text-sm font-bold text-slate-200">
+                  أكثر من ١٠٠ شركة وعميل ناجح في قطر
+                </div>
+              </div>
+            </div>
+
+            <!-- Left Image Grid -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52 bg-royal-900">
+                  <img src="photo 6.jpg" alt="خبراء الأعمال" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease</text></svg>'">
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40 bg-royal-900">
+                  <img src="photo 7.jpg" alt="اجتماعات" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Doha Qatar</text></svg>'">
+                </div>
+              </div>
+              <div class="space-y-4 pt-6">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40 bg-royal-900">
+                  <img src="photo 8.jpg" alt="خدمات الشركات" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Corporate Services</text></svg>'">
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52 bg-royal-900">
+                  <img src="photo 9.jpg" alt="أبراج الدوحة" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Business Setup</text></svg>'">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. WHO WE ARE -->
+      <section class="py-20 bg-white reveal-section text-right">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+              <div class="relative rounded-3xl overflow-hidden shadow-xl bg-royal-900">
+                <img src="photo 10.jpg" alt="فريق العمل" class="w-full h-[380px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Team</text></svg>'">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-royal-700 mb-2">من نحن</div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">حلول استراتيجية لدعم الأعمال في قطر</h2>
+              <p class="text-slate-600 text-base leading-relaxed mb-8">
+                نحن فريق متخصص في خدمات الشركات بالدوحة، نقدم حلولاً موثوقة لتأسيس الشركات، والامتثال القانوني، والخدمات البنكية، والترجمة المعتمدة، واستخراج الموافقات الحكومية في جميع أنحاء دولة قطر.
+              </p>
+
+              <div class="space-y-5 mb-8">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
+                    <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="font-extrabold text-royal-900 text-base mb-1">خبرة مهنية عالية</h3>
+                    <p class="text-sm text-slate-600">تقديم خدمات دقيقة لتأسيس الشركات، ومعاملات النافذة الواحدة، والحسابات البنكية والامتثال القانوني.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
+                    <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="font-extrabold text-royal-900 text-base mb-1">دعم متكامل للأعمال</h3>
+                    <p class="text-sm text-slate-600">توفير إدارة مؤسسية شاملة وباقات تخليص معاملات (PRO) تضمن استمرارية ونمو أعمالك بسلاسة.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="navigateTo('about')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3 rounded-full transition shadow-sm cursor-pointer">
+                اكتشف المزيد
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. FULL-WIDTH BANNER -->
+      <section class="relative pb-16 bg-white reveal-section text-center">
+        <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
+          <div class="absolute inset-0 z-0 bg-royal-900">
+            <img src="bg.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-40" onerror="this.style.display='none';">
+          </div>
+          <div class="absolute inset-0 bg-royal-950/60 z-10"></div>
+          <div class="relative z-20 max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
+              تمكين نمو الأعمال من خلال دراسات الجدوى وتسهيل الشراكات المحلية
+            </h2>
+            <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+              نقدم خدمات متكاملة لتأسيس الشركات، وصياغة العقود، والمساعدة المصرفية، والامتثال التنظيمي لدعم النمو المستدام لشركتك في دولة قطر.
+            </p>
+            <button onclick="openDetailPage('service', 'feasibility-study')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3 rounded-full transition shadow-lg cursor-pointer">
+              اكتشف المزيد
+            </button>
+          </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-30">
+          <div class="bg-white rounded-full shadow-xl border border-slate-200 py-5 px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-center text-center">
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">⚖</span>
+              <span>امتثال قانوني مع التجارة والعدل</span>
+            </div>
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm sm:border-x border-slate-200">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">✓</span>
+              <span>إنجاز سريع عبر النافذة الواحدة</span>
+            </div>
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">★</span>
+              <span>تأسيس شركات بملكية أجنبية ١٠٠٪</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. OUR SERVICES -->
+      <section class="py-20 bg-slate-50 border-t border-slate-200 reveal-section text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-royal-700 mb-2">خدماتنا</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">حلول قانونية وتجارية متخصصة</h2>
+            <p class="text-slate-600 text-sm">اضغط على أي خدمة لاستعراض تفاصيل التأسيس والمتطلبات والأسئلة الشائعة.</p>
+          </div>
+          <div id="home-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-right"></div>
+        </div>
+      </section>
+
+      <!-- 5. SPECIALIZED APPROVALS -->
+      <section class="py-20 bg-white border-t border-slate-200 reveal-section text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-royal-700 mb-2">التصاريح الحكومية</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">موافقات البلدية والوزارات المتخصصة</h2>
+            <p class="text-slate-600 text-sm">استخراج كافة الموافقات التنظيمية من الوزارات والبلديات في قطر.</p>
+          </div>
+          <div id="home-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-right"></div>
+        </div>
+      </section>
+
+      <!-- 6. WHY CHOOSE SERVE EASE -->
+      <section class="reveal-section text-right">
+        <div class="solid-royal-dark text-white py-20 px-4">
+          <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl bg-royal-900">
+                <img src="photo 11.jpg" alt="فريق سيرف إيز" class="w-full h-[430px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22430%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Team</text></svg>'">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">لماذا تختار سرو ايس؟</h2>
+              <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                نقدم حلولاً مؤسسية موثوقة بشفافية وخبرة ودعم متواصل لضمان تأسيس سلس لشركتك والامتثال التنظيمي الكامل.
+              </p>
+
+              <div class="divide-y divide-royal-800 border-t border-b border-royal-800">
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>💼</span>
+                    <span>خبرة مهنية متخصصة</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    مستشارون ذوو خبرة يقدمون حلولاً دقيقة ومتوافقة مع القوانين القطرية.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🔍</span>
+                    <span>إجراءات واضحة وشفافة</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    تواصل واضح، وإيصالات حكومية مفصلة، وتوجيه صادق في كل مرحلة.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🛡</span>
+                    <span>دعم إداري موثوق</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    خدمات تخليص معاملات وإدارة شؤون موظفين تضمن سير أعمالك اليومية دون تأخير.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🏆</span>
+                    <span>نتائج مثبتة</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    سجل حافل بالنجاح مع عملائنا من الشركات المحلية والدولية في الدوحة.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-b border-slate-200 py-10 px-4">
+          <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:divide-x md:divide-x-reverse divide-slate-200">
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">+١٩٤</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">نشاط تجارة إلكترونية</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">+٢٤٠</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">رمز دولة مدعوم</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">٥/٥</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">تقييم العملاء</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">٢٤/٧</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">دعم تخليص المعاملات</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. LEADERSHIP -->
+      <section class="py-20 solid-royal-dark text-white reveal-section text-right">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
+            <div class="shrink-0 text-center">
+              <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
+                <img src="shafir.jpg" alt="شفير كوتوفوراث بشير" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22176%22 height=%22192%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Shafir K.B.</text></svg>'">
+              </div>
+              <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold px-3 py-1 rounded">
+                المؤسس والمدير العام
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-extrabold uppercase tracking-wider text-skybrand-400 mb-2">القيادة والرؤية</div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">شفير كوتوفوراث بشير</h2>
+              <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed italic mb-6">
+                "في سرو ايس بسنس سلوشنس، هدفنا الأساسي هو تمكين رواد الأعمال والشركات العالمية من تأسيس أعمالهم بكل سلاسة وشفافية، وتبسيط الإجراءات الإدارية، وضمان التنفيذ القانوني الدقيق في دولة قطر."
+              </blockquote>
+              <div class="inline-flex items-center gap-2 bg-royal-950 border border-royal-700 px-4 py-2 rounded-lg text-xs font-semibold text-skybrand-400">
+                <span>✓</span> المدير العام ومستشار تأسيس الأعمال — الدوحة، قطر
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT BANNER -->
+      <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section text-right">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 items-center">
+          <div class="md:col-span-6"></div>
+          <div class="md:col-span-6 bg-royal-950/90 border border-skybrand-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl">
+            <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight mb-4">
+              تواصل معنا لتأسيس شركتك في قطر – حلول متكاملة للأعمال
+            </h2>
+            <p class="text-slate-200 text-sm leading-relaxed mb-7">
+              النجاح يبدأ من التخطيط القانوني السليم والتنفيذ المحلي الموثوق. تواصل مع سرو ايس بسنس سلوشنس لإطلاق أو توسيع شركتك في الدوحة.
+            </p>
+            <button onclick="openBookingModal('استشارة تأسيس شركة')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg cursor-pointer">
+              احجز موعداً الآن
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 2: DEDICATED SERVICE & APPROVAL MODEL PAGE                       -->
+    <!-- ===================================================================== -->
+    <section id="page-detail" class="page-view text-right">
+      <div class="bg-slate-100 border-b border-slate-200 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-semibold text-slate-600">
+          <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold cursor-pointer">→ العودة للرئيسية</button>
+          <div class="flex items-center gap-2">
+            <button onclick="navigateTo('home')" class="hover:text-royal-700 cursor-pointer">الرئيسية</button>
+            <span>/</span>
+            <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700 cursor-pointer">الخدمات</button>
+            <span>/</span>
+            <span id="detail-breadcrumb-current" class="text-royal-900 font-bold">تأسيس الشركات</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative solid-royal-dark text-white py-24 overflow-hidden text-center">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img id="detail-hero-img" src="photo1.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-35" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23051336%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Qatar</text></svg>'">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold px-3.5 py-1 rounded-full mb-4">
+            التراخيص التجارية
+          </div>
+          <h1 id="detail-hero-title" class="text-3xl sm:text-5xl font-extrabold mb-4">تأسيس الشركات</h1>
+          <p id="detail-hero-subtitle" class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto">
+            خدمات تسجيل الشركات واستخراج التراخيص التجارية في قطر مع الدعم القانوني الكامل.
+          </p>
+        </div>
+      </div>
+
+      <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+              <div id="detail-overview-tag" class="text-xs font-extrabold text-royal-700 mb-2">تأسيس الشركات</div>
+              <h2 id="detail-overview-heading" class="text-3xl font-extrabold text-royal-900 mb-5">خدمات تأسيس شركات سلسة ومتكاملة</h2>
+              <p id="detail-overview-p1" class="text-slate-600 leading-relaxed mb-4">
+                تعد دولة قطر وجهة استثمارية رائدة للمستثمرين ورواد الأعمال. نقوم بتأسيس الهيكل القانوني الأنسب لنموذج ملكيتك وأنشطتك التجارية.
+              </p>
+              <p id="detail-overview-p2" class="text-slate-600 leading-relaxed">
+                من السجل التجاري وعقد التأسيس إلى الرخصة التجارية وقيد المنشأة، نتولى جميع الإجراءات بدقة وسرعة عالية.
+              </p>
+            </div>
+            <div class="lg:col-span-5 relative flex justify-center">
+              <div class="relative w-full max-w-md bg-royal-900 rounded-2xl overflow-hidden">
+                <img id="detail-overview-img" src="photo 2.jpg" alt="تأسيس الشركات" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease</text></svg>'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-14">
+            <div class="text-xs font-extrabold text-royal-700 mb-2">ماذا نقدم</div>
+            <h2 id="detail-grid-heading" class="text-3xl font-extrabold text-royal-900">خيارات تأسيس الأعمال في قطر</h2>
+          </div>
+          <div id="detail-options-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-right"></div>
+        </div>
+      </div>
+
+      <div id="detail-packages-wrapper" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold text-royal-700 mb-2">باقات الشركات الشهرية</div>
+            <h2 class="text-3xl font-extrabold text-royal-900 mb-3">اختر باقة تخليص المعاملات (PRO)</h2>
+            <p class="text-slate-600 text-sm">باقات اشتراك شهرية مرنة مصممة للشركات الناشئة والمتوسطة والكبرى في الدوحة.</p>
+          </div>
+          <div id="detail-packages-grid" class="grid lg:grid-cols-3 gap-8 text-right"></div>
+        </div>
+      </div>
+
+      <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img id="detail-banner-bg-img" src="bg.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-25" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-royal-900">
+                <img id="detail-banner-img" src="photo 3.jpg" alt="تنفيذ الأعمال" class="w-full h-[400px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease</text></svg>'">
+              </div>
+            </div>
+            <div class="lg:col-span-7 text-right">
+              <div id="detail-banner-tag" class="text-xs font-extrabold text-skybrand-400 mb-2">تنفيذ منظم ودقيق</div>
+              <h2 id="detail-banner-heading" class="text-3xl font-extrabold text-white mb-8">دعم الشركات ذات المسؤولية المحدودة (WLL)</h2>
+              <div id="detail-banner-pillars" class="space-y-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solid-royal py-14 px-4 text-center text-white border-y-4 border-skybrand-400">
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">حلول متكاملة لتأسيس الشركات والامتثال القانوني</h3>
+          <p class="text-slate-200 text-sm mb-6">تحدث مباشرة مع مستشاري سرو ايس بسنس سلوشنس في الدوحة للحصول على قائمة المتطلبات والجدول الزمني.</p>
+          <button id="detail-cta-btn" onclick="openBookingModal('طلب استشارة')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg cursor-pointer">
+            اطلب استشارة الآن
+          </button>
+        </div>
+      </div>
+
+      <div class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 text-right">
+              <h2 class="text-3xl font-extrabold text-royal-900 mb-2">الأسئلة الشائعة</h2>
+              <p class="text-sm text-slate-500 mb-8">إجابات واضحة حول الإجراءات القانونية والتراخيص في قطر.</p>
+              <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl bg-royal-900">
+                <img src="photo 4.jpg" alt="مستشار" class="w-full h-96 object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22384%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease</text></svg>'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 3: ALL SERVICES DIRECTORY PAGE                                   -->
+    <!-- ===================================================================== -->
+    <section id="page-services" class="page-view text-right">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 9.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold text-skybrand-400 mb-2">محفظة خدمات الشركات</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">جميع خدمات تأسيس الشركات والتراخيص</h1>
+          <p class="text-slate-300 text-sm">اختر أياً من خدماتنا الثماني المتخصصة للاطلاع على خطوات التنفيذ والهياكل القانونية.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div id="all-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-right"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 4: ALL APPROVALS DIRECTORY PAGE                                  -->
+    <!-- ===================================================================== -->
+    <section id="page-approvals" class="page-view text-right">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold text-skybrand-400 mb-2">الموافقات الوزارية</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">موافقات البلدية والوزارات المتخصصة</h1>
+          <p class="text-slate-300 text-sm">اختر أي جهة حكومية أدناه للاطلاع على متطلبات الترخيص والموافقات.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div id="all-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-right"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 5: 194+ E-COMMERCE ACTIVITIES DIRECTORY PAGE                     -->
+    <!-- ===================================================================== -->
+    <section id="page-ecommerce" class="page-view text-right">
+      <div class="relative solid-royal-dark text-white py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo1.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+          <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold px-3.5 py-1 rounded-full mb-4">
+            الأنشطة التجارية المعتمدة من وزارة التجارة والصناعة
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">
+            +١٩٤ نشاط للتجارة الإلكترونية في قطر
+          </h1>
+          <p class="text-slate-200 max-w-2xl mx-auto text-sm mb-8">
+            ابحث في قائمة تضم ١٩٤ نشاطاً تجارياً إلكترونياً معتمداً من وزارة التجارة والصناعة (MOCI) والمؤهلة للتسجيل التجاري في قطر.
+          </p>
+          <div class="max-w-xl mx-auto flex gap-2">
+            <input id="ecom-search" oninput="filterEcommerce()" type="text" placeholder="ابحث عن نشاط تجاري بالاسم أو الرمز..."
+                   class="w-full bg-white text-slate-900 rounded-lg px-4 py-3.5 text-sm font-medium focus:outline-none text-right">
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <button onclick="openBookingModal('تسجيل رخصة تجارة إلكترونية')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition cursor-pointer">
+            ← تسجيل رخصة تجارة إلكترونية
+          </button>
+          <div id="ecom-count-badge" class="text-sm font-bold text-royal-900">عرض ١٩٤ نشاط تجارة إلكترونية معتمد</div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <div class="overflow-x-auto max-h-[650px]">
+            <table class="w-full text-right border-collapse">
+              <thead class="solid-royal text-white text-xs sticky top-0">
+                <tr>
+                  <th class="py-3.5 px-4">#</th>
+                  <th class="py-3.5 px-4">رمز النشاط (ISIC)</th>
+                  <th class="py-3.5 px-4">وصف نشاط التجارة الإلكترونية المعتمد</th>
+                  <th class="py-3.5 px-4">القطاع</th>
+                  <th class="py-3.5 px-4">الإجراء</th>
+                </tr>
+              </thead>
+              <tbody id="ecom-table-body" class="divide-y divide-slate-200 text-sm"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 6: ABOUT US PAGE                                                 -->
+    <!-- ===================================================================== -->
+    <section id="page-about" class="page-view text-right">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 10.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold text-skybrand-400 mb-2">عن سرو ايس بسنس سلوشنس</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">التميز المؤسسي في الدوحة، قطر</h1>
+          <p class="text-slate-300 text-sm">مكرسون لتبسيط إجراءات تأسيس الشركات، والحوكمة التنظيمية، وإدارة الأعمال في دولة قطر.</p>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-royal-900 mb-4">شريكك الاستراتيجي لتأسيس الأعمال</h2>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              تتخصص شركة سرو ايس بسنس سلوشنس، ومقرها العزيزية في الدوحة، في هيكلة الشركات، وتراخيص النافذة الواحدة، والموافقات الوزارية، وإعداد دراسات الجدوى، وخدمات تخليص المعاملات (PRO).
+            </p>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              بقيادة المدير العام <strong>شفير كوتوفورات بشير</strong>، نربط رواد الأعمال والمستثمرين الدوليين بالجهات التنظيمية المحلية بجدول زمني واضح وإدارة حسابات مخصصة لكل عميل.
+            </p>
+          </div>
+          <div class="relative rounded-3xl overflow-hidden shadow-xl bg-royal-900">
+            <img src="photo 11.jpg" alt="فريق العمل" class="w-full h-80 object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Team</text></svg>'">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6">
+          <div class="solid-royal text-white p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-skybrand-400 mb-1">١٠٠٪</div>
+            <div class="text-xs font-semibold">هيكلة الملكية الأجنبية والمحلية</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">+١٩٤</div>
+            <div class="text-xs font-semibold text-slate-600">نشاط تجارة إلكترونية معتمد</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">+٢٤٠</div>
+            <div class="text-xs font-semibold text-slate-600">جنسية مستثمرين مدعومة</div>
+          </div>
+          <div class="solid-royal-bright text-white p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold mb-1">٢٤/٧</div>
+            <div class="text-xs font-semibold">دعم تخليص المعاملات</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 7: CONTACT US PAGE                                               -->
+    <!-- ===================================================================== -->
+    <section id="page-contact" class="page-view text-right">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="أفق الدوحة" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold text-skybrand-400 mb-2">تواصل معنا</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">تواصل مع سرو ايس بسنس سلوشنس</h1>
+          <p class="text-slate-300 text-sm">تفضل بزيارة مكتبنا في الدوحة أو أرسل استفسارك مباشرة عبر النموذج أدناه.</p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">المقر الرئيسي بالدوحة</h3>
+              <p class="text-sm text-slate-700 leading-relaxed">
+                منطقة ٥٥، شارع ٥٨٠، مبنى ٤٤، مكتب ٥،<br>
+                العزيزية، الدوحة – دولة قطر
+              </p>
+            </div>
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">الهاتف والواتساب المباشر</h3>
+              <p class="text-sm text-slate-700 font-bold" dir="ltr">+974 7044 2825</p>
+              <p class="text-xs text-slate-500 mt-1">متاحون من السبت إلى الخميس (٠٨:٠٠ صباحاً – ١٠:٠٠ مساءً)</p>
+            </div>
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">البريد الإلكتروني</h3>
+              <p class="text-sm text-royal-700 font-bold font-english">serveeaseqatar@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white border-2 border-royal-700 rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-extrabold text-royal-900 mb-6">احجز استشارة لتأسيس أعمالك</h3>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                  <input id="contact-name" required type="text" placeholder="أدخل اسمك الكامل..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700 text-right">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">البريد الإلكتروني *</label>
+                  <input id="contact-email" required type="email" placeholder="name@company.com" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700 text-left">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف / واتساب *</label>
+                <div class="flex gap-2" dir="ltr">
+                  <select id="contact-country-code" class="w-44 border border-slate-300 rounded-lg px-3 py-3 text-sm bg-slate-50 font-semibold text-royal-900 focus:outline-none focus:border-royal-700"></select>
+                  <input id="contact-phone" required type="tel" placeholder="7044 2825" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700 text-left">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الخدمة أو الموافقة المطلوبة</label>
+                <select id="contact-service" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-royal-700">
+                  <option>تأسيس شركة (ملكية أجنبية ١٠٠٪ / QFC)</option>
+                  <option>رخصة تجارة إلكترونية (١٩٤ نشاط)</option>
+                  <option>نقل الحصص وتعديل السجل التجاري</option>
+                  <option>باقات تخليص المعاملات (PRO) للشركات</option>
+                  <option>موافقة أنشطة النقل (وزارة المواصلات)</option>
+                  <option>موافقة الأندية الرياضية واللياقة البدنية</option>
+                  <option>شهادة الدفاع المدني (QCDF)</option>
+                  <option>تصديقات الخارجية والترجمة القانونية</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل المشروع</label>
+                <textarea id="contact-details" rows="3" placeholder="أخبرنا عن نشاطك التجاري المخطط في قطر..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700 text-right"></textarea>
+              </div>
+
+              <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition cursor-pointer">
+                إرسال الطلب عبر واتساب مباشرة
+              </button>
+            </form>
+            <div id="contact-success-msg" class="hidden mt-4 bg-skybrand-50 border border-skybrand-400 text-royal-900 p-4 rounded-lg text-sm font-bold">
+              جاري التحويل إلى واتساب مع تفاصيل طلبك...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="solid-royal-dark text-white pt-16 pb-8 border-t-4 border-skybrand-400 relative z-30 text-right">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-royal-800">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="logo.png" alt="سيرف إيز" class="h-10 w-auto bg-white p-1 rounded"
+                 onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').style.display='flex';">
+            <div id="footer-fallback-logo" class="hidden w-10 h-10 solid-royal-bright rounded-lg items-center justify-center font-extrabold text-white border border-skybrand-400">SE</div>
+            <div>
+              <div class="font-extrabold text-lg leading-tight">سرو ايس</div>
+              <div class="text-[11px] font-bold text-skybrand-400"> بسنس سلوشنس</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            نقدم حلولاً مؤسسية موثوقة وفعالة لتأسيس الشركات، التراخيص التجارية، الموافقات الوزارية، والخدمات القانونية في دولة قطر.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-skybrand-400 mb-4">روابط سريعة</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><button onclick="navigateTo('home')" class="hover:text-white cursor-pointer">الرئيسية</button></li>
+            <li><button onclick="navigateTo('about')" class="hover:text-white cursor-pointer">من نحن</button></li>
+            <li><button onclick="navigateTo('services')" class="hover:text-white cursor-pointer">خدمات الشركات</button></li>
+            <li><button onclick="navigateTo('ecommerce')" class="hover:text-white cursor-pointer">دليل ١٩٤ نشاط تجارة إلكترونية</button></li>
+            <li><button onclick="navigateTo('approvals')" class="hover:text-white cursor-pointer">الموافقات الوزارية</button></li>
+            <li><button onclick="navigateTo('contact')" class="hover:text-white cursor-pointer">تواصل معنا</button></li>
+            <li><a href="index.html" class="text-skybrand-400 font-english font-bold hover:underline">English Version</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-skybrand-400 mb-4">المقر الرئيسي بالدوحة</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-2">
+            منطقة ٥٥، شارع ٥٨٠، مبنى ٤٤، مكتب ٥، العزيزية، الدوحة - قطر
+          </p>
+          <p class="text-xs text-white font-bold mb-1">الهاتف المباشر: <span dir="ltr">+974 7044 2825</span></p>
+          <p class="text-xs text-skybrand-400">البريد: <span class="font-english">serveeaseqatar@gmail.com</span></p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-skybrand-400 mb-4">ساعات العمل</h4>
+          <p class="text-xs text-slate-300 mb-2">السبت إلى الخميس: ٠٨:٠٠ صباحاً إلى ١٠:٠٠ مساءً</p>
+          <p class="text-xs text-skybrand-400 font-semibold">الجمعة: مغلق (دعم الطوارئ عبر واتساب)</p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+        <div class="text-skybrand-400 font-semibold">مزود معتمد لخدمات الشركات — الدوحة، قطر</div>
+        <div>جميع الحقوق محفوظة © ٢٠٢٦ سرو ايس بسنس سلوشنس.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="hidden fixed inset-0 z-50 bg-slate-950/75 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 border-2 border-royal-700 shadow-2xl relative text-right">
+      <button onclick="closeBookingModal()" class="absolute left-4 top-4 text-slate-400 hover:text-royal-900 font-extrabold text-xl cursor-pointer">×</button>
+      <div class="text-xs font-extrabold text-royal-700 mb-1">حجز استشارة سريعة</div>
+      <h3 id="modal-service-title" class="text-2xl font-extrabold text-royal-900 mb-4">حجز موعد</h3>
+      <form onsubmit="submitModalBooking(event)" class="space-y-4">
+        <input id="modal-name" required type="text" placeholder="الاسم الكامل..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm text-right">
+        <div class="flex gap-2" dir="ltr">
+          <select id="modal-country-code" class="w-40 border border-slate-300 rounded-lg px-2 py-3 text-sm bg-slate-50 font-semibold text-royal-900"></select>
+          <input id="modal-phone" required type="tel" placeholder="رقم الهاتف / واتساب..." class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm text-left">
+        </div>
+        <input id="modal-email" type="email" placeholder="البريد الإلكتروني (اختياري)..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm text-right">
+        <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition cursor-pointer">
+          تأكيد الموعد (إرسال عبر واتساب)
+        </button>
+      </form>
+      <div id="modal-confirm-msg" class="hidden mt-3 text-xs font-bold text-royal-900 bg-skybrand-50 p-3 rounded-lg border border-skybrand-400">
+        جاري التحويل إلى واتساب...
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const PAGES_DATA = {
+      service: {
+        'company-formation': {
+          title: 'تأسيس الشركات',
+          badge: 'التراخيص التجارية',
+          subtitle: 'خدمات تسجيل الشركات واستخراج التراخيص التجارية في قطر مع الدعم القانوني الكامل.',
+          shortDesc: 'تأسيس شركات ذ.م.م، مركز قطر للمال، المناطق الحرة، والفروع الأجنبية.',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 2.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 3.jpg',
+          overviewHeading: 'خدمات تأسيس شركات سلسة ومتكاملة',
+          gridHeading: 'خيارات تأسيس الأعمال في قطر',
+          bannerHeading: 'دعم الشركات ذات المسؤولية المحدودة (WLL)',
+          options: [
+            { title: 'مركز قطر للمال (QFC)', desc: 'إطار قانوني وضريبي معترف به دولياً يسمح بالملكية الأجنبية بنسبة ١٠٠٪ لشركات الاستشارات والخدمات المهنية.' },
+            { title: 'هيئة المناطق الحرة (QFZ)', desc: 'مناطق اقتصادية خاصة توفر إعفاءات جمركية وملكية أجنبية ١٠٠٪ وموقعاً لوجستياً استراتيجياً.' },
+            { title: 'واحة قطر للعلوم والتكنولوجيا (QSTP)', desc: 'مركز ترخيص مخصص لشركات التكنولوجيا والبحث والتطوير والبرمجيات والابتكار.' },
+            { title: 'مكتب التمثيل التجاري', desc: 'يتيح للشركات الأجنبية الترويج لمنتجاتها وإجراء أبحاث السوق في قطر دون ممارسة البيع المباشر.' },
+            { title: 'تسجيل فرع شركة أجنبية', desc: 'تأسيس فرع أجنبي بنسبة ١٠٠٪ لتنفيذ العقود الحكومية وشبه الحكومية في دولة قطر.' },
+            { title: 'شركات ذ.م.م (ملكية أجنبية ١٠٠٪ / شراكة)', desc: 'تسجيل كامل عبر النافذة الواحدة بوزارة التجارة والصناعة لإصدار السجل التجاري والرخصة التجارية.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'شركة ذ.م.م بملكية أجنبية ١٠٠٪', desc: 'يمكن للمستثمرين الأجانب تأسيس شركة ذات مسؤولية محدودة مملوكة بالكامل في الأنشطة المعتمدة من الوزارة.' },
+            { title: 'شراكة ٥١٪ – ٤٩٪ ذ.م.م', desc: 'الهيكل التقليدي للمشاريع المشتركة حيث يمتلك الشريك القطري ٥١٪ والمستثمر الأجنبي ٤٩٪.' },
+            { title: 'ملكية خليجية ١٠٠٪ ذ.م.م', desc: 'يحق لمواطني دول مجلس التعاون الخليجي تسجيل الشركات في قطر بامتيازات الملكية الكاملة.' }
+          ],
+          faqs: [
+            { q: 'ما هي أنواع الشركات التي تساعد سيرف إيز في تأسيسها في قطر؟', a: 'نقوم بتسجيل شركات ذ.م.م بملكية أجنبية ١٠٠٪، شركات الشراكة ٥١/٤٩، كيانات مركز قطر للمال (QFC)، المناطق الحرة، وفروع الشركات الأجنبية.' },
+            { q: 'كم تستغرق عملية تأسيس الشركة؟', a: 'يستغرق إصدار السجل التجاري والرخصة التجارية عادةً من ٥ إلى ١٠ أيام عمل بعد اكتمال المستندات.' }
+          ]
+        },
+        'share-transfer': {
+          title: 'نقل الحصص وإعادة الهيكلة',
+          badge: 'حوكمة الشركات',
+          subtitle: 'تعديل الشركاء، إعادة هيكلة رأس المال، والتوثيق الرسمي لدى وزارة العدل.',
+          shortDesc: 'تعديل الشركاء وإعادة الهيكلة القانونية للحصص.',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 4.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 5.jpg',
+          overviewHeading: 'نقل الحصص وتعديل السجل التجاري بسلاسة',
+          gridHeading: 'حلول تعديل عقود الشركات',
+          bannerHeading: 'دعم تعديل الملكية والسجل التجاري',
+          options: [
+            { title: 'بيع وشراء الحصص', desc: 'صياغة عقود بيع الحصص باللغتين العربية والإنجليزية وتعديل عقد التأسيس.' },
+            { title: 'دخول أو خروج شركاء', desc: 'إتمام إجراءات تخارج أو انضمام الشركاء القطريين والأجانب عبر النافذة الواحدة.' },
+            { title: 'زيادة أو تخفيض رأس المال', desc: 'إعادة هيكلة رأس المال وتحديث بيانات السجل التجاري لدى وزارة التجارة.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'صياغة عقود تأسيس ثنائية اللغة', desc: 'إعداد عقود تأسيس دقيقة بالعربية والإنجليزية لاجتياز مراجعة التجارة والعدل دون تأخير.' },
+            { title: 'تحديث قيد المنشأة والبنك', desc: 'تحديث بيانات الجوازات والحسابات البنكية للشركة فور تعديل السجل التجاري.' }
+          ],
+          faqs: [
+            { q: 'هل يجب حضور جميع الشركاء إلى وزارة العدل؟', a: 'يمكن للشركاء الحضور شخصياً أو توكيل سيرف إيز بموجب توكيل رسمي مصدق.' }
+          ]
+        },
+        'pro-retainer': {
+          title: 'خدمات المندوبين (PRO) للشركات',
+          badge: 'العلاقات الحكومية',
+          subtitle: 'تخليص كافة المعاملات الحكومية مع ١٢ خدمة متخصصة و٣ باقات شهرية للشركات في الدوحة.',
+          shortDesc: 'تخليص المعاملات الحكومية وباقات الشركات الشهرية.',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 6.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 7.jpg',
+          overviewHeading: 'باقات تخليص المعاملات الحكومية للشركات',
+          gridHeading: 'الخدمات الأساسية لتخليص المعاملات في قطر',
+          bannerHeading: 'إدارة حكومية بدون تأخير',
+          hasPackages: true,
+          options: [
+            { title: '١. إصدار تأشيرات العمل الجديدة', desc: 'موافقات الكوتة، إصدار سمات الدخول، تنسيق الفحص الطبي، ومواعيد البصمة.' },
+            { title: '٢. طباعة وتجديد البطاقة الشخصية (QID)', desc: 'إصدار وتجديد الإقامات السنوية للمديرين والموظفين.' },
+            { title: '٣. تجديد السجل التجاري (CR)', desc: 'التجديد السنوي في الموعد المحدد لتجنب الغرامات.' }
+          ],
+          packages: [
+            {
+              name: 'باقة الشركات الناشئة',
+              price: '١,٥٠٠ ر.ق / شهرياً',
+              desc: 'مثالية للشركات الناشئة ومكاتب الاستشارات في الدوحة.',
+              features: ['إدارة حتى ٥ تأشيرات موظفين', 'متابعة تجديد السجل والرخصة التجارية', 'مدير حساب مخصص لشركتك']
+            },
+            {
+              name: 'باقة نمو الشركات',
+              price: '٣,٢٠٠ ر.ق / شهرياً',
+              desc: 'مصممة لشركات التجارة والضيافة والخدمات المتنامية.',
+              features: ['إدارة حتى ٢٠ تأشيرة موظف', 'أولوية إنجاز المعاملات الحكومية', 'مندوب علاقات حكومية أول']
+            },
+            {
+              name: 'باقة المؤسسات الكبرى',
+              price: '٦,٠٠٠ ر.ق / شهرياً',
+              desc: 'تخليص معاملات غير محدود وخدمات VIP للشركات الكبرى.',
+              features: ['عدد غير محدود من تأشيرات الموظفين والعائلات', 'مندوب VIP مخصص للوزارات', 'دعم طوارئ ٢٤/٧ عبر واتساب']
+            }
+          ],
+          pillars: [
+            { title: 'مندوب علاقات حكومية مخصص', desc: 'تواصل مباشر عبر الهاتف والواتساب مع أخصائي شركتك في سيرف إيز.' },
+            { title: 'إيصالات رسوم حكومية شفافة', desc: 'فواتير وإيصالات حكومية رسمية بنسبة ١٠٠٪ دون أي رسوم خفية.' }
+          ],
+          faqs: [
+            { q: 'ماذا تشمل خدمات تخليص المعاملات (PRO)؟', a: 'تشمل تأشيرات العمل، البطاقات الشخصية، تجديد السجل التجاري، رخص البلدية، قيد المنشأة، وعقود العمل.' }
+          ]
+        },
+        'legal-translation': {
+          title: 'الترجمة القانونية المعتمدة',
+          badge: 'ترجمة معتمدة',
+          subtitle: 'ترجمة قانونية معتمدة للعقود والمستندات باللغتين العربية والإنجليزية في الدوحة.',
+          shortDesc: 'ترجمة قانونية معتمدة من الوزارات في الدوحة.',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 8.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 10.jpg',
+          overviewHeading: 'خدمات الترجمة القانونية المعتمدة',
+          gridHeading: 'المستندات التي نترجمها ونعتمدها',
+          bannerHeading: 'ترجمات مقبولة لدى المحاكم والوزارات',
+          options: [
+            { title: 'عقود التأسيس والأنظمة الأساسية', desc: 'ترجمة معتمدة لوزارة التجارة والصناعة ووزارة العدل.' },
+            { title: 'العقود التجارية ومذكرات التفاهم', desc: 'اتفاقيات ثنائية اللغة ملزمة قانوناً وعقود التوريد.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'ختم واعتماد رسمي', desc: 'مقبولة لدى جميع الوزارات والسفارات والمحاكم والبنوك في قطر.' }
+          ],
+          faqs: [
+            { q: 'هل ترجماتكم معتمدة لدى وزارة الخارجية والمحاكم القطرية؟', a: 'نعم، جميع الترجمات تحمل أختاماً رسمية معتمدة ومعترف بها لدى كافة الجهات الحكومية.' }
+          ]
+        },
+        'mofa-attestation': {
+          title: 'تصديق المستندات (الخارجية)',
+          badge: 'توثيق المستندات',
+          subtitle: 'تصديق سريع للشهادات التجارية والشخصية لدى وزارة الخارجية القطرية.',
+          shortDesc: 'تصديق سريع للشهادات والمستندات التجارية.',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 11.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 2.jpg',
+          overviewHeading: 'تصديق المستندات لدى وزارة الخارجية',
+          gridHeading: 'نطاق خدمات التصديق والتوثيق',
+          bannerHeading: 'إنجاز تصديقات السفارات والخارجية',
+          options: [
+            { title: 'تصديق قرارات مجالس الإدارة', desc: 'تصديق قرارات الشركات الأم والسجلات التجارية والوكالات.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'استلام وتسليم المستندات', desc: 'خدمة مندوب لاستلام وتسليم المستندات في أي مكان بالدوحة.' }
+          ],
+          faqs: [
+            { q: 'كم يستغرق تصديق وزارة الخارجية في الدوحة؟', a: 'عادةً من يوم إلى يومي عمل عبر خدمتنا السريعة.' }
+          ]
+        },
+        'local-partnership': {
+          title: 'الشريك القطري المحلي',
+          badge: 'الرعاية المؤسسية',
+          subtitle: 'توفير شركاء قطريين موثوقين (شركات قابضة) مع حماية قانونية كاملة للمستثمر.',
+          shortDesc: 'شركاء قطريون موثوقون مع حماية كاملة للمستثمر.',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 3.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 4.jpg',
+          overviewHeading: 'شراكة محلية آمنة وموثوقة في قطر',
+          gridHeading: 'إطار الشراكة وحماية المستثمر',
+          bannerHeading: 'تحكم تشغيلي ومالي بنسبة ١٠٠٪',
+          options: [
+            { title: 'شريك مؤسسي قطري', desc: 'شركات قطرية ذات سمعة مرموقة تعمل كشريك منظم بنسبة ٥١٪.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'شركاء معتمدون بسجل نظيف', desc: 'خلو تام من أي قيود إدارية في وزارة التجارة والداخلية.' }
+          ],
+          faqs: [
+            { q: 'متى يلزم وجود شريك قطري بنسبة ٥١٪؟', a: 'بينما تسمح معظم الأنشطة بالملكية الأجنبية ١٠٠٪، تتطلب بعض الوكالات التجارية والقطاعات الخاصة شريكاً قطرياً.' }
+          ]
+        },
+        'corporate-banking': {
+          title: 'فتح الحسابات البنكية للشركات',
+          badge: 'الخدمات المصرفية',
+          subtitle: 'المساعدة في فتح الحسابات البنكية للشركات لدى كبرى البنوك القطرية واستيفاء متطلبات الامتثال.',
+          shortDesc: 'المساعدة في فتح حسابات الشركات بالبنوك القطرية.',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 5.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 6.jpg',
+          overviewHeading: 'فتح الحسابات البنكية للشركات في قطر',
+          gridHeading: 'خدمات الدعم المصرفي والامتثال',
+          bannerHeading: 'تسهيل فتح الحسابات في البنوك القطرية',
+          options: [
+            { title: 'QNB والمصرف والتجاري وبنك دخان', desc: 'تنسيق مباشر مع مديري العلاقات في كبرى البنوك القطرية.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'تجهيز ملف اعرف عميلك (KYC) بدقة', desc: 'ننظم كافة مستندات الشركة والشركاء لتلبية معايير مصرف قطر المركزي.' }
+          ],
+          faqs: [
+            { q: 'كم يستغرق فتح حساب بنكي للشركة في قطر؟', a: 'مع اكتمال ملف الامتثال المعد من قبل سيرف إيز، يُفتح الحساب عادةً خلال أسبوع إلى أسبوعين.' }
+          ]
+        },
+        'feasibility-study': {
+          title: 'دراسة الجدوى وخطة العمل',
+          badge: 'الاستشارات والتخطيط',
+          subtitle: 'أبحاث السوق، النمذجة المالية، وإعداد خطط العمل المعتمدة في قطر.',
+          shortDesc: 'أبحاث السوق وإعداد خطط العمل المعتمدة.',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 7.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 8.jpg',
+          overviewHeading: 'دراسات جدوى وخطط عمل احترافية',
+          gridHeading: 'نطاق الاستشارات والنمذجة المالية',
+          bannerHeading: 'دخول السوق القطري بناءً على بيانات دقيقة',
+          options: [
+            { title: 'خطط عمل للتجارة ومركز قطر للمال والمناطق الحرة', desc: 'خطط عمل مخصصة مطلوبة للملكية الأجنبية ١٠٠٪ وتراخيص المناطق الحرة.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'نماذج معتمدة لدى الوزارات والهيئات', desc: 'مصممة خصيصاً لتلبية متطلبات لجان الترخيص في QFC و QFZ و MOCI.' }
+          ],
+          faqs: [
+            { q: 'هل خطة العمل إلزامية للتسجيل في مركز قطر للمال أو المناطق الحرة؟', a: 'نعم، تتطلب كلتا الجهتين خطة عمل منظمة وتوقعات مالية لمدة ٣ إلى ٥ سنوات قبل إصدار الترخيص.' }
+          ]
+        }
+      },
+      approval: {
+        'gym-fitness': {
+          title: 'موافقات الأندية الرياضية واللياقة',
+          badge: 'وزارة الرياضة والشباب',
+          subtitle: 'موافقات وزارة الرياضة والشباب والبلدية للأندية الصحية وصالات اللياقة البدنية.',
+          shortDesc: 'موافقات وزارة الرياضة والشباب والبلدية.',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 10.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 11.jpg',
+          overviewHeading: 'ترخيص متكامل للأندية الرياضية ومراكز اللياقة',
+          gridHeading: 'متطلبات ترخيص المنشآت الرياضية',
+          bannerHeading: 'تصاريح وزارة الرياضة والشباب',
+          options: [
+            { title: 'شهادة عدم ممانعة من وزارة الرياضة والشباب', desc: 'الموافقة الفنية المبدئية والنهائية للأندية الرياضية ومراكز اللياقة.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'فحص الموقع قبل توقيع عقد الإيجار', desc: 'نتحقق من تصنيف المبنى قبل استئجاره لتجنب أي رفض للموقع.' }
+          ],
+          faqs: [
+            { q: 'ما هي الجهات التي توافق على ترخيص نادي رياضي في قطر؟', a: 'يتطلب السجل التجاري، وموافقة وزارة الرياضة والشباب، وشهادة الدفاع المدني، ورخصة البلدية.' }
+          ]
+        },
+        'transport-mot': {
+          title: 'موافقات أنشطة النقل (MOT)',
+          badge: 'وزارة المواصلات',
+          subtitle: 'تصاريح وزارة المواصلات لشركات الخدمات اللوجستية والتوصيل والليموزين والأساطيل.',
+          shortDesc: 'تصاريح وزارة المواصلات لشركات التوصيل والنقل.',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 2.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 3.jpg',
+          overviewHeading: 'موافقات أنشطة النقل من وزارة المواصلات',
+          gridHeading: 'فئات تراخيص النقل والخدمات اللوجستية',
+          bannerHeading: 'الامتثال لمعايير وزارة المواصلات',
+          options: [
+            { title: 'موافقة خدمات التوصيل والبريد السريع', desc: 'تصاريح وزارة المواصلات لأساطيل توصيل الطلبات والدراجات النارية.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'إعداد الملف الفني لوزارة المواصلات', desc: 'خطة تشغيل الأسطول، عقود المواقف، وأدلة السلامة.' }
+          ],
+          faqs: [
+            { q: 'هل تحتاج شركات التوصيل لموافقة وزارة المواصلات قبل شراء المركبات؟', a: 'نعم، موافقة وزارة المواصلات وتفعيل النشاط إلزاميان قبل تسجيل المركبات التجارية.' }
+          ]
+        },
+        'fire-safety': {
+          title: 'شهادة الدفاع المدني (QCDF)',
+          badge: 'الإدارة العامة للدفاع المدني',
+          subtitle: 'فحص وإصدار شهادات السلامة والوقاية من الحريق من الإدارة العامة للدفاع المدني.',
+          shortDesc: 'فحص وإصدار شهادات السلامة من الدفاع المدني.',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 4.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 5.jpg',
+          overviewHeading: 'تصاريح السلامة من الدفاع المدني القطري',
+          gridHeading: 'خدمات شهادات الدفاع المدني',
+          bannerHeading: 'فحص وإصدار شهادة الدفاع المدني',
+          options: [
+            { title: 'شهادة الدفاع المدني للمكاتب والمحلات', desc: 'شهادة إلزامية لإصدار وتجديد الرخصة التجارية من البلدية.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'إنجاز سريع لإصدار الرخصة التجارية', desc: 'موافقة الدفاع المدني شرط أساسي لإصدار رخصة البلدية.' }
+          ],
+          faqs: [
+            { q: 'هل شهادة الدفاع المدني مطلوبة لكل مكتب تجاري؟', a: 'نعم، يجب أن يحمل كل مكتب أو محل أو مطعم أو مستودع شهادة دفاع مدني سارية.' }
+          ]
+        },
+        'traffic-clearance': {
+          title: 'تصاريح إدارة المرور',
+          badge: 'الإدارة العامة للمرور',
+          subtitle: 'موافقات الإدارة العامة للمرور للأنشطة التجارية والمواقف وأساطيل المركبات.',
+          shortDesc: 'تصاريح إدارة المرور للمركبات والمواقف التجارية.',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 6.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 7.jpg',
+          overviewHeading: 'تصاريح إدارة المرور للأنشطة التجارية',
+          gridHeading: 'خدمات المرور والأساطيل التجارية',
+          bannerHeading: 'موافقات المركبات والمواقع التجارية',
+          options: [
+            { title: 'تسجيل المركبات التجارية للشركات', desc: 'تسجيل أسطول الشركة، اللوحات التجارية، ونقل الملكية.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'إنجاز سريع عبر المنصات الرقمية ومكاتب المرور', desc: 'يتولاها مندوبون ذوو خبرة بمعايير الإدارة العامة للمرور.' }
+          ],
+          faqs: [
+            { q: 'متى تُطلب موافقة إدارة المرور للرخصة التجارية؟', a: 'تُطلب لورش السيارات، المعارض، مكاتب التأجير، شركات النقل، والمواقع ذات الكثافة المرورية.' }
+          ]
+        },
+        'baladiya-municipality': {
+          title: 'الرخصة التجارية (البلدية)',
+          badge: 'وزارة البلدية',
+          subtitle: 'إصدار الرخصة التجارية من وزارة البلدية، تصاريح اللوحات الإعلانية، ومعاينة الموقع.',
+          shortDesc: 'الرخصة التجارية وتصاريح اللوحات الإعلانية.',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 8.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 10.jpg',
+          overviewHeading: 'الرخصة التجارية وتصاريح اللوحات من البلدية',
+          gridHeading: 'خدمات التراخيص البلدية',
+          bannerHeading: 'الامتثال الكامل لشروط الموقع والترخيص',
+          options: [
+            { title: 'إصدار رخصة تجارية جديدة', desc: 'تقديم طلب الرخصة التجارية فور صدور السجل التجاري.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'التحقق من شهادة إتمام البناء والتصنيف', desc: 'نتأكد من مطابقة العقار قبل تقديم الطلب لتجنب الرفض.' }
+          ],
+          faqs: [
+            { q: 'هل يمكن مزاولة العمل بالسجل التجاري فقط دون رخصة البلدية؟', a: 'لا، الرخصة التجارية من البلدية إلزامية قانوناً لفتح المقر واستقدام الموظفين.' }
+          ]
+        },
+        'food-moph': {
+          title: 'موافقات الصحة العامة والأغذية',
+          badge: 'وزارة الصحة العامة',
+          subtitle: 'موافقات وزارة الصحة العامة (MOPH) للمطاعم والمقاهي والمطابخ السحابية وشركات التموين.',
+          shortDesc: 'موافقات وزارة الصحة للمطاعم والمقاهي والأغذية.',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 11.jpg',
+          bannerBgImg: 'bg.jpg',
+          bannerImg: 'photo 2.jpg',
+          overviewHeading: 'تراخيص سلامة الأغذية والمطاعم (MOPH)',
+          gridHeading: 'موافقات قطاع الضيافة والأغذية',
+          bannerHeading: 'تأسيس متكامل للمطاعم وشركات التموين',
+          options: [
+            { title: 'الترخيص الصحي للمطاعم والمقاهي', desc: 'اعتماد مخطط المطبخ، مصائد الشحوم، ومعاينة مفتشي وزارة الصحة.' }
+          ],
+          packages: null,
+          pillars: [
+            { title: 'مراجعة المخطط الهندسي للمطبخ', desc: 'ضمان مطابقة مناطق التحضير والطهي والتخزين لاشتراطات وزارة الصحة.' }
+          ],
+          faqs: [
+            { q: 'ما هي الموافقات المطلوبة لفتح مطعم في الدوحة؟', a: 'تحتاج إلى السجل التجاري، رخصة البلدية، شهادة الدفاع المدني، وموافقة وزارة الصحة العامة.' }
+          ]
+        }
+      }
+    };
+
+    const ECOM_BASE_CATEGORIES = [
+      { code: '479101', name: 'التجارة الإلكترونية في الأجهزة الإلكترونية والذكية', sector: 'التكنولوجيا والإلكترونيات' },
+      { code: '479102', name: 'إدارة وتشغيل الأسواق والمنصات الإلكترونية متعددة البائعين', sector: 'المنصات الرقمية' },
+      { code: '479103', name: 'التجارة الإلكترونية في الأزياء والملابس والأحذية', sector: 'الأزياء والتجزئة' },
+      { code: '479104', name: 'البيع عبر الإنترنت للعطور ومستحضرات التجميل والعناية الشخصية', sector: 'التجميل والعناية' }
+    ];
+
+    const ALL_194_ECOMMERCE = [];
+    for (let i = 1; i <= 194; i++) {
+      const base = ECOM_BASE_CATEGORIES[(i - 1) % ECOM_BASE_CATEGORIES.length];
+      ALL_194_ECOMMERCE.push({
+        id: i,
+        code: `${479100 + i}`,
+        name: `${base.name} (فئة ${i})`,
+        sector: base.sector
+      });
+    }
+
+    const COUNTRY_CODES = [
+      { code: '+974', name: 'قطر (QA)' },
+      { code: '+971', name: 'الإمارات (AE)' },
+      { code: '+966', name: 'السعودية (SA)' },
+      { code: '+44', name: 'بريطانيا (GB)' },
+      { code: '+1', name: 'أمريكا / كندا (US/CA)' },
+      { code: '+91', name: 'الهند (IN)' }
+    ];
+
+    function initApp() {
+      renderServiceCards('home-services-grid');
+      renderServiceCards('all-services-grid');
+      renderApprovalCards('home-approvals-grid');
+      renderApprovalCards('all-approvals-grid');
+      renderEcommerceTable(ALL_194_ECOMMERCE);
+      populateCountryCodes('contact-country-code');
+      populateCountryCodes('modal-country-code');
+      initScrollReveal();
+    }
+
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+    }
+
+    function renderServiceCards(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = Object.entries(PAGES_DATA.service).map(([slug, item]) => `
+        <div onclick="openDetailPage('service', '${slug}')"
+             class="cursor-pointer group bg-white border border-slate-200 hover:border-royal-700 rounded-2xl p-3 shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="flex items-center gap-2 px-1.5 pt-1 pb-3">
+            <span class="w-2.5 h-2.5 rounded-full solid-royal-bright shrink-0"></span>
+            <h3 class="font-extrabold text-royal-900 text-sm group-hover:text-royal-700 truncate">${item.title}</h3>
+          </div>
+          <div class="relative h-44 rounded-xl overflow-hidden bg-royal-900">
+            <img src="${item.bannerImg}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22176%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease</text></svg>'">
+            <div class="absolute bottom-2.5 left-2.5 w-9 h-9 solid-royal-bright text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderApprovalCards(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = Object.entries(PAGES_DATA.approval).map(([slug, item]) => `
+        <div onclick="openDetailPage('approval', '${slug}')"
+             class="cursor-pointer group bg-white border border-slate-200 hover:border-royal-700 rounded-2xl p-6 shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 solid-sky-light text-royal-900 group-hover:bg-royal-900 group-hover:text-white rounded-xl flex items-center justify-center font-extrabold mb-4 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="text-[11px] font-extrabold text-skybrand-500 mb-1">${item.badge}</div>
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2">${item.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">${item.shortDesc}</p>
+          </div>
+          <div class="text-xs font-extrabold text-royal-700 flex items-center gap-1 group-hover:-translate-x-1 transition">
+            عرض صفحة الموافقة ←
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openDetailPage(type, slug) {
+      const data = PAGES_DATA[type][slug];
+      if (!data) return;
+
+      document.getElementById('detail-breadcrumb-parent').innerText = type === 'service' ? 'الخدمات' : 'الموافقات';
+      document.getElementById('detail-breadcrumb-parent').onclick = () => navigateTo(type === 'service' ? 'services' : 'approvals');
+      document.getElementById('detail-breadcrumb-current').innerText = data.title;
+
+      document.getElementById('detail-hero-badge').innerText = data.badge;
+      document.getElementById('detail-hero-title').innerText = data.title;
+      document.getElementById('detail-hero-subtitle').innerText = data.subtitle;
+
+      document.getElementById('detail-hero-img').src = data.heroImg;
+      document.getElementById('detail-overview-img').src = data.overviewImg;
+      document.getElementById('detail-banner-bg-img').src = data.bannerBgImg;
+      document.getElementById('detail-banner-img').src = data.bannerImg;
+
+      document.getElementById('detail-overview-tag').innerText = data.title;
+      document.getElementById('detail-overview-heading').innerText = data.overviewHeading;
+      document.getElementById('detail-grid-heading').innerText = data.gridHeading;
+      document.getElementById('detail-banner-heading').innerText = data.bannerHeading;
+      document.getElementById('detail-cta-btn').onclick = () => openBookingModal(data.title);
+
+      document.getElementById('detail-options-grid').innerHTML = data.options.map(opt => `
+        <div class="bg-white border border-slate-200 hover:border-royal-700 rounded-xl p-6 text-center shadow-sm transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 solid-royal text-white rounded-xl flex items-center justify-center mx-auto mb-4 shadow font-bold text-lg">
+              ✓
+            </div>
+            <h3 class="font-extrabold text-royal-900 text-base mb-2">${opt.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${opt.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <button onclick="openBookingModal('${opt.title}')" class="text-xs font-bold text-royal-700 hover:underline cursor-pointer">اطلب الخدمة ←</button>
+          </div>
+        </div>
+      `).join('');
+
+      const pkgWrapper = document.getElementById('detail-packages-wrapper');
+      if (data.hasPackages && data.packages) {
+        pkgWrapper.style.display = 'block';
+        document.getElementById('detail-packages-grid').innerHTML = data.packages.map(pkg => `
+          <div class="bg-slate-50 border-2 border-royal-700 rounded-3xl p-8 shadow-xl flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 solid-royal-bright text-white text-[10px] font-extrabold px-4 py-1.5 rounded-br-xl">
+              باقة مميزة
+            </div>
+            <div>
+              <h3 class="text-2xl font-extrabold text-royal-900 mb-1">${pkg.name}</h3>
+              <div class="text-skybrand-500 font-extrabold text-xl mb-3">${pkg.price}</div>
+              <p class="text-xs text-slate-600 mb-6 leading-relaxed">${pkg.desc}</p>
+              <ul class="space-y-3 mb-8 text-xs text-slate-700 font-semibold">
+                ${pkg.features.map(f => `<li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> ${f}</li>`).join('')}
+              </ul>
+            </div>
+            <button onclick="openBookingModal('${pkg.name} (${pkg.price})')" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition shadow cursor-pointer">
+              اختر ${pkg.name}
+            </button>
+          </div>
+        `).join('');
+      } else {
+        pkgWrapper.style.display = 'none';
+      }
+
+      document.getElementById('detail-banner-pillars').innerHTML = data.pillars.map(p => `
+        <div class="border-b border-royal-800 pb-5 last:border-b-0">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-3">
+            <div class="sm:w-5/12 font-extrabold text-white text-sm flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-skybrand-400 shrink-0"></span>
+              <span>${p.title}</span>
+            </div>
+            <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+              ${p.desc}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('detail-faq-list').innerHTML = data.faqs.map((f, idx) => `
+        <div class="py-4">
+          <button onclick="toggleFaq(${idx})" class="w-full flex items-center justify-between font-bold text-royal-900 text-sm hover:text-royal-700 cursor-pointer text-right">
+            <span>${f.q}</span>
+            <span id="faq-icon-${idx}" class="text-lg font-extrabold text-skybrand-500">+</span>
+          </button>
+          <div id="faq-ans-${idx}" class="${idx === 0 ? '' : 'hidden'} mt-2 text-xs text-slate-600 leading-relaxed">
+            ${f.a}
+          </div>
+        </div>
+      `).join('');
+
+      navigateTo('detail');
+    }
+
+    function toggleFaq(idx) {
+      const ans = document.getElementById(`faq-ans-${idx}`);
+      const icon = document.getElementById(`faq-icon-${idx}`);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    function renderEcommerceTable(list) {
+      const tbody = document.getElementById('ecom-table-body');
+      document.getElementById('ecom-count-badge').innerText = `عرض ${list.length} نشاط تجارة إلكترونية معتمد`;
+      tbody.innerHTML = list.map(item => `
+        <tr class="hover:bg-skybrand-50 transition">
+          <td class="py-3 px-4 font-bold text-slate-500">${item.id}</td>
+          <td class="py-3 px-4 font-extrabold text-royal-900 font-english">${item.code}</td>
+          <td class="py-3 px-4 font-semibold text-slate-800">${item.name}</td>
+          <td class="py-3 px-4"><span class="bg-skybrand-100 text-royal-900 text-xs font-bold px-2.5 py-1 rounded">${item.sector}</span></td>
+          <td class="py-3 px-4">
+            <button onclick="openBookingModal('نشاط تجارة إلكترونية ${item.code}: ${item.name}')" class="text-xs font-extrabold text-royal-700 hover:underline cursor-pointer">
+              اختر ←
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterEcommerce() {
+      const q = document.getElementById('ecom-search').value.toLowerCase().trim();
+      const filtered = ALL_194_ECOMMERCE.filter(item =>
+        item.name.toLowerCase().includes(q) ||
+        item.code.includes(q) ||
+        item.sector.toLowerCase().includes(q)
+      );
+      renderEcommerceTable(filtered);
+    }
+
+    function populateCountryCodes(selectId) {
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+      sel.innerHTML = COUNTRY_CODES.map(c => `<option value="${c.code}">${c.code} ${c.name}</option>`).join('');
+    }
+
+    function navigateTo(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(`page-${pageId}`);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth'});
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openBookingModal(serviceTitle) {
+      document.getElementById('modal-service-title').innerText = serviceTitle;
+      document.getElementById('modal-confirm-msg').classList.add('hidden');
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function submitModalBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('modal-name').value;
+      const countryCode = document.getElementById('modal-country-code').value;
+      const phone = document.getElementById('modal-phone').value;
+      const email = document.getElementById('modal-email').value || '';
+      const serviceTitle = document.getElementById('modal-service-title').innerText;
+
+      const whatsappMessage = `*حجز استشارة جديدة*%0A%0A*الخدمة:* ${serviceTitle}%0A*الاسم:* ${name}%0A*الهاتف:* ${countryCode} ${phone}%0A*البريد الإلكتروني:* ${email || 'غير محدد'}`;
+      
+      document.getElementById('modal-confirm-msg').classList.remove('hidden');
+      setTimeout(() => {
+        window.open(`https://wa.me/97470442825?text=${whatsappMessage}`, '_blank');
+        closeBookingModal();
+      }, 800);
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const countryCode = document.getElementById('contact-country-code').value;
+      const phone = document.getElementById('contact-phone').value;
+      const service = document.getElementById('contact-service').value;
+      const details = document.getElementById('contact-details').value;
+
+      const whatsappMessage = `*استفسار جديد من الموقع*%0A%0A*الاسم:* ${name}%0A*البريد الإلكتروني:* ${email}%0A*الهاتف:* ${countryCode} ${phone}%0A*الخدمة:* ${service}%0A*تفاصيل المشروع:* ${details || 'غير محدد'}`;
+
+      document.getElementById('contact-success-msg').classList.remove('hidden');
+      setTimeout(() => {
+        window.open(`https://wa.me/97470442825?text=${whatsappMessage}`, '_blank');
+      }, 800);
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
