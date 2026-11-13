@@ -49,11 +49,11 @@
     .solid-sky { background-color: #0284C7; }
     .solid-sky-light { background-color: #E0F2FE; }
 
-    /* Moving & Smooth Page Transition Animations */
+    /* Page Transition Animations */
     .page-view { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
     .page-view.active { display: block; opacity: 1; transform: translateY(0); }
 
-    /* Scroll reveal animation */
+    /* Scroll reveal */
     .reveal-section {
       opacity: 0;
       transform: translateY(24px);
@@ -64,7 +64,6 @@
       transform: translateY(0);
     }
 
-    /* Floating moving/bouncing animation for WhatsApp & Call action widget */
     @keyframes floatPulse {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-8px) scale(1.05); }
@@ -210,7 +209,7 @@
     </div>
   </header>
 
-  <!-- FLOATING ANIMATED RIGHT-SIDE WHATSAPP & CALL WIDGET -->
+  <!-- FLOATING ANIMATED WHATSAPP & CALL WIDGET -->
   <div class="fixed right-6 bottom-8 z-50 flex flex-col gap-3 floating-action-badge">
     <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease%20Business%20Solutions,%20I%20would%20like%20to%20inquire%20about%20corporate%20services%20in%20Qatar." target="_blank" rel="noopener noreferrer"
        class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110 border-2 border-white" title="Chat on WhatsApp">
@@ -222,57 +221,72 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- PAGE 1: HOME PAGE (Featuring Qatari Women, Men & Foreign Investors)     -->
+  <!-- PAGE 1: HOME PAGE                                                     -->
   <!-- ===================================================================== -->
   <main id="page-home" class="page-view active">
 
-    <!-- 1. HERO SECTION WITH QATARI & FOREIGN COLLABORATION IMAGERY -->
-    <section class="py-16 lg:py-24 bg-white border-b border-slate-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 1. HERO SECTION WITH 100% WIDTH DOHA SKYLINE BACKGROUND & QATARI/FOREIGN PROFILES -->
+    <section class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
+      <!-- 100% Width Background Image with Dark Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="photo1.jpg" alt="Doha Qatar Skyline" class="w-full h-full object-cover"
+             onerror="this.src='bg.jpg'">
+        <div class="absolute inset-0 bg-royal-950/80"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
           <!-- Left Content -->
-          <div class="lg:col-span-6">
-            <div class="inline-flex items-center gap-2 bg-skybrand-100 text-royal-900 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
-              <span class="w-2 h-2 rounded-full solid-royal-bright"></span>
+          <div class="lg:col-span-6 text-white">
+            <div class="inline-flex items-center gap-2 bg-royal-900 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
+              <span class="w-2 h-2 rounded-full solid-sky"></span>
               Doha's Premier Corporate Advisory
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-royal-900 leading-[1.12] tracking-tight mb-6">
+            <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.12] tracking-tight mb-6">
               Serve Ease Business Solutions
             </h1>
-            <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+            <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
               Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.
             </p>
             <div class="flex flex-wrap items-center gap-4 mb-10">
-              <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md">
+              <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md">
                 Contact Us
               </button>
-              <button onclick="navigateTo('ecommerce')" class="bg-white border-2 border-royal-900 text-royal-900 hover:bg-skybrand-50 font-bold px-7 py-3 rounded-full transition">
+              <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition">
                 194+ E-Commerce Activities
               </button>
             </div>
 
-            <!-- Client Avatars: Qatari Women, Qatari Men & Foreign Investors -->
-            <div class="border-t border-slate-200 pt-6 flex items-center gap-4">
+            <!-- Client Avatars: Qatari Women, Qatari Men & Foreign Investors Folder Images -->
+            <div class="border-t border-royal-800 pt-6 flex items-center gap-4">
               <div class="flex -space-x-3">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Qatari Woman Professional" class="w-11 h-11 rounded-full border-2 border-white object-cover" title="Qatari Professional">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Qatari Male Professional" class="w-11 h-11 rounded-full border-2 border-white object-cover" title="Qatari Businessman">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt="Foreign Investor" class="w-11 h-11 rounded-full border-2 border-white object-cover" title="International Investor">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Global Partner" class="w-11 h-11 rounded-full border-2 border-white object-cover" title="Global Executive">
+                <img src="photo 2.jpg" alt="Qatari Woman Professional" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Qatari Professional">
+                <img src="photo 3.jpg" alt="Qatari Male Professional" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Qatari Businessman">
+                <img src="photo 4.jpg" alt="Foreign Investor" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="International Investor">
+                <img src="photo 5.jpg" alt="Global Partner" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Global Executive">
               </div>
-              <div class="text-sm font-bold text-slate-700">
-                100+ Successful Corporate Clients (Qatari & Foreign Investors)
+              <div class="text-sm font-bold text-slate-200">
+                100+ Successful Corporate Clients (Qatari Women, Men & Foreign Investors)
               </div>
             </div>
           </div>
 
-          <!-- Right Image: Qatari Women, Men & Foreign Investors Collaboration in Doha -->
-          <div class="lg:col-span-6">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="Qatari Women, Men and Foreign Investors Collaboration in Doha" class="w-full h-[460px] object-cover">
-              <!-- Bottom-Right White Stat Badge -->
-              <div class="absolute bottom-5 right-5 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 max-w-[210px]">
-                <div class="text-3xl font-extrabold text-royal-700 leading-none mb-1">100%</div>
-                <div class="text-xs font-bold text-royal-900 leading-snug">Foreign & Local Ownership Advisory</div>
+          <!-- Right Image: Qatari Women, Men & Foreign Investors Collaboration Grid from Folder -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
+                <img src="photo 6.jpg" alt="Qatari Women Professionals in Doha" class="w-full h-full object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
+                <img src="photo 7.jpg" alt="Foreign Investors Meeting" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="space-y-4 pt-6">
+              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
+                <img src="photo 8.jpg" alt="Qatari Businessmen in Doha" class="w-full h-full object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
+                <img src="photo 9.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover">
               </div>
             </div>
           </div>
@@ -280,13 +294,13 @@
       </div>
     </section>
 
-    <!-- 2. WHO WE ARE SECTION (Featuring Qatari & International Team Imagery) -->
+    <!-- 2. WHO WE ARE SECTION (Featuring Qatari & International Team Imagery from Folder) -->
     <section class="py-20 bg-white reveal-section">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-5">
             <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80" alt="Qatari Women and International Executives Collaboration" class="w-full h-[380px] object-cover">
+              <img src="photo 10.jpg" alt="Qatari Women, Men and Foreign Executives Collaboration" class="w-full h-[380px] object-cover">
             </div>
           </div>
 
@@ -294,7 +308,7 @@
             <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHO WE ARE</div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">Strategic Business Support Solutions</h2>
             <p class="text-slate-600 text-base leading-relaxed mb-8">
-              We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar for Qatari nationals and international investors.
+              We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar for Qatari nationals (women and men) and international investors.
             </p>
 
             <div class="space-y-5 mb-8">
@@ -327,14 +341,13 @@
       </div>
     </section>
 
-    <!-- 3. FULL-WIDTH EMPOWERMENT BANNER + OVERLAPPING PILL BAR -->
+    <!-- 3. FULL-WIDTH 100% DOHA SKYLINE EMPOWERMENT BANNER + OVERLAPPING PILL BAR -->
     <section class="relative pb-16 bg-white reveal-section">
       <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
-        <div class="absolute inset-0 opacity-25">
-          <img src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover"
-               onerror="this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80'">
+        <div class="absolute inset-0 z-0">
+          <img src="bg.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-35">
         </div>
-        <div class="relative max-w-4xl mx-auto text-center">
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
             Empowering Business Growth Through Feasibility Study & Local Partnership Facilitations
           </h2>
@@ -348,7 +361,7 @@
       </div>
 
       <!-- Overlapping White Rounded Pill Bar -->
-      <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-10">
+      <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-20">
         <div class="bg-white rounded-full shadow-xl border border-slate-200 py-5 px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-center text-center">
           <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
             <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">⚖</span>
@@ -397,7 +410,7 @@
         <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-5">
             <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Qatari and Foreign Executive Team" class="w-full h-[430px] object-cover">
+              <img src="photo 11.jpg" alt="Qatari and Foreign Executive Team" class="w-full h-[430px] object-cover">
             </div>
           </div>
 
@@ -481,8 +494,7 @@
         <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
           <div class="shrink-0 text-center">
             <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
-              <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover"
-                   onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80'">
+              <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover">
             </div>
             <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded">
               Founder & Managing Director
@@ -504,10 +516,10 @@
 
     <!-- 8. CONTACT US FOR COMPANY FORMATION BANNER -->
     <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section">
-      <div class="absolute inset-0 opacity-25">
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" alt="Consultation Doha" class="w-full h-full object-cover">
+      <div class="absolute inset-0 z-0">
+        <img src="photo 12.jpg" alt="Doha Qatar Skyline Night" class="w-full h-full object-cover opacity-30">
       </div>
-      <div class="relative max-w-6xl mx-auto grid md:grid-cols-12 items-center">
+      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 items-center">
         <div class="md:col-span-6"></div>
         <div class="md:col-span-6 bg-royal-950/90 border border-skybrand-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl">
           <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight mb-4">
@@ -542,12 +554,12 @@
       </div>
     </div>
 
-    <!-- DEDICATED SERVICE HERO SECTION WITH QATARI & FOREIGN COLLABORATION PHOTOGRAPHY -->
-    <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
-      <div class="absolute inset-0 opacity-30">
-        <img id="detail-hero-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80" alt="Qatari and International Business Collaboration" class="w-full h-full object-cover">
+    <!-- 100% WIDTH HERO SECTION WITH DOHA SKYLINE BACKGROUND -->
+    <div class="relative solid-royal-dark text-white py-24 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img id="detail-hero-img" src="photo1.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-35">
       </div>
-      <div class="relative max-w-4xl mx-auto px-4 text-center">
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
           CORPORATE LICENSING
         </div>
@@ -571,10 +583,9 @@
               We deal with every step of the procedure with efficiency and precision—from Commercial Registration (CR) and Articles of Association (AOA) drafting to Municipality Trade License and Computer Card issuance.
             </p>
           </div>
-          <!-- Qatari Women, Men & Foreign Investors Professional Meeting Image -->
           <div class="lg:col-span-5 relative flex justify-center">
             <div class="relative w-full max-w-md">
-              <img id="detail-overview-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80" alt="Qatari Women and International Executives Collaboration" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl">
+              <img id="detail-overview-img" src="photo 2.jpg" alt="Qatari Women and International Executives" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl">
               <div class="hidden sm:flex gap-1.5 absolute -right-5 top-6">
                 <span class="w-1.5 h-12 solid-royal-bright rotate-12 rounded"></span>
                 <span class="w-1.5 h-12 solid-sky rotate-12 rounded"></span>
@@ -586,7 +597,7 @@
       </div>
     </div>
 
-    <!-- OPTIONS GRID (FOR PRO RETAINER, THIS WILL DISPLAY THE 12 SERVICES) -->
+    <!-- OPTIONS GRID -->
     <div class="py-20 bg-slate-50 border-y border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
@@ -597,7 +608,7 @@
       </div>
     </div>
 
-    <!-- PACKAGES SECTION (DYNAMICALLY RENDERED FOR PRO RETAINER OR PILLARS FOR OTHER SERVICES) -->
+    <!-- PACKAGES SECTION (FOR PRO RETAINER) -->
     <div id="detail-packages-wrapper" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -609,16 +620,16 @@
       </div>
     </div>
 
-    <!-- BANNER SECTION WITH QATARI & FOREIGN TEAM IMAGE -->
+    <!-- BANNER SECTION WITH COLLABORATION IMAGE -->
     <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
-      <div class="absolute inset-0 opacity-25">
-        <img id="detail-banner-bg-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" alt="Qatari and Foreign Professionals Team" class="w-full h-full object-cover">
+      <div class="absolute inset-0 z-0">
+        <img id="detail-banner-bg-img" src="bg.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-25">
       </div>
-      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-5">
             <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
-              <img id="detail-banner-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Qatari & Foreign Executive Review" class="w-full h-[400px] object-cover">
+              <img id="detail-banner-img" src="photo 3.jpg" alt="Qatari and Foreign Executive Review" class="w-full h-[400px] object-cover">
             </div>
           </div>
           <div class="lg:col-span-7">
@@ -648,10 +659,9 @@
             <p class="text-sm text-slate-500 mb-8">Explore clear answers to common regulatory and processing questions.</p>
             <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
           </div>
-          <!-- Qatari & International Collaboration Meeting Image -->
           <div class="lg:col-span-5">
             <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Qatari Professional Consultant" class="w-full h-96 object-cover">
+              <img src="photo 4.jpg" alt="Qatari Professional Consultant" class="w-full h-96 object-cover">
             </div>
           </div>
         </div>
@@ -663,10 +673,15 @@
   <!-- PAGE 3: ALL SERVICES DIRECTORY PAGE                                   -->
   <!-- ===================================================================== -->
   <section id="page-services" class="page-view">
-    <div class="solid-royal-dark text-white py-16 px-4 text-center">
-      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">CORPORATE PORTFOLIO</div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">All Corporate & Licensing Services</h1>
-      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Select any of our 8 specialized corporate services to view detailed execution steps, structures, and FAQs.</p>
+    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">CORPORATE PORTFOLIO</div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">All Corporate & Licensing Services</h1>
+        <p class="text-slate-300 text-sm">Select any of our 8 specialized corporate services to view detailed execution steps, structures, and FAQs.</p>
+      </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div id="all-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
@@ -677,10 +692,15 @@
   <!-- PAGE 4: ALL APPROVALS DIRECTORY PAGE                                  -->
   <!-- ===================================================================== -->
   <section id="page-approvals" class="page-view">
-    <div class="solid-royal-dark text-white py-16 px-4 text-center">
-      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">MINISTRY CLEARANCES</div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Specialized Municipal & Ministry Approvals</h1>
-      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Select any ministry or municipal approval below to open its full requirements and clearance guide.</p>
+    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">MINISTRY CLEARANCES</div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Specialized Municipal & Ministry Approvals</h1>
+        <p class="text-slate-300 text-sm">Select any ministry or municipal approval below to open its full requirements and clearance guide.</p>
+      </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div id="all-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -691,8 +711,11 @@
   <!-- PAGE 5: 194+ E-COMMERCE ACTIVITIES DIRECTORY PAGE                     -->
   <!-- ===================================================================== -->
   <section id="page-ecommerce" class="page-view">
-    <div class="solid-royal-dark text-white py-16 px-4">
-      <div class="max-w-5xl mx-auto text-center">
+    <div class="relative solid-royal-dark text-white py-20 px-4 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+      </div>
+      <div class="relative z-10 max-w-5xl mx-auto text-center">
         <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
           MOCI APPROVED COMMERCIAL ACTIVITIES
         </div>
@@ -735,13 +758,18 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- PAGE 6: ABOUT US PAGE (Featuring Qatari & International Team Imagery) -->
+  <!-- PAGE 6: ABOUT US PAGE                                                 -->
   <!-- ===================================================================== -->
   <section id="page-about" class="page-view">
-    <div class="solid-royal-dark text-white py-16 px-4 text-center">
-      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">ABOUT SERVE EASE</div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Corporate Excellence in Doha, Qatar</h1>
-      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="photo 10.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">ABOUT SERVE EASE</div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Corporate Excellence in Doha, Qatar</h1>
+        <p class="text-slate-300 text-sm">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+      </div>
     </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
       <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -751,12 +779,11 @@
             Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers.
           </p>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges Qatari nationals and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
+            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges Qatari nationals (women and men) and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
           </p>
         </div>
-        <!-- Qatari and International Professionals Collaboration Image -->
         <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-royal-900">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Qatari and Foreign Executives Collaborating in Doha" class="w-full h-80 object-cover">
+          <img src="photo 11.jpg" alt="Qatari and Foreign Executives Collaborating" class="w-full h-80 object-cover">
         </div>
       </div>
 
@@ -785,10 +812,15 @@
   <!-- PAGE 7: CONTACT US PAGE                                               -->
   <!-- ===================================================================== -->
   <section id="page-contact" class="page-view">
-    <div class="solid-royal-dark text-white py-16 px-4 text-center">
-      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">GET IN TOUCH</div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Contact Serve Ease Business Solutions</h1>
-      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">GET IN TOUCH</div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Contact Serve Ease Business Solutions</h1>
+        <p class="text-slate-300 text-sm">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+      </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -954,10 +986,10 @@
           badge: 'CORPORATE LICENSING',
           subtitle: 'Complete business registration and licensing services in Qatar with full compliance support.',
           shortDesc: 'WLL, QFC, QFZ, QSTP, and branch registration in Qatar.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 2.jpg',
+          bannerBgImg: 'photo 9.jpg',
+          bannerImg: 'photo 3.jpg',
           overviewHeading: 'Seamless Company Formation Services',
           gridHeading: 'Business Setup Options in Qatar',
           bannerHeading: 'WLL Companies Support Services',
@@ -985,10 +1017,10 @@
           badge: 'CORPORATE GOVERNANCE',
           subtitle: 'Partner amendments, equity restructuring, and Ministry of Justice notarization.',
           shortDesc: 'Partner amendments and legal equity restructuring.',
-          heroImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 4.jpg',
+          bannerBgImg: 'photo 12.jpg',
+          bannerImg: 'photo 5.jpg',
           overviewHeading: 'Seamless Share Transfer & Amendments',
           gridHeading: 'Corporate Amendment Solutions',
           bannerHeading: 'Equity & CR Modification Support',
@@ -1002,7 +1034,6 @@
           ],
           pillars: [
             { title: 'Bilingual AOA Amendment Drafting', desc: 'Precision Arabic-English Articles of Association prepared to pass MOCI and MOJ review without rejection.' },
-            { title: 'Tax Clearance & Audit Coordination', desc: 'Ensuring Dhareeba tax compliance prior to executing share transfers.' },
             { title: 'Bank Mandate & Computer Card Sync', desc: 'Updating immigration and corporate bank records immediately after CR amendment.' }
           ],
           faqs: [
@@ -1015,10 +1046,10 @@
           badge: 'GOVERNMENT LIAISON',
           subtitle: 'Comprehensive government liaison with 12 specialized PRO services and 3 structured corporate retainer packages in Doha.',
           shortDesc: 'Government liaison, 12 PRO services & 3 retainer packages.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 6.jpg',
+          bannerBgImg: 'photo1.jpg',
+          bannerImg: 'photo 7.jpg',
           overviewHeading: 'Dedicated Corporate PRO Retainer & 12 Specialized Services',
           gridHeading: '12 Essential PRO & Government Services in Qatar',
           bannerHeading: 'Zero-Delay Government Administration',
@@ -1073,10 +1104,10 @@
           badge: 'CERTIFIED TRANSLATION',
           subtitle: 'Ministry-certified Arabic, English, and multilingual document translation in Doha.',
           shortDesc: 'Ministry-certified document translation in Doha.',
-          heroImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 8.jpg',
+          bannerBgImg: 'photo1.jpg',
+          bannerImg: 'photo 10.jpg',
           overviewHeading: 'Certified Legal Translation Services',
           gridHeading: 'Documents We Translate & Certify',
           bannerHeading: 'Court & Ministry Accepted Translations',
@@ -1085,7 +1116,7 @@
             { title: 'Commercial Contracts & MOUs', desc: 'Legally binding bilingual agreements, NDAs, and supply contracts.' },
             { title: 'Powers of Attorney (POA)', desc: 'Certified translations for notarization and embassy legalization.' },
             { title: 'Educational & Personal Certificates', desc: 'Degrees, marriage, and birth certificates for QID and family visas.' },
-            { title: 'Financial Statements & Audits', desc: 'Accurate translation of balance sheets for Dhareeba and banks.' },
+            { title: 'Financial Statements & Audits', desc: 'Accurate translation of balance sheets for banks.' },
             { title: 'Court & Litigation Pleadings', desc: 'Official legal translations accepted by Qatari courts.' }
           ],
           pillars: [
@@ -1102,10 +1133,10 @@
           badge: 'DOCUMENT LEGALIZATION',
           subtitle: 'Fast-track authentication of corporate and personal certificates in Qatar.',
           shortDesc: 'Fast-track attestation of corporate certificates.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 11.jpg',
+          bannerBgImg: 'photo 9.jpg',
+          bannerImg: 'photo 2.jpg',
           overviewHeading: 'Fast-Track MOFA Document Attestation',
           gridHeading: 'Attestation & Legalization Scope',
           bannerHeading: 'End-to-End Embassy & MOFA Clearance',
@@ -1131,10 +1162,10 @@
           badge: 'CORPORATE SPONSORSHIP',
           subtitle: 'Trusted Qatari corporate sponsors and joint-venture partners with full investor protection.',
           shortDesc: 'Trusted Qatari corporate sponsors & partners.',
-          heroImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 3.jpg',
+          bannerBgImg: 'photo 12.jpg',
+          bannerImg: 'photo 4.jpg',
           overviewHeading: 'Secure Local Qatari Corporate Sponsorship',
           gridHeading: 'Partnership & Protection Framework',
           bannerHeading: '100% Operational & Financial Control',
@@ -1160,10 +1191,10 @@
           badge: 'BANKING ASSISTANCE',
           subtitle: 'Assistance with leading Qatari corporate bank account opening and KYC compliance.',
           shortDesc: 'Assistance with leading Qatari bank account opening.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 5.jpg',
+          bannerBgImg: 'photo1.jpg',
+          bannerImg: 'photo 6.jpg',
           overviewHeading: 'Corporate Bank Account Opening in Qatar',
           gridHeading: 'Banking & KYC Support Services',
           bannerHeading: 'Fast-Track Qatari Bank Onboarding',
@@ -1189,10 +1220,10 @@
           badge: 'ADVISORY & STRATEGY',
           subtitle: 'Market research, financial modeling, and structured business planning for Qatar.',
           shortDesc: 'Market research & structured business planning.',
-          heroImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 7.jpg',
+          bannerBgImg: 'photo 9.jpg',
+          bannerImg: 'photo 8.jpg',
           overviewHeading: 'Bankable Feasibility Studies & Business Plans',
           gridHeading: 'Advisory & Financial Modeling Scope',
           bannerHeading: 'Data-Driven Market Entry in Qatar',
@@ -1219,10 +1250,10 @@
           badge: 'MINISTRY OF SPORTS & YOUTH',
           subtitle: 'Ministry of Sports & Youth and Municipal approvals for gyms, health clubs, and fitness studios.',
           shortDesc: 'Ministry of Sports & Youth and Municipal approvals.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 10.jpg',
+          bannerBgImg: 'photo 12.jpg',
+          bannerImg: 'photo 11.jpg',
           overviewHeading: 'Complete Gym & Fitness Center Licensing',
           gridHeading: 'Fitness Facility Approval Requirements',
           bannerHeading: 'Ministry of Sports & Youth Clearance',
@@ -1248,10 +1279,10 @@
           badge: 'MINISTRY OF TRANSPORT',
           subtitle: 'Ministry of Transport (MOT) clearances for logistics, delivery, limousine, and fleet companies.',
           shortDesc: 'MOT clearances for delivery and logistics fleets.',
-          heroImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 2.jpg',
+          bannerBgImg: 'photo1.jpg',
+          bannerImg: 'photo 3.jpg',
           overviewHeading: 'Ministry of Transport (MOT) Activity Approvals',
           gridHeading: 'Transport & Logistics License Categories',
           bannerHeading: 'MOT Fleet & Logistics Compliance',
@@ -1277,10 +1308,10 @@
           badge: 'QATAR CIVIL DEFENSE',
           subtitle: 'Qatar General Directorate of Civil Defense (QCDF) building safety inspection and certification.',
           shortDesc: 'Civil Defense building safety inspection and certification.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 4.jpg',
+          bannerBgImg: 'photo 9.jpg',
+          bannerImg: 'photo 5.jpg',
           overviewHeading: 'Qatar Civil Defense (QCDF) Fire Safety Clearance',
           gridHeading: 'Civil Defense Certification Services',
           bannerHeading: 'QCDF Inspection & Certificate Issuance',
@@ -1306,10 +1337,10 @@
           badge: 'MOI TRAFFIC DEPARTMENT',
           subtitle: 'Ministry of Interior Traffic Department clearances for commercial activities, parking, and fleet.',
           shortDesc: 'MOI Traffic Dept. clearances for vehicles & parking.',
-          heroImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo1.jpg',
+          overviewImg: 'photo 6.jpg',
+          bannerBgImg: 'photo 12.jpg',
+          bannerImg: 'photo 7.jpg',
           overviewHeading: 'MOI Traffic Department Commercial Clearances',
           gridHeading: 'Traffic & Fleet Regulatory Services',
           bannerHeading: 'Commercial Vehicle & Location Clearances',
@@ -1335,10 +1366,10 @@
           badge: 'MINISTRY OF MUNICIPALITY',
           subtitle: 'Ministry of Municipality (Baladiya) Trade License, signage permit, and premise inspection.',
           shortDesc: 'Municipality Trade License & signboard approvals.',
-          heroImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 9.jpg',
+          overviewImg: 'photo 8.jpg',
+          bannerBgImg: 'photo1.jpg',
+          bannerImg: 'photo 10.jpg',
           overviewHeading: 'Baladiya Commercial Trade License & Signage',
           gridHeading: 'Municipality Licensing Services',
           bannerHeading: 'Full Premise & Trade License Compliance',
@@ -1364,10 +1395,10 @@
           badge: 'MINISTRY OF PUBLIC HEALTH',
           subtitle: 'Ministry of Public Health (MOPH) clearances for restaurants, cafes, cloud kitchens, and catering.',
           shortDesc: 'MOPH clearances for restaurants, cafes & food trading.',
-          heroImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-          overviewImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
-          bannerBgImg: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
-          bannerImg: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+          heroImg: 'photo 12.jpg',
+          overviewImg: 'photo 11.jpg',
+          bannerBgImg: 'photo 9.jpg',
+          bannerImg: 'photo 2.jpg',
           overviewHeading: 'MOPH Food Safety & Restaurant Licensing',
           gridHeading: 'Hospitality & Food Business Approvals',
           bannerHeading: 'End-to-End Restaurant & Catering Setup',
@@ -1493,7 +1524,7 @@
             <h3 class="font-extrabold text-royal-900 text-sm group-hover:text-royal-700 truncate">${item.title}</h3>
           </div>
           <div class="relative h-44 rounded-xl overflow-hidden bg-slate-100">
-            <img src="${item.bannerImg}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <img src="${item.bannerImg}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='photo1.jpg'">
             <div class="absolute bottom-2.5 right-2.5 w-9 h-9 solid-royal-bright text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </div>
@@ -1535,7 +1566,7 @@
       document.getElementById('detail-hero-title').innerText = data.title;
       document.getElementById('detail-hero-subtitle').innerText = data.subtitle;
 
-      // Assign rich Qatari & International collaboration images to detail page
+      // Assign 100% width Doha skyline hero background and folder images
       document.getElementById('detail-hero-img').src = data.heroImg;
       document.getElementById('detail-overview-img').src = data.overviewImg;
       document.getElementById('detail-banner-bg-img').src = data.bannerBgImg;
@@ -1563,7 +1594,7 @@
         </div>
       `).join('');
 
-      // Render Packages if available (For PRO Retainer)
+      // Render Packages if available
       const pkgWrapper = document.getElementById('detail-packages-wrapper');
       if (data.hasPackages && data.packages) {
         pkgWrapper.style.display = 'block';
@@ -1668,7 +1699,7 @@
       document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
       const target = document.getElementById(`page-${pageId}`);
       if (target) target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth'});
     }
 
     function toggleMobileMenu() {
