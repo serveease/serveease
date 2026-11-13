@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serve Ease Business Solutions | Corporate PRO Services & Licensing in Qatar</title>
+  <title>Serve Ease Business Solutions | Business Setup & Operations in Qatar</title>
+  <meta name="description" content="Serve Ease Business Solutions delivers complete company formation, licensing, PRO government support, corporate banking, and legal attestation across Doha, Qatar." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,9 +50,23 @@
     .solid-sky { background-color: #0284C7; }
     .solid-sky-light { background-color: #E0F2FE; }
 
-    /* Page Transition Animations */
-    .page-view { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
-    .page-view.active { display: block; opacity: 1; transform: translateY(0); }
+    /* Right-to-Left Sliding Page Transitions */
+    .page-view {
+      display: none;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .page-view.active {
+      display: block;
+      position: relative;
+      opacity: 1;
+      transform: translateX(0);
+    }
 
     /* Scroll reveal */
     .reveal-section {
@@ -220,688 +235,678 @@
     </a>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- PAGE 1: HOME PAGE                                                     -->
-  <!-- ===================================================================== -->
-  <main id="page-home" class="page-view active">
+  <div class="relative overflow-hidden min-h-screen">
+    <!-- ===================================================================== -->
+    <!-- PAGE 1: HOME PAGE                                                     -->
+    <!-- ===================================================================== -->
+    <main id="page-home" class="page-view active">
 
-    <!-- 1. HERO SECTION WITH 100% WIDTH DOHA SKYLINE BACKGROUND & QATARI/FOREIGN PROFILES -->
-    <section class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
-      <!-- 100% Width Background Image with Dark Overlay -->
-      <div class="absolute inset-0 z-0">
-        <img src="photo1.jpg" alt="Doha Qatar Skyline" class="w-full h-full object-cover"
-             onerror="this.src='bg.jpg'">
-        <div class="absolute inset-0 bg-royal-950/80"></div>
-      </div>
+      <!-- 1. HERO SECTION WITH BACKGROUND VIDEO & PROFILES -->
+      <section class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="hero-bg.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 bg-royal-950/80"></div>
+        </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <!-- Left Content -->
-          <div class="lg:col-span-6 text-white">
-            <div class="inline-flex items-center gap-2 bg-royal-900 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
-              <span class="w-2 h-2 rounded-full solid-sky"></span>
-              Doha's Premier Corporate Advisory
-            </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.12] tracking-tight mb-6">
-              Serve Ease Business Solutions
-            </h1>
-            <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-              Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.
-            </p>
-            <div class="flex flex-wrap items-center gap-4 mb-10">
-              <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md">
-                Contact Us
-              </button>
-              <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition">
-                194+ E-Commerce Activities
-              </button>
-            </div>
-
-            <!-- Client Avatars: Qatari Women, Qatari Men & Foreign Investors Folder Images -->
-            <div class="border-t border-royal-800 pt-6 flex items-center gap-4">
-              <div class="flex -space-x-3">
-                <img src="photo 2.jpg" alt="Qatari Woman Professional" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Qatari Professional">
-                <img src="photo 3.jpg" alt="Qatari Male Professional" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Qatari Businessman">
-                <img src="photo 4.jpg" alt="Foreign Investor" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="International Investor">
-                <img src="photo 5.jpg" alt="Global Partner" class="w-12 h-12 rounded-full border-2 border-white object-cover" title="Global Executive">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-6 text-white">
+              <div class="inline-flex items-center gap-2 bg-royal-900 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5">
+                <span class="w-2 h-2 rounded-full solid-sky"></span>
+                Doha's Premier Corporate Advisory
               </div>
-              <div class="text-sm font-bold text-slate-200">
-                100+ Successful Corporate Clients (Qatari Women, Men & Foreign Investors)
+              <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.12] tracking-tight mb-6">
+                Serve Ease Business Solutions
+              </h1>
+              <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+                Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 mb-10">
+                <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md">
+                  Contact Us
+                </button>
+                <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition">
+                  194+ E-Commerce Activities
+                </button>
               </div>
-            </div>
-          </div>
 
-          <!-- Right Image: Qatari Women, Men & Foreign Investors Collaboration Grid from Folder -->
-          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
-                <img src="photo 6.jpg" alt="Qatari Women Professionals in Doha" class="w-full h-full object-cover">
-              </div>
-              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
-                <img src="photo 7.jpg" alt="Foreign Investors Meeting" class="w-full h-full object-cover">
+              <!-- Client Avatars -->
+              <div class="border-t border-royal-800 pt-6 flex items-center gap-4">
+                <div class="flex -space-x-3">
+                  <img src="photo 2.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                  <img src="photo 3.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                  <img src="photo 4.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                  <img src="photo 5.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                </div>
+                <div class="text-sm font-bold text-slate-200">
+                  100+ Successful Corporate Clients
+                </div>
               </div>
             </div>
-            <div class="space-y-4 pt-6">
-              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
-                <img src="photo 8.jpg" alt="Qatari Businessmen in Doha" class="w-full h-full object-cover">
+
+            <!-- Right Image Grid -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
+                  <img src="photo 6.jpg" alt="Professionals" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
+                  <img src="photo 7.jpg" alt="Meeting" class="w-full h-full object-cover">
+                </div>
               </div>
-              <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
-                <img src="photo 9.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover">
+              <div class="space-y-4 pt-6">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
+                  <img src="photo 8.jpg" alt="Businessmen" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
+                  <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover">
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 2. WHO WE ARE SECTION (Featuring Qatari & International Team Imagery from Folder) -->
-    <section class="py-20 bg-white reveal-section">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-5">
-            <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl">
-              <img src="photo 10.jpg" alt="Qatari Women, Men and Foreign Executives Collaboration" class="w-full h-[380px] object-cover">
+      <!-- 2. WHO WE ARE SECTION -->
+      <section class="py-20 bg-white reveal-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+              <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl">
+                <img src="photo 10.jpg" alt="Team" class="w-full h-[380px] object-cover">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHO WE ARE</div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">Strategic Business Support Solutions</h2>
+              <p class="text-slate-600 text-base leading-relaxed mb-8">
+                We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar.
+              </p>
+
+              <div class="space-y-5 mb-8">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
+                    <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="font-extrabold text-royal-900 text-base mb-1">Professional Expertise</h3>
+                    <p class="text-sm text-slate-600">Delivering accurate company formation, Single Window documentation, banking, and compliance services across Qatar.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
+                    <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="font-extrabold text-royal-900 text-base mb-1">Comprehensive Business Support</h3>
+                    <p class="text-sm text-slate-600">Providing end-to-end corporate administration and PRO retainers ensuring smooth operations and sustainable growth.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="navigateTo('about')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3 rounded-full transition shadow-sm">
+                Discover More
+              </button>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="lg:col-span-7">
-            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHO WE ARE</div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">Strategic Business Support Solutions</h2>
-            <p class="text-slate-600 text-base leading-relaxed mb-8">
-              We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar for Qatari nationals (women and men) and international investors.
+      <!-- 3. FULL-WIDTH BANNER + OVERLAPPING PILL BAR -->
+      <section class="relative pb-16 bg-white reveal-section">
+        <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
+          <div class="absolute inset-0 z-0">
+            <img src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-35">
+          </div>
+          <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
+              Empowering Business Growth Through Feasibility Study & Local Partnership Facilitations
+            </h2>
+            <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+              We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar.
             </p>
-
-            <div class="space-y-5 mb-8">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
-                  <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-extrabold text-royal-900 text-base mb-1">Professional Expertise</h3>
-                  <p class="text-sm text-slate-600">Delivering accurate company formation, Single Window documentation, banking, and compliance services across Qatar.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 shrink-0 solid-sky-light text-royal-900 rounded-full flex items-center justify-center font-extrabold border border-skybrand-400">
-                  <svg class="w-6 h-6 text-royal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-extrabold text-royal-900 text-base mb-1">Comprehensive Business Support</h3>
-                  <p class="text-sm text-slate-600">Providing end-to-end corporate administration and PRO retainers ensuring smooth operations and sustainable growth.</p>
-                </div>
-              </div>
-            </div>
-
-            <button onclick="navigateTo('about')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3 rounded-full transition shadow-sm">
+            <button onclick="openDetailPage('service', 'feasibility-study')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3 rounded-full transition shadow-lg">
               Discover More
             </button>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 3. FULL-WIDTH 100% DOHA SKYLINE EMPOWERMENT BANNER + OVERLAPPING PILL BAR -->
-    <section class="relative pb-16 bg-white reveal-section">
-      <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-20">
+          <div class="bg-white rounded-full shadow-xl border border-slate-200 py-5 px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-center text-center">
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">⚖</span>
+              <span>MOCI & MOJ Legal Compliance</span>
+            </div>
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm sm:border-x border-slate-200">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">✓</span>
+              <span>Single Window Fast-Track</span>
+            </div>
+            <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
+              <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">★</span>
+              <span>100% Foreign Ownership Setup</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. OUR SERVICES -->
+      <section class="py-20 bg-slate-50 border-t border-slate-200 reveal-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">OUR SERVICES</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Expert Legal and Business Solutions</h2>
+            <p class="text-slate-600 text-sm">Click any service card to explore its dedicated setup options, requirements, and FAQs.</p>
+          </div>
+          <div id="home-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- 5. SPECIALIZED APPROVALS -->
+      <section class="py-20 bg-white border-t border-slate-200 reveal-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">GOVERNMENT CLEARANCES</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Specialized Municipal & Ministry Approvals</h2>
+            <p class="text-slate-600 text-sm">Dedicated regulatory clearances across Qatar ministries and municipalities.</p>
+          </div>
+          <div id="home-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- 6. WHY CHOOSE SERVE EASE -->
+      <section class="reveal-section">
+        <div class="solid-royal-dark text-white py-20 px-4">
+          <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl">
+                <img src="photo 11.jpg" alt="Team" class="w-full h-[430px] object-cover">
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Why Choose Serve Ease</h2>
+              <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                We deliver reliable corporate solutions with transparency, expertise, and dedicated support ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.
+              </p>
+
+              <div class="divide-y divide-royal-800 border-t border-b border-royal-800">
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>💼</span>
+                    <span>Professional Expertise</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    Experienced consultants delivering accurate, compliant corporate solutions across Doha.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🔍</span>
+                    <span>Transparent Process</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    Clear communication, itemized government receipts, and honest guidance at every stage.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🛡</span>
+                    <span>Reliable Support</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    Dedicated PRO and administrative assistance ensuring smooth daily business operations.
+                  </div>
+                </div>
+
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
+                    <span>🏆</span>
+                    <span>Proven Results</span>
+                  </div>
+                  <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+                    Successful track record with satisfied local and international corporate clients.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-b border-slate-200 py-10 px-4">
+          <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:divide-x divide-slate-200">
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">194+</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">E-Commerce Activities</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">240+</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">Country Codes Supported</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">5/5</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">Client Reviews</div>
+            </div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">24X7</div>
+              <div class="text-xs font-bold text-slate-600 mt-1">Client PRO Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. LEADERSHIP -->
+      <section class="py-20 solid-royal-dark text-white reveal-section">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
+            <div class="shrink-0 text-center">
+              <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
+                <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover">
+              </div>
+              <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded">
+                Founder & Managing Director
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">LEADERSHIP & VISION</div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Shafir Kottupurath Basheer</h2>
+              <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed italic mb-6">
+                "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
+              </blockquote>
+              <div class="inline-flex items-center gap-2 bg-royal-950 border border-royal-700 px-4 py-2 rounded-lg text-xs font-semibold text-skybrand-400">
+                <span>✓</span> Managing Director & Senior Business Consultant — Doha, Qatar
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT BANNER -->
+      <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section">
         <div class="absolute inset-0 z-0">
-          <img src="bg.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-35">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
         </div>
-        <div class="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
-            Empowering Business Growth Through Feasibility Study & Local Partnership Facilitations
-          </h2>
-          <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
-            We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar.
-          </p>
-          <button onclick="openDetailPage('service', 'feasibility-study')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3 rounded-full transition shadow-lg">
-            Discover More
-          </button>
-        </div>
-      </div>
-
-      <!-- Overlapping White Rounded Pill Bar -->
-      <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-20">
-        <div class="bg-white rounded-full shadow-xl border border-slate-200 py-5 px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-center text-center">
-          <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
-            <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">⚖</span>
-            <span>MOCI & MOJ Legal Compliance</span>
-          </div>
-          <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm sm:border-x border-slate-200">
-            <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">✓</span>
-            <span>Single Window Fast-Track</span>
-          </div>
-          <div class="flex items-center justify-center gap-2.5 font-extrabold text-royal-900 text-sm">
-            <span class="w-8 h-8 rounded-full solid-sky-light text-royal-700 flex items-center justify-center">★</span>
-            <span>100% Foreign Ownership Setup</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. OUR SERVICES – EXPERT LEGAL AND BUSINESS SOLUTIONS -->
-    <section class="py-20 bg-slate-50 border-t border-slate-200 reveal-section">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">OUR SERVICES</div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Expert Legal and Business Solutions</h2>
-          <p class="text-slate-600 text-sm">Click any service card to explore its dedicated setup options, requirements, and FAQs.</p>
-        </div>
-
-        <div id="home-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-      </div>
-    </section>
-
-    <!-- 5. SPECIALIZED MUNICIPAL & MINISTRY APPROVALS -->
-    <section class="py-20 bg-white border-t border-slate-200 reveal-section">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">GOVERNMENT CLEARANCES</div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Specialized Municipal & Ministry Approvals</h2>
-          <p class="text-slate-600 text-sm">Dedicated regulatory clearances across Qatar ministries and municipalities.</p>
-        </div>
-        <div id="home-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      </div>
-    </section>
-
-    <!-- 6. WHY CHOOSE SERVE EASE + 4 METRICS BAR -->
-    <section class="reveal-section">
-      <div class="solid-royal-dark text-white py-20 px-4">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-5">
-            <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl">
-              <img src="photo 11.jpg" alt="Qatari and Foreign Executive Team" class="w-full h-[430px] object-cover">
-            </div>
-          </div>
-
-          <div class="lg:col-span-7">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Why Choose Serve Ease</h2>
-            <p class="text-slate-300 text-sm leading-relaxed mb-8">
-              We deliver reliable corporate solutions with transparency, expertise, and dedicated support for Qatari nationals and foreign entrepreneurs, ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.
+        <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 items-center">
+          <div class="md:col-span-6"></div>
+          <div class="md:col-span-6 bg-royal-950/90 border border-skybrand-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl">
+            <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight mb-4">
+              Contact Us for Company Formation in Qatar – Complete Business Setup
+            </h2>
+            <p class="text-slate-200 text-sm leading-relaxed mb-7">
+              Success comes from strategic structure, regulatory precision, and reliable local execution. Connect with Serve Ease Business Solutions to launch or expand your company in Doha.
             </p>
-
-            <div class="divide-y divide-royal-800 border-t border-b border-royal-800">
-              <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
-                  <span>💼</span>
-                  <span>Professional Expertise</span>
-                </div>
-                <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
-                  Experienced consultants delivering accurate, compliant corporate solutions across Doha.
-                </div>
-              </div>
-
-              <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
-                  <span>🔍</span>
-                  <span>Transparent Process</span>
-                </div>
-                <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
-                  Clear communication, itemized government receipts, and honest guidance at every stage.
-                </div>
-              </div>
-
-              <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
-                  <span>🛡</span>
-                  <span>Reliable Support</span>
-                </div>
-                <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
-                  Dedicated PRO and administrative assistance ensuring smooth daily business operations.
-                </div>
-              </div>
-
-              <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                <div class="sm:w-5/12 font-extrabold text-skybrand-400 text-sm flex items-center gap-2.5">
-                  <span>🏆</span>
-                  <span>Proven Results</span>
-                </div>
-                <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
-                  Successful track record with satisfied local and international corporate clients.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- White 4-Column Horizontal Metrics Strip -->
-      <div class="bg-white border-b border-slate-200 py-10 px-4">
-        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:divide-x divide-slate-200">
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">194+</div>
-            <div class="text-xs font-bold text-slate-600 mt-1">E-Commerce Activities</div>
-          </div>
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">240+</div>
-            <div class="text-xs font-bold text-slate-600 mt-1">Country Codes Supported</div>
-          </div>
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">5/5</div>
-            <div class="text-xs font-bold text-slate-600 mt-1">Client Reviews</div>
-          </div>
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-royal-700">24X7</div>
-            <div class="text-xs font-bold text-slate-600 mt-1">Client PRO Support</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. LEADERSHIP & VISION — SHAFIR KOTTUPURATH BASHEER -->
-    <section class="py-20 solid-royal-dark text-white reveal-section">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
-          <div class="shrink-0 text-center">
-            <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
-              <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover">
-            </div>
-            <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded">
-              Founder & Managing Director
-            </div>
-          </div>
-          <div>
-            <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">LEADERSHIP & VISION</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Shafir Kottupurath Basheer</h2>
-            <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed italic mb-6">
-              "At Serve Ease Business Solutions, our primary objective is to empower Qatari founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
-            </blockquote>
-            <div class="inline-flex items-center gap-2 bg-royal-950 border border-royal-700 px-4 py-2 rounded-lg text-xs font-semibold text-skybrand-400">
-              <span>✓</span> Managing Director & Senior Business Consultant — Doha, Qatar
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. CONTACT US FOR COMPANY FORMATION BANNER -->
-    <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section">
-      <div class="absolute inset-0 z-0">
-        <img src="photo 12.jpg" alt="Doha Qatar Skyline Night" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 items-center">
-        <div class="md:col-span-6"></div>
-        <div class="md:col-span-6 bg-royal-950/90 border border-skybrand-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl">
-          <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight mb-4">
-            Contact Us for Company Formation in Qatar – Complete Business Setup
-          </h2>
-          <p class="text-slate-200 text-sm leading-relaxed mb-7">
-            Success comes from strategic structure, regulatory precision, and reliable local execution. Connect with Serve Ease Business Solutions to launch or expand your company in Doha.
-          </p>
-          <button onclick="openBookingModal('Company Formation Consultation')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg">
-            Make Appointment
-          </button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 2: DEDICATED SERVICE & APPROVAL MODEL PAGE                       -->
-  <!-- ===================================================================== -->
-  <section id="page-detail" class="page-view">
-    <div class="bg-slate-100 border-b border-slate-200 py-3 px-4">
-      <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-semibold text-slate-600">
-        <div class="flex items-center gap-2">
-          <button onclick="navigateTo('home')" class="hover:text-royal-700">Home</button>
-          <span>/</span>
-          <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700">Services</button>
-          <span>/</span>
-          <span id="detail-breadcrumb-current" class="text-royal-900 font-bold">Company Formation</span>
-        </div>
-        <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold">← Back to Overview</button>
-      </div>
-    </div>
-
-    <!-- 100% WIDTH HERO SECTION WITH DOHA SKYLINE BACKGROUND -->
-    <div class="relative solid-royal-dark text-white py-24 overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img id="detail-hero-img" src="photo1.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-35">
-      </div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-          CORPORATE LICENSING
-        </div>
-        <h1 id="detail-hero-title" class="text-3xl sm:text-5xl font-extrabold mb-4">Company Formation</h1>
-        <p id="detail-hero-subtitle" class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto">
-          Complete business registration and licensing services in Qatar with full regulatory compliance support.
-        </p>
-      </div>
-    </div>
-
-    <div class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-7">
-            <div id="detail-overview-tag" class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">COMPANY FORMATION</div>
-            <h2 id="detail-overview-heading" class="text-3xl font-extrabold text-royal-900 mb-5">Seamless Company Formation Services</h2>
-            <p id="detail-overview-p1" class="text-slate-600 leading-relaxed mb-4">
-              Foreign investors, entrepreneurs, and Qatari nationals interested in growing their business in the Middle East will find it seamless to establish a company in Qatar. We structure entities tailored to your exact ownership model, commercial activity, and operational goals.
-            </p>
-            <p id="detail-overview-p2" class="text-slate-600 leading-relaxed">
-              We deal with every step of the procedure with efficiency and precision—from Commercial Registration (CR) and Articles of Association (AOA) drafting to Municipality Trade License and Computer Card issuance.
-            </p>
-          </div>
-          <div class="lg:col-span-5 relative flex justify-center">
-            <div class="relative w-full max-w-md">
-              <img id="detail-overview-img" src="photo 2.jpg" alt="Qatari Women and International Executives" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl">
-              <div class="hidden sm:flex gap-1.5 absolute -right-5 top-6">
-                <span class="w-1.5 h-12 solid-royal-bright rotate-12 rounded"></span>
-                <span class="w-1.5 h-12 solid-sky rotate-12 rounded"></span>
-                <span class="w-1.5 h-12 solid-royal rotate-12 rounded"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPTIONS GRID -->
-    <div class="py-20 bg-slate-50 border-y border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHAT WE OFFER</div>
-          <h2 id="detail-grid-heading" class="text-3xl font-extrabold text-royal-900">Business Setup Options in Qatar</h2>
-        </div>
-        <div id="detail-options-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      </div>
-    </div>
-
-    <!-- PACKAGES SECTION (FOR PRO RETAINER) -->
-    <div id="detail-packages-wrapper" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">CORPORATE RETENTION PLANS</div>
-          <h2 class="text-3xl font-extrabold text-royal-900 mb-3">Choose Your PRO Retainer Package</h2>
-          <p class="text-slate-600 text-sm">Flexible monthly subscription tiers designed for startups, growing SMEs, and enterprise operations in Doha.</p>
-        </div>
-        <div id="detail-packages-grid" class="grid lg:grid-cols-3 gap-8"></div>
-      </div>
-    </div>
-
-    <!-- BANNER SECTION WITH COLLABORATION IMAGE -->
-    <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img id="detail-banner-bg-img" src="bg.jpg" alt="Doha Skyline Qatar" class="w-full h-full object-cover opacity-25">
-      </div>
-      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 items-center">
-          <div class="lg:col-span-5">
-            <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
-              <img id="detail-banner-img" src="photo 3.jpg" alt="Qatari and Foreign Executive Review" class="w-full h-[400px] object-cover">
-            </div>
-          </div>
-          <div class="lg:col-span-7">
-            <div id="detail-banner-tag" class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">STRUCTURED EXECUTION</div>
-            <h2 id="detail-banner-heading" class="text-3xl font-extrabold text-white mb-8">WLL Companies Support Services</h2>
-            <div id="detail-banner-pillars" class="space-y-6"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="solid-royal py-14 px-4 text-center text-white border-y-4 border-skybrand-400">
-      <div class="max-w-3xl mx-auto">
-        <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Complete Business Setup and Compliance Solutions</h3>
-        <p class="text-slate-200 text-sm mb-6">Speak directly with Serve Ease Business Solutions in Doha for a customized checklist and timeline.</p>
-        <button id="detail-cta-btn" onclick="openBookingModal('Service Inquiry')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg">
-          Request Consultation Now
-        </button>
-      </div>
-    </div>
-
-    <div class="py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-7">
-            <h2 class="text-3xl font-extrabold text-royal-900 mb-2">Frequently Asked Questions</h2>
-            <p class="text-sm text-slate-500 mb-8">Explore clear answers to common regulatory and processing questions.</p>
-            <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
-          </div>
-          <div class="lg:col-span-5">
-            <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl">
-              <img src="photo 4.jpg" alt="Qatari Professional Consultant" class="w-full h-96 object-cover">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 3: ALL SERVICES DIRECTORY PAGE                                   -->
-  <!-- ===================================================================== -->
-  <section id="page-services" class="page-view">
-    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">CORPORATE PORTFOLIO</div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">All Corporate & Licensing Services</h1>
-        <p class="text-slate-300 text-sm">Select any of our 8 specialized corporate services to view detailed execution steps, structures, and FAQs.</p>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div id="all-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 4: ALL APPROVALS DIRECTORY PAGE                                  -->
-  <!-- ===================================================================== -->
-  <section id="page-approvals" class="page-view">
-    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">MINISTRY CLEARANCES</div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Specialized Municipal & Ministry Approvals</h1>
-        <p class="text-slate-300 text-sm">Select any ministry or municipal approval below to open its full requirements and clearance guide.</p>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div id="all-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 5: 194+ E-COMMERCE ACTIVITIES DIRECTORY PAGE                     -->
-  <!-- ===================================================================== -->
-  <section id="page-ecommerce" class="page-view">
-    <div class="relative solid-royal-dark text-white py-20 px-4 overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-5xl mx-auto text-center">
-        <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-          MOCI APPROVED COMMERCIAL ACTIVITIES
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">194+ E-Commerce Business Activities in Qatar</h1>
-        <p class="text-slate-200 max-w-2xl mx-auto text-sm mb-8">
-          Search and filter all 194 Ministry of Commerce and Industry (MOCI) approved E-Commerce & digital trading activities eligible for Commercial Registration in Qatar.
-        </p>
-        <div class="max-w-xl mx-auto flex gap-2">
-          <input id="ecom-search" oninput="filterEcommerce()" type="text" placeholder="Search 194 activities by keyword or code (e.g., Retail, Software, Electronics, 4791)..."
-                 class="w-full bg-white text-slate-900 rounded-lg px-4 py-3.5 text-sm font-medium focus:outline-none">
-        </div>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div id="ecom-count-badge" class="text-sm font-bold text-royal-900">Showing 194 Approved E-Commerce Activities</div>
-        <button onclick="openBookingModal('E-Commerce License Registration')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition">
-          Register E-Commerce License →
-        </button>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-        <div class="overflow-x-auto max-h-[650px]">
-          <table class="w-full text-left border-collapse">
-            <thead class="solid-royal text-white text-xs uppercase sticky top-0">
-              <tr>
-                <th class="py-3.5 px-4">#</th>
-                <th class="py-3.5 px-4">ISIC / MOCI Code</th>
-                <th class="py-3.5 px-4">Approved E-Commerce Activity Description</th>
-                <th class="py-3.5 px-4">Sector</th>
-                <th class="py-3.5 px-4 text-right">Action</th>
-              </tr>
-            </thead>
-            <tbody id="ecom-table-body" class="divide-y divide-slate-200 text-sm"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 6: ABOUT US PAGE                                                 -->
-  <!-- ===================================================================== -->
-  <section id="page-about" class="page-view">
-    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="photo 10.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">ABOUT SERVE EASE</div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Corporate Excellence in Doha, Qatar</h1>
-        <p class="text-slate-300 text-sm">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-royal-900 mb-4">Your Strategic Corporate Partner</h2>
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">
-            Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers.
-          </p>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges Qatari nationals (women and men) and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
-          </p>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-royal-900">
-          <img src="photo 11.jpg" alt="Qatari and Foreign Executives Collaborating" class="w-full h-80 object-cover">
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6">
-        <div class="solid-royal text-white p-6 rounded-2xl shadow">
-          <div class="text-3xl font-extrabold text-skybrand-400 mb-1">100%</div>
-          <div class="text-xs font-semibold">Foreign & Local Ownership Structuring</div>
-        </div>
-        <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
-          <div class="text-3xl font-extrabold text-royal-900 mb-1">194+</div>
-          <div class="text-xs font-semibold text-slate-600">E-Commerce Activities Covered</div>
-        </div>
-        <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
-          <div class="text-3xl font-extrabold text-royal-900 mb-1">240+</div>
-          <div class="text-xs font-semibold text-slate-600">Global Investor Nationalities</div>
-        </div>
-        <div class="solid-royal-bright text-white p-6 rounded-2xl shadow">
-          <div class="text-3xl font-extrabold mb-1">24/7</div>
-          <div class="text-xs font-semibold">Corporate PRO Support</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- PAGE 7: CONTACT US PAGE                                               -->
-  <!-- ===================================================================== -->
-  <section id="page-contact" class="page-view">
-    <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
-      </div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">GET IN TOUCH</div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Contact Serve Ease Business Solutions</h1>
-        <p class="text-slate-300 text-sm">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid lg:grid-cols-12 gap-10">
-        <div class="lg:col-span-5 space-y-6">
-          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
-            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Doha Head Office</h3>
-            <p class="text-sm text-slate-700 leading-relaxed">
-              Zone 55, Street 580, Building 44, Office 5,<br>
-              Al Aziziya, Doha – State of Qatar
-            </p>
-          </div>
-          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
-            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Direct Phone & WhatsApp</h3>
-            <p class="text-sm text-slate-700 font-bold">+974 7044 2825</p>
-            <p class="text-xs text-slate-500 mt-1">Available Saturday – Thursday (08:00 AM – 10:00 PM)</p>
-          </div>
-          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
-            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Corporate Email</h3>
-            <p class="text-sm text-royal-700 font-bold">serveeaseqatar@gmail.com</p>
-            <p class="text-sm text-royal-700 font-bold">serveeaseqa@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7 bg-white border-2 border-royal-700 rounded-2xl p-8 shadow-lg">
-          <h3 class="text-2xl font-extrabold text-royal-900 mb-6">Schedule a Corporate Consultation</h3>
-          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
-                <input required type="text" placeholder="Enter your full name" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
-              </div>
-              <div>
-                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Email Address *</label>
-                <input required type="email" placeholder="name@company.com" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone / WhatsApp (240+ Country Codes) *</label>
-              <div class="flex gap-2">
-                <select id="contact-country-code" class="w-44 border border-slate-300 rounded-lg px-3 py-3 text-sm bg-slate-50 font-semibold text-royal-900 focus:outline-none focus:border-royal-700"></select>
-                <input required type="tel" placeholder="7044 2825" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Service or Ministry Approval Required</label>
-              <select class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-royal-700">
-                <option>Company Formation (100% Foreign WLL / QFC)</option>
-                <option>194 E-Commerce License Setup</option>
-                <option>Share Transfer & Corporate Restructuring</option>
-                <option>Corporate PRO Retainer (12 Services & 3 Packages)</option>
-                <option>MOT Transport Activity Approval</option>
-                <option>Gym & Fitness Center Approval</option>
-                <option>Civil Defense Fire Safety (QCDF)</option>
-                <option>MOFA Attestation & Legal Translation</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Project Details</label>
-              <textarea rows="3" placeholder="Tell us about your planned business activity in Qatar..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700"></textarea>
-            </div>
-
-            <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition">
-              Submit Inquiry to Serve Ease
+            <button onclick="openBookingModal('Company Formation Consultation')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg">
+              Make Appointment
             </button>
-          </form>
-          <div id="contact-success-msg" class="hidden mt-4 bg-skybrand-50 border border-skybrand-400 text-royal-900 p-4 rounded-lg text-sm font-bold">
-            Thank you! Your inquiry has been received by Serve Ease Business Solutions. Our Doha consultant will reach out shortly.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 2: DEDICATED SERVICE & APPROVAL MODEL PAGE                       -->
+    <!-- ===================================================================== -->
+    <section id="page-detail" class="page-view">
+      <div class="bg-slate-100 border-b border-slate-200 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-semibold text-slate-600">
+          <div class="flex items-center gap-2">
+            <button onclick="navigateTo('home')" class="hover:text-royal-700">Home</button>
+            <span>/</span>
+            <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700">Services</button>
+            <span>/</span>
+            <span id="detail-breadcrumb-current" class="text-royal-900 font-bold">Company Formation</span>
+          </div>
+          <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold">← Back to Overview</button>
+        </div>
+      </div>
+
+      <div class="relative solid-royal-dark text-white py-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img id="detail-hero-img" src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-35">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
+            CORPORATE LICENSING
+          </div>
+          <h1 id="detail-hero-title" class="text-3xl sm:text-5xl font-extrabold mb-4">Company Formation</h1>
+          <p id="detail-hero-subtitle" class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto">
+            Complete business registration and licensing services in Qatar with full regulatory compliance support.
+          </p>
+        </div>
+      </div>
+
+      <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+              <div id="detail-overview-tag" class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">COMPANY FORMATION</div>
+              <h2 id="detail-overview-heading" class="text-3xl font-extrabold text-royal-900 mb-5">Seamless Company Formation Services</h2>
+              <p id="detail-overview-p1" class="text-slate-600 leading-relaxed mb-4">
+                Foreign investors and entrepreneurs interested in growing their business in the Middle East will find it seamless to establish a company in Qatar. We structure entities tailored to your exact ownership model, commercial activity, and operational goals.
+              </p>
+              <p id="detail-overview-p2" class="text-slate-600 leading-relaxed">
+                We deal with every step of the procedure with efficiency and precision—from Commercial Registration (CR) and Articles of Association (AOA) drafting to Municipality Trade License and Computer Card issuance.
+              </p>
+            </div>
+            <div class="lg:col-span-5 relative flex justify-center">
+              <div class="relative w-full max-w-md">
+                <img id="detail-overview-img" src="photo 2.jpg" alt="Executives" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl">
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+
+      <div class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHAT WE OFFER</div>
+            <h2 id="detail-grid-heading" class="text-3xl font-extrabold text-royal-900">Business Setup Options in Qatar</h2>
+          </div>
+          <div id="detail-options-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </div>
+
+      <div id="detail-packages-wrapper" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">CORPORATE RETENTION PLANS</div>
+            <h2 class="text-3xl font-extrabold text-royal-900 mb-3">Choose Your PRO Retainer Package</h2>
+            <p class="text-slate-600 text-sm">Flexible monthly subscription tiers designed for startups, growing SMEs, and enterprise operations in Doha.</p>
+          </div>
+          <div id="detail-packages-grid" class="grid lg:grid-cols-3 gap-8"></div>
+        </div>
+      </div>
+
+      <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img id="detail-banner-bg-img" src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-25">
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+                <img id="detail-banner-img" src="photo 3.jpg" alt="Executive Review" class="w-full h-[400px] object-cover">
+              </div>
+            </div>
+            <div class="lg:col-span-7">
+              <div id="detail-banner-tag" class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">STRUCTURED EXECUTION</div>
+              <h2 id="detail-banner-heading" class="text-3xl font-extrabold text-white mb-8">WLL Companies Support Services</h2>
+              <div id="detail-banner-pillars" class="space-y-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solid-royal py-14 px-4 text-center text-white border-y-4 border-skybrand-400">
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Complete Business Setup and Compliance Solutions</h3>
+          <p class="text-slate-200 text-sm mb-6">Speak directly with Serve Ease Business Solutions in Doha for a customized checklist and timeline.</p>
+          <button id="detail-cta-btn" onclick="openBookingModal('Service Inquiry')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg">
+            Request Consultation Now
+          </button>
+        </div>
+      </div>
+
+      <div class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+              <h2 class="text-3xl font-extrabold text-royal-900 mb-2">Frequently Asked Questions</h2>
+              <p class="text-sm text-slate-500 mb-8">Explore clear answers to common regulatory and processing questions.</p>
+              <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl">
+                <img src="photo 4.jpg" alt="Consultant" class="w-full h-96 object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 3: ALL SERVICES DIRECTORY PAGE                                   -->
+    <!-- ===================================================================== -->
+    <section id="page-services" class="page-view">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">CORPORATE PORTFOLIO</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">All Corporate & Licensing Services</h1>
+          <p class="text-slate-300 text-sm">Select any of our 8 specialized corporate services to view detailed execution steps, structures, and FAQs.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div id="all-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 4: ALL APPROVALS DIRECTORY PAGE                                  -->
+    <!-- ===================================================================== -->
+    <section id="page-approvals" class="page-view">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">MINISTRY CLEARANCES</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Specialized Municipal & Ministry Approvals</h1>
+          <p class="text-slate-300 text-sm">Select any ministry or municipal approval below to open its full requirements and clearance guide.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div id="all-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 5: 194+ E-COMMERCE ACTIVITIES DIRECTORY PAGE                     -->
+    <!-- ===================================================================== -->
+    <section id="page-ecommerce" class="page-view">
+      <div class="relative solid-royal-dark text-white py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+          <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
+            MOCI APPROVED COMMERCIAL ACTIVITIES
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">194+ E-Commerce Business Activities in Qatar</h1>
+          <p class="text-slate-200 max-w-2xl mx-auto text-sm mb-8">
+            Search and filter all 194 Ministry of Commerce and Industry (MOCI) approved E-Commerce & digital trading activities eligible for Commercial Registration in Qatar.
+          </p>
+          <div class="max-w-xl mx-auto flex gap-2">
+            <input id="ecom-search" oninput="filterEcommerce()" type="text" placeholder="Search 194 activities by keyword or code (e.g., Retail, Software, Electronics, 4791)..."
+                   class="w-full bg-white text-slate-900 rounded-lg px-4 py-3.5 text-sm font-medium focus:outline-none">
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div id="ecom-count-badge" class="text-sm font-bold text-royal-900">Showing 194 Approved E-Commerce Activities</div>
+          <button onclick="openBookingModal('E-Commerce License Registration')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition">
+            Register E-Commerce License →
+          </button>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <div class="overflow-x-auto max-h-[650px]">
+            <table class="w-full text-left border-collapse">
+              <thead class="solid-royal text-white text-xs uppercase sticky top-0">
+                <tr>
+                  <th class="py-3.5 px-4">#</th>
+                  <th class="py-3.5 px-4">ISIC / MOCI Code</th>
+                  <th class="py-3.5 px-4">Approved E-Commerce Activity Description</th>
+                  <th class="py-3.5 px-4">Sector</th>
+                  <th class="py-3.5 px-4 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="ecom-table-body" class="divide-y divide-slate-200 text-sm"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 6: ABOUT US PAGE                                                 -->
+    <!-- ===================================================================== -->
+    <section id="page-about" class="page-view">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="photo 10.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">ABOUT SERVE EASE</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Corporate Excellence in Doha, Qatar</h1>
+          <p class="text-slate-300 text-sm">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-royal-900 mb-4">Your Strategic Corporate Partner</h2>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers.
+            </p>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges founders and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
+            </p>
+          </div>
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-royal-900">
+            <img src="photo 11.jpg" alt="Executives" class="w-full h-80 object-cover">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6">
+          <div class="solid-royal text-white p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-skybrand-400 mb-1">100%</div>
+            <div class="text-xs font-semibold">Foreign & Local Ownership Structuring</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">194+</div>
+            <div class="text-xs font-semibold text-slate-600">E-Commerce Activities Covered</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">240+</div>
+            <div class="text-xs font-semibold text-slate-600">Global Investor Nationalities</div>
+          </div>
+          <div class="solid-royal-bright text-white p-6 rounded-2xl shadow">
+            <div class="text-3xl font-extrabold mb-1">24/7</div>
+            <div class="text-xs font-semibold">Corporate PRO Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE 7: CONTACT US PAGE                                               -->
+    <!-- ===================================================================== -->
+    <section id="page-contact" class="page-view">
+      <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">GET IN TOUCH</div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Contact Serve Ease Business Solutions</h1>
+          <p class="text-slate-300 text-sm">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">Doha Head Office</h3>
+              <p class="text-sm text-slate-700 leading-relaxed">
+                Zone 55, Street 580, Building 44, Office 5,<br>
+                Al Aziziya, Doha – State of Qatar
+              </p>
+            </div>
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">Direct Phone & WhatsApp</h3>
+              <p class="text-sm text-slate-700 font-bold">+974 7044 2825</p>
+              <p class="text-xs text-slate-500 mt-1">Available Saturday – Thursday (08:00 AM – 10:00 PM)</p>
+            </div>
+            <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+              <h3 class="font-extrabold text-royal-900 text-lg mb-2">Corporate Email</h3>
+              <p class="text-sm text-royal-700 font-bold">serveeaseqatar@gmail.com</p>
+              <p class="text-sm text-royal-700 font-bold">serveeaseqa@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white border-2 border-royal-700 rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-extrabold text-royal-900 mb-6">Schedule a Corporate Consultation</h3>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
+                  <input required type="text" placeholder="Enter your full name" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Email Address *</label>
+                  <input required type="email" placeholder="name@company.com" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone / WhatsApp (240+ Country Codes) *</label>
+                <div class="flex gap-2">
+                  <select id="contact-country-code" class="w-44 border border-slate-300 rounded-lg px-3 py-3 text-sm bg-slate-50 font-semibold text-royal-900 focus:outline-none focus:border-royal-700"></select>
+                  <input required type="tel" placeholder="7044 2825" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Service or Ministry Approval Required</label>
+                <select class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-royal-700">
+                  <option>Company Formation (100% Foreign WLL / QFC)</option>
+                  <option>194 E-Commerce License Setup</option>
+                  <option>Share Transfer & Corporate Restructuring</option>
+                  <option>Corporate PRO Retainer (12 Services & 3 Packages)</option>
+                  <option>MOT Transport Activity Approval</option>
+                  <option>Gym & Fitness Center Approval</option>
+                  <option>Civil Defense Fire Safety (QCDF)</option>
+                  <option>MOFA Attestation & Legal Translation</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Project Details</label>
+                <textarea rows="3" placeholder="Tell us about your planned business activity in Qatar..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700"></textarea>
+              </div>
+
+              <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition">
+                Submit Inquiry to Serve Ease
+              </button>
+            </form>
+            <div id="contact-success-msg" class="hidden mt-4 bg-skybrand-50 border border-skybrand-400 text-royal-900 p-4 rounded-lg text-sm font-bold">
+              Thank you! Your inquiry has been received by Serve Ease Business Solutions. Our Doha consultant will reach out shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- ===================================================================== -->
   <!-- FOOTER                                                                -->
   <!-- ===================================================================== -->
-  <footer class="solid-royal-dark text-white pt-16 pb-8 border-t-4 border-skybrand-400">
+  <footer class="solid-royal-dark text-white pt-16 pb-8 border-t-4 border-skybrand-400 relative z-30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-royal-800">
         <div>
@@ -1566,7 +1571,6 @@
       document.getElementById('detail-hero-title').innerText = data.title;
       document.getElementById('detail-hero-subtitle').innerText = data.subtitle;
 
-      // Assign 100% width Doha skyline hero background and folder images
       document.getElementById('detail-hero-img').src = data.heroImg;
       document.getElementById('detail-overview-img').src = data.overviewImg;
       document.getElementById('detail-banner-bg-img').src = data.bannerBgImg;
@@ -1578,7 +1582,6 @@
       document.getElementById('detail-banner-heading').innerText = data.bannerHeading;
       document.getElementById('detail-cta-btn').onclick = () => openBookingModal(data.title);
 
-      // Render Options Grid
       document.getElementById('detail-options-grid').innerHTML = data.options.map(opt => `
         <div class="bg-white border border-slate-200 hover:border-royal-700 rounded-xl p-6 text-center shadow-sm transition flex flex-col justify-between">
           <div>
@@ -1594,7 +1597,6 @@
         </div>
       `).join('');
 
-      // Render Packages if available
       const pkgWrapper = document.getElementById('detail-packages-wrapper');
       if (data.hasPackages && data.packages) {
         pkgWrapper.style.display = 'block';
