@@ -49,19 +49,15 @@
     .solid-sky { background-color: #0284C7; }
     .solid-sky-light { background-color: #E0F2FE; }
 
-    /* Page transition animation */
-    .page-view { display: none; }
-    .page-view.active { display: block; animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Moving / Smooth Page Transition Animations */
+    .page-view { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .page-view.active { display: block; opacity: 1; transform: translateY(0); }
 
-    /* Scroll reveal animation for sections */
+    /* Scroll reveal animation */
     .reveal-section {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal-section.visible {
       opacity: 1;
@@ -88,7 +84,7 @@
 </head>
 <body class="bg-white text-slate-900 antialiased">
 
-  <!-- MAIN NAVIGATION HEADER (Top blue bar removed; Logo + Brand Name visible) -->
+  <!-- MAIN NAVIGATION HEADER -->
   <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
@@ -226,12 +222,12 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- PAGE 1: HOME PAGE (MATCHING SLIDE 3 + SLIDE 4 + SLIDE 5 LAYOUT MODEL) -->
+  <!-- PAGE 1: HOME PAGE                                                     -->
   <!-- ===================================================================== -->
   <main id="page-home" class="page-view active">
 
-    <!-- 1. SPLIT HERO SECTION (Slide 3 Top Model) -->
-    <section class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <!-- 1. HERO SECTION (Clean White Background, No external photo bg, with Qatar Women, Men & Foreign Investors image) -->
+    <section class="py-16 lg:py-24 bg-white border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
           <!-- Left Content -->
@@ -255,28 +251,28 @@
               </button>
             </div>
 
-            <!-- Divider + Customer Avatars & Trust Metric -->
+            <!-- Client Avatars & Trust Metric -->
             <div class="border-t border-slate-200 pt-6 flex items-center gap-4">
               <div class="flex -space-x-3">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-11 h-11 rounded-full border-2 border-white object-cover">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-11 h-11 rounded-full border-2 border-white object-cover">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-11 h-11 rounded-full border-2 border-white object-cover">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Qatari Professional" class="w-11 h-11 rounded-full border-2 border-white object-cover">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Qatari Male Professional" class="w-11 h-11 rounded-full border-2 border-white object-cover">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt="Foreign Investor" class="w-11 h-11 rounded-full border-2 border-white object-cover">
                 <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-11 h-11 rounded-full border-2 border-white object-cover">
               </div>
               <div class="text-sm font-bold text-slate-700">
-                100+ Successful Corporate Clients in Qatar
+                100+ Successful Corporate Clients (Qatari & Foreign Investors)
               </div>
             </div>
           </div>
 
-          <!-- Right Framed Executive Image with Floating Stat Card -->
+          <!-- Right Image: Featuring Qatari Women, Qatari Men & Foreign Investors in Doha -->
           <div class="lg:col-span-6">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1000&q=80" alt="Qatar Business Handshake" class="w-full h-[460px] object-cover">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="Qatari Women, Men and Foreign Investors Collaboration in Doha" class="w-full h-[460px] object-cover">
               <!-- Bottom-Right White Stat Badge -->
-              <div class="absolute bottom-5 right-5 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 max-w-[200px]">
-                <div class="text-3xl font-extrabold text-royal-700 leading-none mb-1">194+</div>
-                <div class="text-xs font-bold text-royal-900 leading-snug">Approved MOCI & E-Commerce Activities</div>
+              <div class="absolute bottom-5 right-5 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 max-w-[210px]">
+                <div class="text-3xl font-extrabold text-royal-700 leading-none mb-1">100%</div>
+                <div class="text-xs font-bold text-royal-900 leading-snug">Foreign & Local Ownership Advisory</div>
               </div>
             </div>
           </div>
@@ -284,23 +280,21 @@
       </div>
     </section>
 
-    <!-- 2. WHO WE ARE SECTION (Slide 3 Middle Model) -->
+    <!-- 2. WHO WE ARE SECTION -->
     <section class="py-20 bg-white reveal-section">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
-          <!-- Left Framed Image with Royal Accent Border -->
           <div class="lg:col-span-5">
             <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Strategic Business Support Doha" class="w-full h-[380px] object-cover">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80" alt="Qatari Women and International Executives Collaboration" class="w-full h-[380px] object-cover">
             </div>
           </div>
 
-          <!-- Right Content -->
           <div class="lg:col-span-7">
             <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHO WE ARE</div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">Strategic Business Support Solutions</h2>
             <p class="text-slate-600 text-base leading-relaxed mb-8">
-              We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar.
+              We are dedicated corporate service professionals in Doha delivering reliable company formation, legal compliance, corporate banking, translation, and government approval solutions across Qatar for Qatari nationals and international investors.
             </p>
 
             <div class="space-y-5 mb-8">
@@ -333,7 +327,7 @@
       </div>
     </section>
 
-    <!-- 3. FULL-WIDTH EMPOWERMENT BANNER + OVERLAPPING PILL BAR (Slide 3 Bottom Model) -->
+    <!-- 3. FULL-WIDTH EMPOWERMENT BANNER + OVERLAPPING PILL BAR -->
     <section class="relative pb-16 bg-white reveal-section">
       <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
         <div class="absolute inset-0 opacity-25">
@@ -372,7 +366,7 @@
       </div>
     </section>
 
-    <!-- 4. OUR SERVICES – EXPERT LEGAL AND BUSINESS SOLUTIONS (Slide 4 Top Model) -->
+    <!-- 4. OUR SERVICES – EXPERT LEGAL AND BUSINESS SOLUTIONS -->
     <section class="py-20 bg-slate-50 border-t border-slate-200 reveal-section">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -381,7 +375,6 @@
           <p class="text-slate-600 text-sm">Click any service card to explore its dedicated setup options, requirements, and FAQs.</p>
         </div>
 
-        <!-- 8 Corporate Services Grid styled with Slide 4 Top Header Title + Photo + Corner Badge -->
         <div id="home-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
       </div>
     </section>
@@ -398,22 +391,20 @@
       </div>
     </section>
 
-    <!-- 6. WHY CHOOSE SERVE EASE + 4 METRICS BAR (Slide 4 Middle & Bottom Model) -->
+    <!-- 6. WHY CHOOSE SERVE EASE + 4 METRICS BAR -->
     <section class="reveal-section">
       <div class="solid-royal-dark text-white py-20 px-4">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-          <!-- Left Portrait Card -->
           <div class="lg:col-span-5">
             <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Why Choose Serve Ease" class="w-full h-[430px] object-cover">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Qatari and Foreign Executive Team" class="w-full h-[430px] object-cover">
             </div>
           </div>
 
-          <!-- Right 4 Value Pillars -->
           <div class="lg:col-span-7">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Why Choose Serve Ease</h2>
             <p class="text-slate-300 text-sm leading-relaxed mb-8">
-              We deliver reliable corporate solutions with transparency, expertise, and dedicated support, ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.
+              We deliver reliable corporate solutions with transparency, expertise, and dedicated support for Qatari nationals and foreign entrepreneurs, ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.
             </p>
 
             <div class="divide-y divide-royal-800 border-t border-b border-royal-800">
@@ -461,7 +452,7 @@
         </div>
       </div>
 
-      <!-- White 4-Column Horizontal Metrics Strip (Slide 4 Bottom Model) -->
+      <!-- White 4-Column Horizontal Metrics Strip -->
       <div class="bg-white border-b border-slate-200 py-10 px-4">
         <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:divide-x divide-slate-200">
           <div>
@@ -484,7 +475,7 @@
       </div>
     </section>
 
-    <!-- 7. LEADERSHIP & VISION — SHAFIR KOTTUPURATH BASHEER (Kept exact as requested) -->
+    <!-- 7. LEADERSHIP & VISION — SHAFIR KOTTUPURATH BASHEER -->
     <section class="py-20 solid-royal-dark text-white reveal-section">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
@@ -501,7 +492,7 @@
             <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">LEADERSHIP & VISION</div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Shafir Kottupurath Basheer</h2>
             <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed italic mb-6">
-              "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
+              "At Serve Ease Business Solutions, our primary objective is to empower Qatari founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
             </blockquote>
             <div class="inline-flex items-center gap-2 bg-royal-950 border border-royal-700 px-4 py-2 rounded-lg text-xs font-semibold text-skybrand-400">
               <span>✓</span> Managing Director & Senior Business Consultant — Doha, Qatar
@@ -511,10 +502,10 @@
       </div>
     </section>
 
-    <!-- 8. CONTACT US FOR COMPANY FORMATION BANNER (Slide 5 Top Model) -->
+    <!-- 8. CONTACT US FOR COMPANY FORMATION BANNER -->
     <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section">
       <div class="absolute inset-0 opacity-25">
-        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80" alt="Consultation Doha" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80" alt="Consultation Doha" class="w-full h-full object-cover">
       </div>
       <div class="relative max-w-6xl mx-auto grid md:grid-cols-12 items-center">
         <div class="md:col-span-6"></div>
@@ -574,7 +565,7 @@
             <div id="detail-overview-tag" class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">COMPANY FORMATION</div>
             <h2 id="detail-overview-heading" class="text-3xl font-extrabold text-royal-900 mb-5">Seamless Company Formation Services</h2>
             <p id="detail-overview-p1" class="text-slate-600 leading-relaxed mb-4">
-              Foreign investors, entrepreneurs, and corporations interested in growing their business in the Middle East will find it seamless to establish a company in Qatar. We structure entities tailored to your exact ownership model, commercial activity, and operational goals.
+              Foreign investors, entrepreneurs, and Qatari nationals interested in growing their business in the Middle East will find it seamless to establish a company in Qatar. We structure entities tailored to your exact ownership model, commercial activity, and operational goals.
             </p>
             <p id="detail-overview-p2" class="text-slate-600 leading-relaxed">
               We deal with every step of the procedure with efficiency and precision—from Commercial Registration (CR) and Articles of Association (AOA) drafting to Municipality Trade License and Computer Card issuance.
@@ -755,13 +746,13 @@
             Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, tax audit coordination, and executive PRO retainers.
           </p>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges international investors and local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
+            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges Qatari and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
           </p>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="solid-royal text-white p-6 rounded-xl">
             <div class="text-3xl font-extrabold text-skybrand-400 mb-1">100%</div>
-            <div class="text-xs font-semibold">Foreign Ownership Structuring</div>
+            <div class="text-xs font-semibold">Foreign & Local Ownership Structuring</div>
           </div>
           <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-xl">
             <div class="text-3xl font-extrabold text-royal-900 mb-1">194+</div>
@@ -866,7 +857,7 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- FOOTER (KEPT EXACT AS BEFORE WITH +974 7044 2825)                     -->
+  <!-- FOOTER                                                                -->
   <!-- ===================================================================== -->
   <footer class="solid-royal-dark text-white pt-16 pb-8 border-t-4 border-skybrand-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1427,7 +1418,6 @@
       document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
     }
 
-    /* Slide 4 Top Service Card Style: White top header with dot + title, rounded photo below, floating corner icon badge */
     function renderServiceCards(containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
