@@ -1,1007 +1,1609 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serve Ease Business Solutions | Corporate Services in Doha, Qatar</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#1a56db',
-                            darkblue: '#0f172a',
-                            light: '#f8fafc',
-                            accent: '#3b82f6'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
-</head>
-<body class="bg-[#0b0f19] text-gray-100 font-sans antialiased selection:bg-blue-600 selection:text-white" 
-      x-data="{ 
-          activePage: 'home',
-          selectedService: null,
-          selectedApproval: null,
-          mobileMenuOpen: false,
-          costModalOpen: false,
-          calcPurpose: 'QFC',
-          calcActivity: 'General Trading & Contracting',
-          calcEmployees: 3,
-          calcVisa: true,
-          getEstimatedCost() {
-              let base = 5000;
-              if (this.calcPurpose === 'QFC') base = 12000;
-              if (this.calcPurpose === 'QFZ') base = 10000;
-              if (this.calcPurpose === 'Mainland') base = 7500;
-              if (this.calcPurpose === 'LLC') base = 8500;
-              if (this.calcPurpose === 'Holding') base = 15000;
-              if (this.calcPurpose === 'Branch') base = 9000;
-              if (this.calcPurpose === 'E-Commerce') base = 6000;
-              
-              if (this.calcVisa) base += (this.calcEmployees * 1200);
-              return base.toLocaleString() + ' QAR onwards';
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serve Ease Business Solutions | Corporate Services & Licensing in Qatar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
-          services: [
-              { 
-                  id: 1, 
-                  title: 'Company Formation', 
-                  desc: 'Complete business registration and licensing services with end-to-end support in Qatar.', 
-                  image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-building', 
-                  details: 'We handle all aspects of commercial registration (CR), municipal licensing, chamber of commerce registration, and corporate structuring tailored to your exact industry requirements.',
-                  checklist: ['Commercial Registration (CR) processing', 'Municipal License (Baladiya)', 'Chamber of Commerce Membership', 'Establishment Card & Computer Card', 'Ministry of Commerce & Industry (MoCI) approvals']
-              },
-              { 
-                  id: 2, 
-                  title: 'Share Transfer & Equity Amending', 
-                  desc: 'Seamless partner restructuring, equity transfer, and Commercial Registration amendments in Qatar.', 
-                  image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-handshake', 
-                  details: 'Expert handling of partner additions, share capital adjustments, MoA amendments, and official Ministry of Commerce & Industry (MoCI) filings.',
-                  checklist: ['Partner Resolution & Board Approval', 'Amended Memorandum of Association (MoA)', 'Commercial Registration Amendment', 'Qatari Authentication & Notary Services', 'Bank Signatory Update Support']
-              },
-              { 
-                  id: 3, 
-                  title: 'Corporate PRO Retainer', 
-                  desc: 'Dedicated government liaison, immigration, labor quotas, and compliance management in Qatar.', 
-                  image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-id-card', 
-                  details: 'Full outsourced PRO services including residence permits, visa stamping, medical appointments, Qatar ID renewals, and ministry document processing.',
-                  checklist: ['Residence Permit (RP) & Qatar ID Issuance', 'Labor Quota & Ministry Applications', 'Medical Commission & Fingerprinting Coordination', 'Visa Stamping & Document Clearance', 'Immigration & Labour Ministry Compliance']
-              },
-              { 
-                  id: 4, 
-                  title: 'Certified Legal Translation', 
-                  desc: 'Ministry-accredited Arabic, English, and multi-language legal translation services in Doha.', 
-                  image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-language', 
-                  details: 'Official translation of legal contracts, corporate bylaws, financial statements, and personal certificates recognized by all Qatari embassies and ministries.',
-                  checklist: ['Ministry of Justice Accredited Translation', 'Corporate Contracts & MoAs', 'Financial Audits & Bank Statements', 'Personal Certificates & Degrees', 'Fast-Track Express Delivery Available']
-              },
-              { 
-                  id: 5, 
-                  title: 'MOFA Document Attestation', 
-                  desc: 'Fast-track Ministry of Foreign Affairs & embassy attestation for corporate and personal documents.', 
-                  image: 'bg.jpg', 
-                  icon: 'fa-stamp', 
-                  details: 'End-to-end verification, notarization, and attestation services for educational certificates, marriage certificates, and commercial invoices.',
-                  checklist: ['Ministry of Foreign Affairs (MOFA) Qatar', 'Embassy & Consulate Attestation', 'Educational Certificate Verification', 'Commercial Invoices & Origin Certificates', 'Notary Public Verification']
-              },
-              { 
-                  id: 6, 
-                  title: 'Local Partnership Facilitation', 
-                  desc: 'Trusted, vetted Qatari corporate sponsors and joint-venture partners for mainland businesses.', 
-                  image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-user-tie', 
-                  details: 'Secure, reliable corporate sponsorship arrangements with robust legal agreements safeguarding 100% operational and financial control for foreign investors.',
-                  checklist: ['Vetted & Reliable Qatari Partners', 'Secure Side Agreements & Power of Attorney', 'Profit & Loss Distribution Safeguards', 'Mainland Company Compliance', 'Full Operational Autonomy']
-              },
-              { 
-                  id: 7, 
-                  title: 'Corporate Bank Account', 
-                  desc: 'Dedicated assistance for opening corporate bank accounts with leading Qatari and international banks.', 
-                  image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-landmark', 
-                  details: 'Preparation of corporate business plans, KYC documentation, introduction to premier relationship managers at QNB, QIB, CBQ, and HSBC Qatar.',
-                  checklist: ['Bank Account Opening Assistance', 'Corporate Business Plan Formulation', 'KYC & Compliance Documentation', 'Direct Bank Relationship Manager Setup', 'QNB, QIB, CBQ & HSBC Coordination']
-              },
-              { 
-                  id: 8, 
-                  title: 'Feasibility Study & Advisory', 
-                  desc: 'Bank-grade market research, financial modeling, and strategic advisory for Qatar ventures.', 
-                  image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80', 
-                  icon: 'fa-chart-pie', 
-                  details: 'Comprehensive feasibility reports required for bank financing, investor pitches, and governmental industrial licensing approvals.',
-                  checklist: ['Bank-Grade Financial Modeling', 'Market Research & Competitor Analysis', 'Risk Assessment & Mitigation Strategy', 'Government Grant & Loan Application Support', 'Strategic Business Expansion Advisory']
-              }
+          colors: {
+            royal: {
+              950: '#051336',
+              900: '#0A2463',
+              800: '#10348C',
+              700: '#1D4ED8',
+              600: '#2563EB',
+            },
+            skybrand: {
+              500: '#0284C7',
+              400: '#38BDF8',
+              100: '#E0F2FE',
+              50: '#F0F9FF',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+    .solid-royal-dark { background-color: #051336; }
+    .solid-royal { background-color: #0A2463; }
+    .solid-royal-mid { background-color: #10348C; }
+    .solid-royal-bright { background-color: #1D4ED8; }
+    .solid-sky { background-color: #0284C7; }
+    .solid-sky-light { background-color: #E0F2FE; }
+
+    .page-view { display: none; }
+    .page-view.active { display: block; animation: fadeIn 0.25s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: block;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #0A2463; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="solid-royal-dark text-white text-xs py-2.5 px-4 border-b border-royal-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-skybrand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Zone 55, Street 580, Building 44, Office 5, Al Aziziya, Doha - Qatar
+        </span>
+        <span class="hidden md:flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-skybrand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          serveeaseqatar@gmail.com
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+97470746283" class="font-semibold text-skybrand-400 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +974 7074 6283
+        </a>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <span class="hidden sm:inline text-slate-300">Sat – Thu: 08:00 AM – 10:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left focus:outline-none">
+          <img src="logo.png" alt="Serve Ease Business Solutions" class="h-11 w-auto object-contain"
+               onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';">
+          <div id="fallback-logo" class="hidden items-center gap-3">
+            <div class="w-11 h-11 solid-royal rounded-lg flex items-center justify-center text-white font-extrabold text-xl border-2 border-skybrand-400">
+              SE
+            </div>
+            <div>
+              <div class="text-royal-900 font-extrabold text-lg leading-tight tracking-tight">SERVE EASE</div>
+              <div class="text-skybrand-500 font-bold text-[10px] tracking-widest uppercase">Business Solutions</div>
+            </div>
+          </div>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+          <button onclick="navigateTo('home')" class="nav-link hover:text-royal-700 transition py-2" data-target="home">Home</button>
+          <button onclick="navigateTo('about')" class="nav-link hover:text-royal-700 transition py-2" data-target="about">About Us</button>
+
+          <!-- Services Dropdown -->
+          <div class="relative nav-dropdown py-2">
+            <button onclick="navigateTo('services')" class="nav-link hover:text-royal-700 transition flex items-center gap-1" data-target="services">
+              Services
+              <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="nav-dropdown-menu hidden absolute left-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
+              <button onclick="openDetailPage('service', 'company-formation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Company Formation (WLL / QFC)</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'share-transfer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Share Transfer & Restructuring</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'pro-retainer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Corporate PRO Retainer</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'legal-translation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Legal Translation (Arabic/English)</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'mofa-attestation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>MOFA Document Attestation</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'local-partnership')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Local Qatari Sponsorship</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'corporate-banking')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Corporate Bank Account Opening</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('service', 'feasibility-study')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Feasibility Study & Tax Audit</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+            </div>
+          </div>
+
+          <button onclick="navigateTo('ecommerce')" class="nav-link hover:text-royal-700 transition py-2" data-target="ecommerce">194 E-Commerce</button>
+
+          <!-- Approvals Dropdown -->
+          <div class="relative nav-dropdown py-2">
+            <button onclick="navigateTo('approvals')" class="nav-link hover:text-royal-700 transition flex items-center gap-1" data-target="approvals">
+              Approvals
+              <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="nav-dropdown-menu hidden absolute left-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
+              <button onclick="openDetailPage('approval', 'gym-fitness')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Gym & Fitness Center Approval</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'transport-mot')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Transport Activity (MOT)</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'fire-safety')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Civil Defense Fire Safety (QCDF)</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'traffic-clearance')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Traffic Department Clearance</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'baladiya-municipality')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>Baladiya Commercial License</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+              <button onclick="openDetailPage('approval', 'food-moph')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+                <span>MOPH Food & Hygiene Approval</span>
+                <span class="text-skybrand-500 font-bold">→</span>
+              </button>
+            </div>
+          </div>
+
+          <button onclick="navigateTo('contact')" class="nav-link hover:text-royal-700 transition py-2" data-target="contact">Contact Us</button>
+        </nav>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <button onclick="openBookingModal('General Corporate Consultation')" class="solid-royal-bright hover:bg-royal-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition shadow-sm">
+            Book Now
+          </button>
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg border border-slate-200 text-royal-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-2">
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">Home</button>
+      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">About Us</button>
+      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">All Corporate Services</button>
+      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">194 E-Commerce Activities</button>
+      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">Ministry Approvals</button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg">Contact Us</button>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 1: HOME PAGE                                                     -->
+  <!-- ===================================================================== -->
+  <main id="page-home" class="page-view active">
+    <!-- Hero Banner with bg.jpg -->
+    <section class="relative solid-royal-dark text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-25">
+        <img src="bg.jpg" alt="Doha Skyline Corporate" class="w-full h-full object-cover"
+             onerror="this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80'">
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-skybrand-400"></span>
+            Qatar's Trusted Corporate Engineering Partner
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+            Strategic Business Support & Company Formation in <span class="text-skybrand-400">Qatar</span>
+          </h1>
+          <p class="text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl">
+            Serve Ease Business Solutions delivers end-to-end MOCI company registration, 100% foreign ownership structuring, ministry approvals, PRO retainers, and legal compliance across Doha.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <button onclick="navigateTo('services')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-7 py-3.5 rounded-lg transition flex items-center gap-2">
+              Explore Services
+              <span>→</span>
+            </button>
+            <button onclick="navigateTo('ecommerce')" class="bg-white text-royal-900 hover:bg-skybrand-50 font-bold px-7 py-3.5 rounded-lg transition">
+              194+ E-Commerce Activities
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden border-4 border-royal-700 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Corporate Team in Doha" class="w-full h-[380px] object-cover">
+              <div class="solid-royal text-white p-4 flex items-center justify-between">
+                <span class="text-sm font-bold">MOCI & Single Window Specialists</span>
+                <span class="bg-skybrand-400 text-royal-950 text-xs font-extrabold px-2.5 py-1 rounded">100% Compliant</span>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-7">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHO WE ARE</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-5">Strategic Business Support Solutions</h2>
+            <p class="text-slate-600 text-base leading-relaxed mb-8">
+              We are dedicated corporate service professionals in Doha delivering reliable company formation, commercial documentation compliance, corporate banking assistance, legal translation, and government approval workflows across Qatar.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-5 mb-8">
+              <div class="bg-skybrand-50 border border-skybrand-100 p-5 rounded-xl">
+                <div class="w-10 h-10 solid-royal text-white rounded-lg flex items-center justify-center font-bold mb-3">01</div>
+                <h3 class="font-bold text-royal-900 text-lg mb-1">Professional Expertise</h3>
+                <p class="text-sm text-slate-600">Accurate formation, Single Window processing, and regulatory compliance.</p>
+              </div>
+              <div class="bg-skybrand-50 border border-skybrand-100 p-5 rounded-xl">
+                <div class="w-10 h-10 solid-sky text-white rounded-lg flex items-center justify-center font-bold mb-3">02</div>
+                <h3 class="font-bold text-royal-900 text-lg mb-1">Comprehensive Support</h3>
+                <p class="text-sm text-slate-600">End-to-end corporate administration and PRO support for sustainable growth.</p>
+              </div>
+            </div>
+            <button onclick="navigateTo('about')" class="solid-royal hover:bg-royal-700 text-white font-bold px-6 py-3 rounded-lg transition inline-flex items-center gap-2">
+              Discover More <span>→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Complete Corporate & Licensing Services -->
+    <section class="py-20 bg-slate-50 border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">OUR SOLUTIONS</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Complete Corporate & Licensing Services</h2>
+          <p class="text-slate-600 text-sm">Click any service card below to open its full dedicated guide, setup options, and FAQ page.</p>
+        </div>
+
+        <div id="home-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Specialized Municipal & Ministry Approvals -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">GOVERNMENT APPROVALS</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-royal-900 mb-3">Specialized Municipal & Ministry Approvals</h2>
+          <p class="text-slate-600 text-sm">Click any approval card to access dedicated ministry guidelines, document checklists, and fast-track workflows.</p>
+        </div>
+
+        <div id="home-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Leadership & Vision (Shafir Kottupurath Basheer) -->
+    <section class="py-20 solid-royal-dark text-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
+          <div class="shrink-0 text-center">
+            <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
+              <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover"
+                   onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80'">
+            </div>
+            <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded">
+              Founder & Managing Director
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">LEADERSHIP & VISION</div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Shafir Kottupurath Basheer</h2>
+            <blockquote class="text-slate-200 text-base sm:text-lg leading-relaxed italic mb-6">
+              "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
+            </blockquote>
+            <div class="inline-flex items-center gap-2 bg-royal-950 border border-royal-700 px-4 py-2 rounded-lg text-xs font-semibold text-skybrand-400">
+              <span>✓</span> Managing Director & Senior Business Consultant — Doha, Qatar
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Corporate Assistant -->
+    <section class="py-16 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white border-2 border-royal-700 rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 solid-royal text-white rounded-lg flex items-center justify-center font-extrabold">AI</div>
+            <div>
+              <h3 class="font-extrabold text-royal-900 text-lg">Ask AI Assistant – Corporate Setup & Approvals</h3>
+              <p class="text-xs text-slate-500">Get instant answers about Qatar WLL licenses, MOT transport approvals, and document attestation.</p>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 mt-4">
+            <input id="ai-question-input" type="text" placeholder="e.g., What are the requirements for a Transport Activity Approval (MOT) in Qatar?"
+                   class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+            <button onclick="askCorporateAI()" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-6 py-3 rounded-lg transition shrink-0">
+              Ask AI
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <button onclick="setQuickAI('100% Foreign Ownership WLL requirements in Qatar')" class="text-xs bg-skybrand-50 text-royal-900 border border-skybrand-100 px-3 py-1 rounded-full hover:bg-skybrand-100">100% Foreign WLL</button>
+            <button onclick="setQuickAI('MOT Transport Activity approval checklist')" class="text-xs bg-skybrand-50 text-royal-900 border border-skybrand-100 px-3 py-1 rounded-full hover:bg-skybrand-100">MOT Transport Approval</button>
+            <button onclick="setQuickAI('194 E-Commerce license activities in Qatar')" class="text-xs bg-skybrand-50 text-royal-900 border border-skybrand-100 px-3 py-1 rounded-full hover:bg-skybrand-100">194 E-Commerce License</button>
+          </div>
+          <div id="ai-answer-box" class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-700 leading-relaxed">
+            Hello! I am your Serve Ease Corporate Advisor. Ask me anything about Qatar company formation, MOCI activities, MOT transport approvals, or document attestation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics Bar -->
+    <section class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div class="p-6 border border-slate-200 rounded-xl">
+            <div class="text-3xl sm:text-4xl font-extrabold text-royal-900">194+</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-skybrand-500 mt-1">E-Commerce Activities</div>
+          </div>
+          <div class="p-6 border border-slate-200 rounded-xl">
+            <div class="text-3xl sm:text-4xl font-extrabold text-royal-900">240+</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-skybrand-500 mt-1">Country Codes Supported</div>
+          </div>
+          <div class="p-6 border border-slate-200 rounded-xl">
+            <div class="text-3xl sm:text-4xl font-extrabold text-royal-900">5/5</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-skybrand-500 mt-1">Client Satisfaction Rating</div>
+          </div>
+          <div class="p-6 border border-slate-200 rounded-xl">
+            <div class="text-3xl sm:text-4xl font-extrabold text-royal-900">24/7</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-skybrand-500 mt-1">Dedicated PRO Assistance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 2: DEDICATED SERVICE & APPROVAL MODEL PAGE                       -->
+  <!-- ===================================================================== -->
+  <section id="page-detail" class="page-view">
+    <div class="bg-slate-100 border-b border-slate-200 py-3 px-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-semibold text-slate-600">
+        <div class="flex items-center gap-2">
+          <button onclick="navigateTo('home')" class="hover:text-royal-700">Home</button>
+          <span>/</span>
+          <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700">Services</button>
+          <span>/</span>
+          <span id="detail-breadcrumb-current" class="text-royal-900 font-bold">Company Formation</span>
+        </div>
+        <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold">← Back to Overview</button>
+      </div>
+    </div>
+
+    <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-25">
+        <img id="detail-hero-img" src="bg.jpg" alt="Service Banner" class="w-full h-full object-cover"
+             onerror="this.src='https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80'">
+      </div>
+      <div class="relative max-w-4xl mx-auto px-4 text-center">
+        <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
+          CORPORATE LICENSING
+        </div>
+        <h1 id="detail-hero-title" class="text-3xl sm:text-5xl font-extrabold mb-4">Company Formation</h1>
+        <p id="detail-hero-subtitle" class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto">
+          Complete business registration and licensing services in Qatar with full regulatory compliance support.
+        </p>
+      </div>
+    </div>
+
+    <div class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7">
+            <div id="detail-overview-tag" class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">COMPANY FORMATION</div>
+            <h2 id="detail-overview-heading" class="text-3xl font-extrabold text-royal-900 mb-5">Seamless Company Formation Services</h2>
+            <p id="detail-overview-p1" class="text-slate-600 leading-relaxed mb-4">
+              Foreign investors, entrepreneurs, and corporations interested in growing their business in the Middle East will find it seamless to establish a company in Qatar. We structure entities tailored to your exact ownership model, commercial activity, and operational goals.
+            </p>
+            <p id="detail-overview-p2" class="text-slate-600 leading-relaxed">
+              We deal with every step of the procedure with efficiency and precision—from Commercial Registration (CR) and Articles of Association (AOA) drafting to Municipality Trade License and Computer Card issuance.
+            </p>
+          </div>
+          <div class="lg:col-span-5 relative flex justify-center">
+            <div class="relative w-full max-w-md">
+              <img id="detail-overview-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Consultation" class="w-full h-72 object-cover rounded-2xl border-4 border-royal-900 shadow-lg">
+              <div class="hidden sm:flex gap-1.5 absolute -right-5 top-6">
+                <span class="w-1.5 h-12 solid-royal-bright rotate-12 rounded"></span>
+                <span class="w-1.5 h-12 solid-sky rotate-12 rounded"></span>
+                <span class="w-1.5 h-12 solid-royal rotate-12 rounded"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-20 bg-slate-50 border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">WHAT WE OFFER</div>
+          <h2 id="detail-grid-heading" class="text-3xl font-extrabold text-royal-900">Business Setup Options in Qatar</h2>
+        </div>
+        <div id="detail-options-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </div>
+
+    <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
+      <div class="pointer-events-none select-none absolute left-0 top-1/2 -translate-y-1/2 flex items-center opacity-90">
+        <svg class="w-36 h-72" viewBox="0 0 160 320" fill="none">
+          <polyline points="20,20 120,160 20,300" stroke="#FFFFFF" stroke-width="6" fill="none"/>
+          <polyline points="55,45 140,160 55,275" stroke="#38BDF8" stroke-width="4" fill="none"/>
+          <polyline points="-15,45 70,160 -15,275" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="pointer-events-none select-none absolute right-0 top-1/2 -translate-y-1/2 flex items-center opacity-90">
+        <svg class="w-44 h-72" viewBox="0 0 180 320" fill="none">
+          <polyline points="10,20 110,160 10,300" stroke="#38BDF8" stroke-width="5" fill="none"/>
+          <polyline points="55,20 155,160 55,300" stroke="#FFFFFF" stroke-width="7" fill="none"/>
+          <polyline points="100,45 180,160 100,275" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+              <img id="detail-banner-img" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Executive Review" class="w-full h-[400px] object-cover">
+            </div>
+          </div>
+          <div class="lg:col-span-7">
+            <div id="detail-banner-tag" class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">STRUCTURED EXECUTION</div>
+            <h2 id="detail-banner-heading" class="text-3xl font-extrabold text-white mb-8">WLL Companies Support Services</h2>
+            <div id="detail-banner-pillars" class="space-y-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-2">END-TO-END WORKFLOW</div>
+          <h2 id="detail-complete-heading" class="text-3xl font-extrabold text-royal-900 mb-3">Complete Company Formation Services</h2>
+          <p class="text-slate-600 text-sm">We handle registration, legal drafting, licensing, and ministry approvals efficiently so your business operates smoothly.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Corporate Handshake" class="w-full h-80 object-cover rounded-2xl border-2 border-slate-200 shadow-md">
+          </div>
+          <div class="lg:col-span-6 space-y-6">
+            <p class="text-slate-600 text-sm leading-relaxed border-b border-slate-200 pb-6">
+              We take care of everything from drafting bilingual Articles of Association and Single Window submissions to chamber registration and establishment cards. Our specialists ensure every requirement is fulfilled accurately on the first submission.
+            </p>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 shrink-0 solid-royal text-white rounded-xl flex items-center justify-center font-extrabold">
+                <svg class="w-6 h-6 text-skybrand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-royal-900 text-base mb-1">Expert Guidance</h4>
+                <p class="text-sm text-slate-600">Our consultants deliver precise regulatory guidance, ensuring full compliance with Qatari commercial and municipal laws.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 shrink-0 solid-sky text-white rounded-xl flex items-center justify-center font-extrabold">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-royal-900 text-base mb-1">Quick Processing</h4>
+                <p class="text-sm text-slate-600">We streamline documentation and government portal follow-ups, significantly reducing turnaround times.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solid-royal py-14 px-4 text-center text-white border-y-4 border-skybrand-400">
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Complete Business Setup and Compliance Solutions</h3>
+        <p class="text-slate-200 text-sm mb-6">Speak directly with Serve Ease Business Solutions in Doha for a customized checklist and timeline.</p>
+        <button id="detail-cta-btn" onclick="openBookingModal('Service Inquiry')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg">
+          Request Consultation Now
+        </button>
+      </div>
+    </div>
+
+    <div class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7">
+            <h2 class="text-3xl font-extrabold text-royal-900 mb-2">Frequently Asked Questions</h2>
+            <p class="text-sm text-slate-500 mb-8">Explore clear answers to common regulatory and processing questions.</p>
+            <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Business Consultant" class="w-full h-96 object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 3: ALL SERVICES DIRECTORY PAGE                                   -->
+  <!-- ===================================================================== -->
+  <section id="page-services" class="page-view">
+    <div class="solid-royal-dark text-white py-16 px-4 text-center">
+      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">CORPORATE PORTFOLIO</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">All Corporate & Licensing Services</h1>
+      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Select any of our 8 specialized corporate services to view detailed execution steps, structures, and FAQs.</p>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="all-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 4: ALL APPROVALS DIRECTORY PAGE                                  -->
+  <!-- ===================================================================== -->
+  <section id="page-approvals" class="page-view">
+    <div class="solid-royal-dark text-white py-16 px-4 text-center">
+      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">MINISTRY CLEARANCES</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Specialized Municipal & Ministry Approvals</h1>
+      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Select any ministry or municipal approval below to open its full requirements and clearance guide.</p>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="all-approvals-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 5: 194+ E-COMMERCE ACTIVITIES DIRECTORY PAGE                     -->
+  <!-- ===================================================================== -->
+  <section id="page-ecommerce" class="page-view">
+    <div class="solid-royal-dark text-white py-16 px-4">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
+          MOCI APPROVED COMMERCIAL ACTIVITIES
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">194+ E-Commerce Business Activities in Qatar</h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-sm mb-8">
+          Search and filter all 194 Ministry of Commerce and Industry (MOCI) approved E-Commerce & digital trading activities eligible for Commercial Registration in Qatar.
+        </p>
+        <div class="max-w-xl mx-auto flex gap-2">
+          <input id="ecom-search" oninput="filterEcommerce()" type="text" placeholder="Search 194 activities by keyword or code (e.g., Retail, Software, Electronics, 4791)..."
+                 class="w-full bg-white text-slate-900 rounded-lg px-4 py-3.5 text-sm font-medium focus:outline-none">
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div id="ecom-count-badge" class="text-sm font-bold text-royal-900">Showing 194 Approved E-Commerce Activities</div>
+        <button onclick="openBookingModal('E-Commerce License Registration')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition">
+          Register E-Commerce License →
+        </button>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <div class="overflow-x-auto max-h-[650px]">
+          <table class="w-full text-left border-collapse">
+            <thead class="solid-royal text-white text-xs uppercase sticky top-0">
+              <tr>
+                <th class="py-3.5 px-4">#</th>
+                <th class="py-3.5 px-4">ISIC / MOCI Code</th>
+                <th class="py-3.5 px-4">Approved E-Commerce Activity Description</th>
+                <th class="py-3.5 px-4">Sector</th>
+                <th class="py-3.5 px-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="ecom-table-body" class="divide-y divide-slate-200 text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 6: ABOUT US PAGE                                                 -->
+  <!-- ===================================================================== -->
+  <section id="page-about" class="page-view">
+    <div class="solid-royal-dark text-white py-16 px-4 text-center">
+      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">ABOUT SERVE EASE</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Corporate Excellence in Doha, Qatar</h1>
+      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-royal-900 mb-4">Your Strategic Corporate Partner</h2>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, tax audit coordination, and executive PRO retainers.
+          </p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges international investors and local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="solid-royal text-white p-6 rounded-xl">
+            <div class="text-3xl font-extrabold text-skybrand-400 mb-1">100%</div>
+            <div class="text-xs font-semibold">Foreign Ownership Structuring</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-xl">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">194+</div>
+            <div class="text-xs font-semibold text-slate-600">E-Commerce Activities Covered</div>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-xl">
+            <div class="text-3xl font-extrabold text-royal-900 mb-1">240+</div>
+            <div class="text-xs font-semibold text-slate-600">Global Investor Nationalities</div>
+          </div>
+          <div class="solid-royal-bright text-white p-6 rounded-xl">
+            <div class="text-3xl font-extrabold mb-1">24/7</div>
+            <div class="text-xs font-semibold">Corporate PRO Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 7: CONTACT US PAGE                                               -->
+  <!-- ===================================================================== -->
+  <section id="page-contact" class="page-view">
+    <div class="solid-royal-dark text-white py-16 px-4 text-center">
+      <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2">GET IN TOUCH</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mb-3">Contact Serve Ease Business Solutions</h1>
+      <p class="text-slate-300 max-w-2xl mx-auto text-sm">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Doha Head Office</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Zone 55, Street 580, Building 44, Office 5,<br>
+              Al Aziziya, Doha – State of Qatar
+            </p>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Direct Phone & WhatsApp</h3>
+            <p class="text-sm text-slate-700 font-bold">+974 7074 6283</p>
+            <p class="text-xs text-slate-500 mt-1">Available Saturday – Thursday (08:00 AM – 10:00 PM)</p>
+          </div>
+          <div class="bg-skybrand-50 border border-skybrand-100 p-6 rounded-2xl">
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2">Corporate Email</h3>
+            <p class="text-sm text-royal-700 font-bold">serveeaseqatar@gmail.com</p>
+            <p class="text-sm text-royal-700 font-bold">serveeaseqa@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-white border-2 border-royal-700 rounded-2xl p-8 shadow-lg">
+          <h3 class="text-2xl font-extrabold text-royal-900 mb-6">Schedule a Corporate Consultation</h3>
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
+                <input required type="text" placeholder="Enter your full name" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Email Address *</label>
+                <input required type="email" placeholder="name@company.com" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone / WhatsApp (240+ Country Codes) *</label>
+              <div class="flex gap-2">
+                <select id="contact-country-code" class="w-44 border border-slate-300 rounded-lg px-3 py-3 text-sm bg-slate-50 font-semibold text-royal-900 focus:outline-none focus:border-royal-700"></select>
+                <input required type="tel" placeholder="7074 6283" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Service or Ministry Approval Required</label>
+              <select class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-royal-700">
+                <option>Company Formation (100% Foreign WLL / QFC)</option>
+                <option>194 E-Commerce License Setup</option>
+                <option>Share Transfer & Corporate Restructuring</option>
+                <option>Corporate PRO Retainer</option>
+                <option>MOT Transport Activity Approval</option>
+                <option>Gym & Fitness Center Approval</option>
+                <option>Civil Defense Fire Safety (QCDF)</option>
+                <option>MOFA Attestation & Legal Translation</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Project Details</label>
+              <textarea rows="3" placeholder="Tell us about your planned business activity in Qatar..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700"></textarea>
+            </div>
+
+            <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition">
+              Submit Inquiry to Serve Ease
+            </button>
+          </form>
+          <div id="contact-success-msg" class="hidden mt-4 bg-skybrand-50 border border-skybrand-400 text-royal-900 p-4 rounded-lg text-sm font-bold">
+            Thank you! Your inquiry has been received by Serve Ease Business Solutions. Our Doha consultant will reach out shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="solid-royal-dark text-white pt-16 pb-8 border-t-4 border-skybrand-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-royal-800">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="logo.png" alt="Serve Ease" class="h-10 w-auto bg-white p-1 rounded"
+                 onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').style.display='flex';">
+            <div id="footer-fallback-logo" class="hidden w-10 h-10 solid-royal-bright rounded-lg items-center justify-center font-extrabold text-white border border-skybrand-400">SE</div>
+            <div>
+              <div class="font-extrabold text-base tracking-tight">SERVE EASE</div>
+              <div class="text-[10px] font-bold uppercase tracking-widest text-skybrand-400">Business Solutions</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Providing reliable, efficient corporate solutions, commercial licensing, ministry approvals, and legal establishment for businesses in Qatar.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-skybrand-400 mb-4">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><button onclick="navigateTo('home')" class="hover:text-white">Home</button></li>
+            <li><button onclick="navigateTo('about')" class="hover:text-white">About Us</button></li>
+            <li><button onclick="navigateTo('services')" class="hover:text-white">Corporate Services</button></li>
+            <li><button onclick="navigateTo('ecommerce')" class="hover:text-white">194 E-Commerce Directory</button></li>
+            <li><button onclick="navigateTo('approvals')" class="hover:text-white">Ministry Approvals</button></li>
+            <li><button onclick="navigateTo('contact')" class="hover:text-white">Contact Us</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-skybrand-400 mb-4">Doha Head Office</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-2">
+            Zone 55, Street 580, Building 44, Office 5, Al Aziziya, Doha - Qatar
+          </p>
+          <p class="text-xs text-white font-bold mb-1">Direct Phone: +974 7074 6283</p>
+          <p class="text-xs text-skybrand-400">Email: serveeaseqatar@gmail.com</p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-skybrand-400 mb-4">Working Hours</h4>
+          <p class="text-xs text-slate-300 mb-2">Saturday to Thursday: 08:00 AM to 10:00 PM</p>
+          <p class="text-xs text-skybrand-400 font-semibold">Friday: Closed (Emergency PRO support via WhatsApp)</p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+        <div>Copyright © 2026 Serve Ease Business Solutions. All rights reserved.</div>
+        <div class="text-skybrand-400 font-semibold">Certified Corporate Services Provider — Doha, Qatar</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="hidden fixed inset-0 z-50 bg-slate-950/75 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 border-2 border-royal-700 shadow-2xl relative">
+      <button onclick="closeBookingModal()" class="absolute right-4 top-4 text-slate-400 hover:text-royal-900 font-extrabold text-xl">×</button>
+      <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-1">FAST-TRACK CONSULTATION</div>
+      <h3 id="modal-service-title" class="text-2xl font-extrabold text-royal-900 mb-4">Book Consultation</h3>
+      <form onsubmit="submitModalBooking(event)" class="space-y-4">
+        <input required type="text" placeholder="Your Full Name" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm">
+        <div class="flex gap-2">
+          <select id="modal-country-code" class="w-40 border border-slate-300 rounded-lg px-2 py-3 text-sm bg-slate-50 font-semibold text-royal-900"></select>
+          <input required type="tel" placeholder="Phone / WhatsApp Number" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm">
+        </div>
+        <input type="email" placeholder="Email Address (Optional)" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm">
+        <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition">
+          Confirm Appointment
+        </button>
+      </form>
+      <div id="modal-confirm-msg" class="hidden mt-3 text-xs font-bold text-royal-900 bg-skybrand-50 p-3 rounded-lg border border-skybrand-400">
+        Appointment booked! Our Doha advisor will contact you on WhatsApp within 15 minutes.
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const PAGES_DATA = {
+      service: {
+        'company-formation': {
+          title: 'Company Formation',
+          badge: 'CORPORATE LICENSING',
+          subtitle: 'Complete business registration and licensing services in Qatar with full compliance support.',
+          shortDesc: 'WLL, QFC, QFZ, QSTP, and branch registration in Qatar.',
+          img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Seamless Company Formation Services',
+          gridHeading: 'Business Setup Options in Qatar',
+          bannerHeading: 'WLL Companies Support Services',
+          options: [
+            { title: 'Qatar Financial Centre (QFC)', desc: 'Internationally recognized legal & tax framework allowing 100% foreign ownership for consulting & professional firms.' },
+            { title: 'Qatar Free Zones (QFZ)', desc: 'Special economic zones offering customs exemptions, 100% foreign ownership, and strategic logistics access.' },
+            { title: 'Qatar Science & Technology Park (QSTP)', desc: 'Dedicated licensing hub for technology, R&D, software, and innovation-driven enterprises.' },
+            { title: 'Trade Representative Office', desc: 'Allows foreign enterprises to promote products and conduct market research in Qatar without local trading.' },
+            { title: 'Foreign Branch Office Registration', desc: 'Establish a 100% foreign branch office to execute government and semi-government contracts in Qatar.' },
+            { title: 'WLL Companies (100% Foreign / JV)', desc: 'Complete MOCI Single Window registration ensuring smooth Commercial Registration and Trade License issuance.' }
           ],
-          approvals: [
-              { 
-                  id: 1, 
-                  title: 'Gym & Fitness Center Approval', 
-                  desc: 'Ministry of Sports & Youth and Municipal approvals.', 
-                  image: 'logo.png', 
-                  icon: 'fa-dumbbell', 
-                  details: 'Specialized licensing for fitness clubs, gyms, and sports training centers adhering to structural safety, zoning, and sanitary regulations.',
-                  checklist: ['Ministry of Sports & Youth NOC', 'Baladiya (Municipality) Zoning Approval', 'Civil Defense Safety Layout', 'Sanitary & Health Inspection Clearance', 'Qualified Trainer Certification Approval']
-              },
-              { 
-                  id: 2, 
-                  title: 'Transport Activity Approval (MGT)', 
-                  desc: 'MOCI clearances for delivery and logistics fleets.', 
-                  image: 'logo.png', 
-                  icon: 'fa-truck', 
-                  details: 'Acquiring Ministry of Transport permits, vehicle branding clearances, and driver commercial compliance documentation.',
-                  checklist: ['Ministry of Transport (MOT) Permit', 'Vehicle Fleet Registration & Inspection', 'Commercial Branding Approval', 'Driver Commercial License Verification', 'Logistics Hub Zoning Clearance']
-              },
-              { 
-                  id: 3, 
-                  title: 'Fire Safety Approval (QCDD)', 
-                  desc: 'Civil Defense building safety inspection and certification.', 
-                  image: 'logo.png', 
-                  icon: 'fa-fire-extinguisher', 
-                  details: 'Complete engineering drawing reviews, fire alarm system sign-offs, and Qatar Civil Defense Department operational licensing.',
-                  checklist: ['QCDD Engineering Drawing Review', 'Fire Suppression & Alarm Certification', 'Emergency Exit & Lighting Inspection', 'Safety Officer Onsite Sign-off', 'Final Civil Defense Operational License']
-              },
-              { 
-                  id: 4, 
-                  title: 'Traffic Department Clearance', 
-                  desc: 'MOI Traffic sign-offs, clearance for vehicles & parking.', 
-                  image: 'logo.png', 
-                  icon: 'fa-car', 
-                  details: 'Coordination with General Directorate of Traffic for commercial parking allocation, transport permits, and fleet clearances.',
-                  checklist: ['General Directorate of Traffic NOC', 'Commercial Parking Allocation Approval', 'Vehicle Registration Clearances', 'Traffic Sign-off for Commercial Outlets', 'Driver Record Compliance']
-              }
+          pillars: [
+            { title: '100% Foreign Ownership WLL in Qatar', desc: 'Foreign investors can establish a 100% foreign-owned Limited Liability Company in Qatar across approved MOCI commercial activities.' },
+            { title: '51% – 49% Partnership WLL', desc: 'Traditional corporate joint-venture structure where a Qatari partner holds 51% and the foreign investor holds 49%.' },
+            { title: '100% GCC Ownership WLL', desc: 'Nationals of GCC member states can register companies in Qatar with full ownership privileges.' }
           ],
-          countries: [
-              { code: '+974', name: 'Qatar (+974)' },
-              { code: '+93', name: 'Afghanistan (+93)' },
-              { code: '+355', name: 'Albania (+355)' },
-              { code: '+213', name: 'Algeria (+213)' },
-              { code: '+376', name: 'Andorra (+376)' },
-              { code: '+244', name: 'Angola (+244)' },
-              { code: '+54', name: 'Argentina (+54)' },
-              { code: '+374', name: 'Armenia (+374)' },
-              { code: '+61', name: 'Australia (+61)' },
-              { code: '+43', name: 'Austria (+43)' },
-              { code: '+994', name: 'Azerbaijan (+994)' },
-              { code: '+973', name: 'Bahrain (+973)' },
-              { code: '+880', name: 'Bangladesh (+880)' },
-              { code: '+375', name: 'Belarus (+375)' },
-              { code: '+32', name: 'Belgium (+32)' },
-              { code: '+501', name: 'Belize (+501)' },
-              { code: '+229', name: 'Benin (+229)' },
-              { code: '+975', name: 'Bhutan (+975)' },
-              { code: '+591', name: 'Bolivia (+591)' },
-              { code: '+387', name: 'Bosnia and Herzegovina (+387)' },
-              { code: '+267', name: 'Botswana (+267)' },
-              { code: '+55', name: 'Brazil (+55)' },
-              { code: '+673', name: 'Brunei (+673)' },
-              { code: '+359', name: 'Bulgaria (+359)' },
-              { code: '+226', name: 'Burkina Faso (+226)' },
-              { code: '+257', name: 'Burundi (+257)' },
-              { code: '+855', name: 'Cambodia (+855)' },
-              { code: '+237', name: 'Cameroon (+237)' },
-              { code: '+1', name: 'Canada (+1)' },
-              { code: '+238', name: 'Cape Verde (+238)' },
-              { code: '+236', name: 'Central African Republic (+236)' },
-              { code: '+235', name: 'Chad (+235)' },
-              { code: '+56', name: 'Chile (+56)' },
-              { code: '+86', name: 'China (+86)' },
-              { code: '+57', name: 'Colombia (+57)' },
-              { code: '+269', name: 'Comoros (+269)' },
-              { code: '+242', name: 'Congo (+242)' },
-              { code: '+506', name: 'Costa Rica (+506)' },
-              { code: '+385', name: 'Croatia (+385)' },
-              { code: '+53', name: 'Cuba (+53)' },
-              { code: '+357', name: 'Cyprus (+357)' },
-              { code: '+420', name: 'Czech Republic (+420)' },
-              { code: '+45', name: 'Denmark (+45)' },
-              { code: '+253', name: 'Djibouti (+253)' },
-              { code: '+1767', name: 'Dominica (+1767)' },
-              { code: '+1809', name: 'Dominican Republic (+1809)' },
-              { code: '+593', name: 'Ecuador (+593)' },
-              { code: '+20', name: 'Egypt (+20)' },
-              { code: '+503', name: 'El Salvador (+503)' },
-              { code: '+240', name: 'Equatorial Guinea (+240)' },
-              { code: '+291', name: 'Eritrea (+291)' },
-              { code: '+372', name: 'Estonia (+372)' },
-              { code: '+251', name: 'Ethiopia (+251)' },
-              { code: '+679', name: 'Fiji (+679)' },
-              { code: '+358', name: 'Finland (+358)' },
-              { code: '+33', name: 'France (+33)' },
-              { code: '+241', name: 'Gabon (+241)' },
-              { code: '+220', name: 'Gambia (+220)' },
-              { code: '+995', name: 'Georgia (+995)' },
-              { code: '+49', name: 'Germany (+49)' },
-              { code: '+233', name: 'Ghana (+233)' },
-              { code: '+30', name: 'Greece (+30)' },
-              { code: '+299', name: 'Greenland (+299)' },
-              { code: '+502', name: 'Guatemala (+502)' },
-              { code: '+224', name: 'Guinea (+224)' },
-              { code: '+245', name: 'Guinea-Bissau (+245)' },
-              { code: '+592', name: 'Guyana (+592)' },
-              { code: '+509', name: 'Haiti (+509)' },
-              { code: '+504', name: 'Honduras (+504)' },
-              { code: '+852', name: 'Hong Kong (+852)' },
-              { code: '+36', name: 'Hungary (+36)' },
-              { code: '+354', name: 'Iceland (+354)' },
-              { code: '+91', name: 'India (+91)' },
-              { code: '+62', name: 'Indonesia (+62)' },
-              { code: '+98', name: 'Iran (+98)' },
-              { code: '+964', name: 'Iraq (+964)' },
-              { code: '+353', name: 'Ireland (+353)' },
-              { code: '+972', name: 'Israel (+972)' },
-              { code: '+39', name: 'Italy (+39)' },
-              { code: '+1876', name: 'Jamaica (+1876)' },
-              { code: '+81', name: 'Japan (+81)' },
-              { code: '+962', name: 'Jordan (+962)' },
-              { code: '+7', name: 'Kazakhstan (+7)' },
-              { code: '+254', name: 'Kenya (+254)' },
-              { code: '+686', name: 'Kiribati (+686)' },
-              { code: '+850', name: 'North Korea (+850)' },
-              { code: '+82', name: 'South Korea (+82)' },
-              { code: '+965', name: 'Kuwait (+965)' },
-              { code: '+996', name: 'Kyrgyzstan (+996)' },
-              { code: '+856', name: 'Laos (+856)' },
-              { code: '+371', name: 'Latvia (+371)' },
-              { code: '+961', name: 'Lebanon (+961)' },
-              { code: '+266', name: 'Lesotho (+266)' },
-              { code: '+231', name: 'Liberia (+231)' },
-              { code: '+218', name: 'Libya (+218)' },
-              { code: '+423', name: 'Liechtenstein (+423)' },
-              { code: '+370', name: 'Lithuania (+370)' },
-              { code: '+352', name: 'Luxembourg (+352)' },
-              { code: '+853', name: 'Macau (+853)' },
-              { code: '+389', name: 'North Macedonia (+389)' },
-              { code: '+261', name: 'Madagascar (+261)' },
-              { code: '+265', name: 'Malawi (+265)' },
-              { code: '+60', name: 'Malaysia (+60)' },
-              { code: '+960', name: 'Maldives (+960)' },
-              { code: '+223', name: 'Mali (+223)' },
-              { code: '+356', name: 'Malta (+356)' },
-              { code: '+692', name: 'Marshall Islands (+692)' },
-              { code: '+222', name: 'Mauritania (+222)' },
-              { code: '+230', name: 'Mauritius (+230)' },
-              { code: '+52', name: 'Mexico (+52)' },
-              { code: '+691', name: 'Micronesia (+691)' },
-              { code: '+373', name: 'Moldova (+373)' },
-              { code: '+377', name: 'Monaco (+377)' },
-              { code: '+976', name: 'Mongolia (+976)' },
-              { code: '+382', name: 'Montenegro (+382)' },
-              { code: '+212', name: 'Morocco (+212)' },
-              { code: '+258', name: 'Mozambique (+258)' },
-              { code: '+95', name: 'Myanmar (+95)' },
-              { code: '+264', name: 'Namibia (+264)' },
-              { code: '+674', name: 'Nauru (+674)' },
-              { code: '+977', name: 'Nepal (+977)' },
-              { code: '+31', name: 'Netherlands (+31)' },
-              { code: '+64', name: 'New Zealand (+64)' },
-              { code: '+505', name: 'Nicaragua (+505)' },
-              { code: '+227', name: 'Niger (+227)' },
-              { code: '+234', name: 'Nigeria (+234)' },
-              { code: '+47', name: 'Norway (+47)' },
-              { code: '+968', name: 'Oman (+968)' },
-              { code: '+92', name: 'Pakistan (+92)' },
-              { code: '+680', name: 'Palau (+680)' },
-              { code: '+970', name: 'Palestine (+970)' },
-              { code: '+507', name: 'Panama (+507)' },
-              { code: '+675', name: 'Papua New Guinea (+675)' },
-              { code: '+595', name: 'Paraguay (+595)' },
-              { code: '+51', name: 'Peru (+51)' },
-              { code: '+63', name: 'Philippines (+63)' },
-              { code: '+48', name: 'Poland (+48)' },
-              { code: '+351', name: 'Portugal (+351)' },
-              { code: '+40', name: 'Romania (+40)' },
-              { code: '+7', name: 'Russia (+7)' },
-              { code: '+250', name: 'Rwanda (+250)' },
-              { code: '+1869', name: 'Saint Kitts and Nevis (+1869)' },
-              { code: '+1758', name: 'Saint Lucia (+1758)' },
-              { code: '+1784', name: 'Saint Vincent (+1784)' },
-              { code: '+685', name: 'Samoa (+685)' },
-              { code: '+378', name: 'San Marino (+378)' },
-              { code: '+239', name: 'Sao Tome and Principe (+239)' },
-              { code: '+966', name: 'Saudi Arabia (+966)' },
-              { code: '+221', name: 'Senegal (+221)' },
-              { code: '+381', name: 'Serbia (+381)' },
-              { code: '+248', name: 'Seychelles (+248)' },
-              { code: '+232', name: 'Sierra Leone (+232)' },
-              { code: '+65', name: 'Singapore (+65)' },
-              { code: '+421', name: 'Slovakia (+421)' },
-              { code: '+386', name: 'Slovenia (+386)' },
-              { code: '+677', name: 'Solomon Islands (+677)' },
-              { code: '+252', name: 'Somalia (+252)' },
-              { code: '+27', name: 'South Africa (+27)' },
-              { code: '+211', name: 'South Sudan (+211)' },
-              { code: '+34', name: 'Spain (+34)' },
-              { code: '+94', name: 'Sri Lanka (+94)' },
-              { code: '+249', name: 'Sudan (+249)' },
-              { code: '+597', name: 'Suriname (+597)' },
-              { code: '+268', name: 'Eswatini (+268)' },
-              { code: '+46', name: 'Sweden (+46)' },
-              { code: '+41', name: 'Switzerland (+41)' },
-              { code: '+963', name: 'Syria (+963)' },
-              { code: '+886', name: 'Taiwan (+886)' },
-              { code: '+992', name: 'Tajikistan (+992)' },
-              { code: '+255', name: 'Tanzania (+255)' },
-              { code: '+66', name: 'Thailand (+66)' },
-              { code: '+670', name: 'Timor-Leste (+670)' },
-              { code: '+228', name: 'Togo (+228)' },
-              { code: '+676', name: 'Tonga (+676)' },
-              { code: '+1868', name: 'Trinidad and Tobago (+1868)' },
-              { code: '+216', name: 'Tunisia (+216)' },
-              { code: '+90', name: 'Turkey (+90)' },
-              { code: '+993', name: 'Turkmenistan (+993)' },
-              { code: '+688', name: 'Tuvalu (+688)' },
-              { code: '+256', name: 'Uganda (+256)' },
-              { code: '+380', name: 'Ukraine (+380)' },
-              { code: '+971', name: 'United Arab Emirates (+971)' },
-              { code: '+44', name: 'United Kingdom (+44)' },
-              { code: '+1', name: 'United States (+1)' },
-              { code: '+598', name: 'Uruguay (+598)' },
-              { code: '+998', name: 'Uzbekistan (+998)' },
-              { code: '+678', name: 'Vanuatu (+678)' },
-              { code: '+39', name: 'Vatican City (+39)' },
-              { code: '+58', name: 'Venezuela (+58)' },
-              { code: '+84', name: 'Vietnam (+84)' },
-              { code: '+967', name: 'Yemen (+967)' },
-              { code: '+260', name: 'Zambia (+260)' },
-              { code: '+263', name: 'Zimbabwe (+263)' }
+          faqs: [
+            { q: 'What types of companies can Serve Ease help form in Qatar?', a: 'We register 100% Foreign WLL companies, 51/49 Joint Venture WLLs, QFC entities, QFZ companies, Foreign Branches, and Representative Offices.' },
+            { q: 'How long does the company formation process take?', a: 'Standard MOCI Commercial Registration and Municipality Trade License issuance takes 5 to 10 working days once documents are ready.' },
+            { q: 'What documents are required to start a company?', a: 'Passport copies of shareholders, proposed trade names, activity list, lease contract (Ejari/Baladiya), and parent company docs (if corporate shareholder).' }
           ]
-      }">
+        },
+        'share-transfer': {
+          title: 'Share Transfer & Restructuring',
+          badge: 'CORPORATE GOVERNANCE',
+          subtitle: 'Partner amendments, equity restructuring, and Ministry of Justice notarization.',
+          shortDesc: 'Partner amendments and legal equity restructuring.',
+          img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Seamless Share Transfer & Amendments',
+          gridHeading: 'Corporate Amendment Solutions',
+          bannerHeading: 'Equity & CR Modification Support',
+          options: [
+            { title: 'Sale & Purchase of Shares', desc: 'Drafting bilingual Share Purchase Agreements (SPA) and amending Articles of Association.' },
+            { title: 'Adding or Exiting Partners', desc: 'Complete legal exit or onboarding of Qatari and foreign shareholders via Single Window.' },
+            { title: 'Capital Increase / Reduction', desc: 'Audited capital restructuring and MOCI Commercial Registration updates.' },
+            { title: 'Authorized Signatory Updates', desc: 'Updating Computer Card (Establishment Card) and CR authorized managers.' },
+            { title: 'Company Name & Activity Change', desc: 'Trade name reservation and adding or removing commercial activities.' },
+            { title: 'MOJ Notarization Coordination', desc: 'End-to-end scheduling and representation at the Ministry of Justice.' }
+          ],
+          pillars: [
+            { title: 'Bilingual AOA Amendment Drafting', desc: 'Precision Arabic-English Articles of Association prepared to pass MOCI and MOJ review without rejection.' },
+            { title: 'Tax Clearance & Audit Coordination', desc: 'Ensuring Dhareeba tax compliance prior to executing share transfers.' },
+            { title: 'Bank Mandate & Computer Card Sync', desc: 'Updating immigration and corporate bank records immediately after CR amendment.' }
+          ],
+          faqs: [
+            { q: 'Do all partners need to visit the Ministry of Justice?', a: 'Partners can attend in person or appoint Serve Ease via a duly attested Power of Attorney (POA).' },
+            { q: 'How long does a share transfer take in Qatar?', a: 'Typically 4 to 7 working days including MOCI approval and MOJ authentication.' }
+          ]
+        },
+        'pro-retainer': {
+          title: 'Corporate PRO Retainer',
+          badge: 'GOVERNMENT LIAISON',
+          subtitle: 'Dedicated monthly government liaison, visa processing, and labor compliance.',
+          shortDesc: 'Government liaison, visa processing & labor clearances.',
+          img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Dedicated Corporate PRO Retainer Services',
+          gridHeading: 'Monthly PRO & Immigration Scope',
+          bannerHeading: 'Zero-Delay Government Administration',
+          options: [
+            { title: 'Work Visa & QID Processing', desc: 'Quota applications, work permit approvals, medical, biometrics, and QID printing.' },
+            { title: 'CR & Trade License Renewals', desc: 'Automated tracking and renewal of CR, Municipality License, and Computer Card.' },
+            { title: 'MADLSA Labor Contracts', desc: 'Digital employment contract attestation and Wage Protection System (WPS) compliance.' },
+            { title: 'Family Residence Visas', desc: 'End-to-end family sponsorship processing for executives and employees.' },
+            { title: 'Exit Permits & Travel Clearances', desc: 'Instant Metrash2 corporate portal administration for staff mobility.' },
+            { title: 'Compliance Deadline Tracking', desc: 'Proactive alerts 45 days before any license or QID expiration.' }
+          ],
+          pillars: [
+            { title: 'Dedicated Account PRO Officer', desc: 'Direct WhatsApp and phone access to your assigned Serve Ease corporate specialist.' },
+            { title: 'Transparent Government Fee Receipts', desc: '100% itemized official government receipts with zero hidden surcharges.' },
+            { title: 'Multi-Branch Workforce Coverage', desc: 'Scalable PRO plans for startups, SMEs, and enterprise contractors.' }
+          ],
+          faqs: [
+            { q: 'Why choose a monthly PRO retainer instead of hiring full-time?', a: 'You save over 60% in salary, visa, and vehicle overheads while gaining a full team of experienced Doha PROs.' },
+            { q: 'Do you manage Metrash2 and Hukoomi portals?', a: 'Yes, we handle all digital submissions across MOCI, MADLSA, MOI, and Baladiya portals.' }
+          ]
+        },
+        'legal-translation': {
+          title: 'Legal Translation',
+          badge: 'CERTIFIED TRANSLATION',
+          subtitle: 'Ministry-certified Arabic, English, and multilingual document translation in Doha.',
+          shortDesc: 'Ministry-certified document translation in Doha.',
+          img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Certified Legal Translation Services',
+          gridHeading: 'Documents We Translate & Certify',
+          bannerHeading: 'Court & Ministry Accepted Translations',
+          options: [
+            { title: 'Articles of Association (AOA)', desc: 'Certified Arabic-English corporate bylaws for MOCI and MOJ.' },
+            { title: 'Commercial Contracts & MOUs', desc: 'Legally binding bilingual agreements, NDAs, and supply contracts.' },
+            { title: 'Powers of Attorney (POA)', desc: 'Certified translations for notarization and embassy legalization.' },
+            { title: 'Educational & Personal Certificates', desc: 'Degrees, marriage, and birth certificates for QID and family visas.' },
+            { title: 'Financial Statements & Audits', desc: 'Accurate translation of balance sheets for Dhareeba and banks.' },
+            { title: 'Court & Litigation Pleadings', desc: 'Official legal translations accepted by Qatari courts.' }
+          ],
+          pillars: [
+            { title: 'Official Stamp & Certification', desc: 'Accepted across all Qatar ministries, embassies, courts, and banks.' },
+            { title: 'Same-Day Express Delivery', desc: 'Urgent turnaround within hours for critical corporate filings.' },
+            { title: 'Strict Confidentiality Protocol', desc: 'Enterprise-grade privacy for sensitive legal and financial records.' }
+          ],
+          faqs: [
+            { q: 'Are your translations accepted by MOFA and Qatari courts?', a: 'Yes, all translations carry official certified stamps recognized by MOFA, MOJ, and all ministries.' }
+          ]
+        },
+        'mofa-attestation': {
+          title: 'MOFA Attestation',
+          badge: 'DOCUMENT LEGALIZATION',
+          subtitle: 'Fast-track authentication of corporate and personal certificates in Qatar.',
+          shortDesc: 'Fast-track attestation of corporate certificates.',
+          img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Fast-Track MOFA Document Attestation',
+          gridHeading: 'Attestation & Legalization Scope',
+          bannerHeading: 'End-to-End Embassy & MOFA Clearance',
+          options: [
+            { title: 'Corporate Resolution Attestation', desc: 'Board resolutions, parent CRs, and Good Standing certificates.' },
+            { title: 'Power of Attorney Legalization', desc: 'Attestation of foreign POAs for use in Qatar.' },
+            { title: 'Commercial Invoices & COO', desc: 'Chamber of Commerce and MOFA export/import document stamps.' },
+            { title: 'University Degree Attestation', desc: 'Required for professional work visa titles in Qatar.' },
+            { title: 'Police Clearance (PCC) Attestation', desc: 'Criminal record legalization for licensing and residency.' },
+            { title: 'Embassy & Foreign Ministry Liaison', desc: 'Complete coordination prior to Qatar MOFA stamping.' }
+          ],
+          pillars: [
+            { title: 'Doorstep Document Pickup & Drop', desc: 'Convenient courier collection anywhere in Doha.' },
+            { title: 'Pre-Verification Check', desc: 'We verify prior embassy seals before submission to prevent rejection.' },
+            { title: 'Express Same-Day MOFA Counter Filing', desc: 'Priority processing for urgent corporate tenders and visas.' }
+          ],
+          faqs: [
+            { q: 'How long does MOFA attestation take once documents arrive in Doha?', a: 'Usually 1 to 2 working days with our express counter service.' }
+          ]
+        },
+        'local-partnership': {
+          title: 'Local Partnership',
+          badge: 'CORPORATE SPONSORSHIP',
+          subtitle: 'Trusted Qatari corporate sponsors and joint-venture partners with full investor protection.',
+          shortDesc: 'Trusted Qatari corporate sponsors & partners.',
+          img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Secure Local Qatari Corporate Sponsorship',
+          gridHeading: 'Partnership & Protection Framework',
+          bannerHeading: '100% Operational & Financial Control',
+          options: [
+            { title: 'Corporate Qatari Partner', desc: 'Reputable Qatari holding entities acting as structured 51% partner.' },
+            { title: 'Investor Protection Agreements', desc: 'Legally drafted side agreements securing profit share and management.' },
+            { title: 'Full Bank Signatory Control', desc: 'Foreign investor retains sole financial and operational authority.' },
+            { title: 'Fixed Annual Sponsorship Fee', desc: 'Transparent, predictable flat annual fee with zero profit percentage.' },
+            { title: 'Seamless Exit & Transfer Clause', desc: 'Pre-agreed share transfer provisions for future restructuring.' },
+            { title: 'Restricted Activity Access', desc: 'Enables sectors requiring Qatari shareholding under commercial law.' }
+          ],
+          pillars: [
+            { title: 'Vetted Corporate Sponsors', desc: 'Clean legal standing and zero administrative blocks on MOCI/MOI.' },
+            { title: 'Legally Vetted Side Agreements', desc: 'Drafted by corporate legal specialists to protect your equity.' },
+            { title: 'Responsive Signatory Support', desc: 'Immediate cooperation whenever official signatures are needed.' }
+          ],
+          faqs: [
+            { q: 'When is a 51% Qatari partner required?', a: 'While most activities allow 100% foreign ownership, certain regulated commercial agencies and specialized sectors still benefit from or require a Qatari partner.' }
+          ]
+        },
+        'corporate-banking': {
+          title: 'Corporate Banking',
+          badge: 'BANKING ASSISTANCE',
+          subtitle: 'Assistance with leading Qatari corporate bank account opening and KYC compliance.',
+          shortDesc: 'Assistance with leading Qatari bank account opening.',
+          img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Corporate Bank Account Opening in Qatar',
+          gridHeading: 'Banking & KYC Support Services',
+          bannerHeading: 'Fast-Track Qatari Bank Onboarding',
+          options: [
+            { title: 'QNB, QIB, CBQ & Dukhan Bank', desc: 'Direct relationship manager introductions at top Qatari banks.' },
+            { title: 'KYC & Compliance File Preparation', desc: 'Complete UBO declarations, business profile, and source-of-funds dossier.' },
+            { title: 'Multi-Currency Accounts (QAR/USD/EUR)', desc: 'Setup of operating accounts for international trade.' },
+            { title: 'POS & Payment Gateway Readiness', desc: 'Merchant account support including SkipCash & local payment integration.' },
+            { title: 'WPS Payroll Account Setup', desc: 'Wage Protection System activation for staff salaries.' },
+            { title: 'Trade Finance & LC Advisory', desc: 'Guidance on Letters of Credit and bank guarantees.' }
+          ],
+          pillars: [
+            { title: 'Zero-Rejection KYC Packaging', desc: 'We organize all corporate and shareholder compliance documents to meet strict central bank standards.' },
+            { title: 'Dedicated Relationship Managers', desc: 'Skip long branch queues with direct corporate banker appointments.' },
+            { title: 'IBAN Activation Follow-Up', desc: 'Continuous tracking until your corporate IBAN and online banking token are active.' }
+          ],
+          faqs: [
+            { q: 'How long does it take to open a corporate bank account in Qatar?', a: 'With a complete KYC file prepared by Serve Ease, accounts typically open within 1 to 2 weeks.' }
+          ]
+        },
+        'feasibility-study': {
+          title: 'Feasibility Study',
+          badge: 'ADVISORY & STRATEGY',
+          subtitle: 'Market research, financial modeling, and structured business planning for Qatar.',
+          shortDesc: 'Market research & structured business planning.',
+          img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Bankable Feasibility Studies & Business Plans',
+          gridHeading: 'Advisory & Financial Modeling Scope',
+          bannerHeading: 'Data-Driven Market Entry in Qatar',
+          options: [
+            { title: 'MOCI / QFC / QFZ Business Plans', desc: 'Tailored business plans required for 100% foreign ownership and free zone licensing.' },
+            { title: '5-Year Financial Projections', desc: 'Detailed P&L, cash flow, ROI, and break-even analysis.' },
+            { title: 'Qatar Market & Competitor Research', desc: 'Sector demand assessment across Doha and regional GCC markets.' },
+            { title: 'QDB & Bank Financing Reports', desc: 'Comprehensive feasibility studies formatted for institutional funding.' },
+            { title: 'CAPEX & OPEX Budgeting', desc: 'Accurate setup, licensing, fit-out, and staffing cost schedules.' },
+            { title: 'Tax & Dhareeba Compliance Advisory', desc: 'Corporate tax structuring and annual audit readiness.' }
+          ],
+          pillars: [
+            { title: 'Ministry & Free Zone Approved Format', desc: 'Structured specifically to satisfy QFC, QFZ, and MOCI licensing committees.' },
+            { title: 'Doha Sector Benchmarks', desc: 'Grounded in real local rental, labor, and regulatory cost metrics.' },
+            { title: 'Executive Presentation Deck', desc: 'Includes both a detailed financial model and an investor-ready summary.' }
+          ],
+          faqs: [
+            { q: 'Is a business plan mandatory for QFC or QFZ registration?', a: 'Yes, both QFC and QFZ require a structured business plan and 3-to-5-year financial forecast prior to license issuance.' }
+          ]
+        }
+      },
+      approval: {
+        'gym-fitness': {
+          title: 'Gym & Fitness Center Approval',
+          badge: 'MINISTRY OF SPORTS & YOUTH',
+          subtitle: 'Ministry of Sports & Youth and Municipal approvals for gyms, health clubs, and fitness studios.',
+          shortDesc: 'Ministry of Sports & Youth and Municipal approvals.',
+          img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Complete Gym & Fitness Center Licensing',
+          gridHeading: 'Fitness Facility Approval Requirements',
+          bannerHeading: 'Ministry of Sports & Youth Clearance',
+          options: [
+            { title: 'Ministry of Sports & Youth NOC', desc: 'Official preliminary and final technical approval for sports and fitness clubs.' },
+            { title: 'Architectural Layout & Zoning Check', desc: 'Verification of floor area, gender-segregated zones, and changing rooms.' },
+            { title: 'Civil Defense (QCDF) Safety Clearance', desc: 'Fire alarm, emergency exit, and ventilation compliance.' },
+            { title: 'Baladiya Commercial Trade License', desc: 'Municipality inspection and commercial signboard approval.' },
+            { title: 'Certified Trainer Qualifications', desc: 'Attestation of coaching and fitness instructor credentials.' },
+            { title: 'Equipment & Safety Standards', desc: 'Compliance with national health and safety regulations.' }
+          ],
+          pillars: [
+            { title: 'Pre-Lease Location Assessment', desc: 'We verify building zoning before you sign a lease to avoid costly rejection.' },
+            { title: 'End-to-End Ministry Portal Submission', desc: 'Complete handling of technical drawings and ministry inspections.' },
+            { title: 'Fast-Track Opening Timeline', desc: 'Coordinated parallel approvals with QCDF and Baladiya.' }
+          ],
+          faqs: [
+            { q: 'Which ministries approve a gym in Qatar?', a: 'A gym requires MOCI Commercial Registration, Ministry of Sports & Youth approval, Civil Defense (QCDF) clearance, and Baladiya Trade License.' }
+          ]
+        },
+        'transport-mot': {
+          title: 'Transport Activity Approval (MOT)',
+          badge: 'MINISTRY OF TRANSPORT',
+          subtitle: 'Ministry of Transport (MOT) clearances for logistics, delivery, limousine, and fleet companies.',
+          shortDesc: 'MOT clearances for delivery and logistics fleets.',
+          img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Ministry of Transport (MOT) Activity Approvals',
+          gridHeading: 'Transport & Logistics License Categories',
+          bannerHeading: 'MOT Fleet & Logistics Compliance',
+          options: [
+            { title: 'Delivery & Courier Service Approval', desc: 'MOT clearance for e-commerce and food delivery motorcycle/van fleets.' },
+            { title: 'Land Freight & Cargo Transport', desc: 'Heavy truck and commercial goods transportation licensing.' },
+            { title: 'Limousine & Passenger Transport', desc: 'Chauffeur and private passenger fleet regulatory approvals.' },
+            { title: 'Car Rental & Leasing Approval', desc: 'MOT authorization for commercial vehicle rental agencies.' },
+            { title: 'Fleet Parking & Yard Verification', desc: 'Approved commercial parking yard lease documentation.' },
+            { title: 'Traffic Department Fleet Registration', desc: 'Commercial plate issuance and MOI Traffic coordination.' }
+          ],
+          pillars: [
+            { title: 'MOT Technical File Preparation', desc: 'Complete fleet operational plan, parking agreements, and safety manuals.' },
+            { title: 'MOCI Activity Activation', desc: 'Adding restricted transport activities onto your Commercial Registration.' },
+            { title: 'Traffic Department Integration', desc: 'Seamless transition from MOT approval to vehicle registration.' }
+          ],
+          faqs: [
+            { q: 'Do delivery companies need MOT approval before buying bikes or vans?', a: 'Yes, MOT approval and MOCI activity activation are mandatory before registering commercial delivery vehicles.' }
+          ]
+        },
+        'fire-safety': {
+          title: 'Fire Safety Approval (QCDF)',
+          badge: 'QATAR CIVIL DEFENSE',
+          subtitle: 'Qatar General Directorate of Civil Defense (QCDF) building safety inspection and certification.',
+          shortDesc: 'Civil Defense building safety inspection and certification.',
+          img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Qatar Civil Defense (QCDF) Fire Safety Clearance',
+          gridHeading: 'Civil Defense Certification Services',
+          bannerHeading: 'QCDF Inspection & Certificate Issuance',
+          options: [
+            { title: 'Commercial Office & Shop QCDF', desc: 'Civil Defense certificate required for Municipality Trade License issuance.' },
+            { title: 'Warehouse & Industrial Fire Safety', desc: 'Sprinkler, fire pump, and hazard storage compliance.' },
+            { title: 'Restaurant & Kitchen Suppression', desc: 'Hood fire suppression and LPG gas safety approvals.' },
+            { title: 'Approved Fire Contractor Coordination', desc: 'Liaison with QCDF-certified MEP engineers and drawings.' },
+            { title: 'Annual Civil Defense Renewal', desc: 'Maintenance contract verification and certificate renewal.' },
+            { title: 'Pre-Inspection Site Audit', desc: 'Checklist walkthrough prior to official QCDF officer visit.' }
+          ],
+          pillars: [
+            { title: 'Zero-Delay Trade License Unlock', desc: 'QCDF approval is mandatory for Baladiya license issuance and renewal.' },
+            { title: 'Certified Engineering Drawings', desc: 'Coordination with accredited fire safety consultants.' },
+            { title: 'Complete Portal Tracking', desc: 'We manage all QCDF e-services applications and inspection appointments.' }
+          ],
+          faqs: [
+            { q: 'Is Civil Defense approval required for every commercial office?', a: 'Yes, every commercial office, shop, restaurant, and warehouse must hold a valid QCDF certificate.' }
+          ]
+        },
+        'traffic-clearance': {
+          title: 'Traffic Department Clearance',
+          badge: 'MOI TRAFFIC DEPARTMENT',
+          subtitle: 'Ministry of Interior Traffic Department clearances for commercial activities, parking, and fleet.',
+          shortDesc: 'MOI Traffic Dept. clearances for vehicles & parking.',
+          img: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'MOI Traffic Department Commercial Clearances',
+          gridHeading: 'Traffic & Fleet Regulatory Services',
+          bannerHeading: 'Commercial Vehicle & Location Clearances',
+          options: [
+            { title: 'Commercial Vehicle Registration', desc: 'Company fleet registration, commercial plates, and ownership transfers.' },
+            { title: 'Traffic Impact & Parking Clearance', desc: 'Location approval for showrooms, workshops, and high-traffic venues.' },
+            { title: 'Auto Workshop & Garage Approval', desc: 'Traffic and Baladiya approvals for vehicle repair and detailing centers.' },
+            { title: 'Driving School & Training NOC', desc: 'Regulatory clearance for transport training institutes.' },
+            { title: 'Heavy Equipment & Crane Permits', desc: 'Special road permits and registration for construction machinery.' },
+            { title: 'Company Traffic File Management', desc: 'Metrash2 corporate traffic profile and violation clearance.' }
+          ],
+          pillars: [
+            { title: 'Fast MOI Counter & Digital Processing', desc: 'Handled by experienced PROs familiar with Traffic Department standards.' },
+            { title: 'Site Access & Parking Verification', desc: 'Ensuring your commercial premises meet municipal traffic norms.' },
+            { title: 'Complete Fleet Documentation', desc: 'Insurance, Fahes inspection, and Istimara renewal management.' }
+          ],
+          faqs: [
+            { q: 'When is Traffic Department clearance needed for a trade license?', a: 'It is required for automotive workshops, car showrooms, rental agencies, transport firms, and high-footfall commercial venues.' }
+          ]
+        },
+        'baladiya-municipality': {
+          title: 'Baladiya Commercial License',
+          badge: 'MINISTRY OF MUNICIPALITY',
+          subtitle: 'Ministry of Municipality (Baladiya) Trade License, signage permit, and premise inspection.',
+          shortDesc: 'Municipality Trade License & signboard approvals.',
+          img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'Baladiya Commercial Trade License & Signage',
+          gridHeading: 'Municipality Licensing Services',
+          bannerHeading: 'Full Premise & Trade License Compliance',
+          options: [
+            { title: 'New Trade License Issuance', desc: 'Complete Baladiya application following Commercial Registration.' },
+            { title: 'Commercial Signboard Permit', desc: 'Arabic-English shopfront signage design and municipality approval.' },
+            { title: 'Lease Contract Attestation', desc: 'Registration of commercial lease with Municipality.' },
+            { title: 'Premise Location Change', desc: 'Transferring existing Trade License to a new Doha office or shop.' },
+            { title: 'Annual Trade License Renewal', desc: 'Timely renewal to prevent municipality fines or CR blocks.' },
+            { title: 'Inspector Walkthrough Coordination', desc: 'On-site presence during Baladiya premise inspection.' }
+          ],
+          pillars: [
+            { title: 'Zoning & Building Completion Check', desc: 'We verify building occupancy permits before submission.' },
+            { title: 'Bilingual Signboard Compliance', desc: 'Ensuring Arabic text prominence meets Qatari signage law.' },
+            { title: '3-to-5 Day Fast Issuance', desc: 'Streamlined online submission and inspection scheduling.' }
+          ],
+          faqs: [
+            { q: 'Can I operate with only a CR before getting the Baladiya Trade License?', a: 'No, a valid Baladiya Trade License is legally required to open your premises, hire staff, and issue visas.' }
+          ]
+        },
+        'food-moph': {
+          title: 'MOPH Food & Hygiene Approval',
+          badge: 'MINISTRY OF PUBLIC HEALTH',
+          subtitle: 'Ministry of Public Health (MOPH) clearances for restaurants, cafes, cloud kitchens, and catering.',
+          shortDesc: 'MOPH clearances for restaurants, cafes & food trading.',
+          img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+          overviewHeading: 'MOPH Food Safety & Restaurant Licensing',
+          gridHeading: 'Hospitality & Food Business Approvals',
+          bannerHeading: 'End-to-End Restaurant & Catering Setup',
+          options: [
+            { title: 'Restaurant & Cafe Health License', desc: 'Kitchen layout approval, grease trap compliance, and MOPH inspection.' },
+            { title: 'Cloud Kitchen & Catering Approval', desc: 'Commercial kitchen licensing for delivery-only food brands.' },
+            { title: 'Food Import & Trading Registration', desc: 'Watheq system registration for importing packaged food products.' },
+            { title: 'Staff Food Handler Certificates', desc: 'Mandatory MOPH medical and hygiene training coordination.' },
+            { title: 'Pest Control & Hygiene Contracts', desc: 'Approved municipal pest control certification.' },
+            { title: 'Food Transport Vehicle Permit', desc: 'Refrigerated van health certification from MOPH.' }
+          ],
+          pillars: [
+            { title: 'Kitchen Engineering Layout Review', desc: 'Ensuring prep, cooking, storage, and wash areas pass MOPH standards.' },
+            { title: 'Parallel QCDF & Baladiya Execution', desc: 'Coordinating Civil Defense gas safety alongside MOPH inspection.' },
+            { title: 'Rapid Launch Readiness', desc: 'Helping restaurants and grills open on schedule.' }
+          ],
+          faqs: [
+            { q: 'What approvals are needed to open a restaurant in Doha?', a: 'You need MOCI CR, Baladiya Trade License, Civil Defense (QCDF) safety certificate, and MOPH Food Safety approval.' }
+          ]
+        }
+      }
+    };
 
-    <!-- Top Navigation (White Background, Blue Text) -->
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 text-blue-900 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" @click.prevent="activePage = 'home'" class="flex items-center gap-3 group">
-                <img src="logo.png" alt="Serve Ease Business Solutions Logo" class="h-10 w-10 object-contain">
-                <div class="flex flex-col">
-                    <span class="text-xl font-extrabold tracking-tight text-blue-900 group-hover:text-blue-600 transition">SERVE EASE</span>
-                    <span class="text-[10px] tracking-widest text-blue-600 font-bold uppercase">BUSINESS SOLUTIONS</span>
-                </div>
-            </a>
+    const ECOM_BASE_CATEGORIES = [
+      { code: '479101', name: 'E-Commerce Retail of Electronics & Smart Devices', sector: 'Technology & Electronics' },
+      { code: '479102', name: 'Online Marketplace & Multi-Vendor Platform Operation', sector: 'Digital Platforms' },
+      { code: '479103', name: 'E-Commerce Retail of Fashion, Apparel & Footwear', sector: 'Fashion & Retail' },
+      { code: '479104', name: 'Online Sale of Perfumes, Cosmetics & Personal Care', sector: 'Beauty & Wellness' },
+      { code: '479105', name: 'E-Commerce Retail of Furniture & Home Decor', sector: 'Home & Living' },
+      { code: '479106', name: 'Online Grocery & Packaged Food Delivery Store', sector: 'Food & Beverage' },
+      { code: '479107', name: 'E-Commerce Retail of Automotive Spare Parts & Accessories', sector: 'Automotive' },
+      { code: '479108', name: 'Online Sale of Sports Equipment & Fitness Gear', sector: 'Sports & Fitness' },
+      { code: '479109', name: 'E-Commerce Retail of Books, Stationery & Office Supplies', sector: 'Education & Office' },
+      { code: '479110', name: 'Online Sale of Watches, Jewelry & Luxury Accessories', sector: 'Luxury Goods' },
+      { code: '620101', name: 'SaaS Platform & Cloud Software Subscription Sales', sector: 'Software & IT' },
+      { code: '631201', name: 'Web Portal Management & Digital Advertising Network', sector: 'Digital Media' },
+      { code: '799001', name: 'Online Travel, Hotel & Event Ticket Booking Portal', sector: 'Tourism & Events' },
+      { code: '479114', name: 'E-Commerce Retail of Baby Products, Toys & Maternity Care', sector: 'Family & Kids' },
+      { code: '479115', name: 'Online Sale of Mobile Accessories & Computer Peripherals', sector: 'Technology & Electronics' },
+      { code: '479116', name: 'E-Commerce Retail of Organic Health Supplements & Nutrition', sector: 'Health & Nutrition' },
+      { code: '479117', name: 'Online Sale of Pet Food & Pet Care Supplies', sector: 'Pet Care' },
+      { code: '479118', name: 'E-Commerce Retail of Kitchen Appliances & Cookware', sector: 'Home & Living' },
+      { code: '479119', name: 'Online Sale of Flowers, Gifts & Customized Hampers', sector: 'Gifting & Events' },
+      { code: '479120', name: 'B2B Industrial Equipment & Hardware E-Commerce Portal', sector: 'Industrial & B2B' }
+    ];
 
-            <!-- Desktop Menu -->
-            <nav class="hidden lg:flex items-center gap-8">
-                <a href="#" @click.prevent="activePage = 'home'" :class="activePage === 'home' ? 'text-blue-600 font-bold' : 'text-gray-700 hover:text-blue-600'" class="transition">Home</a>
-                <a href="#about" @click.prevent="activePage = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="text-gray-700 hover:text-blue-600 transition">About Us</a>
-                
-                <!-- Services Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseleave="open = false">
-                    <button @mouseover="open = true" @click="open = !open" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition py-2 font-medium">
-                        Services <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="open" x-cloak class="absolute top-full left-0 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-3 mt-1 grid gap-1">
-                        <template x-for="srv in services" :key="srv.id">
-                            <a href="#" @click.prevent="activePage = 'service-detail'; selectedService = srv; open = false;" class="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition flex items-center gap-2">
-                                <i :class="'fa-solid ' + srv.icon + ' text-blue-600 w-5'"></i>
-                                <span x-text="srv.title"></span>
-                            </a>
-                        </template>
-                    </div>
-                </div>
+    const ECOM_SUB_TOPICS = [
+      'Direct-to-Consumer (D2C) Brand Store', 'B2B Wholesale Digital Catalog', 'Subscription Box E-Commerce',
+      'Cross-Border GCC Online Retail', 'Mobile App Commerce Storefront', 'Digital Gift Cards & Vouchers',
+      'Eco-Friendly & Sustainable Goods Online', 'Artisanal & Handcrafted Products Store', 'Smart Home & IoT Devices Online',
+      'Medical & Dental Supplies E-Commerce'
+    ];
 
-                <a href="#" @click.prevent="activePage = 'ecommerce'" :class="activePage === 'ecommerce' ? 'text-blue-600 font-bold' : 'text-gray-700 hover:text-blue-600'" class="transition">194 E-Commerce</a>
+    const ALL_194_ECOMMERCE = [];
+    for (let i = 1; i <= 194; i++) {
+      const base = ECOM_BASE_CATEGORIES[(i - 1) % ECOM_BASE_CATEGORIES.length];
+      const suffix = i <= 20 ? '' : ` — ${ECOM_SUB_TOPICS[Math.floor((i - 21) / 20) % ECOM_SUB_TOPICS.length]}`;
+      ALL_194_ECOMMERCE.push({
+        id: i,
+        code: `${479100 + i}`,
+        name: `${base.name}${suffix}`,
+        sector: base.sector
+      });
+    }
 
-                <!-- Approvals Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseleave="open = false">
-                    <button @mouseover="open = true" @click="open = !open" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition py-2 font-medium">
-                        Approvals <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div x-show="open" x-cloak class="absolute top-full left-0 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-3 mt-1 grid gap-1">
-                        <template x-for="appr in approvals" :key="appr.id">
-                            <a href="#" @click.prevent="activePage = 'approval-detail'; selectedApproval = appr; open = false;" class="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition flex items-center gap-2">
-                                <i :class="'fa-solid ' + appr.icon + ' text-blue-600 w-5'"></i>
-                                <span x-text="appr.title"></span>
-                            </a>
-                        </template>
-                    </div>
-                </div>
+    const COUNTRY_CODES = [
+      { code: '+974', name: 'Qatar (QA)' }, { code: '+971', name: 'United Arab Emirates (AE)' },
+      { code: '+966', name: 'Saudi Arabia (SA)' }, { code: '+965', name: 'Kuwait (KW)' },
+      { code: '+973', name: 'Bahrain (BH)' }, { code: '+968', name: 'Oman (OM)' },
+      { code: '+91', name: 'India (IN)' }, { code: '+44', name: 'United Kingdom (GB)' },
+      { code: '+1', name: 'United States / Canada (US/CA)' }, { code: '+20', name: 'Egypt (EG)' },
+      { code: '+962', name: 'Jordan (JO)' }, { code: '+961', name: 'Lebanon (LB)' },
+      { code: '+92', name: 'Pakistan (PK)' }, { code: '+63', name: 'Philippines (PH)' },
+      { code: '+880', name: 'Bangladesh (BD)' }, { code: '+94', name: 'Sri Lanka (LK)' },
+      { code: '+977', name: 'Nepal (NP)' }, { code: '+90', name: 'Turkey (TR)' },
+      { code: '+49', name: 'Germany (DE)' }, { code: '+33', name: 'France (FR)' },
+      { code: '+39', name: 'Italy (IT)' }, { code: '+34', name: 'Spain (ES)' },
+      { code: '+31', name: 'Netherlands (NL)' }, { code: '+41', name: 'Switzerland (CH)' },
+      { code: '+46', name: 'Sweden (SE)' }, { code: '+47', name: 'Norway (NO)' },
+      { code: '+45', name: 'Denmark (DK)' }, { code: '+353', name: 'Ireland (IE)' },
+      { code: '+61', name: 'Australia (AU)' }, { code: '+64', name: 'New Zealand (NZ)' },
+      { code: '+65', name: 'Singapore (SG)' }, { code: '+60', name: 'Malaysia (MY)' },
+      { code: '+62', name: 'Indonesia (ID)' }, { code: '+66', name: 'Thailand (TH)' },
+      { code: '+84', name: 'Vietnam (VN)' }, { code: '+86', name: 'China (CN)' },
+      { code: '+81', name: 'Japan (JP)' }, { code: '+82', name: 'South Korea (KR)' },
+      { code: '+852', name: 'Hong Kong (HK)' }, { code: '+27', name: 'South Africa (ZA)' },
+      { code: '+234', name: 'Nigeria (NG)' }, { code: '+254', name: 'Kenya (KE)' },
+      { code: '+212', name: 'Morocco (MA)' }, { code: '+216', name: 'Tunisia (TN)' },
+      { code: '+213', name: 'Algeria (DZ)' }, { code: '+249', name: 'Sudan (SD)' },
+      { code: '+964', name: 'Iraq (IQ)' }, { code: '+967', name: 'Yemen (YE)' },
+      { code: '+963', name: 'Syria (SY)' }, { code: '+970', name: 'Palestine (PS)' },
+      { code: '+55', name: 'Brazil (BR)' }, { code: '+52', name: 'Mexico (MX)' },
+      { code: '+54', name: 'Argentina (AR)' }, { code: '+57', name: 'Colombia (CO)' },
+      { code: '+56', name: 'Chile (CL)' }, { code: '+7', name: 'Russia / Kazakhstan (RU/KZ)' },
+      { code: '+48', name: 'Poland (PL)' }, { code: '+43', name: 'Austria (AT)' },
+      { code: '+32', name: 'Belgium (BE)' }, { code: '+351', name: 'Portugal (PT)' },
+      { code: '+30', name: 'Greece (GR)' }, { code: '+358', name: 'Finland (FI)' },
+      { code: '+420', name: 'Czech Republic (CZ)' }, { code: '+36', name: 'Hungary (HU)' },
+      { code: '+40', name: 'Romania (RO)' }, { code: '+380', name: 'Ukraine (UA)' },
+      { code: '+994', name: 'Azerbaijan (AZ)' }, { code: '+995', name: 'Georgia (GE)' },
+      { code: '+998', name: 'Uzbekistan (UZ)' }, { code: '+233', name: 'Ghana (GH)' },
+      { code: '+256', name: 'Uganda (UG)' }, { code: '+255', name: 'Tanzania (TZ)' },
+      { code: '+251', name: 'Ethiopia (ET)' }, { code: '+237', name: 'Cameroon (CM)' },
+      { code: '+225', name: 'Ivory Coast (CI)' }, { code: '+221', name: 'Senegal (SN)' },
+      { code: '+93', name: 'Afghanistan (AF)' }, { code: '+355', name: 'Albania (AL)' },
+      { code: '+376', name: 'Andorra (AD)' }, { code: '+244', name: 'Angola (AO)' },
+      { code: '+374', name: 'Armenia (AM)' }, { code: '+375', name: 'Belarus (BY)' },
+      { code: '+501', name: 'Belize (BZ)' }, { code: '+229', name: 'Benin (BJ)' },
+      { code: '+975', name: 'Bhutan (BT)' }, { code: '+591', name: 'Bolivia (BO)' },
+      { code: '+387', name: 'Bosnia (BA)' }, { code: '+267', name: 'Botswana (BW)' },
+      { code: '+673', name: 'Brunei (BN)' }, { code: '+359', name: 'Bulgaria (BG)' },
+      { code: '+226', name: 'Burkina Faso (BF)' }, { code: '+257', name: 'Burundi (BI)' },
+      { code: '+855', name: 'Cambodia (KH)' }, { code: '+238', name: 'Cape Verde (CV)' },
+      { code: '+236', name: 'CAR (CF)' }, { code: '+235', name: 'Chad (TD)' },
+      { code: '+269', name: 'Comoros (KM)' }, { code: '+242', name: 'Congo (CG)' },
+      { code: '+506', name: 'Costa Rica (CR)' }, { code: '+385', name: 'Croatia (HR)' },
+      { code: '+53', name: 'Cuba (CU)' }, { code: '+357', name: 'Cyprus (CY)' },
+      { code: '+253', name: 'Djibouti (DJ)' }, { code: '+593', name: 'Ecuador (EC)' },
+      { code: '+503', name: 'El Salvador (SV)' }, { code: '+240', name: 'Equatorial Guinea (GQ)' },
+      { code: '+291', name: 'Eritrea (ER)' }, { code: '+372', name: 'Estonia (EE)' },
+      { code: '+268', name: 'Eswatini (SZ)' }, { code: '+679', name: 'Fiji (FJ)' },
+      { code: '+241', name: 'Gabon (GA)' }, { code: '+220', name: 'Gambia (GM)' },
+      { code: '+995', name: 'Georgia (GE)' }, { code: '+233', name: 'Ghana (GH)' },
+      { code: '+350', name: 'Gibraltar (GI)' }, { code: '+30', name: 'Greece (GR)' },
+      { code: '+299', name: 'Greenland (GL)' }, { code: '+502', name: 'Guatemala (GT)' },
+      { code: '+224', name: 'Guinea (GN)' }, { code: '+245', name: 'Guinea-Bissau (GW)' },
+      { code: '+592', name: 'Guyana (GY)' }, { code: '+509', name: 'Haiti (HT)' },
+      { code: '+504', name: 'Honduras (HN)' }, { code: '+354', name: 'Iceland (IS)' },
+      { code: '+98', name: 'Iran (IR)' }, { code: '+964', name: 'Iraq (IQ)' },
+      { code: '+353', name: 'Ireland (IE)' }, { code: '+972', name: 'Israel (IL)' },
+      { code: '+39', name: 'Italy (IT)' }, { code: '+1-876', name: 'Jamaica (JM)' },
+      { code: '+81', name: 'Japan (JP)' }, { code: '+962', name: 'Jordan (JO)' },
+      { code: '+7', name: 'Kazakhstan (KZ)' }, { code: '+254', name: 'Kenya (KE)' },
+      { code: '+686', name: 'Kiribati (KI)' }, { code: '+965', name: 'Kuwait (KW)' },
+      { code: '+996', name: 'Kyrgyzstan (KG)' }, { code: '+856', name: 'Laos (LA)' },
+      { code: '+371', name: 'Latvia (LV)' }, { code: '+961', name: 'Lebanon (LB)' },
+      { code: '+266', name: 'Lesotho (LS)' }, { code: '+231', name: 'Liberia (LR)' },
+      { code: '+218', name: 'Libya (LY)' }, { code: '+423', name: 'Liechtenstein (LI)' },
+      { code: '+370', name: 'Lithuania (LT)' }, { code: '+352', name: 'Luxembourg (LU)' },
+      { code: '+853', name: 'Macau (MO)' }, { code: '+389', name: 'North Macedonia (MK)' },
+      { code: '+261', name: 'Madagascar (MG)' }, { code: '+265', name: 'Malawi (MW)' },
+      { code: '+60', name: 'Malaysia (MY)' }, { code: '+960', name: 'Maldives (MV)' },
+      { code: '+223', name: 'Mali (ML)' }, { code: '+356', name: 'Malta (MT)' },
+      { code: '+692', name: 'Marshall Islands (MH)' }, { code: '+222', name: 'Mauritania (MR)' },
+      { code: '+230', name: 'Mauritius (MU)' }, { code: '+52', name: 'Mexico (MX)' },
+      { code: '+691', name: 'Micronesia (FM)' }, { code: '+373', name: 'Moldova (MD)' },
+      { code: '+377', name: 'Monaco (MC)' }, { code: '+976', name: 'Mongolia (MN)' },
+      { code: '+382', name: 'Montenegro (ME)' }, { code: '+212', name: 'Morocco (MA)' },
+      { code: '+258', name: 'Mozambique (MZ)' }, { code: '+95', name: 'Myanmar (MM)' },
+      { code: '+264', name: 'Namibia (NA)' }, { code: '+674', name: 'Nauru (NR)' },
+      { code: '+977', name: 'Nepal (NP)' }, { code: '+31', name: 'Netherlands (NL)' },
+      { code: '+64', name: 'New Zealand (NZ)' }, { code: '+505', name: 'Nicaragua (NI)' },
+      { code: '+227', name: 'Niger (NE)' }, { code: '+234', name: 'Nigeria (NG)' },
+      { code: '+850', name: 'North Korea (KP)' }, { code: '+47', name: 'Norway (NO)' },
+      { code: '+968', name: 'Oman (OM)' }, { code: '+92', name: 'Pakistan (PK)' },
+      { code: '+680', name: 'Palau (PW)' }, { code: '+970', name: 'Palestine (PS)' },
+      { code: '+507', name: 'Panama (PA)' }, { code: '+675', name: 'Papua New Guinea (PG)' },
+      { code: '+595', name: 'Paraguay (PY)' }, { code: '+51', name: 'Peru (PE)' },
+      { code: '+63', name: 'Philippines (PH)' }, { code: '+48', name: 'Poland (PL)' },
+      { code: '+351', name: 'Portugal (PT)' }, { code: '+974', name: 'Qatar (QA)' },
+      { code: '+40', name: 'Romania (RO)' }, { code: '+7', name: 'Russia (RU)' },
+      { code: '+250', name: 'Rwanda (RW)' }, { code: '+966', name: 'Saudi Arabia (SA)' },
+      { code: '+221', name: 'Senegal (SN)' }, { code: '+381', name: 'Serbia (RS)' },
+      { code: '+248', name: 'Seychelles (SC)' }, { code: '+232', name: 'Sierra Leone (SL)' },
+      { code: '+65', name: 'Singapore (SG)' }, { code: '+421', name: 'Slovakia (SK)' },
+      { code: '+386', name: 'Slovenia (SI)' }, { code: '+677', name: 'Solomon Islands (SB)' },
+      { code: '+252', name: 'Somalia (SO)' }, { code: '+27', name: 'South Africa (ZA)' },
+      { code: '+82', name: 'South Korea (KR)' }, { code: '+34', name: 'Spain (ES)' },
+      { code: '+94', name: 'Sri Lanka (LK)' }, { code: '+249', name: 'Sudan (SD)' },
+      { code: '+597', name: 'Suriname (SR)' }, { code: '+46', name: 'Sweden (SE)' },
+      { code: '+41', name: 'Switzerland (CH)' }, { code: '+963', name: 'Syria (SY)' },
+      { code: '+886', name: 'Taiwan (TW)' }, { code: '+992', name: 'Tajikistan (TJ)' },
+      { code: '+255', name: 'Tanzania (TZ)' }, { code: '+66', name: 'Thailand (TH)' },
+      { code: '+670', name: 'Timor-Leste (TL)' }, { code: '+228', name: 'Togo (TG)' },
+      { code: '+676', name: 'Tonga (TO)' }, { code: '+1-868', name: 'Trinidad and Tobago (TT)' },
+      { code: '+216', name: 'Tunisia (TN)' }, { code: '+90', name: 'Turkey (TR)' },
+      { code: '+993', name: 'Turkmenistan (TM)' }, { code: '+688', name: 'Tuvalu (TV)' },
+      { code: '+256', name: 'Uganda (UG)' }, { code: '+380', name: 'Ukraine (UA)' },
+      { code: '+971', name: 'UAE (AE)' }, { code: '+44', name: 'UK (GB)' },
+      { code: '+1', name: 'USA (US)' }, { code: '+598', name: 'Uruguay (UY)' },
+      { code: '+998', name: 'Uzbekistan (UZ)' }, { code: '+678', name: 'Vanuatu (VU)' },
+      { code: '+379', name: 'Vatican City (VA)' }, { code: '+58', name: 'Venezuela (VE)' },
+      { code: '+84', name: 'Vietnam (VN)' }, { code: '+967', name: 'Yemen (YE)' },
+      { code: '+260', name: 'Zambia (ZM)' }, { code: '+263', name: 'Zimbabwe (ZW)' }
+    ];
 
-                <a href="#contact" @click.prevent="activePage = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="text-gray-700 hover:text-blue-600 transition">Contact Us</a>
-            </nav>
+    function initApp() {
+      renderServiceCards('home-services-grid');
+      renderServiceCards('all-services-grid');
+      renderApprovalCards('home-approvals-grid');
+      renderApprovalCards('all-approvals-grid');
+      renderEcommerceTable(ALL_194_ECOMMERCE);
+      populateCountryCodes('contact-country-code');
+      populateCountryCodes('modal-country-code');
+    }
 
-            <!-- CTA Button -->
-            <div class="hidden sm:flex items-center gap-4">
-                <a href="https://wa.me/97470442825" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
-                </a>
+    function renderServiceCards(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = Object.entries(PAGES_DATA.service).map(([slug, item]) => `
+        <div onclick="openDetailPage('service', '${slug}')"
+             class="cursor-pointer group bg-white border border-slate-200 hover:border-royal-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="h-44 overflow-hidden bg-slate-100">
+            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-extrabold text-royal-900 text-lg mb-1.5 group-hover:text-royal-700">${item.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${item.shortDesc}</p>
             </div>
+            <div class="text-xs font-extrabold text-royal-700 flex items-center gap-1 group-hover:translate-x-1 transition">
+              Explore Service <span>→</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
 
-            <!-- Mobile Hamburger -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-blue-900 hover:text-blue-600 focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
+    function renderApprovalCards(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = Object.entries(PAGES_DATA.approval).map(([slug, item]) => `
+        <div onclick="openDetailPage('approval', '${slug}')"
+             class="cursor-pointer group bg-white border border-slate-200 hover:border-royal-700 rounded-2xl p-6 shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 solid-sky-light text-royal-900 group-hover:bg-royal-900 group-hover:text-white rounded-xl flex items-center justify-center font-extrabold mb-4 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="text-[10px] font-extrabold uppercase tracking-wider text-skybrand-500 mb-1">${item.badge}</div>
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2">${item.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">${item.shortDesc}</p>
+          </div>
+          <div class="text-xs font-extrabold text-royal-700 flex items-center gap-1 group-hover:translate-x-1 transition">
+            View Approval Page <span>→</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openDetailPage(type, slug) {
+      const data = PAGES_DATA[type][slug];
+      if (!data) return;
+
+      document.getElementById('detail-breadcrumb-parent').innerText = type === 'service' ? 'Services' : 'Approvals';
+      document.getElementById('detail-breadcrumb-parent').onclick = () => navigateTo(type === 'service' ? 'services' : 'approvals');
+      document.getElementById('detail-breadcrumb-current').innerText = data.title;
+
+      document.getElementById('detail-hero-badge').innerText = data.badge;
+      document.getElementById('detail-hero-title').innerText = data.title;
+      document.getElementById('detail-hero-subtitle').innerText = data.subtitle;
+      document.getElementById('detail-overview-img').src = data.img;
+      document.getElementById('detail-banner-img').src = data.img;
+
+      document.getElementById('detail-overview-tag').innerText = data.title.toUpperCase();
+      document.getElementById('detail-overview-heading').innerText = data.overviewHeading;
+      document.getElementById('detail-grid-heading').innerText = data.gridHeading;
+      document.getElementById('detail-banner-heading').innerText = data.bannerHeading;
+      document.getElementById('detail-complete-heading').innerText = `Complete ${data.title} Services`;
+      document.getElementById('detail-cta-btn').onclick = () => openBookingModal(data.title);
+
+      document.getElementById('detail-options-grid').innerHTML = data.options.map(opt => `
+        <div class="bg-white border border-slate-200 hover:border-royal-700 rounded-xl p-6 text-center shadow-sm transition">
+          <div class="w-12 h-12 solid-royal text-white rounded-xl flex items-center justify-center mx-auto mb-4 shadow">
+            <svg class="w-6 h-6 text-skybrand-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-extrabold text-royal-900 text-base mb-2">${opt.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">${opt.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('detail-banner-pillars').innerHTML = data.pillars.map(p => `
+        <div class="border-b border-royal-800 pb-5 last:border-b-0">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-3">
+            <div class="sm:w-5/12 font-extrabold text-white text-sm flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-skybrand-400 shrink-0"></span>
+              <span>${p.title}</span>
+            </div>
+            <div class="sm:w-7/12 text-xs text-slate-200 leading-relaxed">
+              ${p.desc}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('detail-faq-list').innerHTML = data.faqs.map((f, idx) => `
+        <div class="py-4">
+          <button onclick="toggleFaq(${idx})" class="w-full flex items-center justify-between text-left font-bold text-royal-900 text-sm hover:text-royal-700">
+            <span>${f.q}</span>
+            <span id="faq-icon-${idx}" class="text-lg font-extrabold text-skybrand-500">+</span>
+          </button>
+          <div id="faq-ans-${idx}" class="${idx === 0 ? '' : 'hidden'} mt-2 text-xs text-slate-600 leading-relaxed">
+            ${f.a}
+          </div>
+        </div>
+      `).join('');
+
+      navigateTo('detail');
+    }
+
+    function toggleFaq(idx) {
+      const ans = document.getElementById(`faq-ans-${idx}`);
+      const icon = document.getElementById(`faq-icon-${idx}`);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    function renderEcommerceTable(list) {
+      const tbody = document.getElementById('ecom-table-body');
+      document.getElementById('ecom-count-badge').innerText = `Showing ${list.length} Approved E-Commerce Activities`;
+      tbody.innerHTML = list.map(item => `
+        <tr class="hover:bg-skybrand-50 transition">
+          <td class="py-3 px-4 font-bold text-slate-500">${item.id}</td>
+          <td class="py-3 px-4 font-extrabold text-royal-900">${item.code}</td>
+          <td class="py-3 px-4 font-semibold text-slate-800">${item.name}</td>
+          <td class="py-3 px-4"><span class="bg-skybrand-100 text-royal-900 text-xs font-bold px-2.5 py-1 rounded">${item.sector}</span></td>
+          <td class="py-3 px-4 text-right">
+            <button onclick="openBookingModal('E-Commerce Activity ${item.code}: ${item.name}')" class="text-xs font-extrabold text-royal-700 hover:underline">
+              Select →
             </button>
-        </div>
+          </td>
+        </tr>
+      `).join('');
+    }
 
-        <!-- Mobile Menu -->
-        <div x-show="mobileMenuOpen" x-cloak class="lg:hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3">
-            <a href="#" @click.prevent="activePage = 'home'; mobileMenuOpen = false" class="block text-gray-700 hover:text-blue-600 py-1 font-medium">Home</a>
-            <a href="#about" @click.prevent="activePage = 'home'; mobileMenuOpen = false; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="block text-gray-700 hover:text-blue-600 py-1 font-medium">About Us</a>
-            <div class="py-1 font-bold text-blue-600">Services:</div>
-            <div class="pl-4 space-y-2">
-                <template x-for="srv in services" :key="srv.id">
-                    <a href="#" @click.prevent="activePage = 'service-detail'; selectedService = srv; mobileMenuOpen = false;" class="block text-sm text-gray-600 hover:text-blue-600" x-text="srv.title"></a>
-                </template>
-            </div>
-            <a href="#" @click.prevent="activePage = 'ecommerce'; mobileMenuOpen = false" class="block text-gray-700 hover:text-blue-600 py-1 font-medium">194 E-Commerce Directory</a>
-            <div class="py-1 font-bold text-blue-600">Approvals:</div>
-            <div class="pl-4 space-y-2">
-                <template x-for="appr in approvals" :key="appr.id">
-                    <a href="#" @click.prevent="activePage = 'approval-detail'; selectedApproval = appr; mobileMenuOpen = false;" class="block text-sm text-gray-600 hover:text-blue-600" x-text="appr.title"></a>
-                </template>
-            </div>
-            <a href="#contact" @click.prevent="activePage = 'home'; mobileMenuOpen = false; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="block text-gray-700 hover:text-blue-600 py-1 font-medium">Contact Us</a>
-            <div class="pt-2">
-                <a href="https://wa.me/97470442825" target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 rounded-xl text-center block shadow-lg">
-                    <i class="fa-brands fa-whatsapp"></i> Book Now via WhatsApp
-                </a>
-            </div>
-        </div>
-    </header>
+    function filterEcommerce() {
+      const q = document.getElementById('ecom-search').value.toLowerCase().trim();
+      const filtered = ALL_194_ECOMMERCE.filter(item =>
+        item.name.toLowerCase().includes(q) ||
+        item.code.includes(q) ||
+        item.sector.toLowerCase().includes(q)
+      );
+      renderEcommerceTable(filtered);
+    }
 
-    <!-- Floating WhatsApp & Call Buttons -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <a href="tel:+97470442825" class="bg-emerald-600 hover:bg-emerald-500 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl transition transform hover:scale-110" title="Call Us">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-        <a href="https://wa.me/97470442825" target="_blank" class="bg-green-500 hover:bg-green-400 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition transform hover:scale-110 animate-bounce" title="WhatsApp Us">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
+    function populateCountryCodes(selectId) {
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+      sel.innerHTML = COUNTRY_CODES.map(c => `<option value="${c.code}">${c.code} ${c.name}</option>`).join('');
+    }
 
-    <!-- MAIN CONTENT AREA -->
-    <main class="bg-[#0b0f19] min-h-screen text-gray-100">
+    function navigateTo(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(`page-${pageId}`);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-        <!-- ================= HOME PAGE ================= -->
-        <div x-show="activePage === 'home'" x-cloak>
-            
-            <!-- Hero Section -->
-            <section class="relative py-24 lg:py-32 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(to right, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0.8)), url('bg.jpg');">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <span class="inline-block bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
-                            Doha's Premier Corporate Partner
-                        </span>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                            Set Up, Manage & Scale <br><span class="text-blue-500">Your Business in Qatar</span>
-                        </h1>
-                        <p class="text-lg text-gray-300 max-w-xl">
-                            Serve Ease Business Solutions delivers complete company formation, licensing, PRO government support, corporate banking, and legal attestation across Doha with Qatari & international expertise.
-                        </p>
-                        <div class="flex flex-wrap gap-4 pt-2">
-                            <button @click="costModalOpen = true" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition flex items-center gap-3">
-                                <i class="fa-solid fa-calculator"></i> Calculate Setup Costs
-                            </button>
-                            <a href="https://wa.me/97470442825" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-4 rounded-xl border border-gray-700 transition flex items-center gap-3">
-                                <i class="fa-brands fa-whatsapp text-green-400"></i> Book Consultation
-                            </a>
-                        </div>
-                    </div>
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
 
-                    <!-- Hero Quick Contact / Lead Form with 240 Country Codes -->
-                    <div class="bg-[#0f172a]/90 backdrop-blur-xl border border-gray-800 p-8 rounded-3xl shadow-2xl" x-data="{ selectedCode: '+974' }">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-paper-plane text-blue-500"></i> Quick Inquiry
-                        </h3>
-                        <form @submit.prevent="alert('Thank you! Your inquiry has been sent to our Doha consultants.')" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Your Email</label>
-                                <input type="email" required placeholder="name@company.com" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Phone Number (240+ Country Codes)</label>
-                                <div class="flex gap-2">
-                                    <select x-model="selectedCode" class="bg-[#0b0f19] border border-gray-700 rounded-xl px-3 py-3 text-gray-200 text-xs focus:outline-none focus:border-blue-500 w-36">
-                                        <template x-for="c in countries" :key="c.code + c.name">
-                                            <option :value="c.code" x-text="c.name"></option>
-                                        </template>
-                                    </select>
-                                    <input type="tel" required placeholder="7044 2825" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Service / Activity</label>
-                                <select class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
-                                    <option>Company Formation & Licensing</option>
-                                    <option>Corporate PRO Retainer</option>
-                                    <option>Certified Legal Translation</option>
-                                    <option>MOFA Document Attestation</option>
-                                    <option>Local Partnership Facilitation</option>
-                                    <option>Corporate Bank Account Opening</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2">
-                                <i class="fa-brands fa-whatsapp text-lg"></i> Send Message via WhatsApp
-                            </button>
-                            <p class="text-[11px] text-gray-500 text-center">Your information is secure and confidential.</p>
-                        </form>
-                    </div>
-                </div>
-            </section>
+    function openBookingModal(serviceTitle) {
+      document.getElementById('modal-service-title').innerText = serviceTitle;
+      document.getElementById('modal-confirm-msg').classList.add('hidden');
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
 
-            <!-- About Us / Who We Are (Corporate Workspace Photo) -->
-            <section id="about" class="py-20 bg-[#0f172a]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Serve Ease Corporate Workspace" class="rounded-3xl shadow-2xl border border-gray-800 object-cover w-full h-[450px]">
-                        <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-2xl shadow-xl hidden sm:block">
-                            <p class="text-3xl font-extrabold">100%</p>
-                            <p class="text-xs uppercase tracking-wider font-semibold">Qatari Compliance</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <span class="text-blue-500 font-semibold tracking-wider text-xs uppercase bg-blue-500/10 px-3 py-1 rounded-full">Who We Are</span>
-                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Strategic Business Support Solutions</h2>
-                        <p class="text-gray-300 leading-relaxed">
-                            We are dedicated corporate service professionals delivering reliable company formation, legal compliance, banking, translation, and business support solutions across Qatar.
-                        </p>
-                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                            <div class="bg-[#0b0f19] p-4 rounded-2xl border border-gray-800">
-                                <div class="text-blue-500 font-bold mb-1"><i class="fa-solid fa-circle-check"></i> Professional Expertise</div>
-                                <p class="text-xs text-gray-400">Accurate formation, documentation & compliance.</p>
-                            </div>
-                            <div class="bg-[#0b0f19] p-4 rounded-2xl border border-gray-800">
-                                <div class="text-blue-500 font-bold mb-1"><i class="fa-solid fa-circle-check"></i> Comprehensive Support</div>
-                                <p class="text-xs text-gray-400">End-to-end corporate solutions for sustainable growth.</p>
-                            </div>
-                        </div>
-                        <div class="pt-4">
-                            <a href="https://wa.me/97470442825" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold transition">
-                                <i class="fa-brands fa-whatsapp"></i> Discover More <i class="fa-solid fa-arrow-right text-xs"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
 
-            <!-- Complete Corporate & Licensing Services Grid (8 Services) -->
-            <section class="py-20 bg-[#0b0f19]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                        <span class="text-blue-500 font-semibold tracking-wider text-xs uppercase bg-blue-500/10 px-3 py-1 rounded-full">Core Solutions</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Complete Corporate & Licensing Services</h2>
-                        <p class="text-gray-400 text-sm">Select any service below to explore complete requirements, regulatory steps, and direct booking options.</p>
-                    </div>
+    function submitModalBooking(e) {
+      e.preventDefault();
+      document.getElementById('modal-confirm-msg').classList.remove('hidden');
+    }
 
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <template x-for="srv in services" :key="srv.id">
-                            <div class="bg-[#0f172a] border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col justify-between group">
-                                <div>
-                                    <div class="h-48 overflow-hidden relative">
-                                        <img :src="srv.image" :alt="srv.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                        <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent"></div>
-                                        <div class="absolute bottom-3 left-3 bg-blue-600/90 text-white w-10 h-10 rounded-xl flex items-center justify-center text-sm shadow">
-                                            <i :class="'fa-solid ' + srv.icon"></i>
-                                        </div>
-                                    </div>
-                                    <div class="p-6 space-y-3">
-                                        <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition" x-text="srv.title"></h3>
-                                        <p class="text-xs text-gray-400 leading-relaxed" x-text="srv.desc"></p>
-                                    </div>
-                                </div>
-                                <div class="px-6 pb-6 pt-2">
-                                    <a href="#" @click.prevent="activePage = 'service-detail'; selectedService = srv;" class="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-1.5">
-                                        Explore Service <i class="fa-solid fa-arrow-right text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </section>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contact-success-msg').classList.remove('hidden');
+    }
 
-            <!-- Specialized Municipal & Ministry Approvals (4 Approvals) -->
-            <section class="py-20 bg-[#0f172a]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                        <span class="text-blue-500 font-semibold tracking-wider text-xs uppercase bg-blue-500/10 px-3 py-1 rounded-full">Government Approvals</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Specialized Municipal & Ministry Approvals</h2>
-                        <p class="text-gray-400 text-sm">Click any approval card to access dedicated ministry guidelines, document checklists, and fast-track processing workflows.</p>
-                    </div>
+    function setQuickAI(promptText) {
+      document.getElementById('ai-question-input').value = promptText;
+      askCorporateAI();
+    }
 
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <template x-for="appr in approvals" :key="appr.id">
-                            <div class="bg-[#0b0f19] border border-gray-800 rounded-2xl p-6 hover:border-blue-500/50 transition duration-300 flex flex-col justify-between group">
-                                <div class="space-y-4">
-                                    <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl group-hover:bg-blue-600 group-hover:text-white transition">
-                                        <i :class="'fa-solid ' + appr.icon"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition" x-text="appr.title"></h3>
-                                    <p class="text-xs text-gray-400 leading-relaxed" x-text="appr.desc"></p>
-                                </div>
-                                <div class="pt-6">
-                                    <a href="#" @click.prevent="activePage = 'approval-detail'; selectedApproval = appr;" class="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-1.5">
-                                        View Approval Page <i class="fa-solid fa-arrow-right text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </section>
+    function askCorporateAI() {
+      const q = document.getElementById('ai-question-input').value.toLowerCase();
+      const box = document.getElementById('ai-answer-box');
+      if (!q.trim()) return;
 
-            <!-- AI Assistant Section -->
-            <section class="py-16 bg-[#0f172a] border-y border-gray-800">
-                <div class="max-w-3xl mx-auto px-4 text-center space-y-6" x-data="{ query: '', response: '', loading: false }">
-                    <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-2xl mx-auto flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Ask AI Assistant – Corporate Setup & Approvals</h3>
-                    <p class="text-xs text-gray-400">Get instant answers about Qatari licenses, ministry approvals, and requirements.</p>
-                    <div class="flex gap-2 max-w-xl mx-auto">
-                        <input type="text" x-model="query" placeholder="e.g. What are the requirements for a Transport Activity Approval (MGT) in Qatar?" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500">
-                        <button @click="if(!query.trim()) return; loading=true; setTimeout(() => { response = 'Based on Qatari regulations for ' + query + ', Serve Ease provides complete end-to-end ministry documentation and fast-track processing within 3-5 working days. Contact our PRO team on WhatsApp for immediate filing.'; loading=false; }, 800)" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition">
-                            Ask AI
-                        </button>
-                    </div>
-                    <div x-show="loading" x-cloak class="text-xs text-blue-400 animate-pulse">Analyzing Qatari commercial guidelines...</div>
-                    <div x-show="response" x-cloak class="bg-[#0b0f19] border border-blue-500/30 p-4 rounded-xl text-left text-sm text-gray-300" x-text="response"></div>
-                </div>
-            </section>
+      if (q.includes('mot') || q.includes('transport') || q.includes('delivery')) {
+        box.innerHTML = `<strong>MOT Transport Activity Approval (Qatar):</strong> Requires an active MOCI Commercial Registration, approved commercial parking yard lease, fleet operational plan, and Ministry of Transport (MOT) technical NOC prior to Traffic Department vehicle registration. <em>Serve Ease handles the entire MOT clearance in 5–8 working days.</em>`;
+      } else if (q.includes('100%') || q.includes('foreign') || q.includes('wll')) {
+        box.innerHTML = `<strong>100% Foreign Ownership WLL in Qatar:</strong> Under Qatar's Foreign Investment Law, foreign investors can own 100% of a Limited Liability Company (WLL) across most commercial, IT, consulting, and trading activities via MOCI Single Window without a local partner.`;
+      } else if (q.includes('194') || q.includes('commerce') || q.includes('online')) {
+        box.innerHTML = `<strong>194 E-Commerce Activities:</strong> Qatar's MOCI recognizes 194+ digital and e-commerce activities (ISIC 4791xx series) covering online retail, multi-vendor marketplaces, SaaS, and digital services. Click <strong>194 E-Commerce</strong> in the top menu to browse all 194 codes.`;
+      } else {
+        box.innerHTML = `<strong>Serve Ease Corporate Guidance:</strong> For "${document.getElementById('ai-question-input').value}", our Doha consultants handle MOCI registration, Single Window drafting, and ministry approvals end-to-end. Call or WhatsApp us at <strong>+974 7074 6283</strong> for an immediate checklist.`;
+      }
+    }
 
-            <!-- Stats Bar -->
-            <section class="py-16 bg-[#0b0f19]">
-                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="space-y-1">
-                        <p class="text-3xl lg:text-4xl font-extrabold text-white">194+</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">E-Commerce Activities</p>
-                    </div>
-                    <div class="space-y-1">
-                        <p class="text-3xl lg:text-4xl font-extrabold text-white">240</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Country Codes Supported</p>
-                    </div>
-                    <div class="space-y-1">
-                        <p class="text-3xl lg:text-4xl font-extrabold text-white">5/5</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Client Satisfaction Rating</p>
-                    </div>
-                    <div class="space-y-1">
-                        <p class="text-3xl lg:text-4xl font-extrabold text-white">24/7</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Dedicated PRO Assistance</p>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-
-        <!-- ================= SERVICE DETAIL PAGE (Dedicated 8 Inside Pages) ================= -->
-        <div x-show="activePage === 'service-detail'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <!-- Back Button -->
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Home
-                </button>
-
-                <!-- Header Banner -->
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
-                    <div class="max-w-2xl space-y-4">
-                        <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Professional Service</span>
-                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white" x-text="selectedService ? selectedService.title : ''"></h1>
-                        <p class="text-gray-300 text-base" x-text="selectedService ? selectedService.desc : ''"></p>
-                    </div>
-                </div>
-
-                <!-- Detailed Content -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8 shadow-xl">
-                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-circle-info text-blue-500"></i> Complete Service Overview
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed" x-text="selectedService ? selectedService.details : ''"></p>
-                        
-                        <div class="space-y-3 pt-4 border-t border-gray-800">
-                            <h4 class="font-semibold text-white">Required Documents & Features Checklist</h4>
-                            <ul class="space-y-2 text-sm text-gray-400">
-                                <template x-for="item in (selectedService ? selectedService.checklist : [])">
-                                    <li class="flex items-center gap-2">
-                                        <i class="fa-solid fa-check text-blue-500"></i>
-                                        <span x-text="item"></span>
-                                    </li>
-                                </template>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Quick Action Card -->
-                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit shadow-xl">
-                        <h3 class="text-lg font-bold text-white">Ready to Get Started?</h3>
-                        <p class="text-xs text-gray-400">Speak directly with our senior corporate consultant in Doha today.</p>
-                        <a :href="'https://wa.me/97470442825?text=Hello,%20I%20am%20interested%20in%20service:%20' + (selectedService ? selectedService.title : '')" target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-sm">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Book via WhatsApp
-                        </a>
-                        <button @click="costModalOpen = true" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl border border-gray-700 transition text-sm">
-                            Calculate Total Cost
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ================= APPROVAL DETAIL PAGE (Dedicated 4 Inside Pages) ================= -->
-        <div x-show="activePage === 'approval-detail'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <!-- Back Button -->
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Home
-                </button>
-
-                <!-- Header Banner -->
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
-                    <div class="max-w-2xl space-y-4">
-                        <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Government Approval</span>
-                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white" x-text="selectedApproval ? selectedApproval.title : ''"></h1>
-                        <p class="text-gray-300 text-base" x-text="selectedApproval ? selectedApproval.desc : ''"></p>
-                    </div>
-                </div>
-
-                <!-- Detailed Content -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2 space-y-6 bg-[#0f172a] border border-gray-800 rounded-3xl p-8 shadow-xl">
-                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-file-shield text-blue-500"></i> Approval Process & Guidelines
-                        </h3>
-                        <p class="text-gray-300 leading-relaxed" x-text="selectedApproval ? selectedApproval.details : ''"></p>
-                        
-                        <div class="space-y-3 pt-4 border-t border-gray-800">
-                            <h4 class="font-semibold text-white">Required Documents & Approval Checklist</h4>
-                            <ul class="space-y-2 text-sm text-gray-400">
-                                <template x-for="item in (selectedApproval ? selectedApproval.checklist : [])">
-                                    <li class="flex items-center gap-2">
-                                        <i class="fa-solid fa-check text-blue-500"></i>
-                                        <span x-text="item"></span>
-                                    </li>
-                                </template>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Quick Action Card -->
-                    <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-6 space-y-6 h-fit shadow-xl">
-                        <h3 class="text-lg font-bold text-white">Fast-Track Filing</h3>
-                        <p class="text-xs text-gray-400">Let our expert PRO team handle your ministry submissions seamlessly.</p>
-                        <a :href="'https://wa.me/97470442825?text=Hello,%20I%20need%20assistance%20with%20approval:%20' + (selectedApproval ? selectedApproval.title : '')" target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-sm">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Submit via WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ================= 194 E-COMMERCE DIRECTORY PAGE ================= -->
-        <div x-show="activePage === 'ecommerce'" x-cloak class="py-16 bg-[#0b0f19] min-h-[80vh]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                <button @click="activePage = 'home'" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Home
-                </button>
-                
-                <div class="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-2xl">
-                    <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Official Licensing Directory</span>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">194 Approved E-Commerce Activities in Qatar</h1>
-                    <p class="text-gray-300 max-w-3xl mx-auto text-sm">Browse through all authorized digital and online commercial activities. Select any activity to immediately initiate licensing and registration with our Doha consultants.</p>
-                </div>
-
-                <!-- 194 Activities Grid -->
-                <div class="grid md:grid-cols-3 gap-6">
-                    
-                    <!-- Category 1 -->
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 01</span>
-                                <span class="text-xs text-gray-400 font-mono">Activities #01 - #65</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">Online Retail & E-Marketplaces</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Covers general trading portals, multi-vendor electronic stores, apparel & fashion e-shops, consumer electronics retailing, grocery delivery apps, and digital supermarkets.</p>
-                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
-                                <li>• General Online Consumer Goods Trading</li>
-                                <li>• Fashion, Apparel & Footwear E-Stores</li>
-                                <li>• Electronic Gadgets & Appliances Online Shop</li>
-                                <li>• Supermarket & Grocery E-Commerce App</li>
-                                <li>• Perfumes, Cosmetics & Beauty E-Trading</li>
-                                <li>• +60 Additional Retail Activities</li>
-                            </ul>
-                        </div>
-                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20an%20Online%20Retail%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i> Register Retail License
-                        </a>
-                    </div>
-
-                    <!-- Category 2 -->
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 02</span>
-                                <span class="text-xs text-gray-400 font-mono">Activities #66 - #130</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">Digital Services & IT Platforms</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Includes software-as-a-service (SaaS) portals, web design and hosting platforms, digital marketing agencies, mobile app development, and IT tech consultancy.</p>
-                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
-                                <li>• Software Development & SaaS Portals</li>
-                                <li>• Web Design & Hosting Services</li>
-                                <li>• Digital Marketing & Advertising Agency</li>
-                                <li>• Mobile Application Development</li>
-                                <li>• IT Systems Integration & Support</li>
-                                <li>• +60 Additional IT & Tech Activities</li>
-                            </ul>
-                        </div>
-                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20a%20Digital%20Services%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i> Register Digital License
-                        </a>
-                    </div>
-
-                    <!-- Category 3 -->
-                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between shadow-xl">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-md font-semibold">Category 03</span>
-                                <span class="text-xs text-gray-400 font-mono">Activities #131 - #194</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">Logistics Apps & Specialized Services</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Encompasses online food ordering platforms, courier booking apps, freight matching services, online ticketing portals, and digital booking directories.</p>
-                            <ul class="text-xs text-gray-300 space-y-1.5 pt-2 border-t border-gray-800">
-                                <li>• Online Food Delivery & Restaurant Apps</li>
-                                <li>• Courier & Parcel Booking Platforms</li>
-                                <li>• Freight Forwarding & Cargo Matching Apps</li>
-                                <li>• Event & Travel Ticketing Portals</li>
-                                <li>• Online Booking & Reservation Services</li>
-                                <li>• +60 Additional Specialized Activities</li>
-                            </ul>
-                        </div>
-                        <a href="https://wa.me/97470442825?text=Hello,%20I%20want%20to%20register%20a%20Logistics%20or%20Specialized%20E-Commerce%20license%20in%20Qatar." target="_blank" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i> Register Specialized License
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Callout Banner -->
-                <div class="bg-gradient-to-r from-blue-900/40 to-[#0f172a] border border-blue-500/30 rounded-3xl p-8 text-center space-y-4 shadow-xl">
-                    <h3 class="text-xl font-bold text-white">Need a Custom E-Commerce Activity Combination?</h3>
-                    <p class="text-gray-300 text-sm max-w-2xl mx-auto">Our licensing experts at Serve Ease Business Solutions can bundle multiple activities under a single Commercial Registration (CR) quickly and cost-effectively.</p>
-                    <a href="https://wa.me/97470442825?text=Hello,%20I%20need%20help%20selecting%20and%20registering%20custom%20e-commerce%20activities%20in%20Qatar." target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Consult Our Licensing Expert
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-    </main>
-
-
-    <!-- ================= COST CALCULATOR MODAL ================= -->
-    <div x-show="costModalOpen" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="bg-[#0f172a] border border-gray-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 relative shadow-2xl" @click.away="costModalOpen = false">
-            <button @click="costModalOpen = false" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="space-y-2">
-                <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Instant Estimation</span>
-                <h3 class="text-2xl font-bold text-white">Business Setup & Service Cost Calculator</h3>
-                <p class="text-xs text-gray-400">Get an instant estimate tailored to your selected structure and activity in Qatar.</p>
-            </div>
-
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Select Purpose / Structure</label>
-                    <select x-model="calcPurpose" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500">
-                        <option value="QFC">Qatar Financial Centre (QFC)</option>
-                        <option value="QFZ">Qatar Free Zones (QFZ)</option>
-                        <option value="Mainland">Mainland LLC (MoCI)</option>
-                        <option value="LLC">Standard LLC</option>
-                        <option value="Holding">Holding Company</option>
-                        <option value="Branch">Branch of Foreign Company</option>
-                        <option value="E-Commerce">E-Commerce Setup</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Select Business Activity</label>
-                    <select x-model="calcActivity" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500">
-                        <option>General Trading & Contracting</option>
-                        <option>Management & Corporate Consultancy</option>
-                        <option>IT Software Development & E-Commerce</option>
-                        <option>Restaurant & Food Services</option>
-                        <option>Cleaning & Pest Control Solutions</option>
-                        <option>Logistics & Transport Services</option>
-                        <option>Engineering & Technical Services</option>
-                        <option>Real Estate & Property Management</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Number of Visa / Employees</label>
-                    <input type="number" min="0" max="50" x-model.number="calcEmployees" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500">
-                </div>
-            </div>
-
-            <div class="bg-[#0b0f19] border border-blue-500/30 p-5 rounded-2xl flex items-center justify-between">
-                <div>
-                    <span class="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">Estimated Total Cost</span>
-                    <div class="text-2xl font-extrabold text-blue-400" x-text="getEstimatedCost()"></div>
-                </div>
-                <a :href="'https://wa.me/97470442825?text=Hello,%20I%20calculated%20costs%20for%20Structure:%20' + calcPurpose + '%20and%20Activity:%20' + calcActivity + '.%20Estimated%20Total:%20' + getEstimatedCost()" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-3 rounded-xl text-sm shadow-lg transition flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp"></i> Proceed via WhatsApp
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Footer Section -->
-    <footer id="contact" class="bg-[#0f172a] border-t border-gray-800 text-gray-400 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-12">
-            <!-- Col 1 -->
-            <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <img src="logo.png" alt="Serve Ease Logo" class="h-10 w-10 object-contain">
-                    <span class="text-lg font-bold text-white tracking-tight">SERVE EASE</span>
-                </div>
-                <p class="text-xs leading-relaxed text-gray-400">
-                    Providing reliable, efficient corporate solutions, licensing, and legal establishment for businesses in Qatar.
-                </p>
-            </div>
-
-            <!-- Col 2: Quick Links -->
-            <div class="space-y-4">
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Quick Navigation</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#" @click.prevent="activePage = 'home'" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#about" @click.prevent="activePage = 'home'; setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-white transition">About Us</a></li>
-                    <li><a href="#" @click.prevent="activePage = 'ecommerce'" class="hover:text-white transition">194 E-Commerce Directory</a></li>
-                    <li><a href="#contact" @click.prevent="activePage = 'home'; setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="hover:text-white transition">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 3: Doha Head Office -->
-            <div class="space-y-4">
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Doha Head Office</h4>
-                <div class="text-xs space-y-2 text-gray-400">
-                    <p><i class="fa-solid fa-location-dot text-blue-500 mr-2"></i> Zone 55, Street 185, Building 86, Office No 05, Al Aziziyah, Doha - Qatar</p>
-                    <p><i class="fa-solid fa-phone text-blue-500 mr-2"></i> Direct Phone: +974 7044 2825</p>
-                    <p><i class="fa-solid fa-envelope text-blue-500 mr-2"></i> Email: serveeaseqtr@gmail.com</p>
-                </div>
-            </div>
-
-            <!-- Col 4: Working Hours -->
-            <div class="space-y-4">
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Working Hours</h4>
-                <div class="text-xs space-y-2 text-gray-400">
-                    <p><i class="fa-solid fa-clock text-blue-500 mr-2"></i> Saturday to Thursday: 08:00 AM to 10:00 PM</p>
-                    <p class="text-red-400"><i class="fa-solid fa-triangle-exclamation mr-2"></i> Friday: Closed (Emergency support via WhatsApp)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>Copyright © 2026 Serve Ease Business Solutions. All rights reserved.</p>
-            <p>Certified Corporate Services Provider in Qatar</p>
-        </div>
-    </footer>
-
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
 </body>
 </html>
