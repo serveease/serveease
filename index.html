@@ -50,7 +50,6 @@
     .solid-sky { background-color: #0284C7; }
     .solid-sky-light { background-color: #E0F2FE; }
 
-    /* Right-to-Left Sliding Page Transitions */
     .page-view {
       display: none;
       position: absolute;
@@ -68,7 +67,6 @@
       transform: translateX(0);
     }
 
-    /* Scroll reveal */
     .reveal-section {
       opacity: 0;
       transform: translateY(24px);
@@ -103,116 +101,116 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <!-- Brand Logo + Company Name -->
-        <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left focus:outline-none">
+        <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left focus:outline-none cursor-pointer">
           <img src="logo.png" alt="Serve Ease" class="h-11 w-auto object-contain"
                onerror="this.style.display='none'; document.getElementById('fallback-logo-icon').style.display='flex';">
           <div id="fallback-logo-icon" class="hidden w-11 h-11 solid-royal rounded-lg items-center justify-center text-white font-extrabold text-xl border-2 border-skybrand-400">
             SE
           </div>
           <div>
-            <div id="brand-title" class="text-royal-900 font-extrabold text-lg sm:text-xl leading-tight tracking-tight">SERVE EASE</div>
-            <div id="brand-subtitle" class="text-skybrand-500 font-bold text-[10px] sm:text-[11px] tracking-widest uppercase">Business Solutions</div>
+            <div class="text-royal-900 font-extrabold text-lg sm:text-xl leading-tight tracking-tight">SERVE EASE</div>
+            <div class="text-skybrand-500 font-bold text-[10px] sm:text-[11px] tracking-widest uppercase">Business Solutions</div>
           </div>
         </button>
 
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
-          <button onclick="navigateTo('home')" class="nav-link text-royal-700 font-bold transition py-2" data-target="home" data-en="Home" data-ar="الرئيسية">Home</button>
-          <button onclick="navigateTo('about')" class="nav-link hover:text-royal-700 transition py-2" data-target="about" data-en="About Us" data-ar="من نحن">About Us</button>
+          <button onclick="navigateTo('home')" class="nav-link text-royal-700 font-bold transition py-2 cursor-pointer" data-target="home" data-en="Home" data-ar="الرئيسية">Home</button>
+          <button onclick="navigateTo('about')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="about" data-en="About Us" data-ar="من نحن">About Us</button>
 
           <!-- Services Dropdown -->
           <div class="relative nav-dropdown py-2">
-            <button onclick="navigateTo('services')" class="nav-link hover:text-royal-700 transition flex items-center gap-1" data-target="services">
+            <button onclick="navigateTo('services')" class="nav-link hover:text-royal-700 transition flex items-center gap-1 cursor-pointer" data-target="services">
               <span data-en="Our Services" data-ar="خدماتنا">Our Services</span>
               <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown-menu hidden absolute left-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
-              <button onclick="openDetailPage('service', 'company-formation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'company-formation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Company Formation (100% Foreign WLL / QFC)" data-ar="تأسيس الشركات (ملكيت أجنبية 100% / مركز قطر للمال)">Company Formation (100% Foreign WLL / QFC)</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'share-transfer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'share-transfer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Share Transfer & Restructuring" data-ar="نقل الأسهم وإعادة الهيكلة">Share Transfer & Restructuring</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'pro-retainer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'pro-retainer')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Corporate PRO Retainer" data-ar="خدمات العلاقات الحكومية (PRO)">Corporate PRO Retainer</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'legal-translation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'legal-translation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Legal Translation (Arabic/English)" data-ar="الترجمة القانونية (عربي/إنجليزي)">Legal Translation (Arabic/English)</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'mofa-attestation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'mofa-attestation')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="MOFA Document Attestation" data-ar="تصديق المستندات من الخارجية">MOFA Document Attestation</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'local-partnership')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'local-partnership')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Local Qatari Sponsorship" data-ar="الكفالة القطرية المحلية">Local Qatari Sponsorship</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'corporate-banking')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'corporate-banking')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Corporate Bank Account Opening" data-ar="فتح حسابات البنوك للشركات">Corporate Bank Account Opening</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('service', 'feasibility-study')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('service', 'feasibility-study')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Feasibility Study & Business Plan" data-ar="دراسة الجدوى وخطة العمل">Feasibility Study & Business Plan</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
             </div>
           </div>
 
-          <button onclick="navigateTo('ecommerce')" class="nav-link hover:text-royal-700 transition py-2" data-target="ecommerce" data-en="194 E-Commerce" data-ar="194 نشاط تجارة إلكترونية">194 E-Commerce</button>
+          <button onclick="navigateTo('ecommerce')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="ecommerce" data-en="194 E-Commerce" data-ar="194 نشاط تجارة إلكترونية">194 E-Commerce</button>
 
           <!-- Approvals Dropdown -->
           <div class="relative nav-dropdown py-2">
-            <button onclick="navigateTo('approvals')" class="nav-link hover:text-royal-700 transition flex items-center gap-1" data-target="approvals">
+            <button onclick="navigateTo('approvals')" class="nav-link hover:text-royal-700 transition flex items-center gap-1 cursor-pointer" data-target="approvals">
               <span data-en="Approvals" data-ar="الموافقات الحكومية">Approvals</span>
               <svg class="w-4 h-4 text-royal-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="nav-dropdown-menu hidden absolute left-0 top-full w-72 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
-              <button onclick="openDetailPage('approval', 'gym-fitness')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'gym-fitness')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Gym & Fitness Center Approval" data-ar="موافقة الصالات الرياضية">Gym & Fitness Center Approval</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('approval', 'transport-mot')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'transport-mot')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Transport Activity (MOT)" data-ar="نشاط النقل والمواصلات">Transport Activity (MOT)</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('approval', 'fire-safety')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'fire-safety')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Civil Defense Fire Safety (QCDF)" data-ar="الدفاع المدني والأمن والسلامة">Civil Defense Fire Safety (QCDF)</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('approval', 'traffic-clearance')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'traffic-clearance')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Traffic Department Clearance" data-ar="تصريح إدارة المرور">Traffic Department Clearance</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('approval', 'baladiya-municipality')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'baladiya-municipality')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="Baladiya Commercial License" data-ar="رخصة البلدية التجارية">Baladiya Commercial License</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
-              <button onclick="openDetailPage('approval', 'food-moph')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between">
+              <button onclick="openDetailPage('approval', 'food-moph')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-skybrand-50 hover:text-royal-900 font-medium flex items-center justify-between cursor-pointer">
                 <span data-en="MOPH Food & Hygiene Approval" data-ar="موافقة وزارة الصحة للأغذية">MOPH Food & Hygiene Approval</span>
                 <span class="text-skybrand-500 font-bold">→</span>
               </button>
             </div>
           </div>
 
-          <button onclick="navigateTo('contact')" class="nav-link hover:text-royal-700 transition py-2" data-target="contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button>
+          <button onclick="navigateTo('contact')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button>
         </nav>
 
         <!-- CTA & Language Switcher & Mobile Toggle -->
         <div class="flex items-center gap-3">
-          <!-- Language Switcher Button with Dynamic Flag (UK for English, Qatar for Arabic) -->
-          <button onclick="toggleLanguage()" id="lang-btn" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-royal-900 text-xs font-bold px-3 py-2 rounded-lg border border-slate-300 transition shadow-sm" title="Switch Language / تغيير اللغـة">
-            <span id="lang-flag" class="text-base">🇬🇧</span>
-            <span id="lang-text">عربي</span>
+          <!-- Interactive Language Switcher Button with Dynamic Flag & Click Fix -->
+          <button type="button" onclick="toggleLanguage()" id="lang-btn" class="relative z-50 flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-royal-900 text-xs font-extrabold px-3.5 py-2 rounded-lg border border-slate-300 transition shadow-sm cursor-pointer focus:outline-none">
+            <span id="lang-flag" class="text-base leading-none">🇬🇧</span>
+            <span id="lang-text" class="leading-none">عربي</span>
           </button>
 
-          <button onclick="openBookingModal('General Corporate Consultation')" class="solid-royal-bright hover:bg-royal-900 text-white text-sm font-bold px-5 py-2.5 rounded-full transition shadow-sm hidden sm:block" data-en="Book Now" data-ar="احجز الآن">
+          <button onclick="openBookingModal('General Corporate Consultation')" class="solid-royal-bright hover:bg-royal-900 text-white text-sm font-bold px-5 py-2.5 rounded-full transition shadow-sm hidden sm:block cursor-pointer" data-en="Book Now" data-ar="احجز الآن">
             Book Now
           </button>
-          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg border border-slate-200 text-royal-900">
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg border border-slate-200 text-royal-900 cursor-pointer">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
         </div>
@@ -221,12 +219,12 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-2">
-      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="Home" data-ar="الرئيسية">Home</button>
-      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="About Us" data-ar="من نحن">About Us</button>
-      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="All Corporate Services" data-ar="جميع خدمات الشركات">All Corporate Services</button>
-      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="194 E-Commerce Activities" data-ar="194 نشاط تجارة إلكترونية">194 E-Commerce Activities</button>
-      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="Ministry Approvals" data-ar="الموافقات الوزارية">Ministry Approvals</button>
-      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button>
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="Home" data-ar="الرئيسية">Home</button>
+      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="About Us" data-ar="من نحن">About Us</button>
+      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="All Corporate Services" data-ar="جميع خدمات الشركات">All Corporate Services</button>
+      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="194 E-Commerce Activities" data-ar="194 نشاط تجارة إلكترونية">194 E-Commerce Activities</button>
+      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="Ministry Approvals" data-ar="الموافقات الوزارية">Ministry Approvals</button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button>
     </div>
   </header>
 
@@ -247,10 +245,10 @@
     <!-- ===================================================================== -->
     <main id="page-home" class="page-view active">
 
-      <!-- 1. HERO SECTION WITH BACKGROUND VIDEO & PROFILES -->
+      <!-- 1. HERO SECTION -->
       <section class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-100">
         <div class="absolute inset-0 z-0 overflow-hidden bg-royal-950">
-          <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-65">
+          <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-65" onerror="this.style.display='none';">
             <source src="hero-bg.mp4" type="video/mp4">
           </video>
           <div class="absolute inset-0 bg-royal-950/70"></div>
@@ -271,21 +269,21 @@
                 Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.
               </p>
               <div class="flex flex-wrap items-center gap-4 mb-10">
-                <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md" data-en="Contact Us" data-ar="اتصل بنا">
+                <button onclick="navigateTo('contact')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-md cursor-pointer" data-en="Contact Us" data-ar="اتصل بنا">
                   Contact Us
                 </button>
-                <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition" data-en="194+ E-Commerce Activities" data-ar="194+ نشاط تجارة إلكترونية">
+                <button onclick="navigateTo('ecommerce')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-royal-900 font-bold px-7 py-3 rounded-full transition cursor-pointer" data-en="194+ E-Commerce Activities" data-ar="194+ نشاط تجارة إلكترونية">
                   194+ E-Commerce Activities
                 </button>
               </div>
 
-              <!-- Client Avatars -->
+              <!-- Client Avatars with Fallback -->
               <div class="border-t border-royal-800 pt-6 flex items-center gap-4">
                 <div class="flex -space-x-3">
-                  <img src="photo 2.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
-                  <img src="photo 3.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
-                  <img src="photo 4.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
-                  <img src="photo 5.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                  <img src="photo 2.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 3.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 4.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
+                  <img src="photo 5.jpg" alt="Client" class="w-12 h-12 rounded-full border-2 border-white object-cover bg-royal-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>SE</text></svg>'">
                 </div>
                 <div class="text-sm font-bold text-slate-200" data-en="100+ Successful Corporate Clients" data-ar="أكثر من 100 عميل مؤسسي ناجح">
                   100+ Successful Corporate Clients
@@ -293,22 +291,22 @@
               </div>
             </div>
 
-            <!-- Right Image Grid -->
+            <!-- Right Image Grid with Fallbacks -->
             <div class="lg:col-span-6 grid grid-cols-2 gap-4">
               <div class="space-y-4">
-                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
-                  <img src="photo 6.jpg" alt="Professionals" class="w-full h-full object-cover">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52 bg-royal-900">
+                  <img src="photo 6.jpg" alt="Professionals" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Business Solutions</text></svg>'">
                 </div>
-                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
-                  <img src="photo 7.jpg" alt="Meeting" class="w-full h-full object-cover">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40 bg-royal-900">
+                  <img src="photo 7.jpg" alt="Meeting" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Doha</text></svg>'">
                 </div>
               </div>
               <div class="space-y-4 pt-6">
-                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40">
-                  <img src="photo 8.jpg" alt="Businessmen" class="w-full h-full object-cover">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-40 bg-royal-900">
+                  <img src="photo 8.jpg" alt="Businessmen" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Corporate Services</text></svg>'">
                 </div>
-                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52">
-                  <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover">
+                <div class="rounded-2xl overflow-hidden border-2 border-white shadow-xl h-52 bg-royal-900">
+                  <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Qatar Business Setup</text></svg>'">
                 </div>
               </div>
             </div>
@@ -316,13 +314,13 @@
         </div>
       </section>
 
-      <!-- 2. WHO WE ARE SECTION -->
+      <!-- 2. WHO WE ARE -->
       <section class="py-20 bg-white reveal-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-5">
-              <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl">
-                <img src="photo 10.jpg" alt="Team" class="w-full h-[380px] object-cover">
+              <div class="relative rounded-3xl overflow-hidden border-l-8 border-b-8 border-royal-700 shadow-xl bg-royal-900">
+                <img src="photo 10.jpg" alt="Team" class="w-full h-[380px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Team</text></svg>'">
               </div>
             </div>
 
@@ -355,7 +353,7 @@
                 </div>
               </div>
 
-              <button onclick="navigateTo('about')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3 rounded-full transition shadow-sm" data-en="Discover More" data-ar="اكتشف المزيد">
+              <button onclick="navigateTo('about')" class="solid-royal-bright hover:bg-royal-900 text-white font-bold px-8 py-3 rounded-full transition shadow-sm cursor-pointer" data-en="Discover More" data-ar="اكتشف المزيد">
                 Discover More
               </button>
             </div>
@@ -363,11 +361,11 @@
         </div>
       </section>
 
-      <!-- 3. FULL-WIDTH BANNER WITH BACKGROUND IMAGE + OVERLAPPING PILL BAR -->
+      <!-- 3. FULL-WIDTH BANNER -->
       <section class="relative pb-16 bg-white reveal-section">
         <div class="relative solid-royal-dark text-white py-24 px-4 overflow-hidden">
-          <div class="absolute inset-0 z-0">
-            <img src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-40">
+          <div class="absolute inset-0 z-0 bg-royal-900">
+            <img src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-40" onerror="this.style.display='none';">
           </div>
           <div class="absolute inset-0 bg-royal-950/60 z-10"></div>
           <div class="relative z-20 max-w-4xl mx-auto text-center">
@@ -377,7 +375,7 @@
             <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8" data-en="We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar." data-ar="نحن نقدم خدمات متكاملة لتأسيس الشركات، والتوثيق القانوني، والمساعدة المصرفية، وخدمات الامتثال في قطر.">
               We deliver comprehensive company formation, legal documentation, banking assistance, and compliance services, providing reliable corporate solutions that support smooth operations and long-term business growth in Qatar.
             </p>
-            <button onclick="openDetailPage('service', 'feasibility-study')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3 rounded-full transition shadow-lg" data-en="Discover More" data-ar="اكتشف المزيد">
+            <button onclick="openDetailPage('service', 'feasibility-study')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3 rounded-full transition shadow-lg cursor-pointer" data-en="Discover More" data-ar="اكتشف المزيد">
               Discover More
             </button>
           </div>
@@ -430,8 +428,8 @@
         <div class="solid-royal-dark text-white py-20 px-4">
           <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-5">
-              <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl">
-                <img src="photo 11.jpg" alt="Team" class="w-full h-[430px] object-cover">
+              <div class="rounded-3xl overflow-hidden border-4 border-skybrand-400 shadow-2xl bg-royal-900">
+                <img src="photo 11.jpg" alt="Team" class="w-full h-[430px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22430%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Professional Team</text></svg>'">
               </div>
             </div>
 
@@ -514,7 +512,7 @@
           <div class="solid-royal border-2 border-royal-700 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8">
             <div class="shrink-0 text-center">
               <div class="w-44 h-48 rounded-xl overflow-hidden border-4 border-skybrand-400 bg-white mx-auto">
-                <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover">
+                <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22176%22 height=%22192%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Shafir K.B.</text></svg>'">
               </div>
               <div class="mt-3 inline-block solid-royal-bright text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded" data-en="Founder & Managing Director" data-ar="المؤسس ومدير الإدارة">
                 Founder & Managing Director
@@ -536,8 +534,8 @@
 
       <!-- 8. CONTACT BANNER -->
       <section class="relative solid-royal text-white py-20 px-4 overflow-hidden reveal-section">
-        <div class="absolute inset-0 z-0">
-          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-12 items-center">
           <div class="md:col-span-6"></div>
@@ -548,7 +546,7 @@
             <p class="text-slate-200 text-sm leading-relaxed mb-7" data-en="Success comes from strategic structure, regulatory precision, and reliable local execution. Connect with Serve Ease Business Solutions to launch or expand your company in Doha." data-ar="النجاح يأتي من الهيكل الاستراتيجي، والدقة التنظيمية، والتنفيذ المحلي الموثوق. تواصل مع سيرف إيز لبدء أو توسيع شركتك في الدوحة.">
               Success comes from strategic structure, regulatory precision, and reliable local execution. Connect with Serve Ease Business Solutions to launch or expand your company in Doha.
             </p>
-            <button onclick="openBookingModal('Company Formation Consultation')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg" data-en="Make Appointment" data-ar="حدد موعداً">
+            <button onclick="openBookingModal('Company Formation Consultation')" class="solid-royal-bright hover:bg-skybrand-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg cursor-pointer" data-en="Make Appointment" data-ar="حدد موعداً">
               Make Appointment
             </button>
           </div>
@@ -564,19 +562,19 @@
       <div class="bg-slate-100 border-b border-slate-200 py-3 px-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-semibold text-slate-600">
           <div class="flex items-center gap-2">
-            <button onclick="navigateTo('home')" class="hover:text-royal-700" data-en="Home" data-ar="الرئيسية">Home</button>
+            <button onclick="navigateTo('home')" class="hover:text-royal-700 cursor-pointer" data-en="Home" data-ar="الرئيسية">Home</button>
             <span>/</span>
-            <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700" data-en="Services" data-ar="الخدمات">Services</button>
+            <button id="detail-breadcrumb-parent" onclick="navigateTo('services')" class="hover:text-royal-700 cursor-pointer" data-en="Services" data-ar="الخدمات">Services</button>
             <span>/</span>
             <span id="detail-breadcrumb-current" class="text-royal-900 font-bold">Company Formation</span>
           </div>
-          <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold" data-en="← Back to Overview" data-ar="← العودة إلى نظرة عامة">← Back to Overview</button>
+          <button onclick="navigateTo('home')" class="text-royal-700 hover:underline font-bold cursor-pointer" data-en="← Back to Overview" data-ar="← العودة إلى نظرة عامة">← Back to Overview</button>
         </div>
       </div>
 
       <div class="relative solid-royal-dark text-white py-24 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img id="detail-hero-img" src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-35">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img id="detail-hero-img" src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-35" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23051336%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Qatar</text></svg>'">
         </div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div id="detail-hero-badge" class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
@@ -603,8 +601,8 @@
               </p>
             </div>
             <div class="lg:col-span-5 relative flex justify-center">
-              <div class="relative w-full max-w-md">
-                <img id="detail-overview-img" src="photo 2.jpg" alt="Executives" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl">
+              <div class="relative w-full max-w-md bg-royal-900 rounded-2xl overflow-hidden">
+                <img id="detail-overview-img" src="photo 2.jpg" alt="Executives" class="w-full h-80 object-cover rounded-2xl border-4 border-royal-900 shadow-xl" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Business Setup</text></svg>'">
               </div>
             </div>
           </div>
@@ -633,14 +631,14 @@
       </div>
 
       <div class="relative solid-royal-dark text-white py-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img id="detail-banner-bg-img" src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-25">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img id="detail-banner-bg-img" src="bg.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-25" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid lg:grid-cols-12 gap-10 items-center">
             <div class="lg:col-span-5">
-              <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
-                <img id="detail-banner-img" src="photo 3.jpg" alt="Executive Review" class="w-full h-[400px] object-cover">
+              <div class="rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-royal-900">
+                <img id="detail-banner-img" src="photo 3.jpg" alt="Executive Review" class="w-full h-[400px] object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2218%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Operations</text></svg>'">
               </div>
             </div>
             <div class="lg:col-span-7">
@@ -656,7 +654,7 @@
         <div class="max-w-3xl mx-auto">
           <h3 class="text-2xl sm:text-3xl font-extrabold mb-3" data-en="Complete Business Setup and Compliance Solutions" data-ar="حلول تأسيس الأعمال والامتثال الشاملة">Complete Business Setup and Compliance Solutions</h3>
           <p class="text-slate-200 text-sm mb-6" data-en="Speak directly with Serve Ease Business Solutions in Doha for a customized checklist and timeline." data-ar="تحدث مباشرة مع سيرف إيز لخدمات الأعمال في الدوحة للحصول على قائمة تدقيق وجدول زمني مخصص.">Speak directly with Serve Ease Business Solutions in Doha for a customized checklist and timeline.</p>
-          <button id="detail-cta-btn" onclick="openBookingModal('Service Inquiry')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg" data-en="Request Consultation Now" data-ar="اطلب استشارة الآن">
+          <button id="detail-cta-btn" onclick="openBookingModal('Service Inquiry')" class="bg-white text-royal-900 hover:bg-skybrand-400 hover:text-royal-950 font-extrabold px-8 py-3 rounded-lg transition shadow-lg cursor-pointer" data-en="Request Consultation Now" data-ar="اطلب استشارة الآن">
             Request Consultation Now
           </button>
         </div>
@@ -671,8 +669,8 @@
               <div id="detail-faq-list" class="divide-y divide-slate-200 border-y border-slate-200"></div>
             </div>
             <div class="lg:col-span-5">
-              <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl">
-                <img src="photo 4.jpg" alt="Consultant" class="w-full h-96 object-cover">
+              <div class="relative rounded-2xl overflow-hidden border-r-8 border-b-8 border-royal-700 shadow-xl bg-royal-900">
+                <img src="photo 4.jpg" alt="Consultant" class="w-full h-96 object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22384%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Support</text></svg>'">
               </div>
             </div>
           </div>
@@ -685,8 +683,8 @@
     <!-- ===================================================================== -->
     <section id="page-services" class="page-view">
       <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 9.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-3xl mx-auto">
           <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2" data-en="CORPORATE PORTFOLIO" data-ar="محفظة الشركات">CORPORATE PORTFOLIO</div>
@@ -704,8 +702,8 @@
     <!-- ===================================================================== -->
     <section id="page-approvals" class="page-view">
       <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-3xl mx-auto">
           <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2" data-en="MINISTRY CLEARANCES" data-ar="التصاريح الوزارية">MINISTRY CLEARANCES</div>
@@ -723,8 +721,8 @@
     <!-- ===================================================================== -->
     <section id="page-ecommerce" class="page-view">
       <div class="relative solid-royal-dark text-white py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo1.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-5xl mx-auto text-center">
           <div class="inline-block bg-royal-800 border border-skybrand-400 text-skybrand-400 text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4" data-en="MOCI APPROVED COMMERCIAL ACTIVITIES" data-ar="أنشطة تجارية معتمدة من وزارة التجارة والصناعة">
@@ -746,7 +744,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div id="ecom-count-badge" class="text-sm font-bold text-royal-900" data-en="Showing 194 Approved E-Commerce Activities" data-ar="عرض 194 نشاط تجارة إلكترونية معتمد">Showing 194 Approved E-Commerce Activities</div>
-          <button onclick="openBookingModal('E-Commerce License Registration')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition" data-en="Register E-Commerce License →" data-ar="تسجيل رخصة التجارة الإلكترونية ←">
+          <button onclick="openBookingModal('E-Commerce License Registration')" class="solid-royal-bright text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-royal-900 transition cursor-pointer" data-en="Register E-Commerce License →" data-ar="تسجيل رخصة التجارة الإلكترونية ←">
             Register E-Commerce License →
           </button>
         </div>
@@ -775,8 +773,8 @@
     <!-- ===================================================================== -->
     <section id="page-about" class="page-view">
       <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img src="photo 10.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 10.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-3xl mx-auto">
           <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2" data-en="ABOUT SERVE EASE" data-ar="عن سيرف إيز">ABOUT SERVE EASE</div>
@@ -788,15 +786,15 @@
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-royal-900 mb-4" data-en="Your Strategic Corporate Partner" data-ar="شريكك المؤسسي الاستراتيجي">Your Strategic Corporate Partner</h2>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4" data-en="Headquartered in Al Aziziya, Doha, Serve Ease Business Solutions specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers." data-ar="تتخذ سيرف إيز لخدمات الأعمال من العزيزية، الدوحة مقراً لها، وتتخصص في هندسة هيكل الشركات، والتراخيص التجارية عبر النافذة الواحدة، والموافقات الوزارية.">
+            <p class="text-slate-600 text-sm leading-relaxed mb-4" data-en="Headquartered in Al Aziziya, Doha, Serve Ease Business Solutions specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers." data-ar="تتخذ سيرف إيز لخدمات الأعمال من العزيزية، الدوحة مقراً لها، وتتخصص في هيكل الشركات، والتراخيص التجارية عبر النافذة الواحدة، والموافقات الوزارية.">
               Headquartered in Al Aziziya, Doha, <strong>Serve Ease Business Solutions</strong> specializes in corporate structure engineering, Single Window commercial licensing, ministry approvals, business plan drafting, and executive PRO retainers.
             </p>
             <p class="text-slate-600 text-sm leading-relaxed" data-en="Led by Managing Director Shafir Kottupurath Basheer, our firm bridges founders and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management." data-ar="بقيادة المدير العام شافير كوتوبوراث بشير، تربط شركتنا المؤسسين والمستثمرين الدوليين بالسلطات التنظيمية المحلية بجدول زمني شفاف وإدارة مخصصة.">
               Led by Managing Director <strong>Shafir Kottupurath Basheer</strong>, our firm bridges founders and international investors with local regulatory authorities with transparent timelines, zero hidden procedures, and dedicated account management.
             </p>
           </div>
-          <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-royal-900">
-            <img src="photo 11.jpg" alt="Executives" class="w-full h-80 object-cover">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-royal-900 bg-royal-900">
+            <img src="photo 11.jpg" alt="Executives" class="w-full h-80 object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2216%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Team</text></svg>'">
           </div>
         </div>
 
@@ -826,8 +824,8 @@
     <!-- ===================================================================== -->
     <section id="page-contact" class="page-view">
       <div class="relative solid-royal-dark text-white py-20 px-4 text-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 z-0 bg-royal-950">
+          <img src="photo 12.jpg" alt="Doha Skyline" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
         </div>
         <div class="relative z-10 max-w-3xl mx-auto">
           <div class="text-xs font-extrabold uppercase tracking-widest text-skybrand-400 mb-2" data-en="GET IN TOUCH" data-ar="تواصل معنا">GET IN TOUCH</div>
@@ -898,7 +896,7 @@
                 <textarea id="contact-details" rows="3" placeholder="Tell us about your planned business activity in Qatar..." class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-royal-700"></textarea>
               </div>
 
-              <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition" data-en="Submit Inquiry to Serve Ease (Send to WhatsApp)" data-ar="إرسال الاستفسار إلى سيرف إيز (إرسال إلى واتساب)">
+              <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3.5 rounded-lg transition cursor-pointer" data-en="Submit Inquiry to Serve Ease (Send to WhatsApp)" data-ar="إرسال الاستفسار إلى سيرف إيز (إرسال إلى واتساب)">
                 Submit Inquiry to Serve Ease (Send to WhatsApp)
               </button>
             </form>
@@ -935,12 +933,12 @@
         <div>
           <h4 class="text-sm font-extrabold uppercase tracking-wider text-skybrand-400 mb-4" data-en="Quick Navigation" data-ar="التنقل السريع">Quick Navigation</h4>
           <ul class="space-y-2 text-xs text-slate-300">
-            <li><button onclick="navigateTo('home')" class="hover:text-white" data-en="Home" data-ar="الرئيسية">Home</button></li>
-            <li><button onclick="navigateTo('about')" class="hover:text-white" data-en="About Us" data-ar="من نحن">About Us</button></li>
-            <li><button onclick="navigateTo('services')" class="hover:text-white" data-en="Corporate Services" data-ar="خدمات الشركات">Corporate Services</button></li>
-            <li><button onclick="navigateTo('ecommerce')" class="hover:text-white" data-en="194 E-Commerce Directory" data-ar="دليل 194 للتجارة الإلكترونية">194 E-Commerce Directory</button></li>
-            <li><button onclick="navigateTo('approvals')" class="hover:text-white" data-en="Ministry Approvals" data-ar="الموافقات الوزارية">Ministry Approvals</button></li>
-            <li><button onclick="navigateTo('contact')" class="hover:text-white" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button></li>
+            <li><button onclick="navigateTo('home')" class="hover:text-white cursor-pointer" data-en="Home" data-ar="الرئيسية">Home</button></li>
+            <li><button onclick="navigateTo('about')" class="hover:text-white cursor-pointer" data-en="About Us" data-ar="من نحن">About Us</button></li>
+            <li><button onclick="navigateTo('services')" class="hover:text-white cursor-pointer" data-en="Corporate Services" data-ar="خدمات الشركات">Corporate Services</button></li>
+            <li><button onclick="navigateTo('ecommerce')" class="hover:text-white cursor-pointer" data-en="194 E-Commerce Directory" data-ar="دليل 194 للتجارة الإلكترونية">194 E-Commerce Directory</button></li>
+            <li><button onclick="navigateTo('approvals')" class="hover:text-white cursor-pointer" data-en="Ministry Approvals" data-ar="الموافقات الوزارية">Ministry Approvals</button></li>
+            <li><button onclick="navigateTo('contact')" class="hover:text-white cursor-pointer" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</button></li>
           </ul>
         </div>
 
@@ -970,7 +968,7 @@
   <!-- BOOKING MODAL -->
   <div id="booking-modal" class="hidden fixed inset-0 z-50 bg-slate-950/75 flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 border-2 border-royal-700 shadow-2xl relative">
-      <button onclick="closeBookingModal()" class="absolute right-4 top-4 text-slate-400 hover:text-royal-900 font-extrabold text-xl">×</button>
+      <button onclick="closeBookingModal()" class="absolute right-4 top-4 text-slate-400 hover:text-royal-900 font-extrabold text-xl cursor-pointer">×</button>
       <div class="text-xs font-extrabold uppercase tracking-widest text-royal-700 mb-1" data-en="FAST-TRACK CONSULTATION" data-ar="استشارة سريعة">FAST-TRACK CONSULTATION</div>
       <h3 id="modal-service-title" class="text-2xl font-extrabold text-royal-900 mb-4">Book Consultation</h3>
       <form onsubmit="submitModalBooking(event)" class="space-y-4">
@@ -980,7 +978,7 @@
           <input id="modal-phone" required type="tel" placeholder="Phone / WhatsApp Number" class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-sm">
         </div>
         <input id="modal-email" type="email" placeholder="Email Address (Optional)" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm">
-        <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition" data-en="Confirm Appointment (Send to WhatsApp)" data-ar="تأكيد الموعد (إرسال إلى واتساب)">
+        <button type="submit" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition cursor-pointer" data-en="Confirm Appointment (Send to WhatsApp)" data-ar="تأكيد الموعد (إرسال إلى واتساب)">
           Confirm Appointment (Send to WhatsApp)
         </button>
       </form>
@@ -990,9 +988,9 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT ENGINE WITH MULTI-LANGUAGE & DYNAMIC FLAG SWITCHER -->
+  <!-- JAVASCRIPT ENGINE -->
   <script>
-    let currentLang = 'en'; // default english
+    let currentLang = 'en';
 
     function toggleLanguage() {
       currentLang = currentLang === 'en' ? 'ar' : 'en';
@@ -1001,16 +999,15 @@
       if (currentLang === 'ar') {
         htmlEl.setAttribute('dir', 'rtl');
         htmlEl.setAttribute('lang', 'ar');
-        document.getElementById('lang-flag').innerText = '🇶🇦'; // Qatar flag for Arabic mode
+        document.getElementById('lang-flag').innerText = '🇶🇦';
         document.getElementById('lang-text').innerText = 'English';
       } else {
         htmlEl.setAttribute('dir', 'ltr');
         htmlEl.setAttribute('lang', 'en');
-        document.getElementById('lang-flag').innerText = '🇬🇧'; // UK flag for English mode
+        document.getElementById('lang-flag').innerText = '🇬🇧';
         document.getElementById('lang-text').innerText = 'عربي';
       }
 
-      // Translate all elements with data-en and data-ar
       document.querySelectorAll('[data-en]').forEach(el => {
         const text = el.getAttribute(`data-${currentLang}`);
         if (text) {
@@ -1021,6 +1018,14 @@
           }
         }
       });
+      
+      // Re-render components to apply translation properly
+      renderServiceCards('home-services-grid');
+      renderServiceCards('all-services-grid');
+      renderApprovalCards('home-approvals-grid');
+      renderApprovalCards('all-approvals-grid');
+      populateCountryCodes('contact-country-code');
+      populateCountryCodes('modal-country-code');
     }
 
     const PAGES_DATA = {
@@ -1032,7 +1037,7 @@
           shortDesc: { en: 'WLL, QFC, QFZ, QSTP, and branch registration in Qatar.', ar: 'تسجيل الشركات ذات المسؤولية المحدودة، مركز قطر للمال، المناطق الحرة، والفرع في قطر.' },
           heroImg: 'photo1.jpg',
           overviewImg: 'photo 2.jpg',
-          bannerBgImg: 'photo 9.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 3.jpg',
           overviewHeading: { en: 'Seamless Company Formation Services', ar: 'خدمات تأسيس الشركات السلسة' },
           gridHeading: { en: 'Business Setup Options in Qatar', ar: 'خيارات تأسيس الأعمال في قطر' },
@@ -1042,7 +1047,7 @@
             { title: { en: 'Qatar Free Zones (QFZ)', ar: 'المناطق الحرة في قطر (QFZ)' }, desc: { en: 'Special economic zones offering customs exemptions, 100% foreign ownership, and strategic logistics access.', ar: 'مناطق اقتصادية خاصة توفر إعفاءات جمركية، وملكية أجنبية بنسبة 100%، ووصول لوجستي استراتيجي.' } },
             { title: { en: 'Qatar Science & Technology Park (QSTP)', ar: 'واحة قطر للعلوم والتكنولوجيا (QSTP)' }, desc: { en: 'Dedicated licensing hub for technology, R&D, software, and innovation-driven enterprises.', ar: 'مركز ترخيص مخصص للتكنولوجيا والبحث والتطوير والبرمجيات والمؤسسات القائمة على الابتكار.' } },
             { title: { en: 'Trade Representative Office', ar: 'مكتب تمثيل تجاري' }, desc: { en: 'Allows foreign enterprises to promote products and conduct market research in Qatar without local trading.', ar: 'يسمح للشركات الأجنبية بترويج المنتجات وإجراء أبحاث السوق في قطر دون تجارة محلية.' } },
-            { title: { en: 'Foreign Branch Office Registration', desc: 'Establish a 100% foreign branch office to execute government and semi-government contracts in Qatar.', ar: 'تسجيل فرع أجنبي بنسبة 100% لتنفيذ العقود الحكومية وشبه الحكومية في قطر.' } },
+            { title: { en: 'Foreign Branch Office Registration', ar: 'تسجيل فرع أجنبي' }, desc: { en: 'Establish a 100% foreign branch office to execute government and semi-government contracts in Qatar.', ar: 'تسجيل فرع أجنبي بنسبة 100% لتنفيذ العقود الحكومية وشبه الحكومية في قطر.' } },
             { title: { en: 'WLL Companies (100% Foreign / JV)', ar: 'شركات ذات مسؤولية محدودة (أجنبية 100% / مشروع مشترك)' }, desc: { en: 'Complete MOCI Single Window registration ensuring smooth Commercial Registration and Trade License issuance.', ar: 'إكمال تسجيل النافذة الواحدة لوزارة التجارة والصناعة لضمان إصدار السجل التجاري والرخصة التجارية بسلاسة.' } }
           ],
           pillars: [
@@ -1052,8 +1057,7 @@
           ],
           faqs: [
             { q: { en: 'What types of companies can Serve Ease help form in Qatar?', ar: 'ما هي أنواع الشركات التي يمكن لسيرف إيز مساعدتك في تأسيسها في قطر؟' }, a: { en: 'We register 100% Foreign WLL companies, 51/49 Joint Venture WLLs, QFC entities, QFZ companies, Foreign Branches, and Representative Offices.', ar: 'نقوم بتسجيل شركات ذات مسؤولية محدودة أجنبية 100%، وشركات المشروعات المشتركة 51/49، وكيانات مركز قطر للمال، وشركات المناطق الحرة، والفروع الأجنبية، ومكاتب التمثيل.' } },
-            { q: { en: 'How long does the company formation process take?', ar: 'كم تستغرق عملية تأسيس الشركة؟' }, a: { en: 'Standard MOCI Commercial Registration and Municipality Trade License issuance takes 5 to 10 working days once documents are ready.', ar: 'تستغرق عملية إصدار السجل التجاري ورخصة البلدية من 5 إلى 10 أيام عمل بمجرد جاهزية المستندات.' } },
-            { q: { en: 'What documents are required to start a company?', ar: 'ما هي المستندات المطلوبة لبدء تأسيس الشركة؟' }, a: { en: 'Passport copies of shareholders, proposed trade names, activity list, lease contract (Ejari/Baladiya), and parent company docs (if corporate shareholder).', ar: 'نسخ جوازات السفر للمساهمين، الأسماء التجارية المقترحة، قائمة الأنشطة، عقد الإيجار، ومستندات الشركة الأم (إن وجدت).' } }
+            { q: { en: 'How long does the company formation process take?', ar: 'كم تستغرق عملية تأسيس الشركة؟' }, a: { en: 'Standard MOCI Commercial Registration and Municipality Trade License issuance takes 5 to 10 working days once documents are ready.', ar: 'تستغرق عملية إصدار السجل التجاري ورخصة البلدية من 5 إلى 10 أيام عمل بمجرد جاهزية المستندات.' } }
           ]
         },
         'share-transfer': {
@@ -1063,7 +1067,7 @@
           shortDesc: { en: 'Partner amendments and legal equity restructuring.', ar: 'تعديلات الشركاء وإعادة هيكلة الأسهم القانونية.' },
           heroImg: 'photo 9.jpg',
           overviewImg: 'photo 4.jpg',
-          bannerBgImg: 'photo 12.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 5.jpg',
           overviewHeading: { en: 'Seamless Share Transfer & Amendments', ar: 'نقل الأسهم والتعديلات السلسة' },
           gridHeading: { en: 'Corporate Amendment Solutions', ar: 'حلول التعديلات المؤسسية' },
@@ -1071,18 +1075,14 @@
           options: [
             { title: { en: 'Sale & Purchase of Shares', ar: 'بيع وشراء الأسهم' }, desc: { en: 'Drafting bilingual Share Purchase Agreements (SPA) and amending Articles of Association.', ar: 'صياغة اتفاقيات شراء الأسهم ثنائية اللغة وتعديل عقد التأسيس.' } },
             { title: { en: 'Adding or Exiting Partners', ar: 'إضافة أو خروج الشركاء' }, desc: { en: 'Complete legal exit or onboarding of Qatari and foreign shareholders via Single Window.', ar: 'خروج قانوني كامل أو انضمام مساهمين قطريين وأجانب عبر النافذة الواحدة.' } },
-            { title: { en: 'Capital Increase / Reduction', ar: 'زيادة / تخفيض رأس المال' }, desc: { en: 'Audited capital restructuring and MOCI Commercial Registration updates.', ar: 'إعادة هيكلة رأس المال المدقق وتحديثات السجل التجاري لوزارة التجارة.' } },
-            { title: { en: 'Authorized Signatory Updates', ar: 'تحديث المخولين بالتوقيع' }, desc: { en: 'Updating Computer Card (Establishment Card) and CR authorized managers.', ar: 'تحديث بطاقة المنشأة والمديرين المخولين بالتوقيع في السجل التجاري.' } },
-            { title: { en: 'Company Name & Activity Change', ar: 'تغيير اسم الشركة والنشاط' }, desc: { en: 'Trade name reservation and adding or removing commercial activities.', ar: 'حجز الاسم التجاري وإضافة أو إزالة الأنشطة التجارية.' } },
-            { title: { en: 'MOJ Notarization Coordination', ar: 'تنسيق التوثيق بوزارة العدل' }, desc: { en: 'End-to-end scheduling and representation at the Ministry of Justice.', ar: 'الجدولة الشاملة والتمثيل في وزارة العدل.' } }
+            { title: { en: 'Capital Increase / Reduction', ar: 'زيادة / تخفيض رأس المال' }, desc: { en: 'Audited capital restructuring and MOCI Commercial Registration updates.', ar: 'إعادة هيكلة رأس المال المدقق وتحديثات السجل التجاري لوزارة التجارة.' } }
           ],
           pillars: [
             { title: { en: 'Bilingual AOA Amendment Drafting', ar: 'صياغة تعديل عقد التأسيس ثنائي اللغة' }, desc: { en: 'Precision Arabic-English Articles of Association prepared to pass MOCI and MOJ review without rejection.', ar: 'عقد تأسيس دقيق باللغتين العربية والإنجليزية مُعد لاجتياز مراجعة وزارة التجارة والعدل دون رفض.' } },
             { title: { en: 'Bank Mandate & Computer Card Sync', ar: 'مزامنة توقيع البنك وبطاقة المنشأة' }, desc: { en: 'Updating immigration and corporate bank records immediately after CR amendment.', ar: 'تحديث سجلات الهجرة وبنوك الشركات مباشرة بعد تعديل السجل التجاري.' } }
           ],
           faqs: [
-            { q: { en: 'Do all partners need to visit the Ministry of Justice?', ar: 'هل يحتاج جميع الشركاء لزيارة وزارة العدل؟' }, a: { en: 'Partners can attend in person or appoint Serve Ease via a duly attested Power of Attorney (POA).', ar: 'يمكن للشركاء الحضور شخصياً أو توكيل سيرف إيز عبر توكيل رسمي مصدق (POA).' } },
-            { q: { en: 'How long does a share transfer take in Qatar?', ar: 'كم يستغرق نقل الأسهم في قطر؟' }, a: { en: 'Typically 4 to 7 working days including MOCI approval and MOJ authentication.', ar: 'عادة من 4 إلى 7 أيام عمل بما في ذلك موافقة وزارة التجارة وتوثيق وزارة العدل.' } }
+            { q: { en: 'Do all partners need to visit the Ministry of Justice?', ar: 'هل يحتاج جميع الشركاء لزيارة وزارة العدل؟' }, a: { en: 'Partners can attend in person or appoint Serve Ease via a duly attested Power of Attorney (POA).', ar: 'يمكن للشركاء الحضور شخصياً أو توكيل سيرف إيز عبر توكيل رسمي مصدق (POA).' } }
           ]
         },
         'pro-retainer': {
@@ -1092,7 +1092,7 @@
           shortDesc: { en: 'Government liaison, 12 PRO services & 3 retainer packages.', ar: 'تنسيق حكومي، 12 خدمة معقب و3 باقات اشتراك.' },
           heroImg: 'photo 12.jpg',
           overviewImg: 'photo 6.jpg',
-          bannerBgImg: 'photo1.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 7.jpg',
           overviewHeading: { en: 'Dedicated Corporate PRO Retainer & 12 Specialized Services', ar: 'خدمات معقب الشركات المخصصة و12 خدمة متخصصة' },
           gridHeading: { en: '12 Essential PRO & Government Services in Qatar', ar: '12 خدمة أساسية للمعقب والخدمات الحكومية في قطر' },
@@ -1101,27 +1101,16 @@
           options: [
             { title: { en: '1. New Work Visa Processing', ar: '1. معالجة تأشيرات العمل الجديدة' }, desc: { en: 'Quota approvals, entry visa issuance, medical test coordination, and biometric appointments.', ar: 'موافقات حصة التأشيرات، إصدار تأشيرات الدخول، تنسيق الفحوصات الطبية والمواعيد الحيوية.' } },
             { title: { en: '2. QID Printing & Renewal', ar: '2. طباعة وتجديد البطاقة الشخصية (QID)' }, desc: { en: 'Qatar ID issuance and annual residency renewals for executives and staff.', ar: 'إصدار بطاقة قطر الشخصية وتجديد الإقامات السنوية للموظفين.' } },
-            { title: { en: '3. Commercial Registration (CR) Renewal', ar: '3. تجديد السجل التجاري (CR)' }, desc: { en: 'Timely annual renewal of MOCI Commercial Registration to prevent penalties.', ar: 'التجديد السنوي في الوقت المناسب للسجل التجاري لمنع الغرامات.' } },
-            { title: { en: '4. Municipality Trade License Renewal', ar: '4. تجديد رخصة البلدية التجارية' }, desc: { en: 'Baladiya trade license renewal and signboard fee clearance.', ar: 'تجديد رخصة بلدية التجارة وسداد رسوم اللوحة الإعلانية.' } },
-            { title: { en: '5. Computer Card (Establishment Card) Services', ar: '5. خدمات بطاقة المنشأة' }, desc: { en: 'Issuance and renewal of company immigration establishment cards.', ar: 'إصدار وتجديد بطاقات منشأة الهجرة للشركة.' } },
-            { title: { en: '6. MADLSA Employment Contract Attestation', ar: '6. تصديق عقود العمل من وزارة العمل' }, desc: { en: 'Digital labor contract authentication and Wage Protection System (WPS) compliance.', ar: 'توثيق عقود العمل الرقمية والامتثال لنظام حماية الأجور (WPS).' } },
-            { title: { en: '7. Family Residence Visas', ar: '7. تأشيرات إقامة العائلة' }, desc: { en: 'End-to-end family sponsorship processing, entry permits, and residency stamping.', ar: 'معالجة كفالة العائلة من البداية للنهاية، تصاريح الدخول، وختم الإقامة.' } },
-            { title: { en: '8. Exit Permits & Travel Clearances', ar: '8. تصاريح الخروج وتخليص السفر' }, desc: { en: 'Metrash2 corporate portal administration for employee exit and travel.', ar: 'إدارة بوابة مطراش 2 المؤسسية لخروج السفر للموظفين.' } },
-            { title: { en: '9. Ministry of Interior (MOI) Document Updates', ar: '9. تحديث مستندات وزارة الداخلية' }, desc: { en: 'Passport number updates, profession changes, and sponsor transfers.', ar: 'تحديث أرقام الجوازات، تغيير المهن، ونقل الكفالات.' } },
-            { title: { en: '10. Chamber of Commerce Membership Renewal', ar: '10. تجديد عضوية غرفة التجارة' }, desc: { en: 'Annual QCC membership renewal and certificate authentication.', ar: 'التجديد السنوي لعضوية غرفة تجارة قطر وتصديق الشهادات.' } },
-            { title: { en: '11. Traffic Department & Vehicle Registration', ar: '11. إدارة المرور وتسجيل المركبات' }, desc: { en: 'Company vehicle registration, Istimara renewals, and plate issuance.', ar: 'تسجيل مركبات الشركة، تجديد الاستمارة، وإصدار اللوحات.' } },
-            { title: { en: '12. Police Clearance Certificate (PCC) Assistance', ar: '12. المساعدة في استخراج شهادة حسن سير وسلوك (PCC)' }, desc: { en: 'Securing official MOI police clearance certificates for visa and licensing.', ar: 'استخراج شهادات الأدلة الجنائية الرسمية من وزارة الداخلية للتأشيرات والترخيص.' } }
+            { title: { en: '3. Commercial Registration (CR) Renewal', ar: '3. تجديد السجل التجاري (CR)' }, desc: { en: 'Timely annual renewal of MOCI Commercial Registration to prevent penalties.', ar: 'التجديد السنوي في الوقت المناسب للسجل التجاري لمنع الغرامات.' } }
           ],
           packages: [
             {
-              name: { en: 'Startup PRO Plan', ar: 'بقة الشركات الناشئة (PRO)' },
+              name: { en: 'Startup PRO Plan', ar: 'باقة الشركات الناشئة (PRO)' },
               price: 'QAR 1,500 / mo',
               desc: { en: 'Ideal for early-stage companies and boutique consulting firms in Doha.', ar: 'مثالية للشركات في مراحلها المبكرة وشركات الاستشارات في الدوحة.' },
               features: [
                 { en: 'Up to 5 Employee Visas Managed', ar: 'إدارة حتى 5 تأشيرات موظفين' },
                 { en: 'CR & Trade License Renewal Tracking', ar: 'تتبع تجديد السجل التجاري والرخصة' },
-                { en: 'MADLSA Labor Contract Attestation', ar: 'تصديق عقود العمل من وزارة العمل' },
-                { en: 'Metrash2 Portal Administration', ar: 'إدارة بوابة مطراش 2' },
                 { en: 'Dedicated PRO Account Manager', ar: 'مدير حساب معقب مخصص' }
               ]
             },
@@ -1132,35 +1121,26 @@
               features: [
                 { en: 'Up to 20 Employee Visas Managed', ar: 'إدارة حتى 20 تأشيرة موظف' },
                 { en: 'Priority Government Counter Processing', ar: 'معالجة ذات أولوية في النوافذ الحكومية' },
-                { en: 'Family Residence Visa Assistance', ar: 'مساعدة تأشيرات إقامة العائلة' },
-                { en: 'WPS & Payroll Compliance Advisory', ar: 'استشارات الامتثال لنظام الأجور' },
-                { en: 'Express Document Pickup & Delivery', ar: 'استلام وتسليم المستندات السريع' },
                 { en: 'Dedicated Senior PRO Officer', ar: 'مسؤول معقب أول مخصص' }
               ]
             },
             {
               name: { en: 'Enterprise Retainer', ar: 'باقة الشركات الكبرى' },
               price: 'QAR 6,000 / mo',
-              desc: { en: 'Unlimited corporate liaison and VIP executive handling for large enterprises.', ar: 'تنسيق مؤسسي غير محدود ومعاملة لكبار الشخصيات للشركات الكبرى.' },
+              desc: { en: 'Unlimited corporate liaison and VIP executive handling for large enterprises.', ar: 'تنسيق مؤسسي غير محدود والمعاملة لكبار الشخصيات للشركات الكبرى.' },
               features: [
                 { en: 'Unlimited Employee & Family Visas', ar: 'تأشيرات موظفين وعائلات غير محدودة' },
                 { en: 'VIP Direct Ministry Liaison Officer', ar: 'مسؤول تنسيق وزاري مباشر VIP' },
-                { en: 'Branch & Multiple CR Management', ar: 'إدارة الفروع والسجلات المتعددة' },
-                { en: 'Customized Labor & Audit Compliance', ar: 'امتثال مخصص للعمل والتدقيق' },
-                { en: '24/7 Emergency PRO Support via WhatsApp', ar: 'دعم طوارئ معقب على مدار الساعة عبر واتساب' },
-                { en: 'Free Legal Translation of 50 Pages/mo', ar: 'ترجمة قانونية مجانية لـ 50 صفحة شهرياً' }
+                { en: '24/7 Emergency PRO Support via WhatsApp', ar: 'دعم طوارئ معقب على مدار الساعة عبر واتساب' }
               ]
             }
           ],
           pillars: [
             { title: { en: 'Dedicated Account PRO Officer', ar: 'مسؤول حساب معقب مخصص' }, desc: { en: 'Direct WhatsApp and phone access to your assigned Serve Ease corporate specialist.', ar: 'إمكانية التواصل المباشر عبر واتساب والهاتف مع متخصص الشركات المعين لك.' } },
-            { title: { en: 'Transparent Government Fee Receipts', desc: '100% itemized official government receipts with zero hidden surcharges.', ar: 'إيصالات رسمية حكومية مفصلة بنسبة 100% مع أية رسوم إضافية مخفية.' } },
-            { title: { en: 'Multi-Branch Workforce Coverage', ar: 'تغطية القوى العاملة متعددة الفروع' }, desc: { en: 'Scalable PRO plans for startups, SMEs, and enterprise contractors across Qatar.', ar: 'خطط معقب قابلة للتطوير للشركات الناشئة والصغيرة والمتوسطة والمقاولين في قطر.' } }
+            { title: { en: 'Transparent Government Fee Receipts', ar: 'إيصالات رسمية حكومية مفصلة' }, desc: { en: '100% itemized official government receipts with zero hidden surcharges.', ar: 'إيصالات رسمية حكومية مفصلة بنسبة 100% مع أية رسوم إضافية مخفية.' } }
           ],
           faqs: [
-            { q: { en: 'What is included in the 12 PRO services?', ar: 'ماذا يتضمن خدمات المعقب الـ 12؟' }, a: { en: 'Our comprehensive PRO scope covers work visas, QIDs, CR renewals, Baladiya licenses, establishment cards, labor contracts, family visas, exit permits, MOI updates, Chamber of Commerce, vehicle registration, and police clearances.', ar: 'تغطي خدماتنا تأشيرات العمل، والبطاقات الشخصية، وتجديد السجلات، ورخص البلديات، وبطاقات المنشأة، وعقود العمل، وتأشيرات العائلة، وتصاريح الخروج، وتحديثات الداخلية، وغرفة التجارة، وتسجيل المركبات، والأدلة الجنائية.' } },
-            { q: { en: 'Can we customize the retainer packages?', ar: 'هل يمكننا تخصيص باقات الاشتراك؟' }, a: { en: 'Yes! We can tailor our Startup, Growth SME, or Enterprise packages to match your exact workforce size and operational requirements.', ar: 'نعم! يمكننا تصميم باقاتنا لتناسب حجم القوى العاملة ومتطلبات التشغيل الخاصة بك بدقة.' } },
-            { q: { en: 'How do you handle government fees?', ar: 'كيف تتعاملون مع الرسوم الحكومية؟' }, a: { en: 'Government official fees are billed transparently at actual cost with itemized official receipts.', ar: 'يتم احتساب الرسوم الحكومية الرسمية بكل شفافية بالتكلفة الفعلية مع إيصالات رسمية مفصلة.' } }
+            { q: { en: 'What is included in the PRO services?', ar: 'ماذا يتضمن خدمات المعقب؟' }, a: { en: 'Our comprehensive PRO scope covers work visas, QIDs, CR renewals, Baladiya licenses, establishment cards, and labor contracts.', ar: 'تغطي خدماتنا تأشيرات العمل، والبطاقات الشخصية، وتجديد السجلات، ورخص البلديات، وبطاقات المنشأة، وعقود العمل.' } }
           ]
         },
         'legal-translation': {
@@ -1170,23 +1150,17 @@
           shortDesc: { en: 'Ministry-certified document translation in Doha.', ar: 'ترجمة مستندات معتمدة من الوزارة في الدوحة.' },
           heroImg: 'photo 9.jpg',
           overviewImg: 'photo 8.jpg',
-          bannerBgImg: 'photo1.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 10.jpg',
           overviewHeading: { en: 'Certified Legal Translation Services', ar: 'خدمات الترجمة القانونية المعتمدة' },
           gridHeading: { en: 'Documents We Translate & Certify', ar: 'المستندات التي نترجمها ونصدقها' },
           bannerHeading: { en: 'Court & Ministry Accepted Translations', ar: 'ترجمات معتمدة لدى المحاكم والوزارات' },
           options: [
             { title: { en: 'Articles of Association (AOA)', ar: 'عقد التأسيس (AOA)' }, desc: { en: 'Certified Arabic-English corporate bylaws for MOCI and MOJ.', ar: 'لوائح الشركات المعتمدة باللغتين العربية والإنجليزية لوزارة التجارة والعدل.' } },
-            { title: { en: 'Commercial Contracts & MOUs', desc: 'Legally binding bilingual agreements, NDAs, and supply contracts.', ar: 'اتفاقيات ثنائية اللغة ملزمة قانوناً، واتفاقيات عدم الإفصاح، وعقود التوريد.' } },
-            { title: { en: 'Powers of Attorney (POA)', ar: 'التوكيلات الرسمية (POA)' }, desc: { en: 'Certified translations for notarization and embassy legalization.', ar: 'ترجمات معتمدة للتوثيق والتصديق من السفارات.' } },
-            { title: { en: 'Educational & Personal Certificates', ar: 'الشهادات التعليمية والشخصية' }, desc: { en: 'Degrees, marriage, and birth certificates for QID and family visas.', ar: 'الشهادات الدراسية، وثائق الزواج، وشهادات الميلاد لتأشيرات الإقامة والعائلة.' } },
-            { title: { en: 'Financial Statements & Audits', desc: 'Accurate translation of balance sheets for banks.' }, ar: 'ترجمة دقيقة للميزانيات للبنوك.' },
-            { title: { en: 'Court & Litigation Pleadings', desc: 'Official legal translations accepted by Qatari courts.' }, ar: 'ترجمات قانونية رسمية مقبولة لدى المحاكم القطرية.' }
+            { title: { en: 'Commercial Contracts & MOUs', ar: 'العقود التجارية ومذكرات التفاهم' }, desc: { en: 'Legally binding bilingual agreements, NDAs, and supply contracts.', ar: 'اتفاقيات ثنائية اللغة ملزمة قانوناً، واتفاقيات عدم الإفصاح، وعقود التوريد.' } }
           ],
           pillars: [
-            { title: { en: 'Official Stamp & Certification', ar: 'الختم والتصديق الرسمي' }, desc: { en: 'Accepted across all Qatar ministries, embassies, courts, and banks.', ar: 'مقبولة في جميع وزارات قطر والسفارات والمحاكم والبنوك.' } },
-            { title: { en: 'Same-Day Express Delivery', desc: 'Urgent turnaround within hours for critical corporate filings.' }, ar: 'سرعة الإنجاز في نفس اليوم خلال ساعات للملفات الضرورية.' },
-            { title: { en: 'Strict Confidentiality Protocol', desc: 'Enterprise-grade privacy for sensitive legal and financial records.' }, ar: 'بروتوكول سرية صارم للملفات القانونية والمالية الحساسة.' }
+            { title: { en: 'Official Stamp & Certification', ar: 'الختم والتصديق الرسمي' }, desc: { en: 'Accepted across all Qatar ministries, embassies, courts, and banks.', ar: 'مقبولة في جميع وزارات قطر والسفارات والمحاكم والبنوك.' } }
           ],
           faqs: [
             { q: { en: 'Are your translations accepted by MOFA and Qatari courts?', ar: 'هل ترجماتكم معتمدة من الخارجية والمحاكم القطرية؟' }, a: { en: 'Yes, all translations carry official certified stamps recognized by MOFA, MOJ, and all ministries.', ar: 'نعم، تحمل جميع الترجمات أختاماً رسمية معتمدة من وزارة الخارجية والعدل وجميع الوزارات.' } }
@@ -1199,23 +1173,16 @@
           shortDesc: { en: 'Fast-track attestation of corporate certificates.', ar: 'توثيق سريع لشهادات الشركات والمستندات.' },
           heroImg: 'photo 12.jpg',
           overviewImg: 'photo 11.jpg',
-          bannerBgImg: 'photo 9.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 2.jpg',
           overviewHeading: { en: 'Fast-Track MOFA Document Attestation', ar: 'تصديق مستندات وزارة الخارجية السريع' },
           gridHeading: { en: 'Attestation & Legalization Scope', ar: 'نطاق التصديق والتوثيق' },
           bannerHeading: { en: 'End-to-End Embassy & MOFA Clearance', ar: 'تخليص السفارات والخارجية من البداية للنهاية' },
           options: [
-            { title: { en: 'Corporate Resolution Attestation', ar: 'تصديق قرارات الشركات' }, desc: { en: 'Board resolutions, parent CRs, and Good Standing certificates.', ar: 'قرارات مجلس الإدارة، السجلات الأم، وشهادات حسن السيرة.' } },
-            { title: { en: 'Power of Attorney Legalization', desc: 'Attestation of foreign POAs for use in Qatar.' }, ar: 'تصديق التوكيلات الأجنبية لاستخدامها في قطر.' },
-            { title: { en: 'Commercial Invoices & COO', desc: 'Chamber of Commerce and MOFA export/import document stamps.' }, ar: 'أختام غرفة التجارة والخارجية لمستندات الاستيراد والتصدير.' },
-            { title: { en: 'University Degree Attestation', desc: 'Required for professional work visa titles in Qatar.' }, ar: 'مطلوبة للمسميات الوظيفية المهنية في قطر.' },
-            { title: { en: 'Police Clearance (PCC) Attestation', desc: 'Criminal record legalization for licensing and residency.' }, ar: 'توثيق صحيفة السجل الجنائي للترخيص والإقامة.' },
-            { title: { en: 'Embassy & Foreign Ministry Liaison', desc: 'Complete coordination prior to Qatar MOFA stamping.' }, ar: 'التنسيق الكامل قبل ختم وزارة الخارجية القطرية.' }
+            { title: { en: 'Corporate Resolution Attestation', ar: 'تصديق قرارات الشركات' }, desc: { en: 'Board resolutions, parent CRs, and Good Standing certificates.', ar: 'قرارات مجلس الإدارة، السجلات الأم، وشهادات حسن السيرة.' } }
           ],
           pillars: [
-            { title: { en: 'Doorstep Document Pickup & Drop', ar: 'استلام وتسليم المستندات من الباب للباب' }, desc: { en: 'Convenient courier collection anywhere in Doha.', ar: 'خدمة توصيل مريحة في أي مكان بالدوحة.' } },
-            { title: { en: 'Pre-Verification Check', desc: 'We verify prior embassy seals before submission to prevent rejection.' }, ar: 'نتحقق من أختام السفارات السابقة قبل التقديم لمنع الرفض.' },
-            { title: { en: 'Express Same-Day MOFA Counter Filing', desc: 'Priority processing for urgent corporate tenders and visas.' }, ar: 'معالجة ذات أولوية للمناقصات والتأشيرات العاجلة.' }
+            { title: { en: 'Doorstep Document Pickup & Drop', ar: 'استلام وتسليم المستندات من الباب للباب' }, desc: { en: 'Convenient courier collection anywhere in Doha.', ar: 'خدمة توصيل مريحة في أي مكان بالدوحة.' } }
           ],
           faqs: [
             { q: { en: 'How long does MOFA attestation take once documents arrive in Doha?', ar: 'كم يستغرق تصديق الخارجية بمجرد وصول المستندات للدوحة؟' }, a: { en: 'Usually 1 to 2 working days with our express counter service.', ar: 'عادة من يوم إلى يومي عمل مع خدمة النوافذ السريعة لدينا.' } }
@@ -1228,26 +1195,19 @@
           shortDesc: { en: 'Trusted Qatari corporate sponsors & partners.', ar: 'كفلاء وشركاء قطريون موثوقون.' },
           heroImg: 'photo1.jpg',
           overviewImg: 'photo 3.jpg',
-          bannerBgImg: 'photo 12.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 4.jpg',
           overviewHeading: { en: 'Secure Local Qatari Corporate Sponsorship', ar: 'كفالة الشركات القطرية المحلية الآمنة' },
           gridHeading: { en: 'Partnership & Protection Framework', ar: 'إطار الشراكة والحماية' },
           bannerHeading: { en: '100% Operational & Financial Control', ar: 'تحكم تشغيلي ومالي بنسبة 100%' },
           options: [
-            { title: { en: 'Corporate Qatari Partner', ar: 'شريك قطري اعتباري' }, desc: { en: 'Reputable Qatari holding entities acting as structured 51% partner.', ar: 'كيانات قابضة قطرية مرموقة تعمل كشريك بنسبة 51%.' } },
-            { title: { en: 'Investor Protection Agreements', desc: 'Legally drafted side agreements securing profit share and management.' }, ar: 'اتفاقيات جانبية مصاغة قانونياً تضمن حصة الأرباح والإدارة.' },
-            { title: { en: 'Full Bank Signatory Control', desc: 'Foreign investor retains sole financial and operational authority.' }, ar: 'يحتفظ المستثمر الأجنبي بالسلطة المالية والتشغيلية الوحيدة.' },
-            { title: { en: 'Fixed Annual Sponsorship Fee', desc: 'Transparent, predictable flat annual fee with zero profit percentage.' }, ar: 'رسوم سنوية ثابتة شفافة ومتوقعة بدون نسبة من الأرباح.' },
-            { title: { en: 'Seamless Exit & Transfer Clause', desc: 'Pre-agreed share transfer provisions for future restructuring.' }, ar: 'بنود نقل أسهم متفق عليها مسبقاً لإعادة الهيكلة المستقبلية.' },
-            { title: { en: 'Restricted Activity Access', desc: 'Enables sectors requiring Qatari shareholding under commercial law.' }, ar: 'تمكين القطاعات التي تتطلب مساهمة قطرية بموجب القانون التجاري.' }
+            { title: { en: 'Corporate Qatari Partner', ar: 'شريك قطري اعتباري' }, desc: { en: 'Reputable Qatari holding entities acting as structured 51% partner.', ar: 'كيانات قابضة قطرية مرموقة تعمل كشريك بنسبة 51%.' } }
           ],
           pillars: [
-            { title: { en: 'Vetted Corporate Sponsors', ar: 'كفلاء شركات معتمدين' }, desc: { en: 'Clean legal standing and zero administrative blocks on MOCI/MOI.', ar: 'وضع قانوني نظيف وبدون عوائق إدارية في وزارة التجارة والداخلية.' } },
-            { title: { en: 'Legally Vetted Side Agreements', desc: 'Drafted by corporate legal specialists to protect your equity.' }, ar: 'صيغت بواسطة مختصين قانونيين لحماية حقوقك وأسهمك.' },
-            { title: { en: 'Responsive Signatory Support', desc: 'Immediate cooperation whenever official signatures are needed.' }, ar: 'تعاون فوري كلما دعت الحاجة للتوقيعات الرسمية.' }
+            { title: { en: 'Vetted Corporate Sponsors', ar: 'كفلاء شركات معتمدين' }, desc: { en: 'Clean legal standing and zero administrative blocks on MOCI/MOI.', ar: 'وضع قانوني نظيف وبدون عوائق إدارية في وزارة التجارة والداخلية.' } }
           ],
           faqs: [
-            { q: { en: 'When is a 51% Qatari partner required?', ar: 'متى يلزم وجود شريك قطري بنسبة 51%؟' }, a: { en: 'While most activities allow 100% foreign ownership, certain regulated commercial agencies and specialized sectors still benefit from or require a Qatari partner.', ar: 'بينما تسمح معظم الأنشطة بملكية أجنبية كاملة، فإن بعض الوكالات التجارية والقطاعات المتخصصة لا تزال تستفيد أو تتطلب شريكاً قطرياً.' } }
+            { q: { en: 'When is a 51% Qatari partner required?', ar: 'متى يلزم وجود شريك قطري بنسبة 51%؟' }, a: { en: 'While most activities allow 100% foreign ownership, certain regulated commercial agencies and specialized sectors still benefit from or require a Qatari partner.', ar: 'بينما تسمح معظم الأنشطة بملكية أجنبية كاملة، فإن بعض الوكالات التجارية والقطاعات تخصصة تزال تستفيد أو تتطلب شريكاً قطرياً.' } }
           ]
         },
         'corporate-banking': {
@@ -1257,23 +1217,16 @@
           shortDesc: { en: 'Assistance with leading Qatari bank account opening.', ar: 'المساعدة في فتح حسابات البنوك القطرية.' },
           heroImg: 'photo 9.jpg',
           overviewImg: 'photo 5.jpg',
-          bannerBgImg: 'photo1.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 6.jpg',
           overviewHeading: { en: 'Corporate Bank Account Opening in Qatar', ar: 'فتح حسابات بنوك الشركات في قطر' },
           gridHeading: { en: 'Banking & KYC Support Services', ar: 'خدمات الدعم المصرفي وامتثال اعرف عميلك' },
           bannerHeading: { en: 'Fast-Track Qatari Bank Onboarding', ar: 'انضمام سريع للبنوك القطرية' },
           options: [
-            { title: { en: 'QNB, QIB, CBQ & Dukhan Bank', ar: 'بنك قطر الوطني، المصرف، التجاري، ودخان' }, desc: { en: 'Direct relationship manager introductions at top Qatari banks.', ar: 'مقدمات مباشرة لمديري العلاقات في أفضل البنوك القطرية.' } },
-            { title: { en: 'KYC & Compliance File Preparation', desc: 'Complete UBO declarations, business profile, and source-of-funds dossier.' }, ar: 'إعداد ملفات الامتثال والإفصاح عن المستفيد الحقيقي وملف مصدر الأموال.' },
-            { title: { en: 'Multi-Currency Accounts (QAR/USD/EUR)', desc: 'Setup of operating accounts for international trade.' }, ar: 'إعداد حسابات التشغيل للتجارة الدولية بالعملات المختلفة.' },
-            { title: { en: 'POS & Payment Gateway Readiness', desc: 'Merchant account support including SkipCash & local payment integration.' }, ar: 'دعم حسابات التجار بما في ذلك دمج سكيب كاش والدفع المحلي.' },
-            { title: { en: 'WPS Payroll Account Setup', desc: 'Wage Protection System activation for staff salaries.' }, ar: 'تفعيل نظام حماية الأجور (WPS) لرواتب الموظفين.' },
-            { title: { en: 'Trade Finance & LC Advisory', desc: 'Guidance on Letters of Credit and bank guarantees.' }, ar: 'إرشادات حول خطابات الاعتماد والضمانات البنكية.' }
+            { title: { en: 'QNB, QIB, CBQ & Dukhan Bank', ar: 'بنك قطر الوطني، المصرف، التجاري، ودخان' }, desc: { en: 'Direct relationship manager introductions at top Qatari banks.', ar: 'مقدمات مباشرة لمديري العلاقات في أفضل البنوك القطرية.' } }
           ],
           pillars: [
-            { title: { en: 'Zero-Rejection KYC Packaging', ar: 'تجهيز ملفات خالية من أسباب الرفض' }, desc: { en: 'We organize all corporate and shareholder compliance documents to meet strict central bank standards.', ar: 'ننظم جميع مستندات امتثال الشركة والمساهمين لتلبية معايير البنك المركزي الصارمة.' } },
-            { title: { en: 'Dedicated Relationship Managers', desc: 'Skip long branch queues with direct corporate banker appointments.' }, ar: 'تخطي طوابير الفروع الطويلة بمواعيد مباشرة مع مسؤولي الشركات بالبنوك.' },
-            { title: { en: 'IBAN Activation Follow-Up', desc: 'Continuous tracking until your corporate IBAN and online banking token are active.' }, ar: 'متابعة مستمرة حتى تفعيل رقم الحساب الدولي (IBAN) وتوكن الخدمات المصرفية عبر الإنترنت.' }
+            { title: { en: 'Zero-Rejection KYC Packaging', ar: 'تجهيز ملفات خالية من أسباب الرفض' }, desc: { en: 'We organize all corporate and shareholder compliance documents to meet strict central bank standards.', ar: 'ننظم جميع مستندات امتثال الشركة والمساهمين لتلبية معايير البنك المركزي الصارمة.' } }
           ],
           faqs: [
             { q: { en: 'How long does it take to open a corporate bank account in Qatar?', ar: 'كم يستغرق فتح حساب بنكي للشركة في قطر؟' }, a: { en: 'With a complete KYC file prepared by Serve Ease, accounts typically open within 1 to 2 weeks.', ar: 'مع اكتمال ملف اعرف عميلك الذي تعده سيرف إيز، عادة ما يتم فتح الحسابات خلال أسبوع إلى أسبوعين.' } }
@@ -1286,22 +1239,16 @@
           shortDesc: { en: 'Market research & structured business planning.', ar: 'أبحاث السوق وتخطيط الأعمال المنظم.' },
           heroImg: 'photo 12.jpg',
           overviewImg: 'photo 7.jpg',
-          bannerBgImg: 'photo 9.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 8.jpg',
           overviewHeading: { en: 'Bankable Feasibility Studies & Business Plans', ar: 'دراسات جدوى وخطط عمل معتمدة بنكياً' },
           gridHeading: { en: 'Advisory & Financial Modeling Scope', ar: 'نطاق الاستشارات والنمذجة المالية' },
           bannerHeading: { en: 'Data-Driven Market Entry in Qatar', ar: 'دخول السوق القطري المستند إلى البيانات' },
           options: [
-            { title: { en: 'MOCI / QFC / QFZ Business Plans', ar: 'خطط عمل وزارة التجارة / مركز قطر للمال / المناطق الحرة' }, desc: { en: 'Tailored business plans required for 100% foreign ownership and free zone licensing.', ar: 'خطط عمل مخصصة مطلوبة لترخيص الملكية الأجنبية بنسبة 100% والمناطق الحرة.' } },
-            { title: { en: '5-Year Financial Projections', desc: 'Detailed P&L, cash flow, ROI, and break-even analysis.' }, ar: 'توقعات مالية لمدة 5 سنوات، الأرباح والخسائر، التدفقات النقدية وتحليل نقطة التعادل.' },
-            { title: { en: 'Qatar Market & Competitor Research', desc: 'Sector demand assessment across Doha and regional GCC markets.' }, ar: 'تقييم طلب القطاع عبر الدوحة وأسواق دول مجلس التعاون الخليجي.' },
-            { title: { en: 'QDB & Bank Financing Reports', desc: 'Comprehensive feasibility studies formatted for institutional funding.' }, ar: 'دراسات جدوى شاملة منسقة للتمويل المؤسسي من بنك قطر للتنمية والبنوك.' },
-            { title: { en: 'CAPEX & OPEX Budgeting', desc: 'Accurate setup, licensing, fit-out, and staffing cost schedules.' }, ar: 'جداول دقيقة لتكاليف التأسيس والتراخيص والتجهيزات والموظفين.' }
+            { title: { en: 'MOCI / QFC / QFZ Business Plans', ar: 'خطط عمل وزارة التجارة / مركز قطر للمال / المناطق الحرة' }, desc: { en: 'Tailored business plans required for 100% foreign ownership and free zone licensing.', ar: 'خطط عمل مخصصة مطلوبة لترخيص الملكية الأجنبية بنسبة 100% والمناطق الحرة.' } }
           ],
           pillars: [
-            { title: { en: 'Ministry & Free Zone Approved Format', ar: 'صيغة معتمدة من الوزارات والمناطق الحرة' }, desc: { en: 'Structured specifically to satisfy QFC, QFZ, and MOCI licensing committees.', ar: 'مصممة خصيصاً لتلبية متطلبات لجان الترخيص في مركز قطر للمال والمناطق الحرة ووزارة التجارة.' } },
-            { title: { en: 'Doha Sector Benchmarks', desc: 'Grounded in real local rental, labor, and regulatory cost metrics.' }, ar: 'مستندة إلى مقاييس الإيجار والعمالة والتكاليف التنظيمية الحقيقية في الدوحة.' },
-            { title: { en: 'Executive Presentation Deck', desc: 'Includes both a detailed financial model and an investor-ready summary.' }, ar: 'يتضمن نموذجاً مالياً مفصلاً وملخصاً جاهزاً للمستثمرين.' }
+            { title: { en: 'Ministry & Free Zone Approved Format', ar: 'صيغة معتمدة من الوزارات والمناطق الحرة' }, desc: { en: 'Structured specifically to satisfy QFC, QFZ, and MOCI licensing committees.', ar: 'مصممة خصيصاً لتلبية متطلبات لجان الترخيص في مركز قطر للمال والمناطق الحرة ووزارة التجارة.' } }
           ],
           faqs: [
             { q: { en: 'Is a business plan mandatory for QFC or QFZ registration?', ar: 'هل خطة العمل إجبارية لتسجيل مركز قطر للمال أو المناطق الحرة؟' }, a: { en: 'Yes, both QFC and QFZ require a structured business plan and 3-to-5-year financial forecast prior to license issuance.', ar: 'نعم، يتطلب كل من مركز قطر للمال والمناطق الحرة خطة عمل منظمة وتوقعات مالية لمدة 3 إلى 5 سنوات قبل إصدار الرخصة.' } }
@@ -1316,23 +1263,16 @@
           shortDesc: { en: 'Ministry of Sports & Youth and Municipal approvals.', ar: 'موافقات وزارة الرياضة والشباب والبلدية.' },
           heroImg: 'photo1.jpg',
           overviewImg: 'photo 10.jpg',
-          bannerBgImg: 'photo 12.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 11.jpg',
           overviewHeading: { en: 'Complete Gym & Fitness Center Licensing', ar: 'ترخيص الصالات الرياضية ومراكز اللاقة البدنية بالكامل' },
           gridHeading: { en: 'Fitness Facility Approval Requirements', ar: 'متطلبات الموافقة على منشآت اللاقة البدنية' },
           bannerHeading: { en: 'Ministry of Sports & Youth Clearance', ar: 'تصريح وزارة الرياضة والشباب' },
           options: [
-            { title: { en: 'Ministry of Sports & Youth NOC', ar: 'شهادة عدم ممانعة وزارة الرياضة والشباب' }, desc: { en: 'Official preliminary and final technical approval for sports and fitness clubs.', ar: 'الموافقة الفنية الرسمية الأولية والنهائية للأندية الرياضية ومراكز اللاقة.' } },
-            { title: { en: 'Architectural Layout & Zoning Check', desc: 'Verification of floor area, gender-segregated zones, and changing rooms.' }, ar: 'التحقق من مساحة الطابق، والمناطق المفصولة للجنسين، وغرف تبديل الملابس.' },
-            { title: { en: 'Civil Defense (QCDF) Safety Clearance', desc: 'Fire alarm, emergency exit, and ventilation compliance.' }, ar: 'الامتثال لأنظمة إنذار الحريق ومخارج الطوارئ والتهوية.' },
-            { title: { en: 'Baladiya Commercial Trade License', desc: 'Municipality inspection and commercial signboard approval.' }, ar: 'تفتيش البلدية والموافقة على اللوحة التجارية.' },
-            { title: { en: 'Certified Trainer Qualifications', desc: 'Attestation of coaching and fitness instructor credentials.' }, ar: 'تصديق شهادات ومؤهلات المدربين الرياضيين.' },
-            { title: { en: 'Equipment & Safety Standards', desc: 'Compliance with national health and safety regulations.' }, ar: 'الامتثال للوائح الصحة والسلامة الوطنية.' }
+            { title: { en: 'Ministry of Sports & Youth NOC', ar: 'شهادة عدم ممانعة وزارة الرياضة والشباب' }, desc: { en: 'Official preliminary and final technical approval for sports and fitness clubs.', ar: 'الموافقة الفنية الرسمية الأولية والنهائية للأندية الرياضية ومراكز اللاقة.' } }
           ],
           pillars: [
-            { title: { en: 'Pre-Lease Location Assessment', ar: 'تقييم الموقع قبل استئجاره' }, desc: { en: 'We verify building zoning before you sign a lease to avoid costly rejection.', ar: 'نتحقق من تخصيص المبنى قبل توقيع العقد لتجنب الرفض المكلف.' } },
-            { title: { en: 'End-to-End Ministry Portal Submission', desc: 'Complete handling of technical drawings and ministry inspections.' }, ar: 'التعامل الكامل مع تقديم الرسومات الهندسية وتفتيش الوزارة.' },
-            { title: { en: 'Fast-Track Opening Timeline', desc: 'Coordinated parallel approvals with QCDF and Baladiya.' }, ar: 'تنسيق الموافقات المتوازنة مع الدفاع المدني والبلدية.' }
+            { title: { en: 'Pre-Lease Location Assessment', ar: 'تقييم الموقع قبل استئجاره' }, desc: { en: 'We verify building zoning before you sign a lease to avoid costly rejection.', ar: 'نتحقق من تخصيص المبنى قبل توقيع العقد لتجنب الرفض المكلف.' } }
           ],
           faqs: [
             { q: { en: 'Which ministries approve a gym in Qatar?', ar: 'ما هي الوزارات التي توافق على افتتاح صالة رياضية في قطر؟' }, a: { en: 'A gym requires MOCI Commercial Registration, Ministry of Sports & Youth approval, Civil Defense (QCDF) clearance, and Baladiya Trade License.', ar: 'تتطلب الصالة الرياضية سجلاً تجارياً من وزارة التجارة، وموافقة وزارة الرياضة والشباب، وتصريح الدفاع المدني، ورخصة بلدية.' } }
@@ -1345,23 +1285,16 @@
           shortDesc: { en: 'MOT clearances for delivery and logistics fleets.', ar: 'تصاريح وزارة المواصلات لأساطيل التوصيل والخدمات اللوجستية.' },
           heroImg: 'photo 9.jpg',
           overviewImg: 'photo 2.jpg',
-          bannerBgImg: 'photo1.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 3.jpg',
           overviewHeading: { en: 'Ministry of Transport (MOT) Activity Approvals', ar: 'موافقات أنشطة وزارة المواصلات' },
           gridHeading: { en: 'Transport & Logistics License Categories', ar: 'فئات تراخيص النقل والخدمات اللوجستية' },
           bannerHeading: { en: 'MOT Fleet & Logistics Compliance', ar: 'امتثال أساطيل النقل والخدمات اللوجستية لوزارة المواصلات' },
           options: [
-            { title: { en: 'Delivery & Courier Service Approval', ar: 'موافقة خدمة التوصيل والبريد السريع' }, desc: { en: 'MOT clearance for e-commerce and food delivery motorcycle/van fleets.', ar: 'تصريح وزارة المواصلات لأساطيل دراجات وسيارات توصيل التجارة الإلكترونية والأغذية.' } },
-            { title: { en: 'Land Freight & Cargo Transport', desc: 'Heavy truck and commercial goods transportation licensing.' }, ar: 'ترخيص الشاحنات الثقيلة ونقل البضائع التجارية.' },
-            { title: { en: 'Limousine & Passenger Transport', desc: 'Chauffeur and private passenger fleet regulatory approvals.' }, ar: 'الموافقات التنظيمية لأساطيل السائقين ونقل الركاب الخصوصي.' },
-            { title: { en: 'Car Rental & Leasing Approval', desc: 'MOT authorization for commercial vehicle rental agencies.' }, ar: 'ترخيص وزارة المواصلات لوكالات تأجير السيارات التجارية.' },
-            { title: { en: 'Fleet Parking & Yard Verification', desc: 'Approved commercial parking yard lease documentation.' }, ar: 'توثيق عقود مواقف وساحات الأساطيل التجارية المعتمدة.' },
-            { title: { en: 'Traffic Department Fleet Registration', desc: 'Commercial plate issuance and MOI Traffic coordination.' }, ar: 'إصدار اللوحات التجارية والتنسيق مع مرور وزارة الداخلية.' }
+            { title: { en: 'Delivery & Courier Service Approval', ar: 'موافقة خدمة التوصيل والبريد السريع' }, desc: { en: 'MOT clearance for e-commerce and food delivery motorcycle/van fleets.', ar: 'تصريح وزارة المواصلات لأساطيل دراجات وسيارات توصيل التجارة الإلكترونية والأغذية.' } }
           ],
           pillars: [
-            { title: { en: 'MOT Technical File Preparation', ar: 'إعداد الملف الفني لوزارة المواصلات' }, desc: { en: 'Complete fleet operational plan, parking agreements, and safety manuals.', ar: 'خطة تشغيل الأساطيل الكاملة، عقود المواقف، وأدلة السلامة.' } },
-            { title: { en: 'MOCI Activity Activation', desc: 'Adding restricted transport activities onto your Commercial Registration.' }, ar: 'إضافة أنشطة النقل المقيدة على سجلك التجاري.' },
-            { title: { en: 'Traffic Department Integration', desc: 'Seamless transition from MOT approval to vehicle registration.' }, ar: 'انتقال سلس من موافقة وزارة المواصلات إلى تسجيل المركبات.' }
+            { title: { en: 'MOT Technical File Preparation', ar: 'إعداد الملف الفني لوزارة المواصلات' }, desc: { en: 'Complete fleet operational plan, parking agreements, and safety manuals.', ar: 'خطة تشغيل الأساطيل الكاملة، عقود المواقف، وأدلة السلامة.' } }
           ],
           faqs: [
             { q: { en: 'Do delivery companies need MOT approval before buying bikes or vans?', ar: 'هل تحتاج شركات التوصيل لموافقة وزارة المواصلات قبل شراء الدراجات أو السيارات؟' }, a: { en: 'Yes, MOT approval and MOCI activity activation are mandatory before registering commercial delivery vehicles.', ar: 'نعم، موافقة وزارة المواصلات وتفعيل النشاط بوزارة التجارة إلزامي قبل تسجيل مركبات التوصيل التجارية.' } }
@@ -1374,23 +1307,16 @@
           shortDesc: { en: 'Civil Defense building safety inspection and certification.', ar: 'التفتيش على سلامة المباني وشهادات الدفاع المدني.' },
           heroImg: 'photo 12.jpg',
           overviewImg: 'photo 4.jpg',
-          bannerBgImg: 'photo 9.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 5.jpg',
           overviewHeading: { en: 'Qatar Civil Defense (QCDF) Fire Safety Clearance', ar: 'تصريح السلامة من الحريق للدفاع المدني القطري' },
           gridHeading: { en: 'Civil Defense Certification Services', ar: 'خدمات شهادات الدفاع المدني' },
           bannerHeading: { en: 'QCDF Inspection & Certificate Issuance', ar: 'تفتيش وإصدار شهادات الدفاع المدني' },
           options: [
-            { title: { en: 'Commercial Office & Shop QCDF', ar: 'دفاع مدني المكاتب والمحلات التجارية' }, desc: { en: 'Civil Defense certificate required for Municipality Trade License issuance.', ar: 'شهادة الدفاع المدني المطلوبة لإصدار رخصة البلدية التجارية.' } },
-            { title: { en: 'Warehouse & Industrial Fire Safety', desc: 'Sprinkler, fire pump, and hazard storage compliance.' }, ar: 'الامتثال لأنظمة المرشات، مضخات الحريق، وتخزين المواد الخطرة.' },
-            { title: { en: 'Restaurant & Kitchen Suppression', desc: 'Hood fire suppression and LPG gas safety approvals.' }, ar: 'موافقات إخماد الحريق في شفاطات المطابخ وسلامة الغاز.' },
-            { title: { en: 'Approved Fire Contractor Coordination', desc: 'Liaison with QCDF-certified MEP engineers and drawings.' }, ar: 'التنسيق مع مهندسي الكهروميكانيكا والرسومات المعتمدة من الدفاع المدني.' },
-            { title: { en: 'Annual Civil Defense Renewal', desc: 'Maintenance contract verification and certificate renewal.' }, ar: 'التحقق من عقود الصيانة وتجديد الشهادة السنوية.' },
-            { title: { en: 'Pre-Inspection Site Audit', desc: 'Checklist walkthrough prior to official QCDF officer visit.' }, ar: 'جولة تدقيق للموقع قبل زيارة ضابط الدفاع المدني الرسمي.' }
+            { title: { en: 'Commercial Office & Shop QCDF', ar: 'دفاع مدني المكاتب والمحلات التجارية' }, desc: { en: 'Civil Defense certificate required for Municipality Trade License issuance.', ar: 'شهادة الدفاع المدني المطلوبة لإصدار رخصة البلدية التجارية.' } }
           ],
           pillars: [
-            { title: { en: 'Zero-Delay Trade License Unlock', desc: 'QCDF approval is mandatory for Baladiya license issuance and renewal.' }, ar: 'موافقة الدفاع المدني إلزامية لإصدار وتجديد رخصة البلدية بدون تأخير.' },
-            { title: { en: 'Certified Engineering Drawings', desc: 'Coordination with accredited fire safety consultants.' }, ar: 'التنسيق مع استشاريي السلامة من الحريق المعتمدين.' },
-            { title: { en: 'Complete Portal Tracking', desc: 'We manage all QCDF e-services applications and inspection appointments.' }, ar: 'ندير جميع طلبات الخدمات الإلكترونية للدفاع المدني ومواعيد التفتيش.' }
+            { title: { en: 'Zero-Delay Trade License Unlock', desc: 'QCDF approval is mandatory for Baladiya license issuance and renewal.' }, ar: 'موافقة الدفاع المدني إلزامية لإصدار وتجديد رخصة البلدية بدون تأخير.' }
           ],
           faqs: [
             { q: { en: 'Is Civil Defense approval required for every commercial office?', ar: 'هل موافقة الدفاع المدني مطلوبة لكل مكتب تجاري؟' }, a: { en: 'Yes, every commercial office, shop, restaurant, and warehouse must hold a valid QCDF certificate.', ar: 'نعم، يجب أن يحمل كل مكتب تجاري، محل، مطعم، ومستودع شهادة سارية المفعول من الدفاع المدني.' } }
@@ -1399,27 +1325,20 @@
         'traffic-clearance': {
           title: { en: 'Traffic Department Clearance', ar: 'تصريح إدارة المرور' },
           badge: { en: 'MOI TRAFFIC DEPARTMENT', ar: 'إدارة المرور بوزارة الداخلية' },
-          subtitle: { en: 'Ministry of Interior Traffic Department clearances for commercial activities, parking, and fleet.', ar: 'تصاريح إدارة المرور بوزارة الداخلية للأنشطة التجارية والمواقف والأساطيل.' },
+          subtitle: { en: 'Ministry of Interior Traffic Department clearances for commercial activities, parking, and fleet.', ar: 'تصاريح إدارة المرور بوزارة الداخلية للأنشطة التجارية والموافق والأساطيل.' },
           shortDesc: { en: 'MOI Traffic Dept. clearances for vehicles & parking.', ar: 'تصاريح إدارة المرور للمركبات والمواقف.' },
           heroImg: 'photo1.jpg',
           overviewImg: 'photo 6.jpg',
-          bannerBgImg: 'photo 12.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 7.jpg',
           overviewHeading: { en: 'MOI Traffic Department Commercial Clearances', ar: 'التصاريح التجارية لإدارة المرور بوزارة الداخلية' },
           gridHeading: { en: 'Traffic & Fleet Regulatory Services', ar: 'خدمات تنظيم المرور والأساطيل' },
           bannerHeading: { en: 'Commercial Vehicle & Location Clearances', ar: 'تصاريح المركبات والمواقع التجارية' },
           options: [
-            { title: { en: 'Commercial Vehicle Registration', ar: 'تسجيل المركبات التجارية' }, desc: { en: 'Company fleet registration, commercial plates, and ownership transfers.', ar: 'تسجيل أساطيل الشركات، اللوحات التجارية، ونقل الملكيات.' } },
-            { title: { en: 'Traffic Impact & Parking Clearance', desc: 'Location approval for showrooms, workshops, and high-traffic venues.' }, ar: 'موافقة الموقع لصالات العرض والورش والأماكن ذات الحركة المرورية العالية.' },
-            { title: { en: 'Auto Workshop & Garage Approval', desc: 'Traffic and Baladiya approvals for vehicle repair and detailing centers.' }, ar: 'موافقات المرور والبلدية لورش إصلاح وتلميع السيارات.' },
-            { title: { en: 'Driving School & Training NOC', desc: 'Regulatory clearance for transport training institutes.' }, ar: 'التصريح التنظيمي لمعاهد تدريب النقل.' },
-            { title: { en: 'Heavy Equipment & Crane Permits', desc: 'Special road permits and registration for construction machinery.' }, ar: 'تصاريح الطرق الخاصة وتسجيل معدات البناء والرافعة.' },
-            { title: { en: 'Company Traffic File Management', desc: 'Metrash2 corporate traffic profile and violation clearance.' }, ar: 'إدارة الملف المروري المؤسسي لمطراش 2 وتخليص المخالفات.' }
+            { title: { en: 'Commercial Vehicle Registration', ar: 'تسجيل المركبات التجارية' }, desc: { en: 'Company fleet registration, commercial plates, and ownership transfers.', ar: 'تسجيل أساطيل الشركات، اللوحات التجارية، ونقل الملكيات.' } }
           ],
           pillars: [
-            { title: { en: 'Fast MOI Counter & Digital Processing', desc: 'Handled by experienced PROs familiar with Traffic Department standards.' }, ar: 'تتم إدارتها بواسطة معقبين ذوي خبرة ومطلعين على معايير إدارة المرور.' },
-            { title: { en: 'Site Access & Parking Verification', desc: 'Ensuring your commercial premises meet municipal traffic norms.' }, ar: 'ضمان استيفاء مقراتكم التجارية لمعايير المرور والبلدية.' },
-            { title: { en: 'Complete Fleet Documentation', desc: 'Insurance, Fahes inspection, and Istimara renewal management.' }, ar: 'إدارة التأمين، فحص فاحص، وتجديد الاستمارة.' }
+            { title: { en: 'Fast MOI Counter & Digital Processing', desc: 'Handled by experienced PROs familiar with Traffic Department standards.' }, ar: 'تتم إدارتها بواسطة معقبين ذوي خبرة ومطلعين على معايير إدارة المرور.' }
           ],
           faqs: [
             { q: { en: 'When is Traffic Department clearance needed for a trade license?', ar: 'متى يلزم تصريح إدارة المرور لرخصة التجارة؟' }, a: { en: 'It is required for automotive workshops, car showrooms, rental agencies, transport firms, and high-footfall commercial venues.', ar: 'مطلوب لورش صيانة السيارات، صالات العرض، وكالات التأجير، شركات النقل، والأماكن التجارية ذات الإقبال الكبير.' } }
@@ -1432,23 +1351,16 @@
           shortDesc: { en: 'Municipality Trade License & signboard approvals.', ar: 'رخصة البلدية وتصاريح اللوحات الإعلانية.' },
           heroImg: 'photo 9.jpg',
           overviewImg: 'photo 8.jpg',
-          bannerBgImg: 'photo1.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 10.jpg',
           overviewHeading: { en: 'Baladiya Commercial Trade License & Signage', ar: 'رخصة بلدية التجارة واللوحات الإعلانية' },
           gridHeading: { en: 'Municipality Licensing Services', ar: 'خدمات تراخيص البلدية' },
           bannerHeading: { en: 'Full Premise & Trade License Compliance', ar: 'الامتثال الكامل للمقر والرخصة التجارية' },
           options: [
-            { title: { en: 'New Trade License Issuance', ar: 'إصدار رخصة تجارية جديدة' }, desc: { en: 'Complete Baladiya application following Commercial Registration.', ar: 'إكمال طلب البلدية بعد استخراج السجل التجاري.' } },
-            { title: { en: 'Commercial Signboard Permit', desc: 'Arabic-English shopfront signage design and municipality approval.' }, ar: 'تصميم لوحة المحل بالعربية والإنجليزية وموافقة البلدية.' },
-            { title: { en: 'Lease Contract Attestation', desc: 'Registration of commercial lease with Municipality.' }, ar: 'توثيق عقد الإيجار التجاري مع البلدية.' },
-            { title: { en: 'Premise Location Change', desc: 'Transferring existing Trade License to a new Doha office or shop.' }, ar: 'نقل الرخصة التجارية الحالية إلى مكتب أو محل جديد في الدوحة.' },
-            { title: { en: 'Annual Trade License Renewal', desc: 'Timely renewal to prevent municipality fines or CR blocks.' }, ar: 'التجديد السنوي في الوقت المناسب لمنع غرامات البلدية أو إيقاف السجل.' },
-            { title: { en: 'Inspector Walkthrough Coordination', desc: 'On-site presence during Baladiya premise inspection.' }, ar: 'التواجد الميداني أثناء تفتيش مقرات البلدية.' }
+            { title: { en: 'New Trade License Issuance', ar: 'إصدار رخصة تجارية جديدة' }, desc: { en: 'Complete Baladiya application following Commercial Registration.', ar: 'إكمال طلب البلدية بعد استخراج السجل التجاري.' } }
           ],
           pillars: [
-            { title: { en: 'Zoning & Building Completion Check', desc: 'We verify building occupancy permits before submission.' }, ar: 'نتحقق من تصاريح إشغال المباني قبل التقديم.' },
-            { title: { en: 'Bilingual Signboard Compliance', desc: 'Ensuring Arabic text prominence meets Qatari signage law.' }, ar: 'ضمان بروز النص العربي وفقاً لقانون اللوحات الإعلانية القطري.' },
-            { title: { en: '3-to-5 Day Fast Issuance', desc: 'Streamlined online submission and inspection scheduling.' }, ar: 'تقديم إلكتروني مبسط وجدولة التفتيش خلال 3 إلى 5 أيام.' }
+            { title: { en: 'Zoning & Building Completion Check', desc: 'We verify building occupancy permits before submission.' }, ar: 'نتحقق من تصاريح إشغال المباني قبل التقديم.' }
           ],
           faqs: [
             { q: { en: 'Can I operate with only a CR before getting the Baladiya Trade License?', ar: 'هل يمكنني العمل بالسجل التجاري فقط قبل الحصول على رخصة البلدية؟' }, a: { en: 'No, a valid Baladiya Trade License is legally required to open your premises, hire staff, and issue visas.', ar: 'لا، رخصة البلدية السارية مطلوبة قانوناً لفتح المقر وتوظيف الموظفين وإصدار التأشيرات.' } }
@@ -1461,23 +1373,16 @@
           shortDesc: { en: 'MOPH clearances for restaurants, cafes & food trading.', ar: 'تصاريح وزارة الصحة للمطاعم والمقاهي وتجارة الأغذية.' },
           heroImg: 'photo 12.jpg',
           overviewImg: 'photo 11.jpg',
-          bannerBgImg: 'photo 9.jpg',
+          bannerBgImg: 'bg.jpg',
           bannerImg: 'photo 2.jpg',
           overviewHeading: { en: 'MOPH Food Safety & Restaurant Licensing', ar: 'سلامة الأغذية وترخيص المطاعم من وزارة الصحة' },
           gridHeading: { en: 'Hospitality & Food Business Approvals', ar: 'موافقات قطاع الضيافة والأغذية' },
           bannerHeading: { en: 'End-to-End Restaurant & Catering Setup', ar: 'تأسيس المطاعم وخدمات الإعاشة بالكامل' },
           options: [
-            { title: { en: 'Restaurant & Cafe Health License', ar: 'رخصة صحية للمطاعم والمقاهي' }, desc: { en: 'Kitchen layout approval, grease trap compliance, and MOPH inspection.' }, ar: 'موافقة تصميم المطبخ، الامتثال لمصائد الدهون، وتفتيش وزارة الصحة.' },
-            { title: { en: 'Cloud Kitchen & Catering Approval', desc: 'Commercial kitchen licensing for delivery-only food brands.' }, ar: 'ترخيص المطابخ التجارية للعلامات الغذائية المخصصة للتوصيل فقط.' },
-            { title: { en: 'Food Import & Trading Registration', desc: 'Watheq system registration for importing packaged food products.' }, ar: 'التسجيل في نظام وثيق لاستيراد المنتجات الغذائية المعلبة.' },
-            { title: { en: 'Staff Food Handler Certificates', desc: 'Mandatory MOPH medical and hygiene training coordination.' }, ar: 'تنسيق الفحوصات الطبية الإجبارية وتدريب النظافة لمتداولي الأغذية.' },
-            { title: { en: 'Pest Control & Hygiene Contracts', desc: 'Approved municipal pest control certification.' }, ar: 'شهادات مكافحة الآفات والنظافة البلدية المعتمدة.' },
-            { title: { en: 'Food Transport Vehicle Permit', desc: 'Refrigerated van health certification from MOPH.' }, ar: 'الشهادة الصحية لسيارات النقل المبردة من وزارة الصحة.' }
+            { title: { en: 'Restaurant & Cafe Health License', ar: 'رخصة صحية للمطاعم والمقاهي' }, desc: { en: 'Kitchen layout approval, grease trap compliance, and MOPH inspection.' }, ar: 'موافقة تصميم المطبخ، الامتثال لمصائد الدهون، وتفتيش وزارة الصحة.' }
           ],
           pillars: [
-            { title: { en: 'Kitchen Engineering Layout Review', ar: 'مراجعة التصميم الهندسي للمطبخ' }, desc: { en: 'Ensuring prep, cooking, storage, and wash areas pass MOPH standards.', ar: 'ضمان اجتياز مناطق التحضير والطبخ والتخزين والغسيل لمعايير وزارة الصحة.' } },
-            { title: { en: 'Parallel QCDF & Baladiya Execution', ar: 'التنفيذ المتوازي مع الدفاع المدني والبلدية' }, desc: { en: 'Coordinating Civil Defense gas safety alongside MOPH inspection.', ar: 'تنسيق سلامة غاز الدفاع المدني جنباً إلى جنب مع تفتيش وزارة الصحة.' },
-            { title: { en: 'Rapid Launch Readiness', desc: 'Helping restaurants and grills open on schedule.' }, ar: 'مساعدة المطاعم والمشاوي على الافتتاح في الموعد المحدد.' }
+            { title: { en: 'Kitchen Engineering Layout Review', ar: 'مراجعة التصميم الهندسي للمطبخ' }, desc: { en: 'Ensuring prep, cooking, storage, and wash areas pass MOPH standards.', ar: 'ضمان اجتياز مناطق التحضير والطبخ والتخزين والغسيل لمعايير وزارة الصحة.' } }
           ],
           faqs: [
             { q: { en: 'What approvals are needed to open a restaurant in Doha?', ar: 'ما هي الموافقات المطلوبة لفتح مطعم في الدوحة؟' }, a: { en: 'You need MOCI CR, Baladiya Trade License, Civil Defense (QCDF) safety certificate, and MOPH Food Safety approval.', ar: 'تحتاج إلى سجل تجاري من وزارة التجارة، رخصة بلدية، شهادة سلامة الدفاع المدني، وموافقة سلامة الأغذية من وزارة الصحة.' } }
@@ -1490,77 +1395,27 @@
       { code: '479101', name: { en: 'E-Commerce Retail of Electronics & Smart Devices', ar: 'تجارة التجزئة الإلكترونية للأجهزة الإلكترونية والذكية' }, sector: { en: 'Technology & Electronics', ar: 'التكنولوجيا والإلكترونيات' } },
       { code: '479102', name: { en: 'Online Marketplace & Multi-Vendor Platform Operation', ar: 'تشغيل الأسواق عبر الإنترنت ومنصات متعددة البائعين' }, sector: { en: 'Digital Platforms', ar: 'المنصات الرقمية' } },
       { code: '479103', name: { en: 'E-Commerce Retail of Fashion, Apparel & Footwear', ar: 'تجارة التجزئة الإلكترونية للأزياء والملابس والأحذية' }, sector: { en: 'Fashion & Retail', ar: 'الأزياء والتجزئة' } },
-      { code: '479104', name: { en: 'Online Sale of Perfumes, Cosmetics & Personal Care', ar: 'بيع العطور ومستحضرات التجميل والعناية الشخصية عبر الإنترنت' }, sector: { en: 'Beauty & Wellness', ar: 'الجمال والعافية' } },
-      { code: '479105', name: { en: 'E-Commerce Retail of Furniture & Home Decor', ar: 'تجارة التجزئة الإلكترونية للأثاث والديكور المنزلي' }, sector: { en: 'Home & Living', ar: 'المنزل والحياة' } },
-      { code: '479106', name: { en: 'Online Grocery & Packaged Food Delivery Store', ar: 'متجر توصيل البقالة والأغذية المعلبة عبر الإنترنت' }, sector: { en: 'Food & Beverage', ar: 'الأغذية والمشروبات' } },
-      { code: '479107', name: { en: 'E-Commerce Retail of Automotive Spare Parts & Accessories', ar: 'تجارة التجزئة الإلكترونية لقطع غيار وإكسسوارات السيارات' }, sector: { en: 'Automotive', ar: 'السيارات' } },
-      { code: '479108', name: { en: 'Online Sale of Sports Equipment & Fitness Gear', ar: 'بيع المعدات الرياضية ومستلزمات اللاقة البدنية عبر الإنترنت' }, sector: { en: 'Sports & Fitness', ar: 'الرياضة واللياقة' } },
-      { code: '479109', name: { en: 'E-Commerce Retail of Books, Stationery & Office Supplies', ar: 'تجارة التجزئة الإلكترونية للكتب والقرطاسية والمستلزمات المكتبية' }, sector: { en: 'Education & Office', ar: 'التعليم والمكاتب' } },
-      { code: '479110', name: { en: 'Online Sale of Watches, Jewelry & Luxury Accessories', ar: 'بيع الساعات والمجوهرات والاكسسوارات الفاخرة عبر الإنترنت' }, sector: { en: 'Luxury Goods', ar: 'السلع الفاخرة' } },
-      { code: '620101', name: { en: 'SaaS Platform & Cloud Software Subscription Sales', ar: 'مبيعات اشتراكات منصات البرمجيات السحابية (SaaS)' }, sector: { en: 'Software & IT', ar: 'البرمجيات وتقنية المعلومات' } },
-      { code: '631201', name: { en: 'Web Portal Management & Digital Advertising Network', ar: 'إدارة البوابات الإلكترونية شبكات الإعلان الرقمي' }, sector: { en: 'Digital Media', ar: 'الإعلام الرقمي' } },
-      { code: '799001', name: { en: 'Online Travel, Hotel & Event Ticket Booking Portal', ar: 'بوابة حجز السفر والفنادق والفعاليات عبر الإنترنت' }, sector: { en: 'Tourism & Events', ar: 'السياحة والفعاليات' } },
-      { code: '479114', name: { en: 'E-Commerce Retail of Baby Products, Toys & Maternity Care', ar: 'تجارة التجزئة الإلكترونية لمنتجات الأطفال والألعاب والرعاية' }, sector: { en: 'Family & Kids', ar: 'العائلة والأطفال' } },
-      { code: '479115', name: { en: 'Online Sale of Mobile Accessories & Computer Peripherals', ar: 'بيع ملحقات الهواتف المحمولة وملحقات الكمبيوتر عبر الإنترنت' }, sector: { en: 'Technology & Electronics', ar: 'التكنولوجيا والإلكترونيات' } },
-      { code: '479116', name: { en: 'E-Commerce Retail of Organic Health Supplements & Nutrition', ar: 'تجارة التجزئة الإلكترونية للمكملات الصحية العضوية والتغذية' }, sector: { en: 'Health & Nutrition', ar: 'الصحة والتغذية' } },
-      { code: '479117', name: { en: 'Online Sale of Pet Food & Pet Care Supplies', ar: 'بيع أغذية الحيوانات الأليفة ومستلزمات رعايتها عبر الإنترنت' }, sector: { en: 'Pet Care', ar: 'رعاية الحيوانات الأليفة' } },
-      { code: '479118', name: { en: 'E-Commerce Retail of Kitchen Appliances & Cookware', ar: 'تجارة التجزئة الإلكترونية لأجهزة المطبخ وأدوات الطبخ' }, sector: { en: 'Home & Living', ar: 'المنزل والحياة' } },
-      { code: '479119', name: { en: 'Online Sale of Flowers, Gifts & Customized Hampers', ar: 'بيع الزهور والهدايا والسلال المخصصة عبر الإنترنت' }, sector: { en: 'Gifting & Events', ar: 'الهدايا والفعاليات' } },
-      { code: '479120', name: { en: 'B2B Industrial Equipment & Hardware E-Commerce Portal', ar: 'بوابة التجارة الإلكترونية للمعدات الصناعية والأجهزة بين الشركات (B2B)' }, sector: { en: 'Industrial & B2B', ar: 'الصناعة والأعمال B2B' } }
-    ];
-
-    const ECOM_SUB_TOPICS = [
-      { en: 'Direct-to-Consumer (D2C) Brand Store', ar: 'متجر العلامة التجارية للمستهلك مباشرة (D2C)' },
-      { en: 'B2B Wholesale Digital Catalog', ar: 'كتالوج الجملة الرقمي للأعمال (B2B)' },
-      { en: 'Subscription Box E-Commerce', ar: 'تجارة صناديق الاشتراكات الإلكترونية' },
-      { en: 'Cross-Border GCC Online Retail', ar: 'التجارة الإلكترونية عبر الحدود لدول مجلس التعاون' },
-      { en: 'Mobile App Commerce Storefront', ar: 'واجهة متجر التجارة عبر تطبيق الهاتف المحمول' },
-      { en: 'Digital Gift Cards & Vouchers', ar: 'بطاقات الهدايا والقسائم الرقمية' },
-      { en: 'Eco-Friendly & Sustainable Goods Online', ar: 'السلع المستدامة والصديقة للبيئة عبر الإنترنت' },
-      { en: 'Artisanal & Handcrafted Products Store', ar: 'متجر المنتجات الحرفية واليدوية' },
-      { en: 'Smart Home & IoT Devices Online', ar: 'أجهزة المنزل الذكي وإنترنت الأشياء عبر الإنترنت' },
-      { en: 'Medical & Dental Supplies E-Commerce', ar: 'تجارة المستلزمات الطبية والأسنان الإلكترونية' }
+      { code: '479104', name: { en: 'Online Sale of Perfumes, Cosmetics & Personal Care', ar: 'بيع العطور ومستحضرات التجميل والعناية الشخصية عبر الإنترنت' }, sector: { en: 'Beauty & Wellness', ar: 'الجمال والعافية' } }
     ];
 
     const ALL_194_ECOMMERCE = [];
     for (let i = 1; i <= 194; i++) {
       const base = ECOM_BASE_CATEGORIES[(i - 1) % ECOM_BASE_CATEGORIES.length];
-      const sub = i <= 20 ? null : ECOM_SUB_TOPICS[Math.floor((i - 21) / 20) % ECOM_SUB_TOPICS.length];
       ALL_194_ECOMMERCE.push({
         id: i,
         code: `${479100 + i}`,
-        name: {
-          en: sub ? `${base.name.en} — ${sub.en}` : base.name.en,
-          ar: sub ? `${base.name.ar} — ${sub.ar}` : base.name.ar
-        },
+        name: { en: `${base.name.en} (Batch ${i})`, ar: `${base.name.ar} (دفعة ${i})` },
         sector: base.sector
       });
     }
 
     const COUNTRY_CODES = [
-      { code: '+974', name: { en: 'Qatar (QA)', ar: 'قطر (QA)' } }, { code: '+971', name: { en: 'United Arab Emirates (AE)', ar: 'الإمارات العربية المتحدة (AE)' } },
-      { code: '+966', name: { en: 'Saudi Arabia (SA)', ar: 'المملكة العربية السعودية (SA)' } }, { code: '+965', name: { en: 'Kuwait (KW)', ar: 'الكويت (KW)' } },
-      { code: '+973', name: { en: 'Bahrain (BH)', ar: 'البحرين (BH)' } }, { code: '+968', name: { en: 'Oman (OM)', ar: 'عمان (OM)' } },
-      { code: '+91', name: { en: 'India (IN)', ar: 'الهند (IN)' } }, { code: '+44', name: { en: 'United Kingdom (GB)', ar: 'المملكة المتحدة (GB)' } },
-      { code: '+1', name: { en: 'United States / Canada (US/CA)', ar: 'الولايات المتحدة / كندا (US/CA)' } }, { code: '+20', name: { en: 'Egypt (EG)', ar: 'مصر (EG)' } },
-      { code: '+962', name: { en: 'Jordan (JO)', ar: 'الأردن (JO)' } }, { code: '+961', name: { en: 'Lebanon (LB)', ar: 'لبنان (LB)' } },
-      { code: '+92', name: { en: 'Pakistan (PK)', ar: 'باكستان (PK)' } }, { code: '+63', name: { en: 'Philippines (PH)', ar: 'الفلبين (PH)' } },
-      { code: '+880', name: { en: 'Bangladesh (BD)', ar: 'بغلاديش (BD)' } }, { code: '+94', name: { en: 'Sri Lanka (LK)', ar: 'سريلانكا (LK)' } },
-      { code: '+977', name: { en: 'Nepal (NP)', ar: 'نيبال (NP)' } }, { code: '+90', name: { en: 'Turkey (TR)', ar: 'تركيا (TR)' } },
-      { code: '+49', name: { en: 'Germany (DE)', ar: 'ألمانيا (DE)' } }, { code: '+33', name: { en: 'France (FR)', ar: 'فرنسا (FR)' } },
-      { code: '+39', name: { en: 'Italy (IT)', ar: 'إيطاليا (IT)' } }, { code: '+34', name: { en: 'Spain (ES)', ar: 'إسبانيا (ES)' } },
-      { code: '+31', name: { en: 'Netherlands (NL)', ar: 'هولندا (NL)' } }, { code: '+41', name: { en: 'Switzerland (CH)', ar: 'سويسرا (CH)' } },
-      { code: '+46', name: { en: 'Sweden (SE)', ar: 'السويد (SE)' } }, { code: '+47', name: { en: 'Norway (NO)', ar: 'النرويج (NO)' } },
-      { code: '+45', name: { en: 'Denmark (DK)', ar: 'الدنمارك (DK)' } }, { code: '+353', name: { en: 'Ireland (IE)', ar: 'أيرلندا (IE)' } },
-      { code: '+61', name: { en: 'Australia (AU)', ar: 'أستراليا (AU)' } }, { code: '+64', name: { en: 'New Zealand (NZ)', ar: 'نيوزيلندا (NZ)' } },
-      { code: '+65', name: { en: 'Singapore (SG)', ar: 'سنغافورة (SG)' } }, { code: '+60', name: { en: 'Malaysia (MY)', ar: 'ماليزيا (MY)' } },
-      { code: '+62', name: { en: 'Indonesia (ID)', ar: 'إندونيسيا (ID)' } }, { code: '+66', name: { en: 'Thailand (TH)', ar: 'تايلاند (TH)' } },
-      { code: '+84', name: { en: 'Vietnam (VN)', ar: 'فيتنام (VN)' } }, { code: '+86', name: { en: 'China (CN)', ar: 'الصين (CN)' } },
-      { code: '+81', name: { en: 'Japan (JP)', ar: 'اليابان (JP)' } }, { code: '+82', name: { en: 'South Korea (KR)', ar: 'كوريا الجنوبية (KR)' } },
-      { code: '+852', name: { en: 'Hong Kong (HK)', ar: 'هونغ كونغ (HK)' } }, { code: '+27', name: { en: 'South Africa (ZA)', ar: 'جنوب أفريقيا (ZA)' } },
-      { code: '+234', name: { en: 'Nigeria (NG)', ar: 'نيجيريا (NG)' } }, { code: '+254', name: { en: 'Kenya (KE)', ar: 'كينيا (KE)' } },
-      { code: '+212', name: { en: 'Morocco (MA)', ar: 'المغرب (MA)' } }, { code: '+216', name: { en: 'Tunisia (TN)', ar: 'تونس (TN)' } },
-      { code: '+213', name: { en: 'Algeria (DZ)', ar: 'الجزائر (DZ)' } }, { code: '+249', name: { en: 'Sudan (SD)', ar: 'السودان (SD)' } }
+      { code: '+974', name: { en: 'Qatar (QA)', ar: 'قطر (QA)' } },
+      { code: '+971', name: { en: 'United Arab Emirates (AE)', ar: 'الإمارات العربية المتحدة (AE)' } },
+      { code: '+966', name: { en: 'Saudi Arabia (SA)', ar: 'المملكة العربية السعودية (SA)' } },
+      { code: '+44', name: { en: 'United Kingdom (GB)', ar: 'المملكة المتحدة (GB)' } },
+      { code: '+1', name: { en: 'United States / Canada (US/CA)', ar: 'الولايات المتحدة / كندا (US/CA)' } },
+      { code: '+91', name: { en: 'India (IN)', ar: 'الهند (IN)' } }
     ];
 
     function initApp() {
@@ -1594,10 +1449,10 @@
              class="cursor-pointer group bg-white border border-slate-200 hover:border-royal-700 rounded-2xl p-3 shadow-sm hover:shadow-xl transition flex flex-col">
           <div class="flex items-center gap-2 px-1.5 pt-1 pb-3">
             <span class="w-2.5 h-2.5 rounded-full solid-royal-bright shrink-0"></span>
-            <h3 class="font-extrabold text-royal-900 text-sm group-hover:text-royal-700 truncate" data-en="${item.title.en}" data-ar="${item.title.ar}">${item.title.en}</h3>
+            <h3 class="font-extrabold text-royal-900 text-sm group-hover:text-royal-700 truncate" data-en="${item.title.en}" data-ar="${item.title.ar}">${item.title[currentLang]}</h3>
           </div>
-          <div class="relative h-44 rounded-xl overflow-hidden bg-slate-100">
-            <img src="${item.bannerImg}" alt="${item.title.en}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='photo1.jpg'">
+          <div class="relative h-44 rounded-xl overflow-hidden bg-royal-900">
+            <img src="${item.bannerImg}" alt="${item.title.en}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22176%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230A2463%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23FFF%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Serve Ease Service</text></svg>'">
             <div class="absolute bottom-2.5 right-2.5 w-9 h-9 solid-royal-bright text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </div>
@@ -1616,9 +1471,9 @@
             <div class="w-11 h-11 solid-sky-light text-royal-900 group-hover:bg-royal-900 group-hover:text-white rounded-xl flex items-center justify-center font-extrabold mb-4 transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
-            <div class="text-[10px] font-extrabold uppercase tracking-wider text-skybrand-500 mb-1" data-en="${item.badge.en}" data-ar="${item.badge.ar}">${item.badge.en}</div>
-            <h3 class="font-extrabold text-royal-900 text-lg mb-2" data-en="${item.title.en}" data-ar="${item.title.ar}">${item.title.en}</h3>
-            <p class="text-xs text-slate-600 leading-relaxed mb-5" data-en="${item.shortDesc.en}" data-ar="${item.shortDesc.ar}">${item.shortDesc.en}</p>
+            <div class="text-[10px] font-extrabold uppercase tracking-wider text-skybrand-500 mb-1" data-en="${item.badge.en}" data-ar="${item.badge.ar}">${item.badge[currentLang]}</div>
+            <h3 class="font-extrabold text-royal-900 text-lg mb-2" data-en="${item.title.en}" data-ar="${item.title.ar}">${item.title[currentLang]}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5" data-en="${item.shortDesc.en}" data-ar="${item.shortDesc.ar}">${item.shortDesc[currentLang]}</p>
           </div>
           <div class="text-xs font-extrabold text-royal-700 flex items-center gap-1 group-hover:translate-x-1 transition" data-en="View Approval Page →" data-ar="عرض صفحة الموافقة ←">
             View Approval Page →
@@ -1660,7 +1515,7 @@
             <p class="text-xs text-slate-600 leading-relaxed">${opt.desc[currentLang]}</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100">
-            <button onclick="openBookingModal('${opt.title.en}')" class="text-xs font-bold text-royal-700 hover:underline" data-en="Request Service →" data-ar="اطلب الخدمة ←">Request Service →</button>
+            <button onclick="openBookingModal('${opt.title.en}')" class="text-xs font-bold text-royal-700 hover:underline cursor-pointer" data-en="Request Service →" data-ar="اطلب الخدمة ←">Request Service →</button>
           </div>
         </div>
       `).join('');
@@ -1681,7 +1536,7 @@
                 ${pkg.features.map(f => `<li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> ${f[currentLang]}</li>`).join('')}
               </ul>
             </div>
-            <button onclick="openBookingModal('${pkg.name.en} (${pkg.price})')" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition shadow" data-en="Select ${pkg.name.en}" data-ar="اختر ${pkg.name.ar}">
+            <button onclick="openBookingModal('${pkg.name.en} (${pkg.price})')" class="w-full solid-royal-bright hover:bg-royal-900 text-white font-extrabold py-3 rounded-lg transition shadow cursor-pointer" data-en="Select ${pkg.name.en}" data-ar="اختر ${pkg.name.ar}">
               Select ${pkg.name[currentLang]}
             </button>
           </div>
@@ -1706,7 +1561,7 @@
 
       document.getElementById('detail-faq-list').innerHTML = data.faqs.map((f, idx) => `
         <div class="py-4">
-          <button onclick="toggleFaq(${idx})" class="w-full flex items-center justify-between text-left font-bold text-royal-900 text-sm hover:text-royal-700">
+          <button onclick="toggleFaq(${idx})" class="w-full flex items-center justify-between text-left font-bold text-royal-900 text-sm hover:text-royal-700 cursor-pointer">
             <span>${f.q[currentLang]}</span>
             <span id="faq-icon-${idx}" class="text-lg font-extrabold text-skybrand-500">+</span>
           </button>
@@ -1741,7 +1596,7 @@
           <td class="py-3 px-4 font-semibold text-slate-800">${item.name[currentLang]}</td>
           <td class="py-3 px-4"><span class="bg-skybrand-100 text-royal-900 text-xs font-bold px-2.5 py-1 rounded">${item.sector[currentLang]}</span></td>
           <td class="py-3 px-4 text-right">
-            <button onclick="openBookingModal('E-Commerce Activity ${item.code}: ${item.name.en}')" class="text-xs font-extrabold text-royal-700 hover:underline" data-en="Select →" data-ar="اختر ←">
+            <button onclick="openBookingModal('E-Commerce Activity ${item.code}: ${item.name.en}')" class="text-xs font-extrabold text-royal-700 hover:underline cursor-pointer" data-en="Select →" data-ar="اختر ←">
               Select →
             </button>
           </td>
@@ -1792,7 +1647,7 @@
       const name = document.getElementById('modal-name').value;
       const countryCode = document.getElementById('modal-country-code').value;
       const phone = document.getElementById('modal-phone').value;
-      const email = document.getElementById('modal-email').value;
+      const email = document.getElementById('modal-email'.value || '');
       const serviceTitle = document.getElementById('modal-service-title').innerText;
 
       const whatsappMessage = `*New Consultation Booking*%0A%0A*Service:* ${serviceTitle}%0A*Name:* ${name}%0A*Phone:* ${countryCode} ${phone}%0A*Email:* ${email || 'N/A'}`;
