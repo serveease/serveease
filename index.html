@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serve Ease Business Solutions | Business Setup & Operations in Qatar</title>
+  <title>Serve Ease Business Solutions | Doha, Qatar</title>
   <meta name="description" content="Serve Ease Business Solutions provides complete company formation, licensing, PRO services, and corporate banking in Doha, Qatar." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@
   <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Brand Logo + Company Name -->
+        <!-- Brand Logo + Company Name (Fixed duplicate Business Solutions) -->
         <button onclick="navigateTo('home')" class="flex items-center gap-3 focus:outline-none cursor-pointer group">
           <img src="logo.png" alt="Serve Ease" class="h-11 w-auto object-contain"
                onerror="this.style.display='none'; document.getElementById('fallback-logo-icon').style.display='flex';">
@@ -108,7 +108,7 @@
             SE
           </div>
           <div class="text-left">
-            <div class="text-royal-900 font-extrabold text-base sm:text-lg leading-tight tracking-tight">Serve Ease Business Solutions</div>
+            <div class="text-royal-900 font-extrabold text-lg sm:text-xl leading-tight tracking-tight">Serve Ease</div>
             <div class="text-skybrand-500 font-bold text-[10px] sm:text-[11px] tracking-widest uppercase">Business Solutions</div>
           </div>
         </button>
@@ -222,7 +222,7 @@
     </div>
   </header>
 
-  <!-- FLOATING WHATSAPP & CALL WIDGET (MOVED TO RIGHT SIDE) -->
+  <!-- FLOATING WHATSAPP & CALL WIDGET (RIGHT SIDE) -->
   <div class="fixed right-6 bottom-8 z-50 flex flex-col gap-3 floating-action-badge">
     <a href="https://wa.me/97470442825?text=Hello%20Serve%20Ease%20Business%20Solutions,%20I%20would%20like%20to%20inquire%20about%20corporate%20services%20in%20Qatar." target="_blank" rel="noopener noreferrer"
        class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110 border-2 border-white" title="Chat on WhatsApp">
@@ -910,12 +910,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-royal-800">
         <div>
+          <!-- Footer Brand Logo + Name (Fixed duplicate Business Solutions) -->
           <div class="flex items-center gap-3 mb-4">
             <img src="logo.png" alt="Serve Ease" class="h-10 w-auto bg-white p-1 rounded"
                  onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').style.display='flex';">
             <div id="footer-fallback-logo" class="hidden w-10 h-10 solid-royal-bright rounded-lg items-center justify-center font-extrabold text-white border border-skybrand-400">SE</div>
             <div>
-              <div class="font-extrabold text-base tracking-tight">Serve Ease Business Solutions</div>
+              <div class="font-extrabold text-lg tracking-tight leading-tight">Serve Ease</div>
               <div class="text-[10px] font-bold uppercase tracking-widest text-skybrand-400">Business Solutions</div>
             </div>
           </div>
@@ -1602,7 +1603,7 @@
       e.preventDefault();
       const name = document.getElementById('modal-name').value;
       const countryCode = document.getElementById('modal-country-code').value;
-      const phone = document.getElementById('modal-phone.value') || document.getElementById('modal-phone').value;
+      const phone = document.getElementById('modal-phone').value;
       const email = document.getElementById('modal-email').value || '';
       const serviceTitle = document.getElementById('modal-service-title').innerText;
 
