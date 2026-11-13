@@ -8,13 +8,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            arabic: ['"Cairo"', 'sans-serif'],
           },
           colors: {
             royal: {
@@ -100,7 +101,7 @@
   <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Brand Logo + Company Name (Fixed duplicate Business Solutions) -->
+        <!-- Brand Logo + Company Name -->
         <button onclick="navigateTo('home')" class="flex items-center gap-3 focus:outline-none cursor-pointer group">
           <img src="logo.png" alt="Serve Ease" class="h-11 w-auto object-contain"
                onerror="this.style.display='none'; document.getElementById('fallback-logo-icon').style.display='flex';">
@@ -114,7 +115,7 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
           <button onclick="navigateTo('home')" class="nav-link text-royal-700 font-bold transition py-2 cursor-pointer" data-target="home">Home</button>
           <button onclick="navigateTo('about')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="about">About Us</button>
 
@@ -199,8 +200,13 @@
           <button onclick="navigateTo('contact')" class="nav-link hover:text-royal-700 transition py-2 cursor-pointer" data-target="contact">Contact Us</button>
         </nav>
 
-        <!-- CTA & Mobile Toggle -->
+        <!-- Language Switcher, CTA & Mobile Toggle -->
         <div class="flex items-center gap-3">
+          <!-- Switch to Arabic Page -->
+          <a href="arabic.html" class="border-2 border-royal-900 text-royal-900 hover:bg-royal-900 hover:text-white font-arabic font-bold text-sm px-4 py-2 rounded-full transition flex items-center gap-1.5">
+            <span>العربية</span>
+          </a>
+
           <button onclick="openBookingModal('General Corporate Consultation')" class="solid-royal-bright hover:bg-royal-900 text-white text-sm font-bold px-5 py-2.5 rounded-full transition shadow-sm hidden sm:block cursor-pointer">
             Book Now
           </button>
@@ -213,12 +219,15 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-2 text-left">
-      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Home</button>
-      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">About Us</button>
-      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">All Corporate Services</button>
-      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">194 E-Commerce Activities</button>
-      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Ministry Approvals</button>
-      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Contact Us</button>
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Home</button>
+      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">About Us</button>
+      <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">All Corporate Services</button>
+      <button onclick="navigateTo('ecommerce'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">194 E-Commerce Activities</button>
+      <button onclick="navigateTo('approvals'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Ministry Approvals</button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 font-semibold text-royal-900 hover:bg-skybrand-50 rounded-lg cursor-pointer">Contact Us</button>
+      <div class="pt-2 border-t border-slate-100">
+        <a href="arabic.html" class="block w-full text-center py-2.5 font-arabic font-bold text-white solid-royal rounded-lg">التبديل إلى العربية (Arabic)</a>
+      </div>
     </div>
   </header>
 
@@ -910,7 +919,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-royal-800">
         <div>
-          <!-- Footer Brand Logo + Name (Fixed duplicate Business Solutions) -->
           <div class="flex items-center gap-3 mb-4">
             <img src="logo.png" alt="Serve Ease" class="h-10 w-auto bg-white p-1 rounded"
                  onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').style.display='flex';">
@@ -934,6 +942,7 @@
             <li><button onclick="navigateTo('ecommerce')" class="hover:text-white cursor-pointer">194 E-Commerce Directory</button></li>
             <li><button onclick="navigateTo('approvals')" class="hover:text-white cursor-pointer">Ministry Approvals</button></li>
             <li><button onclick="navigateTo('contact')" class="hover:text-white cursor-pointer">Contact Us</button></li>
+            <li><a href="arabic.html" class="text-skybrand-400 font-arabic font-bold hover:underline">النسخة العربية (Arabic Version)</a></li>
           </ul>
         </div>
 
