@@ -205,9 +205,11 @@
             color: var(--text-muted);
         }
 
-        /* Hero Sections */
+        /* Hero Sections with GitHub Image Support */
         .home-hero {
-            background-color: var(--dark-navy);
+            background: linear-gradient(rgba(7, 25, 61, 0.88), rgba(7, 25, 61, 0.92)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
             color: var(--pure-white);
             padding: 96px 24px;
             text-align: center;
@@ -314,7 +316,7 @@
             font-size: 16px;
         }
 
-        /* Cards Grid */
+        /* Grids */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -381,7 +383,7 @@
             gap: 6px;
         }
 
-        /* Two Column Overview Split */
+        /* Split Grid & Images */
         .split-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -408,6 +410,14 @@
             border: 2px solid var(--royal-blue);
             border-radius: 16px;
             padding: 36px;
+        }
+
+        .visual-panel img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            object-fit: cover;
         }
 
         .visual-panel-header {
@@ -443,7 +453,7 @@
             margin-top: 2px;
         }
 
-        /* Dark Execution Band */
+        /* Execution Band */
         .execution-band {
             background: var(--dark-navy);
             color: var(--pure-white);
@@ -660,7 +670,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation (English Only) -->
+    <!-- Header Navigation -->
     <header>
         <div class="nav-container">
             <a class="logo" onclick="showView('home')">
@@ -735,12 +745,12 @@
                     </div>
                 </div>
                 <div class="visual-panel">
+                    <img src="photo1.jpg" alt="Serve Ease Corporate Team Doha">
                     <div class="visual-panel-header">CORE COMPLIANCE STANDARDS</div>
                     <div class="checklist-item"><div class="check-dot">✓</div><span>100% Foreign Ownership WLL & QFC Registration</span></div>
                     <div class="checklist-item"><div class="check-dot">✓</div><span>MOCI Single Window & Ministry of Justice Notarization</span></div>
                     <div class="checklist-item"><div class="check-dot">✓</div><span>Dedicated Corporate PRO Retainers & Visa Management</span></div>
                     <div class="checklist-item"><div class="check-dot">✓</div><span>Specialized Ministry Approvals (MOT, QCDF, MOPH, Baladiya)</span></div>
-                    <div class="checklist-item"><div class="check-dot">✓</div><span>Corporate Bank Account KYC & Compliance Structuring</span></div>
                 </div>
             </div>
         </section>
@@ -894,6 +904,7 @@
         <!-- Leadership Quote -->
         <section class="container">
             <div class="visual-panel" style="max-width: 920px; margin: 0 auto; text-align: center;">
+                <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px auto; display: block; border: 3px solid var(--royal-blue);">
                 <span class="section-tag">LEADERSHIP & VISION</span>
                 <p style="font-size: 20px; font-weight: 600; color: var(--dark-navy); margin: 16px 0 24px 0;">
                     "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
@@ -933,25 +944,26 @@
                     </div>
                 </div>
                 <div class="visual-panel">
+                    <img id="detail-img" src="photo 2.jpg" alt="Service Operation">
                     <div class="visual-panel-header">KEY DOCUMENTS & REQUIREMENTS</div>
                     <div id="detail-requirements-list"></div>
                 </div>
             </div>
         </section>
 
-        <!-- 3 Complete Category Cards -->
+        <!-- Category Cards Container -->
         <section style="background: var(--light-bg);">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">WHAT WE OFFER</span>
+                    <span class="section-tag" id="detail-section-tag-label">WHAT WE OFFER</span>
                     <h2 id="detail-grid-heading">Service Categories & Licensing Options</h2>
-                    <p>Tailored corporate structures and ministry approvals managed end-to-end by our Doha team.</p>
+                    <p id="detail-grid-sub">Tailored corporate structures and ministry approvals managed end-to-end by our Doha team.</p>
                 </div>
-                <div class="grid-3" id="detail-cards-container"></div>
+                <div id="detail-cards-container"></div>
             </div>
         </section>
 
-        <!-- Dark Execution Band with 3 Complete Pillars -->
+        <!-- Dark Execution Band -->
         <section class="execution-band">
             <div class="exec-grid">
                 <div class="exec-summary-card">
@@ -996,11 +1008,11 @@
                     <p>Led by Founder & Managing Director Shafir Kottupurath Basheer, our firm bridges founders and international investors with local regulatory authorities with transparent timelines, itemized government receipts, and dedicated account management.</p>
                 </div>
                 <div class="visual-panel">
+                    <img src="photo 3.jpg" alt="Serve Ease Office Doha">
                     <div class="visual-panel-header">WHY CLIENTS CHOOSE SERVE EASE</div>
-                    <div class="checklist-item"><div class="check-dot">1</div><span><strong>Professional Expertise:</strong> Experienced consultants delivering accurate, compliant corporate solutions across Doha.</span></div>
-                    <div class="checklist-item"><div class="check-dot">2</div><span><strong>Transparent Process:</strong> Clear communication, itemized government receipts, and honest guidance at every stage.</span></div>
-                    <div class="checklist-item"><div class="check-dot">3</div><span><strong>Reliable Support:</strong> Dedicated PRO and administrative assistance ensuring smooth daily operations.</span></div>
-                    <div class="checklist-item"><div class="check-dot">4</div><span><strong>Proven Results:</strong> Successful track record with satisfied local and international corporate clients.</span></div>
+                    <div class="checklist-item"><div class="check-dot">1</div><span><strong>Professional Expertise:</strong> Experienced consultants delivering accurate corporate solutions across Doha.</span></div>
+                    <div class="checklist-item"><div class="check-dot">2</div><span><strong>Transparent Process:</strong> Clear communication, itemized government receipts, and honest guidance.</span></div>
+                    <div class="checklist-item"><div class="check-dot">3</div><span><strong>Reliable Support:</strong> Dedicated PRO and administrative assistance ensuring smooth operations.</span></div>
                 </div>
             </div>
         </section>
@@ -1034,7 +1046,7 @@
                     <select>
                         <option>Company Formation (100% Foreign WLL / QFC)</option>
                         <option>Share Transfer & Restructuring</option>
-                        <option>Corporate PRO Retainer</option>
+                        <option>Corporate PRO Retainer (12 Services)</option>
                         <option>Legal Translation (Arabic/English)</option>
                         <option>MOFA Document Attestation</option>
                         <option>Local Qatari Sponsorship</option>
@@ -1102,7 +1114,7 @@
         </div>
     </footer>
 
-    <!-- Complete Inside Pages Database (All 15 Pages Fully Populated with 3 Cards & 3 Execution Steps Each) -->
+    <!-- Database Script with 12 PRO Services & Complete Image Mapping -->
     <script>
         const pagesData = {
             'company-formation': {
@@ -1110,6 +1122,7 @@
                 badge: 'CORPORATE LICENSING',
                 title: 'Company Formation in Qatar',
                 subtitle: 'Complete business registration and licensing services in Qatar with 100% foreign ownership and full compliance support.',
+                img: 'photo1.jpg',
                 overviewTag: 'COMPANY FORMATION OVERVIEW',
                 overviewHeading: 'Seamless Company Formation Services in Doha',
                 p1: 'Qatar is an exceptional destination for global investors and entrepreneurs looking to scale across the Middle East. We establish the exact corporate structure suited for your ownership model, capital structure, and commercial activities.',
@@ -1120,7 +1133,10 @@
                     'Defined MOCI commercial activity codes and business plan',
                     'Registered commercial office lease agreement & Kahramaa number'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Corporate Entity & Jurisdiction Options',
+                gridSub: 'Tailored corporate structures and ministry approvals managed end-to-end by our Doha team.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: '100% Foreign Ownership WLL', desc: 'Establish a wholly foreign-owned Limited Liability Company in Qatar across eligible MOCI commercial and consulting activities without a local partner.' },
                     { title: 'Qatar Financial Centre (QFC)', desc: 'Internationally recognized English common-law framework allowing 100% foreign ownership and repatriation of profits for professional firms.' },
@@ -1142,6 +1158,7 @@
                 badge: 'CORPORATE GOVERNANCE',
                 title: 'Share Transfer & Corporate Restructuring',
                 subtitle: 'Partner amendments, equity restructuring, manager changes, and Ministry of Justice notarization in Qatar.',
+                img: 'photo 2.jpg',
                 overviewTag: 'CORPORATE AMENDMENTS',
                 overviewHeading: 'Seamless Share Transfer & Ownership Amendments',
                 p1: 'Modifying company ownership, onboarding strategic investors, or transferring equity shares in Qatar requires strict coordination between the Ministry of Commerce and Industry (MOCI) and the Ministry of Justice (MOJ).',
@@ -1152,7 +1169,10 @@
                     'Passport / QID copies of incoming and outgoing shareholders',
                     'Duly attested Power of Attorney (POA) if represented by Serve Ease'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Share Transfer & Restructuring Categories',
+                gridSub: 'Partner amendments and legal equity restructuring managed seamlessly.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Sale & Purchase of Equity Shares', desc: 'Drafting bilingual Share Purchase Agreements (SPA) and executing official share transfers between existing or incoming partners.' },
                     { title: 'Adding or Exiting Partners', desc: 'Complete legal onboarding of new shareholders or structured exit of Qatari and foreign partners via MOCI Single Window.' },
@@ -1174,27 +1194,40 @@
                 badge: 'GOVERNMENT LIAISON',
                 title: 'Corporate PRO Retainer Services',
                 subtitle: 'Comprehensive government liaison with 12 specialized PRO services and 3 structured monthly corporate retainer packages in Doha.',
+                img: 'photo 3.jpg',
                 overviewTag: 'EXECUTIVE PRO SUPPORT',
-                overviewHeading: 'Dedicated Corporate PRO Retainer & 12 Specialized Services',
+                overviewHeading: 'Dedicated Corporate PRO Retainer & 12 Essential Services',
                 p1: 'Managing employee visas, QID renewals, labor contracts, and annual Commercial Registration renewals demands continuous follow-up across Qatar ministries.',
-                p2: 'Our Corporate PRO Retainer plans provide your business with a dedicated government liaison officer, zero missed deadlines, and itemized government fee receipts.',
+                p2: 'Our Corporate PRO Retainer plans provide your business with a dedicated government liaison officer, zero missed deadlines, and transparent itemized government fee receipts.',
                 requirements: [
                     'Company Commercial Registration (CR) & Trade License copies',
                     'Company Establishment Card (Computer Card) & Metrash authorization',
                     'Employee passport copies, photographs, and attested degrees',
                     'Signed Corporate PRO Retainer Service Agreement'
                 ],
-                gridHeading: '3 Corporate PRO Retainer Packages',
+                sectionTagLabel: 'WHAT WE OFFER',
+                gridHeading: '12 Essential PRO & Government Services in Qatar',
+                gridSub: 'Complete government liaison services managed by our senior Doha PRO team.',
+                cardsLayout: 'grid-3',
                 cards: [
-                    { title: 'Startup PRO Plan (1,500 QAR / mo)', desc: 'Ideal for startups: Up to 5 employee visas managed, CR & Trade License renewal tracking, and dedicated PRO account manager.' },
-                    { title: 'Growth SME Plan (3,200 QAR / mo)', desc: 'Designed for growing teams: Up to 20 employee visas managed, priority government counter processing, and senior PRO officer.' },
-                    { title: 'Enterprise Retainer (6,000 QAR / mo)', desc: 'Full corporate coverage: Unlimited employee & family visas, VIP ministry liaison officer, and 24/7 emergency WhatsApp PRO support.' }
+                    { title: '1. New Work Visa Processing', desc: 'Quota approvals, entry visa issuance, medical test coordination, and biometric appointments.' },
+                    { title: '2. QID Printing & Renewal', desc: 'Qatar ID issuance and annual residency renewals for executives and staff.' },
+                    { title: '3. Commercial Registration (CR) Renewal', desc: 'Timely annual renewal of MOCI Commercial Registration to prevent penalties.' },
+                    { title: '4. Baladiya Trade License Renewal', desc: 'Annual renewal of municipal operating licenses and premise signage permits.' },
+                    { title: '5. Ministry of Labor Contract Attestation', desc: 'Digital authentication of employment contracts and labor quota management.' },
+                    { title: '6. Family Residence Visas', desc: 'Entry visas, medical test coordination, and residence permits for employee families.' },
+                    { title: '7. Exit Permits & Travel Clearances', desc: 'Processing official exit permissions and MOI clearance formalities where required.' },
+                    { title: '8. Establishment Card (Computer Card)', desc: 'New issuance and annual renewal of immigration computer cards for companies.' },
+                    { title: '9. WPS Payroll Registration & Support', desc: 'Wage Protection System setup and compliance coordination with Qatari banks.' },
+                    { title: '10. Profession Change & Amendment', desc: 'Updating employee job titles and academic degree attestations on labor records.' },
+                    { title: '11. Police Clearance Certificates (PCC)', desc: 'Obtaining official MOI police clearance certificates for visa and legal purposes.' },
+                    { title: '12. VIP Direct Ministry Liaison', desc: 'Priority counter processing and 24/7 emergency PRO support across all ministries.' }
                 ],
-                execHeading: '12 Specialized PRO Operations Covered',
+                execHeading: '3 Corporate PRO Retainer Packages',
                 execItems: [
-                    { title: 'Immigration & Visa Processing', desc: 'New work visa approvals, family residence visas, QID printing/renewals, exit permits, and visa cancellations.' },
-                    { title: 'Ministry of Labor & WPS Compliance', desc: 'Digital labor contract authentication, quota approvals, Wage Protection System (WPS) registration, and profession changes.' },
-                    { title: 'Annual Corporate License Renewals', desc: 'Proactive renewal of Commercial Registration (CR), Baladiya Trade License, Computer Card, and Tax Card.' }
+                    { title: 'Startup PRO Plan (1,500 QAR / mo)', desc: 'Up to 5 employee visas managed, CR & Trade License renewal tracking, and dedicated PRO account manager.' },
+                    { title: 'Growth SME Plan (3,200 QAR / mo)', desc: 'Up to 20 employee visas managed, priority government counter processing, and senior PRO officer.' },
+                    { title: 'Enterprise Retainer (6,000 QAR / mo)', desc: 'Unlimited employee & family visas, VIP ministry liaison officer, and 24/7 emergency WhatsApp PRO support.' }
                 ],
                 faqs: [
                     { q: 'Are government fees included in the monthly PRO retainer?', a: 'Retainer fees cover all professional PRO representation and courier logistics; official government fees are billed transparently with original receipts.' },
@@ -1206,6 +1239,7 @@
                 badge: 'CERTIFIED TRANSLATION',
                 title: 'Certified Legal Translation (Arabic / English)',
                 subtitle: 'Ministry-certified Arabic, English, and multilingual document translation accepted across all Qatar courts, ministries, and embassies.',
+                img: 'photo 4.jpg',
                 overviewTag: 'CERTIFIED LINGUISTIC SERVICES',
                 overviewHeading: 'Official Ministry-Approved Legal Translation in Doha',
                 p1: 'Official submissions to the Ministry of Commerce, Ministry of Justice, Qatar Courts, and Immigration require certified Arabic legal translation bearing an accredited official stamp.',
@@ -1216,7 +1250,10 @@
                     'Destination ministry or embassy requirement details',
                     'Prior MOFA/Embassy attestation stamps if translating foreign certificates'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Legal Translation Document Categories',
+                gridSub: 'Ministry-certified document translation in Doha.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Corporate & Commercial Contracts', desc: 'Articles of Association (AOA), Share Purchase Agreements, MOUs, Board Resolutions, and Power of Attorney documents.' },
                     { title: 'Litigation & Court Submissions', desc: 'Certified Arabic legal translation of court pleadings, arbitration notices, affidavits, and evidentiary exhibits.' },
@@ -1226,7 +1263,7 @@
                 execItems: [
                     { title: 'Legal Terminology Verification', desc: 'Translated by senior legal linguists familiar with Qatari Civil and Commercial Law terminology.' },
                     { title: 'Dual-Layer Proofreading', desc: 'Every translated document undergoes cross-checking of dates, numerical figures, and official names before stamping.' },
-                    { title: 'Official Accredited Seal & Delivery', desc: 'Stamped with an accredited translation seal recognized by all Qatari ministries and embassies, available in digital and hardcopy.' }
+                    { title: 'Official Accredited Seal & Delivery', desc: 'Stamped with an accredited translation seal recognized by all Qatari ministries and embassies.' }
                 ],
                 faqs: [
                     { q: 'Is your translation accepted by the Ministry of Justice and MOFA?', a: 'Yes, our certified translations carry official accreditation stamps accepted across all Qatari ministries, courts, and diplomatic missions.' },
@@ -1238,6 +1275,7 @@
                 badge: 'DOCUMENT LEGALIZATION',
                 title: 'MOFA Document Attestation Services',
                 subtitle: 'Fast-track authentication of corporate resolutions, commercial certificates, and personal documents in Qatar.',
+                img: 'photo 5.jpg',
                 overviewTag: 'CONSULAR & MOFA LEGALIZATION',
                 overviewHeading: 'End-to-End MOFA & Embassy Attestation in Doha',
                 p1: 'Foreign corporate documents—such as Certificates of Incorporation, Good Standing, and Powers of Attorney—must be authenticated by the Qatar Ministry of Foreign Affairs (MOFA) before use in Doha.',
@@ -1248,7 +1286,10 @@
                     'Copy of applicant QID or passport for submission tracking',
                     'Certified Arabic translation (arranged concurrently by Serve Ease)'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Document Attestation Categories',
+                gridSub: 'Fast-track attestation of corporate and personal certificates.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Corporate & Commercial Documents', desc: 'Certificates of Incorporation, Board Resolutions, Powers of Attorney, Good Standing certificates, and commercial invoices.' },
                     { title: 'Educational & Professional Degrees', desc: 'University diplomas, transcripts, and professional accreditations required for Qatar work visa profession approvals.' },
@@ -1257,7 +1298,7 @@
                 execHeading: 'Attestation & Legalization Workflow',
                 execItems: [
                     { title: 'Pre-Submission Stamp Audit', desc: 'We inspect existing home-country and embassy seals to confirm eligibility for Qatar MOFA authentication.' },
-                    { title: 'Direct MOFA Counter Submission', desc: 'Dedicated PRO handling at Ministry of Foreign Affairs service centers in Doha for rapid same-day or next-day stamping.' },
+                    { title: 'Direct MOFA Counter Submission', desc: 'Dedicated PRO handling at Ministry of Foreign Affairs service centers in Doha for rapid stamping.' },
                     { title: 'Doorstep Pickup & Delivery', desc: 'Secure document collection and return delivery directly to your office or residence anywhere in Doha.' }
                 ],
                 faqs: [
@@ -1270,6 +1311,7 @@
                 badge: 'CORPORATE SPONSORSHIP',
                 title: 'Local Qatari Sponsorship & Joint Ventures',
                 subtitle: 'Trusted Qatari corporate sponsors and structured joint-venture partners with full foreign investor protection.',
+                img: 'photo 6.jpg',
                 overviewTag: 'STRATEGIC PARTNERSHIP',
                 overviewHeading: 'Secure Corporate Sponsorship & Joint Venture Structuring',
                 p1: 'For commercial activities in Qatar that require a 51% Qatari partner, selecting an established, transparent, and reliable corporate sponsor is critical to long-term operational security.',
@@ -1280,11 +1322,14 @@
                     'Preferred equity and management governance structure',
                     'Initial trade name and capital structure outline'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Sponsorship & Partnership Structures',
+                gridSub: 'Trusted Qatari corporate sponsors & structured joint-venture partners.',
+                cardsLayout: 'grid-3',
                 cards: [
-                    { title: 'Corporate Holding Sponsor (51/49 WLL)', desc: 'Partner with an established Qatari corporate entity rather than an individual, ensuring institutional continuity and zero personal succession risks.' },
-                    { title: 'Investor Protection Side Agreements', desc: 'Comprehensive legal agreements securing full operational management, bank signatory control, and profit distribution rights for the foreign investor.' },
-                    { title: 'Sponsorship Transfer & Restructuring', desc: 'Seamless transition from an existing individual sponsor to a corporate sponsor or conversion to 100% foreign ownership where eligible.' }
+                    { title: 'Corporate Holding Sponsor (51/49 WLL)', desc: 'Partner with an established Qatari corporate entity rather than an individual, ensuring institutional continuity.' },
+                    { title: 'Investor Protection Side Agreements', desc: 'Comprehensive legal agreements securing full operational management, bank signatory control, and profit distribution rights.' },
+                    { title: 'Sponsorship Transfer & Restructuring', desc: 'Seamless transition from an existing individual sponsor to a corporate sponsor or conversion to 100% foreign ownership.' }
                 ],
                 execHeading: 'Partnership Governance & Legal Safeguards',
                 execItems: [
@@ -1302,6 +1347,7 @@
                 badge: 'BANKING ASSISTANCE',
                 title: 'Corporate Bank Account Opening in Qatar',
                 subtitle: 'End-to-end assistance with leading Qatari corporate bank account opening and zero-rejection KYC compliance.',
+                img: 'photo 7.jpg',
                 overviewTag: 'CORPORATE BANKING',
                 overviewHeading: 'Streamlined Corporate Bank Account Setup in Doha',
                 p1: 'Opening a corporate bank account in Qatar involves rigorous Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance reviews by local financial institutions.',
@@ -1312,7 +1358,10 @@
                     'Ultimate Beneficial Owner (UBO) passports, QIDs, and 6-month bank statements',
                     'Office lease agreement, Kahramaa bill, and company profile / contracts'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Corporate Banking Solutions',
+                gridSub: 'Assistance with leading Qatari corporate bank account opening.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Tier-1 Qatari Bank Introductions', desc: 'Direct relationship manager coordination with leading local banks including QNB, QIB, Commercial Bank (CBQ), and Dukhan Bank.' },
                     { title: 'Zero-Rejection KYC File Preparation', desc: 'Complete compilation of UBO declarations, source-of-wealth documentation, business profiles, and projected cash-flow statements.' },
@@ -1334,6 +1383,7 @@
                 badge: 'ADVISORY & STRATEGY',
                 title: 'Feasibility Study & Business Plan Drafting',
                 subtitle: 'Bankable market research, financial modeling, and structured business planning for MOCI, QFC, QFZ, and corporate financing.',
+                img: 'photo 8.jpg',
                 overviewTag: 'STRATEGIC ADVISORY',
                 overviewHeading: 'Comprehensive Market Feasibility & Business Plans in Qatar',
                 p1: 'Securing 100% foreign ownership exemptions, Qatar Free Zone licenses, or industrial land allocations requires a comprehensive, data-backed feasibility study and 3-to-5-year financial model.',
@@ -1344,11 +1394,14 @@
                     'Target jurisdiction (MOCI Mainland, QFC, QFZ, or QSTP)',
                     'Existing parent company profile (if expanding an international brand)'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Feasibility & Business Plan Categories',
+                gridSub: 'Market research & structured business planning for Qatar.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'MOCI 100% Foreign Ownership Plans', desc: 'Detailed economic value-add and technical business plans tailored for MOCI foreign investment approval.' },
                     { title: 'QFC, QFZ & QSTP Licensing Plans', desc: 'Regulatory-compliant business plans covering governance, risk management, and financial projections for free zone authorities.' },
-                    { title: 'Bank Financing & Investor Feasibility Studies', desc: 'Comprehensive market demand analysis, CAPEX/OPEX schedules, ROI, NPV, and break-even modeling for banks and investors.' }
+                    { title: 'Bank Financing & Investor Feasibility Studies', desc: 'Comprehensive market demand analysis, CAPEX/OPEX schedules, ROI, NPV, and break-even modeling.' }
                 ],
                 execHeading: 'Advisory Research & Financial Modeling',
                 execItems: [
@@ -1366,6 +1419,7 @@
                 badge: 'DIGITAL COMMERCE',
                 title: '194+ Approved E-Commerce Activities in Qatar',
                 subtitle: 'Launch a licensed e-commerce company in Qatar with 100% foreign ownership across 194+ MOCI digital trading activities.',
+                img: 'photo 9.jpg',
                 overviewTag: 'E-COMMERCE LICENSING',
                 overviewHeading: 'Complete E-Commerce Company Setup & Payment Gateway Integration',
                 p1: 'Qatar’s Ministry of Commerce and Industry (MOCI) offers over 194 specialized e-commerce activities covering online retail, digital marketplaces, SaaS platforms, food delivery portals, and B2B trading.',
@@ -1376,9 +1430,12 @@
                     'Registered office or approved e-commerce workspace lease',
                     'Domain name and platform operational overview'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'E-Commerce Setup & Compliance Pillars',
+                gridSub: 'Launch your digital business with 194+ approved commercial activities.',
+                cardsLayout: 'grid-3',
                 cards: [
-                    { title: '194+ MOCI Activity Code Mapping', desc: 'Accurate selection from all 194+ official MOCI e-commerce classifications including fashion, electronics, digital services, and marketplaces.' },
+                    { title: '194+ MOCI Activity Code Mapping', desc: 'Accurate selection from all 194+ official MOCI e-commerce classifications including fashion, electronics, and digital services.' },
                     { title: '100% Foreign Ownership E-Commerce WLL', desc: 'Full foreign equity registration with streamlined Single Window licensing and corporate bank account setup.' },
                     { title: 'Payment Gateway & MOT Delivery Compliance', desc: 'Technical and regulatory readiness for Qatari payment gateways (SkipCash, QPay, Sadad) and MOT delivery approvals.' }
                 ],
@@ -1398,6 +1455,7 @@
                 badge: 'MINISTRY OF SPORTS & YOUTH',
                 title: 'Gym & Fitness Center Approval',
                 subtitle: 'Ministry of Sports & Youth NOC, pre-lease location zoning assessment, and municipal licensing for gyms and fitness studios in Qatar.',
+                img: 'photo 10.jpg',
                 overviewTag: 'SPORTS & FITNESS LICENSING',
                 overviewHeading: 'Complete Gym, Health Club & Fitness Studio Approvals',
                 p1: 'Opening a commercial gym, CrossFit box, yoga/pilates studio, or martial arts academy in Qatar requires prior No Objection Certificate (NOC) approval from the Ministry of Sports and Youth alongside Baladiya and Civil Defense clearances.',
@@ -1408,7 +1466,10 @@
                     'Premise lease contract, Building Completion Certificate, and Kahramaa ID',
                     'Qatar Civil Defense (QCDF) fire safety approval and Baladiya inspection'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Fitness & Sports Facility Categories',
+                gridSub: 'Specialized municipal & ministry approvals for sports and fitness centers.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Commercial Gyms & Health Clubs', desc: 'Full Ministry of Sports & Youth licensing for multi-equipment fitness centers, bodybuilding gyms, and wellness clubs.' },
                     { title: 'Boutique Fitness, Yoga & Pilates Studios', desc: 'Specialized approvals for group training studios, spinning centers, ladies-only fitness clubs, and personal training spaces.' },
@@ -1430,6 +1491,7 @@
                 badge: 'MINISTRY OF TRANSPORT',
                 title: 'Transport Activity Approval (MOT)',
                 subtitle: 'Ministry of Transport (MOT) clearances for logistics, delivery fleets, limousine, and courier companies in Qatar.',
+                img: 'photo 11.jpg',
                 overviewTag: 'TRANSPORT ACTIVITY APPROVAL (MOT)',
                 overviewHeading: 'Ministry of Transport (MOT) Activity Approvals',
                 p1: 'Operating any commercial transport, delivery, freight forwarding, or limousine business in Qatar requires mandatory pre-approval and technical licensing from the Ministry of Transport (MOT) prior to Commercial Registration and vehicle fleet onboarding.',
@@ -1440,7 +1502,10 @@
                     'Detailed fleet operational plan, vehicle count, and safety manual',
                     'Shareholder QIDs, passports, and manager qualification credentials'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Transport & Logistics License Categories',
+                gridSub: 'MOT clearances for logistics, delivery, limousine, and fleet companies.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Delivery & Courier Service Approval', desc: 'MOT clearance for e-commerce and food delivery motorcycle/van fleets, last-mile courier operations, and dispatch hubs.' },
                     { title: 'Land Freight & Heavy Transport', desc: 'Licensing for commercial cargo trucks, flatbed haulers, refrigerated logistics fleets, and cross-border GCC transport.' },
@@ -1462,6 +1527,7 @@
                 badge: 'QATAR CIVIL DEFENSE',
                 title: 'Civil Defense Fire Safety Approval (QCDF)',
                 subtitle: 'Qatar Civil Defense building safety inspection, fire protection drawings, and commercial occupancy certification in Doha.',
+                img: 'photo 12.jpg',
                 overviewTag: 'FIRE & LIFE SAFETY COMPLIANCE',
                 overviewHeading: 'Qatar Civil Defense (QCDF) Inspection & Certification',
                 p1: 'Every commercial office, retail shop, restaurant, warehouse, and clinic in Qatar must obtain a valid Qatar Civil Defense (QCDF) Fire Safety Certificate before Baladiya issues or renews a Trade License.',
@@ -1472,7 +1538,10 @@
                     'Annual maintenance contract with a QCDF-certified fire safety company',
                     'Premise lease contract and Building Completion Certificate'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Civil Defense Clearance Categories',
+                gridSub: 'Qatar Civil Defense building safety inspection and certification.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Commercial Offices & Retail Shops', desc: 'Fire alarm, emergency exit signage, and extinguisher compliance certification for office suites and showroom spaces.' },
                     { title: 'Restaurants & Commercial Kitchens', desc: 'Specialized kitchen hood suppression systems, LPG gas safety interlocks, and heat detector approvals.' },
@@ -1494,6 +1563,7 @@
                 badge: 'MINISTRY OF INTERIOR (MOI)',
                 title: 'Traffic Department Commercial Clearance',
                 subtitle: 'Ministry of Interior (MOI) clearances for commercial vehicle registration, parking permits, and fleet compliance in Qatar.',
+                img: 'photo 13.jpg',
                 overviewTag: 'MOI TRAFFIC CLEARANCE',
                 overviewHeading: 'General Directorate of Traffic Clearances & Fleet Permits',
                 p1: 'Businesses operating commercial vehicles, heavy machinery, delivery vans, or showroom displays must secure General Directorate of Traffic (MOI) approvals for vehicle licensing and road access.',
@@ -1504,7 +1574,10 @@
                     'Vehicle customs clearance certificates, insurance, and Fahes inspection',
                     'Authorized signatory QID and Metrash company delegation'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Traffic Department Clearance Categories',
+                gridSub: 'Ministry of Interior (MOI) clearances for commercial vehicles and parking.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Commercial Fleet & Company Vehicle Registration', desc: 'Opening corporate traffic files and registering commercial vans, pickups, buses, and delivery motorcycles under company name.' },
                     { title: 'Heavy Equipment & Peak-Hour Access Permits', desc: 'Obtaining MOI permits for heavy trucks, cranes, and restricted-hour road movement across Doha.' },
@@ -1526,6 +1599,7 @@
                 badge: 'MINISTRY OF MUNICIPALITY',
                 title: 'Baladiya Commercial Trade License',
                 subtitle: 'Ministry of Municipality Trade License issuance, exterior signage permits, and premise zoning completion in Qatar.',
+                img: 'photo1.jpg',
                 overviewTag: 'MUNICIPALITY LICENSING',
                 overviewHeading: 'Baladiya Commercial License & Signage Approvals',
                 p1: 'A Commercial Registration (CR) alone does not permit physical operations in Qatar until the Ministry of Municipality (Baladiya) inspects your commercial premises and issues the Commercial Trade License (Rukhsat Tijariya).',
@@ -1536,7 +1610,10 @@
                     'Building owner QID/CR copy and Kahramaa electricity/water number',
                     'Interior/exterior photos of the premise and signboard design dimensions'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'Municipality Licensing Categories',
+                gridSub: 'Trade License issuance, signage permits, and premise zoning completion.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'New Commercial Trade License Issuance', desc: 'Complete Baladiya application, premise inspection coordination, and official Trade License issuance for offices and retail shops.' },
                     { title: 'Commercial Signboard & Facade Permits', desc: 'Approval of bilingual Arabic-English exterior signage dimensions, illumination specs, and municipal advertisement fees.' },
@@ -1558,6 +1635,7 @@
                 badge: 'MINISTRY OF PUBLIC HEALTH',
                 title: 'MOPH Food & Hygiene Approval',
                 subtitle: 'Ministry of Public Health licensing for restaurants, cafes, cloud kitchens, food trading warehouses, and kitchen layout reviews.',
+                img: 'photo 2.jpg',
                 overviewTag: 'FOOD SAFETY & PUBLIC HEALTH',
                 overviewHeading: 'Ministry of Public Health (MOPH) Food & Hygiene Licensing',
                 p1: 'Restaurants, specialty cafes, cloud kitchens, bakeries, and food import/storage warehouses in Qatar must pass strict Ministry of Public Health (MOPH) Food Safety & Environmental Health inspections before opening.',
@@ -1568,7 +1646,10 @@
                     'Qatar Civil Defense (QCDF) safety certificate and pest control contract',
                     'Staff Occupational Health Cards and Food Safety Manager certification'
                 ],
+                sectionTagLabel: 'WHAT WE OFFER',
                 gridHeading: 'MOPH Food & Hospitality Categories',
+                gridSub: 'Health licenses for restaurants, cafes, cloud kitchens, and food warehouses.',
+                cardsLayout: 'grid-3',
                 cards: [
                     { title: 'Restaurants, Cafes & Bakeries', desc: 'End-to-end MOPH kitchen layout review, grease trap compliance, and food service hygiene licensing.' },
                     { title: 'Cloud Kitchens & Catering Facilities', desc: 'Regulatory approvals for central production kitchens, delivery-only food concepts, and corporate catering operators.' },
@@ -1611,11 +1692,14 @@
             document.getElementById('detail-badge').textContent = data.badge;
             document.getElementById('detail-title').textContent = data.title;
             document.getElementById('detail-subtitle').textContent = data.subtitle;
+            document.getElementById('detail-img').src = data.img;
             document.getElementById('detail-overview-tag').textContent = data.overviewTag;
             document.getElementById('detail-overview-heading').textContent = data.overviewHeading;
             document.getElementById('detail-p1').textContent = data.p1;
             document.getElementById('detail-p2').textContent = data.p2;
+            document.getElementById('detail-section-tag-label').textContent = data.sectionTagLabel;
             document.getElementById('detail-grid-heading').textContent = data.gridHeading;
+            document.getElementById('detail-grid-sub').textContent = data.gridSub;
             document.getElementById('detail-exec-heading').textContent = data.execHeading;
 
             // Populate Requirements Checklist
@@ -1627,12 +1711,13 @@
                 </div>
             `).join('');
 
-            // Populate 3 Category Cards
+            // Populate Category Cards (with dynamic grid layout for PRO 12 services)
             const cardsContainer = document.getElementById('detail-cards-container');
-            cardsContainer.innerHTML = data.cards.map(card => `
+            cardsContainer.className = data.cardsLayout === 'grid-4' ? 'grid-4' : 'grid-3';
+            cardsContainer.innerHTML = data.cards.map((card, idx) => `
                 <div class="card">
                     <div>
-                        <div class="card-icon">✓</div>
+                        <div class="card-icon">${idx + 1}</div>
                         <h3>${card.title}</h3>
                         <p>${card.desc}</p>
                     </div>
@@ -1640,7 +1725,7 @@
                 </div>
             `).join('');
 
-            // Populate 3 Execution Items
+            // Populate Execution Items
             const execContainer = document.getElementById('detail-exec-list');
             execContainer.innerHTML = data.execItems.map(item => `
                 <div class="exec-list-item">
