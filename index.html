@@ -1493,7 +1493,13 @@
                     <input type="text" id="ecommerce-search-input" placeholder="🔍 Search among 194+ e-commerce activities (e.g., retail, food delivery, IT)..." onkeyup="filterEcommerceActivities()" style="width: 100%; padding: 14px 20px; border-radius: 99px; border: 2px solid var(--royal-blue); font-size: 15px; background: var(--pure-white); box-shadow: 0 4px 12px rgba(10,54,157,0.08); outline: none;">
                 </div>
 
-                <div id="detail-cards-container"></div>
+                <!-- Single Box Scrollable Container for 194 Activities -->
+                <div id="single-scroll-box" style="display: none; max-height: 600px; overflow-y: auto; background: var(--pure-white); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);">
+                    <div id="detail-cards-container" style="display: flex; flex-direction: column; gap: 12px;"></div>
+                </div>
+
+                <!-- Normal Grid Container for other services -->
+                <div id="normal-grid-container"></div>
             </div>
         </section>
 
@@ -1672,15 +1678,22 @@
         </div>
     </footer>
 
-    <!-- Database Script with All 15 Pages and Fully Populated 194 E-Commerce Activities -->
+    <!-- Database Script with All 15 Pages and Fully Populated E-Commerce Platform & Domain Details -->
     <script>
-        // Generate all 194 E-Commerce activities dynamically so user can see and search them all
+        // Generate all 194 E-Commerce activities with Domain & Platform integration details
         const generatedEcomCards = [];
-        const ecomSectors = ['Technology & Electronics', 'Digital Platforms', 'Fashion & Retail', 'Beauty & Wellness', 'Food & Logistics', 'B2B & Wholesale'];
+        const ecomCategories = [
+            'Retail & Fashion', 'Electronics & Gadgets', 'Food & Online Delivery', 
+            'B2B Wholesale Portal', 'SaaS & Cloud Software', 'Digital Marketing & Ads',
+            'Logistics & Fulfillment', 'E-Learning & Training', 'Health & Wellness Store',
+            'Travel & Booking App', 'Real Estate Portal', 'General Trading Marketplace'
+        ];
+        
         for (let i = 1; i <= 194; i++) {
+            const cat = ecomCategories[(i - 1) % ecomCategories.length];
             generatedEcomCards.push({
-                title: `Activity #${i}: E-Commerce Trading & Digital Services (${ecomSectors[(i-1) % ecomSectors.length]})`,
-                desc: `Official MOCI approved activity code 4791${i < 10 ? '0' + i : i} covering online retail, B2B procurement, and digital platform facilitation in Qatar.`
+                title: `Activity #${i}: MOCI E-Commerce Trading & Digital Portal (${cat})`,
+                desc: `Official MOCI approved activity code 4791${i < 10 ? '0' + i : i}. Includes custom Domain Setup (.qa / .com), secure Payment Gateway integration (SkipCash/QPay), SSL security, and mobile-optimized web/app architecture.`
             });
         }
 
@@ -1984,34 +1997,34 @@
             },
             'ecommerce-194': {
                 breadcrumb: 'Home / 194+ E-Commerce Activities',
-                badge: 'DIGITAL COMMERCE',
+                badge: 'DIGITAL COMMERCE & E-COMMERCE PLATFORM',
                 title: '194+ Approved E-Commerce Activities in Qatar',
-                subtitle: 'Search and explore all 194+ approved MOCI e-commerce activities in Qatar with 100% foreign ownership support.',
+                subtitle: 'Launch a licensed e-commerce company in Qatar with 100% foreign ownership, custom Domain Registration (.qa / .com), Web/App development, and Payment Gateway integration across 194+ MOCI digital trading activities.',
                 img: 'photo 9.jpg',
-                overviewTag: 'E-COMMERCE DIRECTORY & LICENSING',
-                overviewHeading: 'Browse & Search 194+ Approved E-Commerce Activities',
-                p1: 'Qatar’s Ministry of Commerce and Industry (MOCI) officially authorizes over 194 digital commercial and trading activities. Use the live search bar below to instantly find specific retail, wholesale, IT, and delivery classifications.',
-                p2: 'Serve Ease handles complete MOCI company formation, commercial registration, payment gateway setup, and MOT logistics approvals.',
+                overviewTag: 'E-COMMERCE PLATFORM & DOMAIN INTEGRATION',
+                overviewHeading: 'Complete E-Commerce Platform Setup, Domain Registration & Payment Integration',
+                p1: 'Qatar’s Ministry of Commerce and Industry (MOCI) officially authorizes over 194 specialized e-commerce activities. Beyond company formation, Serve Ease delivers full turnkey e-commerce platform development—including Domain Registration (.qa, .com), custom web & mobile app UI/UX design, SSL security, payment gateway integration (SkipCash, QPay, Sadad), and logistics fulfillment setup.',
+                p2: 'Use the live search box below to instantly find specific trading classifications among all 194 approved activities, backed by robust digital infrastructure.',
                 requirements: [
                     'Selection of primary and secondary MOCI e-commerce activity codes',
-                    'Shareholder passport copies and proposed Arabic/English brand name',
-                    'Registered office or approved e-commerce workspace lease',
-                    'Domain name and platform operational overview'
+                    'Domain name preference (.qa, .com.qa, or .com) & brand identity',
+                    'Shareholder passport copies and proposed Arabic/English trade name',
+                    'Registered office or approved e-commerce workspace lease & payment setup'
                 ],
                 sectionTagLabel: '194+ E-COMMERCE ACTIVITIES DIRECTORY',
-                gridHeading: 'Approved MOCI E-Commerce Activities',
-                gridSub: 'Type any keyword in the search bar above to instantly filter through all approved categories.',
-                cardsLayout: 'grid-3',
+                gridHeading: 'Approved MOCI E-Commerce Activities & Platform Features',
+                gridSub: 'Type any keyword in the search bar below to instantly filter through all 194 approved categories.',
+                cardsLayout: 'single-scroll',
                 cards: generatedEcomCards,
-                execHeading: 'Digital Business Launch Roadmap',
+                execHeading: 'E-Commerce Platform & Digital Launch Roadmap',
                 execItems: [
-                    { title: 'Activity Classification & Trade Name Approval', desc: 'Matching your online business model to exact MOCI e-commerce codes to prevent licensing restrictions.' },
-                    { title: 'CR, Trade License & Tax Card Issuance', desc: 'Complete legal formation including Dhareeba tax registration and Establishment Card setup.' },
-                    { title: 'Corporate Banking & Gateway Onboarding', desc: 'Supporting merchant account KYC for seamless online QAR and international card settlements.' }
+                    { title: 'Domain Registration & Brand Setup', desc: 'Securing your official .qa or .com domain name, corporate email hosting, and SSL certificate installation.' },
+                    { title: 'Custom E-Commerce Platform & App Development', desc: 'Building responsive web portals and mobile shopping apps with inventory management, shopping cart, and multi-vendor capabilities.' },
+                    { title: 'Payment Gateway & MOT Logistics Integration', desc: 'Connecting secure Qatari payment gateways and last-mile delivery dispatch systems under strict MOCI compliance.' }
                 ],
                 faqs: [
-                    { q: 'Can foreigners own 100% of an e-commerce company in Qatar?', a: 'Yes, e-commerce activities are eligible for 100% foreign ownership under MOCI regulations in Qatar.' },
-                    { q: 'Can I combine multiple e-commerce activities under one CR?', a: 'Yes, multiple compatible e-commerce activities can be bundled under a single Commercial Registration.' }
+                    { q: 'What is included in the E-Commerce Platform setup by Serve Ease?', a: 'We handle Commercial Registration, MOCI e-commerce licensing, domain registration (.qa/.com), web/app development, and local payment gateway integration.' },
+                    { q: 'Can foreigners own 100% of an e-commerce company in Qatar?', a: 'Yes, e-commerce activities are fully eligible for 100% foreign ownership under MOCI regulations in Qatar.' }
                 ]
             },
             'gym-approval': {
@@ -2266,13 +2279,20 @@
             document.getElementById('detail-grid-sub').textContent = data.gridSub;
             document.getElementById('detail-exec-heading').textContent = data.execHeading;
 
-            // Show search box only for ecommerce-194 page
+            // Show search box and single scroll box only for ecommerce-194 page
             const searchBoxWrapper = document.getElementById('search-box-wrapper');
+            const singleScrollBox = document.getElementById('single-scroll-box');
+            const normalGridContainer = document.getElementById('normal-grid-container');
+
             if (slug === 'ecommerce-194') {
                 searchBoxWrapper.style.display = 'block';
+                singleScrollBox.style.display = 'block';
+                normalGridContainer.style.display = 'none';
                 document.getElementById('ecommerce-search-input').value = '';
             } else {
                 searchBoxWrapper.style.display = 'none';
+                singleScrollBox.style.display = 'none';
+                normalGridContainer.style.display = 'block';
             }
 
             // Populate Requirements Checklist
@@ -2286,7 +2306,11 @@
 
             // Populate Category Cards
             window.currentCards = data.cards;
-            renderCards(window.currentCards);
+            if (slug === 'ecommerce-194') {
+                renderScrollCards(window.currentCards);
+            } else {
+                renderNormalCards(window.currentCards);
+            }
 
             // Populate Execution Items
             const execContainer = document.getElementById('detail-exec-list');
@@ -2312,14 +2336,10 @@
             showView('detail');
         }
 
-        function renderCards(cardsArray) {
-            const cardsContainer = document.getElementById('detail-cards-container');
-            cardsContainer.className = 'grid-3';
-            if (cardsArray.length === 0) {
-                cardsContainer.innerHTML = `<div style="grid-column: span 3; text-align: center; padding: 40px; color: var(--text-muted); font-size: 16px;">No matching e-commerce activities found. Try another keyword.</div>`;
-                return;
-            }
-            cardsContainer.innerHTML = cardsArray.map((card, idx) => `
+        function renderNormalCards(cardsArray) {
+            const container = document.getElementById('normal-grid-container');
+            container.className = 'grid-3';
+            container.innerHTML = cardsArray.map((card, idx) => `
                 <div class="card">
                     <div>
                         <div class="card-icon">${idx + 1}</div>
@@ -2331,13 +2351,30 @@
             `).join('');
         }
 
+        function renderScrollCards(cardsArray) {
+            const container = document.getElementById('detail-cards-container');
+            if (cardsArray.length === 0) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 15px;">No matching e-commerce activities found. Try another keyword.</div>`;
+                return;
+            }
+            container.innerHTML = cardsArray.map((card, idx) => `
+                <div style="background: var(--light-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+                    <div>
+                        <h4 style="font-size: 15px; font-weight: 700; color: var(--dark-navy); margin-bottom: 4px;">${card.title}</h4>
+                        <p style="font-size: 13.5px; color: var(--text-muted); margin: 0;">${card.desc}</p>
+                    </div>
+                    <button class="btn-book" style="padding: 8px 16px; font-size: 12px; white-space: nowrap;" onclick="showView('contact')">Select Activity</button>
+                </div>
+            `).join('');
+        }
+
         function filterEcommerceActivities() {
             const query = document.getElementById('ecommerce-search-input').value.toLowerCase();
             if (!window.currentCards) return;
             const filtered = window.currentCards.filter(card => 
                 card.title.toLowerCase().includes(query) || card.desc.toLowerCase().includes(query)
             );
-            renderCards(filtered);
+            renderScrollCards(filtered);
         }
     </script>
 </body>
