@@ -270,13 +270,12 @@
             color: var(--text-muted);
         }
 
-        /* Hero Video Section */
-        .hero-video-wrapper {
+        /* Modern Split Hero Video Section (Matching Reference Image) */
+        .hero-split-section {
             position: relative;
             background-color: var(--dark-navy);
             color: var(--pure-white);
-            padding: 120px 24px;
-            text-align: center;
+            padding: 90px 24px;
             overflow: hidden;
         }
 
@@ -296,22 +295,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(7, 25, 61, 0.78);
+            background: rgba(7, 25, 61, 0.82);
             z-index: 1;
         }
 
-        .hero-inner {
+        .hero-split-container {
             position: relative;
             z-index: 2;
-            max-width: 860px;
+            max-width: 1280px;
             margin: 0 auto;
-        }
-
-        .home-hero {
-            background: var(--dark-navy);
-            color: var(--pure-white);
-            padding: 80px 24px;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
         }
 
         .pill-badge {
@@ -328,27 +324,25 @@
             margin-bottom: 20px;
         }
 
-        .hero-video-wrapper h1, .home-hero h1 {
-            font-size: 48px;
+        .hero-split-content h1 {
+            font-size: 44px;
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .hero-video-wrapper p, .home-hero p {
-            font-size: 18px;
+        .hero-split-content p {
+            font-size: 16.5px;
             color: #CBD5E1;
-            margin-bottom: 34px;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 28px;
+            line-height: 1.6;
         }
 
         .hero-btns {
             display: flex;
             gap: 16px;
-            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 28px;
         }
 
         .btn-primary {
@@ -373,6 +367,63 @@
             font-size: 15px;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .client-avatars-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13.5px;
+            color: #E2E8F0;
+            font-weight: 600;
+        }
+
+        .avatar-group {
+            display: flex;
+        }
+
+        .avatar-group img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--pure-white);
+            margin-left: -10px;
+        }
+
+        .avatar-group img:first-child {
+            margin-left: 0;
+        }
+
+        /* Modern 3-Photo Collage on Right (Matching Reference Image) */
+        .hero-collage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .collage-card-tall {
+            grid-row: span 2;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 290px;
+        }
+
+        .collage-card-small {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 135px;
+        }
+
+        .collage-card-tall img, .collage-card-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* Standard Container */
@@ -439,7 +490,7 @@
             border-color: var(--royal-blue);
         }
 
-        /* Service Image Cards (Matching Screenshot 2) */
+        /* Service Image Cards */
         .service-img-card {
             background: var(--pure-white);
             border: 1px solid var(--border-color);
@@ -621,7 +672,7 @@
             margin-top: 2px;
         }
 
-        /* Why Choose Serve Ease Dark Section (Matching Screenshot 2) */
+        /* Why Choose Serve Ease Dark Section */
         .why-choose-band {
             background: var(--dark-navy);
             color: var(--pure-white);
@@ -773,7 +824,7 @@
             color: var(--text-muted);
         }
 
-        /* Leadership Dark Band (Matching Screenshot 2) */
+        /* Leadership Dark Band */
         .leadership-band {
             background: var(--dark-navy);
             padding: 72px 24px;
@@ -818,7 +869,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Bottom CTA Banner (Matching Screenshot 2) */
+        /* Bottom CTA Banner */
         .bottom-cta-band {
             background: linear-gradient(rgba(7, 25, 61, 0.72), rgba(7, 25, 61, 0.85)), url('photo 13.jpg');
             background-size: cover;
@@ -970,14 +1021,14 @@
         }
 
         @media (max-width: 960px) {
-            .grid-3, .grid-4, .split-grid, .exec-grid, .stats-inner, .footer-grid, .why-choose-grid, .leadership-card {
+            .grid-3, .grid-4, .split-grid, .exec-grid, .stats-inner, .footer-grid, .why-choose-grid, .leadership-card, .hero-split-container {
                 grid-template-columns: 1fr;
                 flex-direction: column;
             }
             nav ul {
                 display: none;
             }
-            .hero-video-wrapper h1, .home-hero h1 {
+            .hero-split-content h1 {
                 font-size: 34px;
             }
             .why-row {
@@ -1040,19 +1091,45 @@
 
     <!-- ================= HOME VIEW ================= -->
     <main id="view-home" class="view-section active">
-        <!-- Hero Background Video Section -->
-        <section class="hero-video-wrapper">
+        <!-- Modern Split Hero Section with Background Video & Collage (Matching Reference) -->
+        <section class="hero-split-section">
             <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
-                <source src="bg.mp4" type="video/mp4">
+                <source src="hero-bg.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
             </video>
             <div class="hero-video-overlay"></div>
-            <div class="hero-inner">
-                <span class="pill-badge">DOHA'S PREMIER CORPORATE ADVISORY</span>
-                <h1>Serve Ease Business Solutions</h1>
-                <p>Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.</p>
-                <div class="hero-btns">
-                    <button class="btn-primary" onclick="showView('contact')">Contact Us</button>
-                    <button class="btn-outline" onclick="openDetail('ecommerce-194')">194+ E-Commerce Activities</button>
+            
+            <div class="hero-split-container">
+                <div class="hero-split-content">
+                    <span class="pill-badge">DOHA'S PREMIER CORPORATE ADVISORY</span>
+                    <h1>Serve Ease Business Solutions</h1>
+                    <p>Serve Ease Business Solutions provides complete company formation, legal support, corporate banking, translation, attestation, and ministry compliance solutions in Qatar.</p>
+                    <div class="hero-btns">
+                        <button class="btn-primary" onclick="showView('contact')">Contact Us</button>
+                        <button class="btn-outline" onclick="openDetail('ecommerce-194')">194+ E-Commerce Activities</button>
+                    </div>
+                    <div class="client-avatars-row">
+                        <div class="avatar-group">
+                            <img src="shafir.jpg" alt="Client">
+                            <img src="photo 2.jpg" alt="Client">
+                            <img src="photo 3.jpg" alt="Client">
+                            <img src="photo 4.jpg" alt="Client">
+                        </div>
+                        <span>100+ Successful Corporate Clients</span>
+                    </div>
+                </div>
+
+                <!-- Right Side Modern 3-Photo Collage -->
+                <div class="hero-collage-grid">
+                    <div class="collage-card-tall">
+                        <img src="photo 2.jpg" alt="Corporate Meeting Doha">
+                    </div>
+                    <div class="collage-card-small">
+                        <img src="photo 3.jpg" alt="Office Consultation Qatar">
+                    </div>
+                    <div class="collage-card-small">
+                        <img src="photo 4.jpg" alt="Business Advisory Doha">
+                    </div>
                 </div>
             </div>
         </section>
@@ -1080,7 +1157,7 @@
             </div>
         </section>
 
-        <!-- 8 Core Corporate Services with Photos (Matching Screenshot 2) -->
+        <!-- 8 Core Corporate Services with Photos -->
         <section class="container" id="services-section" style="padding-top: 20px;">
             <div class="section-header">
                 <span class="section-tag">OUR SERVICES</span>
@@ -1245,7 +1322,7 @@
             </div>
         </section>
 
-        <!-- Why Choose Serve Ease Dark Navy Band (Matching Screenshot 2) -->
+        <!-- Why Choose Serve Ease Dark Navy Band -->
         <section class="why-choose-band">
             <div class="why-choose-grid">
                 <div>
@@ -1275,7 +1352,7 @@
             </div>
         </section>
 
-        <!-- White Stats Strip (Matching Screenshot 2) -->
+        <!-- White Stats Strip -->
         <section class="stats-bar">
             <div class="stats-inner">
                 <div><span class="stat-num">194+</span><span class="stat-label">E-Commerce Activities</span></div>
@@ -1285,7 +1362,7 @@
             </div>
         </section>
 
-        <!-- Leadership Dark Band (Matching Screenshot 2) -->
+        <!-- Leadership Dark Band -->
         <section class="leadership-band">
             <div class="leadership-card">
                 <div class="leader-photo-box">
@@ -1305,7 +1382,7 @@
             </div>
         </section>
 
-        <!-- Bottom Contact Banner (Matching Screenshot 2) -->
+        <!-- Bottom Contact Banner -->
         <section class="bottom-cta-band">
             <div class="bottom-cta-card">
                 <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Contact Us for Company Formation in Qatar – Complete Business Setup</h3>
@@ -1324,11 +1401,18 @@
             </div>
         </div>
 
-        <section class="home-hero">
-            <div class="hero-inner">
-                <span class="pill-badge" id="detail-badge">CORPORATE SERVICE</span>
-                <h1 id="detail-title" style="font-size: 42px;">Service Title</h1>
-                <p id="detail-subtitle">Complete regulatory licensing and compliance support in Qatar.</p>
+        <section class="hero-split-section" style="padding: 70px 24px;">
+            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+                <source src="hero-bg.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+            <div class="hero-split-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-split-content">
+                    <span class="pill-badge" id="detail-badge">CORPORATE SERVICE</span>
+                    <h1 id="detail-title" style="font-size: 40px; margin-bottom: 12px;">Service Title</h1>
+                    <p id="detail-subtitle" style="margin: 0 auto; max-width: 800px;">Complete regulatory licensing and compliance support in Qatar.</p>
+                </div>
             </div>
         </section>
 
@@ -1392,11 +1476,18 @@
 
     <!-- ================= ABOUT US VIEW ================= -->
     <main id="view-about" class="view-section">
-        <section class="home-hero">
-            <div class="hero-inner">
-                <span class="pill-badge">ABOUT SERVE EASE</span>
-                <h1>Corporate Excellence in Doha, Qatar</h1>
-                <p>Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+        <section class="hero-split-section" style="padding: 70px 24px;">
+            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+                <source src="hero-bg.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+            <div class="hero-split-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-split-content">
+                    <span class="pill-badge">ABOUT SERVE EASE</span>
+                    <h1 style="font-size: 40px; margin-bottom: 12px;">Corporate Excellence in Doha, Qatar</h1>
+                    <p style="margin: 0 auto; max-width: 800px;">Dedicated to simplifying company formation, regulatory governance, and enterprise operations across the State of Qatar.</p>
+                </div>
             </div>
         </section>
         <section class="container">
@@ -1420,11 +1511,18 @@
 
     <!-- ================= CONTACT US VIEW ================= -->
     <main id="view-contact" class="view-section">
-        <section class="home-hero">
-            <div class="hero-inner">
-                <span class="pill-badge">GET IN TOUCH</span>
-                <h1>Contact Serve Ease Business Solutions</h1>
-                <p>Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+        <section class="hero-split-section" style="padding: 70px 24px;">
+            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+                <source src="hero-bg.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+            <div class="hero-split-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-split-content">
+                    <span class="pill-badge">GET IN TOUCH</span>
+                    <h1 style="font-size: 40px; margin-bottom: 12px;">Contact Serve Ease Business Solutions</h1>
+                    <p style="margin: 0 auto; max-width: 800px;">Visit our Doha office or submit an inquiry with your international phone number (240+ country codes supported).</p>
+                </div>
             </div>
         </section>
         <section class="container">
@@ -1470,7 +1568,7 @@
         </section>
     </main>
 
-    <!-- Floating WhatsApp & Call Buttons (Matching Screenshot 2) -->
+    <!-- Floating WhatsApp & Call Buttons -->
     <div class="floating-actions">
         <a href="https://wa.me/97470442825" target="_blank" class="float-btn float-wa" title="WhatsApp Us">💬</a>
         <a href="tel:+97470442825" class="float-btn float-call" title="Call Us">📞</a>
