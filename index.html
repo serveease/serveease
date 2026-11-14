@@ -118,6 +118,12 @@
             cursor: pointer;
         }
 
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .logo-icon {
             width: 36px;
             height: 36px;
@@ -264,19 +270,48 @@
             color: var(--text-muted);
         }
 
-        /* Hero Sections */
-        .home-hero {
-            background: linear-gradient(rgba(7, 25, 61, 0.88), rgba(7, 25, 61, 0.92)), url('bg.jpg');
-            background-size: cover;
-            background-position: center;
+        /* Hero Video Section */
+        .hero-video-wrapper {
+            position: relative;
+            background-color: var(--dark-navy);
             color: var(--pure-white);
-            padding: 96px 24px;
+            padding: 120px 24px;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 25, 61, 0.78);
+            z-index: 1;
         }
 
         .hero-inner {
+            position: relative;
+            z-index: 2;
             max-width: 860px;
             margin: 0 auto;
+        }
+
+        .home-hero {
+            background: var(--dark-navy);
+            color: var(--pure-white);
+            padding: 80px 24px;
+            text-align: center;
         }
 
         .pill-badge {
@@ -293,14 +328,14 @@
             margin-bottom: 20px;
         }
 
-        .home-hero h1 {
+        .hero-video-wrapper h1, .home-hero h1 {
             font-size: 48px;
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 20px;
         }
 
-        .home-hero p {
+        .hero-video-wrapper p, .home-hero p {
             font-size: 18px;
             color: #CBD5E1;
             margin-bottom: 34px;
@@ -392,7 +427,7 @@
             background: var(--pure-white);
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 32px 28px;
+            padding: 28px 24px;
             transition: transform 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
@@ -402,6 +437,79 @@
         .card:hover {
             transform: translateY(-4px);
             border-color: var(--royal-blue);
+        }
+
+        /* Service Image Cards (Matching Screenshot 2) */
+        .service-img-card {
+            background: var(--pure-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-img-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--royal-blue);
+        }
+
+        .service-img-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .service-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--royal-blue);
+            flex-shrink: 0;
+        }
+
+        .service-img-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark-navy);
+            margin: 0;
+        }
+
+        .service-thumb-box {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--light-bg);
+        }
+
+        .service-thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-arrow-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--royal-blue);
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            border: 2px solid var(--pure-white);
         }
 
         .card-icon {
@@ -468,15 +576,16 @@
             background: var(--light-bg);
             border: 2px solid var(--royal-blue);
             border-radius: 16px;
-            padding: 36px;
+            padding: 32px;
         }
 
         .visual-panel img {
             width: 100%;
-            height: auto;
+            height: 300px;
             border-radius: 12px;
             margin-bottom: 20px;
             object-fit: cover;
+            display: block;
         }
 
         .visual-panel-header {
@@ -510,6 +619,58 @@
             font-size: 12px;
             flex-shrink: 0;
             margin-top: 2px;
+        }
+
+        /* Why Choose Serve Ease Dark Section (Matching Screenshot 2) */
+        .why-choose-band {
+            background: var(--dark-navy);
+            color: var(--pure-white);
+            padding: 80px 24px;
+        }
+
+        .why-choose-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .why-choose-img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid var(--royal-blue);
+            display: block;
+        }
+
+        .why-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .why-row:last-child {
+            border-bottom: none;
+        }
+
+        .why-row-title {
+            min-width: 200px;
+            font-weight: 700;
+            color: var(--sky-blue);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .why-row-desc {
+            font-size: 14px;
+            color: #CBD5E1;
         }
 
         /* Execution Band */
@@ -584,13 +745,14 @@
 
         /* Stats Strip */
         .stats-bar {
-            background: var(--royal-blue);
-            color: var(--pure-white);
-            padding: 48px 24px;
+            background: var(--pure-white);
+            color: var(--dark-navy);
+            padding: 40px 24px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .stats-inner {
-            max-width: 1280px;
+            max-width: 1140px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -599,15 +761,80 @@
         }
 
         .stat-num {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
-            color: var(--sky-blue);
+            color: var(--royal-blue);
             display: block;
         }
 
         .stat-label {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Leadership Dark Band (Matching Screenshot 2) */
+        .leadership-band {
+            background: var(--dark-navy);
+            padding: 72px 24px;
+        }
+
+        .leadership-card {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #0B224D;
+            border: 1px solid var(--royal-blue);
+            border-radius: 16px;
+            padding: 36px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            color: var(--pure-white);
+        }
+
+        .leader-photo-box {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .leader-photo-box img {
+            width: 130px;
+            height: 145px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid var(--sky-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .leader-badge {
+            background: var(--royal-blue);
+            color: var(--pure-white);
+            font-size: 9px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bottom CTA Banner (Matching Screenshot 2) */
+        .bottom-cta-band {
+            background: linear-gradient(rgba(7, 25, 61, 0.72), rgba(7, 25, 61, 0.85)), url('photo 13.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bottom-cta-card {
+            background: var(--dark-navy);
+            border: 1px solid var(--royal-blue);
+            border-radius: 16px;
+            padding: 36px 40px;
+            max-width: 520px;
+            color: var(--pure-white);
         }
 
         /* FAQ Accordion */
@@ -662,6 +889,34 @@
             background: var(--pure-white);
         }
 
+        /* Floating WhatsApp & Call Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .float-wa { background: #25D366; }
+        .float-call { background: var(--sky-blue); }
+
         /* Footer */
         footer {
             background: var(--dark-navy);
@@ -715,14 +970,19 @@
         }
 
         @media (max-width: 960px) {
-            .grid-3, .grid-4, .split-grid, .exec-grid, .stats-inner, .footer-grid {
+            .grid-3, .grid-4, .split-grid, .exec-grid, .stats-inner, .footer-grid, .why-choose-grid, .leadership-card {
                 grid-template-columns: 1fr;
+                flex-direction: column;
             }
             nav ul {
                 display: none;
             }
-            .home-hero h1 {
+            .hero-video-wrapper h1, .home-hero h1 {
                 font-size: 34px;
+            }
+            .why-row {
+                flex-direction: column;
+                gap: 6px;
             }
         }
     </style>
@@ -733,7 +993,8 @@
     <header>
         <div class="nav-container">
             <a class="logo" onclick="showView('home')">
-                <div class="logo-icon">SE</div>
+                <img src="logo.png" alt="Serve Ease Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';">
+                <div class="logo-icon" id="fallback-logo" style="display: none;">SE</div>
                 <div class="logo-text">
                     <span class="logo-title">Serve Ease</span>
                     <span class="logo-sub">BUSINESS SOLUTIONS</span>
@@ -779,7 +1040,12 @@
 
     <!-- ================= HOME VIEW ================= -->
     <main id="view-home" class="view-section active">
-        <section class="home-hero">
+        <!-- Hero Background Video Section -->
+        <section class="hero-video-wrapper">
+            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+                <source src="bg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
             <div class="hero-inner">
                 <span class="pill-badge">DOHA'S PREMIER CORPORATE ADVISORY</span>
                 <h1>Serve Ease Business Solutions</h1>
@@ -814,87 +1080,100 @@
             </div>
         </section>
 
-        <!-- Stats Strip -->
-        <section class="stats-bar">
-            <div class="stats-inner">
-                <div><span class="stat-num">194+</span><span class="stat-label">E-Commerce Activities</span></div>
-                <div><span class="stat-num">240+</span><span class="stat-label">Country Codes Supported</span></div>
-                <div><span class="stat-num">5/5</span><span class="stat-label">Client Reviews</span></div>
-                <div><span class="stat-num">24/7</span><span class="stat-label">Client PRO Support</span></div>
-            </div>
-        </section>
-
-        <!-- 8 Core Corporate Services -->
-        <section class="container" id="services-section">
+        <!-- 8 Core Corporate Services with Photos (Matching Screenshot 2) -->
+        <section class="container" id="services-section" style="padding-top: 20px;">
             <div class="section-header">
                 <span class="section-tag">OUR SERVICES</span>
                 <h2>Expert Legal and Business Solutions</h2>
-                <p>Select any corporate service below to inspect complete setup categories, execution workflows, and frequently asked questions.</p>
+                <p>Click any service card to explore customized setup options, requirements, and FAQs.</p>
             </div>
             <div class="grid-4">
-                <div class="card">
-                    <div>
-                        <div class="card-icon">01</div>
+                <div class="service-img-card" onclick="openDetail('company-formation')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
                         <h3>Company Formation</h3>
-                        <p>100% Foreign WLL, 51/49 Joint Venture, QFC, QFZ, QSTP, and foreign branch registration in Qatar.</p>
                     </div>
-                    <a class="card-link" onclick="openDetail('company-formation')">Explore Service →</a>
-                </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">02</div>
-                        <h3>Share Transfer & Restructuring</h3>
-                        <p>Partner amendments, Share Purchase Agreements (SPA), capital updates, and MOJ notarization.</p>
+                    <div class="service-thumb-box">
+                        <img src="photo 2.jpg" alt="Company Formation in Qatar">
+                        <div class="service-arrow-badge">→</div>
                     </div>
-                    <a class="card-link" onclick="openDetail('share-transfer')">Explore Service →</a>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">03</div>
+
+                <div class="service-img-card" onclick="openDetail('share-transfer')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
+                        <h3>Share Transfer & Restruct...</h3>
+                    </div>
+                    <div class="service-thumb-box">
+                        <img src="photo 3.jpg" alt="Share Transfer & Restructuring">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
+                </div>
+
+                <div class="service-img-card" onclick="openDetail('pro-retainer')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
                         <h3>Corporate PRO Retainer</h3>
-                        <p>Comprehensive government liaison with 12 specialized PRO services and 3 monthly retainer packages.</p>
                     </div>
-                    <a class="card-link" onclick="openDetail('pro-retainer')">Explore Service →</a>
+                    <div class="service-thumb-box">
+                        <img src="photo 4.jpg" alt="Corporate PRO Retainer">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">04</div>
+
+                <div class="service-img-card" onclick="openDetail('legal-translation')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
                         <h3>Legal Translation</h3>
-                        <p>Ministry-certified Arabic, English, and multilingual translation for AOA, contracts, and court filings.</p>
                     </div>
-                    <a class="card-link" onclick="openDetail('legal-translation')">Explore Service →</a>
+                    <div class="service-thumb-box">
+                        <img src="photo 5.jpg" alt="Legal Translation Doha">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">05</div>
+
+                <div class="service-img-card" onclick="openDetail('mofa-attestation')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
                         <h3>MOFA Attestation</h3>
-                        <p>Fast-track Ministry of Foreign Affairs authentication of corporate resolutions and commercial certificates.</p>
                     </div>
-                    <a class="card-link" onclick="openDetail('mofa-attestation')">Explore Service →</a>
-                </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">06</div>
-                        <h3>Local Qatari Sponsorship</h3>
-                        <p>Trusted Qatari corporate sponsors and structured joint-venture partners with full investor protection.</p>
+                    <div class="service-thumb-box">
+                        <img src="photo 6.jpg" alt="MOFA Attestation Qatar">
+                        <div class="service-arrow-badge">→</div>
                     </div>
-                    <a class="card-link" onclick="openDetail('local-sponsorship')">Explore Service →</a>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">07</div>
+
+                <div class="service-img-card" onclick="openDetail('local-sponsorship')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
+                        <h3>Local Partnership</h3>
+                    </div>
+                    <div class="service-thumb-box">
+                        <img src="photo 7.jpg" alt="Local Qatari Partnership">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
+                </div>
+
+                <div class="service-img-card" onclick="openDetail('corporate-banking')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
                         <h3>Corporate Banking</h3>
-                        <p>Direct assistance with leading Qatari corporate bank account opening and zero-rejection KYC compliance.</p>
                     </div>
-                    <a class="card-link" onclick="openDetail('corporate-banking')">Explore Service →</a>
+                    <div class="service-thumb-box">
+                        <img src="photo 8.jpg" alt="Corporate Bank Account Opening">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="card-icon">08</div>
-                        <h3>Feasibility Study & Plan</h3>
-                        <p>Market research, financial modeling, and MOCI/QFC business plans required for 100% foreign ownership.</p>
+
+                <div class="service-img-card" onclick="openDetail('feasibility-study')">
+                    <div class="service-img-card-header">
+                        <span class="service-dot"></span>
+                        <h3>Feasibility Study & Busine...</h3>
                     </div>
-                    <a class="card-link" onclick="openDetail('feasibility-study')">Explore Service →</a>
+                    <div class="service-thumb-box">
+                        <img src="photo 9.jpg" alt="Feasibility Study & Business Plan">
+                        <div class="service-arrow-badge">→</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -911,65 +1190,127 @@
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
+                            <span class="section-tag" style="font-size: 10px;">MINISTRY OF SPORTS & YOUTH</span>
                             <h3>Gym & Fitness Center Approval</h3>
                             <p>Ministry of Sports & Youth NOC, pre-lease location zoning assessment, and municipal fitness licensing.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('gym-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('gym-approval')">View Approval Page →</a>
                     </div>
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
-                            <h3>Transport Activity (MOT)</h3>
-                            <p>Ministry of Transport clearances for logistics, delivery fleets, limousine, and courier companies.</p>
+                            <span class="section-tag" style="font-size: 10px;">MINISTRY OF TRANSPORT</span>
+                            <h3>Transport Activity Approval (MOT)</h3>
+                            <p>MOT clearances for logistics, delivery, limousine, and fleet companies.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('mot-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('mot-approval')">View Approval Page →</a>
                     </div>
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
-                            <h3>Civil Defense Fire Safety (QCDF)</h3>
-                            <p>Qatar Civil Defense building safety inspection, fire alarm drawings, and commercial occupancy certification.</p>
+                            <span class="section-tag" style="font-size: 10px;">QATAR CIVIL DEFENSE</span>
+                            <h3>Fire Safety Approval (QCDF)</h3>
+                            <p>Qatar Civil Defense building safety inspection and certification.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('qcdf-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('qcdf-approval')">View Approval Page →</a>
                     </div>
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
+                            <span class="section-tag" style="font-size: 10px;">MINISTRY OF INTERIOR</span>
                             <h3>Traffic Department Clearance</h3>
-                            <p>Ministry of Interior (MOI) clearances for commercial vehicle registration, parking permits, and fleet compliance.</p>
+                            <p>Ministry of Interior (MOI) clearances for commercial vehicles and parking.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('traffic-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('traffic-approval')">View Approval Page →</a>
                     </div>
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
+                            <span class="section-tag" style="font-size: 10px;">MINISTRY OF MUNICIPALITY</span>
                             <h3>Baladiya Commercial License</h3>
-                            <p>Ministry of Municipality Trade License issuance, exterior signage permits, and premise zoning completion.</p>
+                            <p>Municipality trade license & signage approvals across Qatar.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('baladiya-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('baladiya-approval')">View Approval Page →</a>
                     </div>
                     <div class="card">
                         <div>
                             <div class="card-icon">✓</div>
+                            <span class="section-tag" style="font-size: 10px;">MINISTRY OF PUBLIC HEALTH</span>
                             <h3>MOPH Food & Hygiene Approval</h3>
-                            <p>Ministry of Public Health licensing for restaurants, cafes, cloud kitchens, and food trading warehouses.</p>
+                            <p>Health licenses for restaurants, cafes, cloud kitchens, and food trading.</p>
                         </div>
-                        <a class="card-link" onclick="openDetail('moph-approval')">Explore Approval →</a>
+                        <a class="card-link" onclick="openDetail('moph-approval')">View Approval Page →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Leadership Quote -->
-        <section class="container">
-            <div class="visual-panel" style="max-width: 920px; margin: 0 auto; text-align: center;">
-                <img src="shafir.jpg" alt="Shafir Kottupurath Basheer" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px auto; display: block; border: 3px solid var(--royal-blue);">
-                <span class="section-tag">LEADERSHIP & VISION</span>
-                <p style="font-size: 20px; font-weight: 600; color: var(--dark-navy); margin: 16px 0 24px 0;">
-                    "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
-                </p>
-                <strong style="font-size: 18px; color: var(--royal-blue); display: block;">Shafir Kottupurath Basheer</strong>
-                <span style="font-size: 14px; color: var(--text-muted);">Founder & Managing Director — Doha, Qatar</span>
+        <!-- Why Choose Serve Ease Dark Navy Band (Matching Screenshot 2) -->
+        <section class="why-choose-band">
+            <div class="why-choose-grid">
+                <div>
+                    <img src="photo 10.jpg" alt="Why Choose Serve Ease Doha" class="why-choose-img">
+                </div>
+                <div>
+                    <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 12px;">Why Choose Serve Ease</h2>
+                    <p style="color: #CBD5E1; font-size: 14.5px; margin-bottom: 24px;">Businesses choose Serve Ease for our transparency, expertise, and dedicated support ensuring smooth business setup, regulatory compliance, and long-term sustainable growth.</p>
+                    
+                    <div class="why-row">
+                        <div class="why-row-title"><span style="color: var(--sky-blue);">●</span> Professional Expertise</div>
+                        <div class="why-row-desc">Experienced consultants delivering accurate, compliant corporate solutions in Doha.</div>
+                    </div>
+                    <div class="why-row">
+                        <div class="why-row-title"><span style="color: var(--sky-blue);">●</span> Transparent Process</div>
+                        <div class="why-row-desc">Clear communication, itemized government receipts, and honest guidance at every stage.</div>
+                    </div>
+                    <div class="why-row">
+                        <div class="why-row-title"><span style="color: var(--sky-blue);">●</span> Reliable Support</div>
+                        <div class="why-row-desc">Dedicated PRO and administrative assistance ensuring smooth daily business operations.</div>
+                    </div>
+                    <div class="why-row">
+                        <div class="why-row-title"><span style="color: var(--sky-blue);">●</span> Proven Results</div>
+                        <div class="why-row-desc">Successful track record with international and local corporate clients across Qatar.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- White Stats Strip (Matching Screenshot 2) -->
+        <section class="stats-bar">
+            <div class="stats-inner">
+                <div><span class="stat-num">194+</span><span class="stat-label">E-Commerce Activities</span></div>
+                <div><span class="stat-num">240+</span><span class="stat-label">Country Codes Supported</span></div>
+                <div><span class="stat-num">5/5</span><span class="stat-label">Client Reviews</span></div>
+                <div><span class="stat-num">24/7</span><span class="stat-label">Client PRO Support</span></div>
+            </div>
+        </section>
+
+        <!-- Leadership Dark Band (Matching Screenshot 2) -->
+        <section class="leadership-band">
+            <div class="leadership-card">
+                <div class="leader-photo-box">
+                    <img src="shafir.jpg" alt="Shafir Kottupurath Basheer">
+                    <span class="leader-badge">FOUNDER & MANAGING DIRECTOR</span>
+                </div>
+                <div>
+                    <span class="section-tag" style="color: var(--sky-blue); margin-bottom: 6px;">LEADERSHIP & VISION</span>
+                    <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 12px;">Shafir Kottupurath Basheer</h3>
+                    <p style="font-size: 14.5px; color: #E2E8F0; margin-bottom: 16px; font-style: italic;">
+                        "At Serve Ease Business Solutions, our primary objective is to empower founders and global businesses with seamless and transparent company formation, cutting corporate complexity, and ensuring uncompromised legal execution across Qatar."
+                    </p>
+                    <span style="font-size: 12.5px; color: var(--sky-blue); font-weight: 600; border: 1px solid rgba(0,168,232,0.4); padding: 6px 14px; border-radius: 6px; display: inline-block;">
+                        Managing Director & Senior Business Consultant — Doha, Qatar
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Contact Banner (Matching Screenshot 2) -->
+        <section class="bottom-cta-band">
+            <div class="bottom-cta-card">
+                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Contact Us for Company Formation in Qatar – Complete Business Setup</h3>
+                <p style="font-size: 13.5px; color: #CBD5E1; margin-bottom: 22px;">Receive customized formation structures, regulatory checklists, and reliable local execution. Connect with Serve Ease Business Solutions to launch or expand your enterprise in Qatar.</p>
+                <button class="btn-primary" style="padding: 10px 22px; font-size: 13.5px;" onclick="showView('contact')">Make Appointment</button>
             </div>
         </section>
     </main>
@@ -983,7 +1324,7 @@
             </div>
         </div>
 
-        <section class="home-hero" style="padding: 72px 24px;">
+        <section class="home-hero">
             <div class="hero-inner">
                 <span class="pill-badge" id="detail-badge">CORPORATE SERVICE</span>
                 <h1 id="detail-title" style="font-size: 42px;">Service Title</h1>
@@ -1051,7 +1392,7 @@
 
     <!-- ================= ABOUT US VIEW ================= -->
     <main id="view-about" class="view-section">
-        <section class="home-hero" style="padding: 72px 24px;">
+        <section class="home-hero">
             <div class="hero-inner">
                 <span class="pill-badge">ABOUT SERVE EASE</span>
                 <h1>Corporate Excellence in Doha, Qatar</h1>
@@ -1079,7 +1420,7 @@
 
     <!-- ================= CONTACT US VIEW ================= -->
     <main id="view-contact" class="view-section">
-        <section class="home-hero" style="padding: 72px 24px;">
+        <section class="home-hero">
             <div class="hero-inner">
                 <span class="pill-badge">GET IN TOUCH</span>
                 <h1>Contact Serve Ease Business Solutions</h1>
@@ -1128,6 +1469,12 @@
             </div>
         </section>
     </main>
+
+    <!-- Floating WhatsApp & Call Buttons (Matching Screenshot 2) -->
+    <div class="floating-actions">
+        <a href="https://wa.me/97470442825" target="_blank" class="float-btn float-wa" title="WhatsApp Us">💬</a>
+        <a href="tel:+97470442825" class="float-btn float-call" title="Call Us">📞</a>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1181,7 +1528,7 @@
                 badge: 'CORPORATE LICENSING',
                 title: 'Company Formation in Qatar',
                 subtitle: 'Complete business registration and licensing services in Qatar with 100% foreign ownership and full compliance support.',
-                img: 'photo1.jpg',
+                img: 'photo 2.jpg',
                 overviewTag: 'COMPANY FORMATION OVERVIEW',
                 overviewHeading: 'Seamless Company Formation Services in Doha',
                 p1: 'Qatar is an exceptional destination for global investors and entrepreneurs looking to scale across the Middle East. We establish the exact corporate structure suited for your ownership model, capital structure, and commercial activities.',
@@ -1217,7 +1564,7 @@
                 badge: 'CORPORATE GOVERNANCE',
                 title: 'Share Transfer & Corporate Restructuring',
                 subtitle: 'Partner amendments, equity restructuring, manager changes, and Ministry of Justice notarization in Qatar.',
-                img: 'photo 2.jpg',
+                img: 'photo 3.jpg',
                 overviewTag: 'CORPORATE AMENDMENTS',
                 overviewHeading: 'Seamless Share Transfer & Ownership Amendments',
                 p1: 'Modifying company ownership, onboarding strategic investors, or transferring equity shares in Qatar requires strict coordination between the Ministry of Commerce and Industry (MOCI) and the Ministry of Justice (MOJ).',
@@ -1253,7 +1600,7 @@
                 badge: 'GOVERNMENT LIAISON',
                 title: 'Corporate PRO Retainer Services',
                 subtitle: 'Comprehensive government liaison with 12 specialized PRO services and 3 structured monthly corporate retainer packages in Doha.',
-                img: 'photo 3.jpg',
+                img: 'photo 4.jpg',
                 overviewTag: 'EXECUTIVE PRO SUPPORT',
                 overviewHeading: 'Dedicated Corporate PRO Retainer & 12 Essential Services',
                 p1: 'Managing employee visas, QID renewals, labor contracts, and annual Commercial Registration renewals demands continuous follow-up across Qatar ministries.',
@@ -1298,7 +1645,7 @@
                 badge: 'CERTIFIED TRANSLATION',
                 title: 'Certified Legal Translation (Arabic / English)',
                 subtitle: 'Ministry-certified Arabic, English, and multilingual document translation accepted across all Qatar courts, ministries, and embassies.',
-                img: 'photo 4.jpg',
+                img: 'photo 5.jpg',
                 overviewTag: 'CERTIFIED LINGUISTIC SERVICES',
                 overviewHeading: 'Official Ministry-Approved Legal Translation in Doha',
                 p1: 'Official submissions to the Ministry of Commerce, Ministry of Justice, Qatar Courts, and Immigration require certified Arabic legal translation bearing an accredited official stamp.',
@@ -1334,7 +1681,7 @@
                 badge: 'DOCUMENT LEGALIZATION',
                 title: 'MOFA Document Attestation Services',
                 subtitle: 'Fast-track authentication of corporate resolutions, commercial certificates, and personal documents in Qatar.',
-                img: 'photo 5.jpg',
+                img: 'photo 6.jpg',
                 overviewTag: 'CONSULAR & MOFA LEGALIZATION',
                 overviewHeading: 'End-to-End MOFA & Embassy Attestation in Doha',
                 p1: 'Foreign corporate documents—such as Certificates of Incorporation, Good Standing, and Powers of Attorney—must be authenticated by the Qatar Ministry of Foreign Affairs (MOFA) before use in Doha.',
@@ -1370,7 +1717,7 @@
                 badge: 'CORPORATE SPONSORSHIP',
                 title: 'Local Qatari Sponsorship & Joint Ventures',
                 subtitle: 'Trusted Qatari corporate sponsors and structured joint-venture partners with full foreign investor protection.',
-                img: 'photo 6.jpg',
+                img: 'photo 7.jpg',
                 overviewTag: 'STRATEGIC PARTNERSHIP',
                 overviewHeading: 'Secure Corporate Sponsorship & Joint Venture Structuring',
                 p1: 'For commercial activities in Qatar that require a 51% Qatari partner, selecting an established, transparent, and reliable corporate sponsor is critical to long-term operational security.',
@@ -1406,7 +1753,7 @@
                 badge: 'BANKING ASSISTANCE',
                 title: 'Corporate Bank Account Opening in Qatar',
                 subtitle: 'End-to-end assistance with leading Qatari corporate bank account opening and zero-rejection KYC compliance.',
-                img: 'photo 7.jpg',
+                img: 'photo 8.jpg',
                 overviewTag: 'CORPORATE BANKING',
                 overviewHeading: 'Streamlined Corporate Bank Account Setup in Doha',
                 p1: 'Opening a corporate bank account in Qatar involves rigorous Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance reviews by local financial institutions.',
@@ -1442,7 +1789,7 @@
                 badge: 'ADVISORY & STRATEGY',
                 title: 'Feasibility Study & Business Plan Drafting',
                 subtitle: 'Bankable market research, financial modeling, and structured business planning for MOCI, QFC, QFZ, and corporate financing.',
-                img: 'photo 8.jpg',
+                img: 'photo 9.jpg',
                 overviewTag: 'STRATEGIC ADVISORY',
                 overviewHeading: 'Comprehensive Market Feasibility & Business Plans in Qatar',
                 p1: 'Securing 100% foreign ownership exemptions, Qatar Free Zone licenses, or industrial land allocations requires a comprehensive, data-backed feasibility study and 3-to-5-year financial model.',
