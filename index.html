@@ -270,7 +270,7 @@
             color: var(--text-muted);
         }
 
-        /* Modern Split Hero Video Section (Matching Reference Image) */
+        /* Modern Split Hero Video Section */
         .hero-split-section {
             position: relative;
             background-color: var(--dark-navy);
@@ -395,7 +395,7 @@
             margin-left: 0;
         }
 
-        /* Modern 3-Photo Collage on Right (Matching Reference Image) */
+        /* Modern 3-Photo Collage on Right */
         .hero-collage-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -940,7 +940,7 @@
             background: var(--pure-white);
         }
 
-        /* Floating WhatsApp & Call Buttons */
+        /* Professional Floating WhatsApp & Call SVG Buttons */
         .floating-actions {
             position: fixed;
             bottom: 24px;
@@ -952,21 +952,30 @@
         }
 
         .float-btn {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--pure-white);
             text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transition: transform 0.2s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.08);
         }
 
         .float-wa { background: #25D366; }
         .float-call { background: var(--sky-blue); }
+
+        .float-btn svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+        }
 
         /* Footer */
         footer {
@@ -1091,9 +1100,9 @@
 
     <!-- ================= HOME VIEW ================= -->
     <main id="view-home" class="view-section active">
-        <!-- Modern Split Hero Section with Background Video & Collage (Matching Reference) -->
+        <!-- Modern Split Hero Section with Instant Optimized Video & Collage -->
         <section class="hero-split-section">
-            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+            <video autoplay muted loop playsinline preload="auto" poster="photo1.jpg" class="hero-bg-video">
                 <source src="hero-bg.mp4" type="video/mp4">
                 <source src="video.mp4" type="video/mp4">
             </video>
@@ -1402,7 +1411,7 @@
         </div>
 
         <section class="hero-split-section" style="padding: 70px 24px;">
-            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+            <video autoplay muted loop playsinline preload="auto" poster="photo1.jpg" class="hero-bg-video">
                 <source src="hero-bg.mp4" type="video/mp4">
                 <source src="video.mp4" type="video/mp4">
             </video>
@@ -1477,7 +1486,7 @@
     <!-- ================= ABOUT US VIEW ================= -->
     <main id="view-about" class="view-section">
         <section class="hero-split-section" style="padding: 70px 24px;">
-            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+            <video autoplay muted loop playsinline preload="auto" poster="photo1.jpg" class="hero-bg-video">
                 <source src="hero-bg.mp4" type="video/mp4">
                 <source src="video.mp4" type="video/mp4">
             </video>
@@ -1512,7 +1521,7 @@
     <!-- ================= CONTACT US VIEW ================= -->
     <main id="view-contact" class="view-section">
         <section class="hero-split-section" style="padding: 70px 24px;">
-            <video autoplay muted loop playsinline poster="photo1.jpg" class="hero-bg-video">
+            <video autoplay muted loop playsinline preload="auto" poster="photo1.jpg" class="hero-bg-video">
                 <source src="hero-bg.mp4" type="video/mp4">
                 <source src="video.mp4" type="video/mp4">
             </video>
@@ -1568,10 +1577,14 @@
         </section>
     </main>
 
-    <!-- Floating WhatsApp & Call Buttons -->
+    <!-- Professional Floating WhatsApp & Call SVG Buttons -->
     <div class="floating-actions">
-        <a href="https://wa.me/97470442825" target="_blank" class="float-btn float-wa" title="WhatsApp Us">💬</a>
-        <a href="tel:+97470442825" class="float-btn float-call" title="Call Us">📞</a>
+        <a href="https://wa.me/97470442825" target="_blank" class="float-btn float-wa" title="WhatsApp Us">
+            <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.183 0-5.767 2.584-5.767 5.767 0 1.015.265 1.969.727 2.793l-.772 2.82 2.89-.758c.789.432 1.711.68 2.692.68 3.183 0 5.767-2.584 5.767-5.767 0-3.183-2.584-5.767-5.767-5.767zm3.364 8.243c-.146.411-.849.782-1.183.824-.312.039-.706.175-2.433-.541-1.077-.451-1.786-1.55-1.841-1.624-.055-.074-.438-.584-.438-1.114 0-.53.277-.791.375-.9.098-.109.214-.136.286-.136.072 0 .144.001.207.004.065.003.152-.024.238.181.087.207.297.725.323.778.026.053.043.115.007.185-.036.07-.054.113-.108.175-.054.062-.113.139-.161.187-.054.054-.111.113-.048.221.063.108.28 463.604.757 1.04.464.414.856.541.979.604.123.063.195.054.267-.027.072-.081.309-.36.392-.483.083-.123.165-.103.277-.063.112.04 711.332.336 784.374.075.073-.261.073-.478.054-.522-.019-.044-.07-.07-.146-.108z"/></svg>
+        </a>
+        <a href="tel:+97470442825" class="float-btn float-call" title="Call Us">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
     </div>
 
     <!-- Footer -->
