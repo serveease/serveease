@@ -1113,10 +1113,69 @@ img:hover {
     z-index: 5;
     position: relative;
 }
+        #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0b192c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .loader-content {
+      text-align: center;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+    .brand-name {
+      font-size: 1.5rem;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      color: #d4af37;
+      font-weight: 700;
+    }
+    .counter-wrapper {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .progress-bar-bg {
+      width: 240px;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #d4af37;
+      transition: width 0.1s linear;
+    }
+    #preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
     </style>
 </head>
 <body>
-
+<div id="preloader">
+    <div class="loader-content">
+      <h2 class="brand-name">SERVE EASE</h2>
+      <div class="counter-wrapper">
+        <span id="loader-percent">0</span>%
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
     <!-- Header Navigation -->
     <header>
         <div class="nav-container">
@@ -2530,5 +2589,26 @@ img:hover {
             renderScrollCards(filtered);
         }
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let count = 0;
+      const percentText = document.getElementById("loader-percent");
+      const progressFill = document.getElementById("progress-fill");
+      const preloader = document.getElementById("preloader");
+
+      const interval = setInterval(() => {
+        count++;
+        percentText.innerText = count;
+        progressFill.style.width = count + "%";
+
+        if (count >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            preloader.classList.add("fade-out");
+          }, 300);
+        }
+      }, 20);
+    });
+  </script>
 </body>
 </html>
