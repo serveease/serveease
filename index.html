@@ -1079,6 +1079,40 @@
                 gap: 6px;
             }
         }
+        /* Smooth Photo Zoom on Hover & Focus Across All Pages */
+img {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+    will-change: transform;
+}
+
+a:hover img,
+button:hover img,
+.card:hover img,
+[class*="card"]:hover img,
+[class*="service"]:hover img,
+[class*="collage"]:hover img,
+[class*="gallery"]:hover img,
+img:hover {
+    transform: scale(1.08);
+}
+
+/* Prevent zoomed image from overflowing its container */
+.card,
+[class*="card"],
+[class*="service"],
+[class*="collage"],
+[class*="gallery"],
+[class*="image-box"],
+[class*="img-box"] {
+    overflow: hidden;
+}
+
+/* Keep small client avatar row crisp without heavy zoom */
+.avatar-group img:hover {
+    transform: scale(1.12);
+    z-index: 5;
+    position: relative;
+}
     </style>
 </head>
 <body>
