@@ -1172,25 +1172,60 @@
         </div>
     </div>
 </section>
-<!-- Experience & Clients Counter Section -->
-<section id="stats-section" style="padding: 60px 20px; background: #F4F7FC; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
-    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; text-align: center;">
+<<!-- Experience & Clients Counter Section with Curve & Floating Animation -->
+<style>
+    @keyframes floatCard {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-7px);
+        }
+    }
+
+    .stat-float-card {
+        background: #FFFFFF;
+        padding: 32px 22px;
+        border-radius: 26px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 12px 28px rgba(7, 25, 61, 0.08);
+        animation: floatCard 3.6s ease-in-out infinite;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .stat-float-card:nth-child(2) {
+        animation-delay: 0.6s;
+    }
+
+    .stat-float-card:nth-child(3) {
+        animation-delay: 1.2s;
+    }
+
+    .stat-float-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 18px 34px rgba(10, 54, 157, 0.14);
+        border-color: #00A8E8;
+    }
+</style>
+
+<section id="stats-section" style="padding: 64px 20px; background: #F4F7FC; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 26px; text-align: center;">
         
-        <div style="background: #FFFFFF; padding: 30px 20px; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(7, 25, 61, 0.04);">
+        <div class="stat-float-card">
             <div style="font-size: 38px; font-weight: 800; color: #0A369D; line-height: 1.1;">
                 <span class="count-up" data-target="1500">0</span>+
             </div>
             <p style="margin-top: 10px; font-size: 15px; font-weight: 600; color: #1E293B;">Happy Customers</p>
         </div>
 
-        <div style="background: #FFFFFF; padding: 30px 20px; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(7, 25, 61, 0.04);">
+        <div class="stat-float-card">
             <div style="font-size: 38px; font-weight: 800; color: #0A369D; line-height: 1.1;">
                 <span class="count-up" data-target="3">0</span>+
             </div>
             <p style="margin-top: 10px; font-size: 15px; font-weight: 600; color: #1E293B;">Years Experience</p>
         </div>
 
-        <div style="background: #FFFFFF; padding: 30px 20px; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(7, 25, 61, 0.04);">
+        <div class="stat-float-card">
             <div style="font-size: 38px; font-weight: 800; color: #0A369D; line-height: 1.1;">
                 <span class="count-up" data-target="194">0</span>+
             </div>
@@ -1199,51 +1234,6 @@
 
     </div>
 </section>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".count-up");
-    let started = false;
-
-    const runCounters = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            const duration = 1800;
-            const stepTime = 20;
-            const totalSteps = duration / stepTime;
-            const increment = target / totalSteps;
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    counter.textContent = target.toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    counter.textContent = Math.floor(current).toLocaleString();
-                }
-            }, stepTime);
-        });
-    };
-
-    const section = document.getElementById("stats-section");
-    if (section && "IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !started) {
-                    started = true;
-                    runCounters();
-                    observer.unobserve(section);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        observer.observe(section);
-    } else {
-        runCounters();
-    }
-});
-</script>
         <!-- Who We Are -->
         <section class="container">
             <div class="split-grid">
