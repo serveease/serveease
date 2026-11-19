@@ -1172,7 +1172,7 @@
         </div>
     </div>
 </section>
-<<!-- Experience & Clients Counter Section with Curve & Floating Animation -->
+<!-- Experience & Clients Counter Section (Self-Contained & Guaranteed Count-Up) -->
 <style>
     @keyframes floatCard {
         0%, 100% {
@@ -1234,6 +1234,58 @@
 
     </div>
 </section>
+
+<script>
+(function() {
+    let hasAnimated = false;
+
+    function startStatsCountUp() {
+        if (hasAnimated) return;
+        const counters = document.querySelectorAll("#stats-section .count-up");
+        if (!counters.length) return;
+        hasAnimated = true;
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute("data-target"), 10) || 0;
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const currentVal = Math.floor(eased * target);
+
+                counter.textContent = currentVal.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            }
+
+            requestAnimationFrame(update);
+        });
+    }
+
+    function checkAndTrigger() {
+        const sec = document.getElementById("stats-section");
+        if (!sec || hasAnimated) return;
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+            startStatsCountUp();
+        }
+    }
+
+    window.addEventListener("scroll", checkAndTrigger, { passive: true });
+    window.addEventListener("load", () => {
+        checkAndTrigger();
+        setTimeout(checkAndTrigger, 400);
+    });
+    setTimeout(checkAndTrigger, 600);
+})();
+</script>
         <!-- Who We Are -->
         <section class="container">
             <div class="split-grid">
